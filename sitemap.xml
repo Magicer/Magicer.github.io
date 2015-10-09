@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://magicer.xyz/index.html</loc>
+    <lastmod>2015-10-05T09:01:33.333Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://magicer.xyz/404.html</loc>
+    <lastmod>2015-08-05T14:06:33.707Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://magicer.xyz/tags/index.html</loc>
     <lastmod>2015-08-05T13:48:33.671Z</lastmod>
   </url>
@@ -139,6 +149,11 @@
   <url>
     <loc>http://magicer.xyz/2015/04/30/github-config/</loc>
     <lastmod>2015-04-30T07:08:02.355Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://magicer.xyz/google32992d994507fa75.html</loc>
+    <lastmod>2015-04-30T07:06:38.963Z</lastmod>
   </url>
   
   <url>
