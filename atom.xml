@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-08-05T13:12:52.067Z</updated>
+  <updated>2015-10-09T04:05:12.196Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -13,6 +13,19 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[test]]></title>
+    <link href="http://magicer.xyz/2015/10/09/test/"/>
+    <id>http://magicer.xyz/2015/10/09/test/</id>
+    <published>2015-10-09T04:05:12.000Z</published>
+    <updated>2015-10-09T04:05:12.196Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[java-code-fragment]]></title>
@@ -506,27 +519,6 @@
     <summary type="html">
     <![CDATA[<h2 id="博客要转移了">博客要转移了</h2><p>  在ubuntu上搭建了一晚上的环境，到夜里两点，不过总算是弄好了，今天刚收到阿里云寄来的幕布，已经拍完照穿上去，刚接到短信已经通过了，就等着正式可用了。过几天是不是好要做个关于备案还有搭建wordpress环境的博客来记录一下。</p>
 <p>   博客要转移了，申请了免费的万网主机，试一试做个真正的站长，看来需要学习的东西还是挺多的，就一个wordpress的环境就搭建了那么长时间。也是蛮拼的。<br>]]>
-    
-    </summary>
-    
-      <category term="记事" scheme="http://magicer.xyz/tags/%E8%AE%B0%E4%BA%8B/"/>
-    
-      <category term="杂七杂八" scheme="http://magicer.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[我的代码之旅————纸上得来终觉浅]]></title>
-    <link href="http://magicer.xyz/2015/02/04/my-code/"/>
-    <id>http://magicer.xyz/2015/02/04/my-code/</id>
-    <published>2015-02-04T09:25:18.000Z</published>
-    <updated>2015-04-30T08:10:53.805Z</updated>
-    <content type="html"><![CDATA[<p><img src="/image/11865.jpg" width="340px" height="360px" class="img-topic"><br>  看了很久的书，总感觉自己学会了，可是真正到让自己打出来代码的时候就发现，其实自己什么都不会。到处是错误。当然错误是在所难免的，但是只看书还是不够的，还是需要多实际操作。也许这就是为什么大学生出来之后还需要在参加培训才能直接工作的原因吧。实际动手能里确实有点太差了。引以为戒吧！  <a id="more"></a></p>
-<p>  纸上得来终觉浅，觉知此事要躬行。</p>
-<p>  当感觉自己无所不能的时候，也许此时你是一无是处。认真学习固然重要，但是脱离了实践终究是纸上谈兵。成不了什么大气候。<img src="/image/11865.jpg"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[看了很久的书，总感觉自己学会了，可是真正到让自己打出来代码的时候就发现，其实自己什么都不会。到处是错误。当然错误是在所难免的，但是只看书还是不够的，还是需要多实际操作。也许这就是为什么大学生出来之后还需要在参加培训才能直接工作的原因吧。实际动手能里确实有点太差了。引以为戒吧！ <!--more-->]]>
     
     </summary>
     
