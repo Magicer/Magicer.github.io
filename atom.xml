@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[Magicer]]></title>
+  <title><![CDATA[Magicer|张同爽的个人博客]]></title>
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-10-09T04:05:12.196Z</updated>
+  <updated>2015-10-10T15:15:03.946Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -16,14 +16,18 @@
   
   <entry>
     <title><![CDATA[test]]></title>
-    <link href="http://magicer.xyz/2015/10/09/test/"/>
-    <id>http://magicer.xyz/2015/10/09/test/</id>
-    <published>2015-10-09T04:05:12.000Z</published>
-    <updated>2015-10-09T04:05:12.196Z</updated>
+    <link href="http://magicer.xyz/2015/10/10/test/"/>
+    <id>http://magicer.xyz/2015/10/10/test/</id>
+    <published>2015-10-10T15:14:45.000Z</published>
+    <updated>2015-10-10T15:15:03.946Z</updated>
     <content type="html"></content>
     <summary type="html">
     
     </summary>
+    
+      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+    
+      <category term="android" scheme="http://magicer.xyz/categories/android/"/>
     
   </entry>
   
@@ -435,7 +439,7 @@
     <link href="http://magicer.xyz/2015/03/19/android-first-step/"/>
     <id>http://magicer.xyz/2015/03/19/android-first-step/</id>
     <published>2015-03-19T12:08:15.000Z</published>
-    <updated>2015-04-14T08:31:08.000Z</updated>
+    <updated>2015-10-10T15:13:36.794Z</updated>
     <content type="html"><![CDATA[<p>这学期有安卓课程，在搭建android环境的时候还是遇到了一些问题，所以决定整理一份关于<br> android环境搭建的教程留着以后使用。主要包括jdk的安装，android studio和eclipse的配置，和sdk的安装<br>  主要是sdk的问题较为重要，毕竟在国内无法访问<a id="more"></a></p>
 <h2 id="（一）JDK的配置">（一）JDK的配置</h2><h3 id="ubtuntu环境下配置jdk">ubtuntu环境下配置jdk</h3><p>  在官网下载jdk，地址为：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">JAVA下载链接</a><br>这里我们选择Java SE 8u40 Linux64位：jdk-8u40-linux-x64.tar.gz。<br>进入下载地址，下载之前需要接受许可协议。<br>下载之后，进入下载目录将JDK包放到/opt/Java目录下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/Java</span><br><span class="line">sudo mv jdk-<span class="number">8</span>u40-linux-x64<span class="class">.tar</span><span class="class">.gz</span>  /opt/Java</span><br><span class="line">cd /opt/Java</span><br><span class="line">sudo tar -zxvf jdk-<span class="number">8</span>u40-linux-x64<span class="class">.tar</span><span class="class">.gz</span>。</span><br></pre></td></tr></table></figure>
