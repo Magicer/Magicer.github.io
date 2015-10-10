@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 分享生活，" />
+  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 分享生活|Android/Java编程记录" />
 
 
 
@@ -218,8 +218,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件/" itemprop="url" rel="index">
-                  <span itemprop="name">软件</span>
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
                 </a>
               </span>
 
@@ -285,8 +285,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/16/android-notification-basic/" itemprop="url">
-                notification的简单使用
+              <a class="post-title-link" href="/2015/04/16/android-basic/" itemprop="url">
+                Android初学常见的几个知识点
               </a>
             
           
@@ -306,8 +306,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/代码段/" itemprop="url" rel="index">
-                  <span itemprop="name">代码段</span>
+                <a href="/categories/Android/" itemprop="url" rel="index">
+                  <span itemprop="name">Android</span>
                 </a>
               </span>
 
@@ -322,8 +322,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/16/android-notification-basic/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/16/android-notification-basic/" itemprop="commentsCount"></span>
+              <a href="/2015/04/16/android-basic/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/16/android-basic/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -338,177 +338,9 @@
 
       
         
-          <span itemprop="articleBody"><p>应用实例代码：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTIFICATION_ID=<span class="number">200</span>;</span><br><span class="line"><span class="keyword">private</span> Button btn;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">     	btn=(Button) findViewById(R.id.btn_notification);</span><br><span class="line">	btn.setOnClickListener(<span class="keyword">new</span> View. OnClickListener() &#123;</span><br><span class="line">	</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">			android.support.v4.app.NotificationCompat.Builder builder=<span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>);</span><br><span class="line">			builder.setSmallIcon(R.drawable.ic_launcher);</span><br><span class="line">			builder.setContentTitle(<span class="string">"通知"</span>);</span><br><span class="line">			builder.setContentText(<span class="string">"这是通知消息"</span>);</span><br><span class="line">			Notification notification=builder.build();</span><br><span class="line">			NotificationManager manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">			manager.notify(NOTIFICATION_ID,notification);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/14/android-listview/" itemprop="url">
-                android初学之路--ListView
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-14T15:31:56+08:00" content="2015-04-14">
-            2015-04-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/代码段/" itemprop="url" rel="index">
-                  <span itemprop="name">代码段</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/14/android-listview/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/14/android-listview/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="ListView的使用及ArrayAdapter">ListView的使用及ArrayAdapter</h2><p>应用实例：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ListView listview;</span><br><span class="line"><span class="keyword">private</span> ArrayAdapter&lt;<span class="keyword">String</span>&gt; arr_adapter;</span><br><span class="line"><span class="keyword">private</span> SimpleAdapter simple_adapter;</span><br><span class="line">@Override</span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">	 listview=(ListView) findViewById(R.id.listView1);</span><br><span class="line">	 <span class="keyword">String</span> []arr_data=&#123;<span class="string">"姓名"</span>,<span class="string">"性别"</span>,<span class="string">"年龄"</span>&#125;;</span><br><span class="line">	 <span class="comment">//1,新建一个适配器</span></span><br><span class="line">	 <span class="comment">//2,配置数据项</span></span><br><span class="line">	 <span class="comment">//ArrayAdapter(上下文，当前listview加载的每一个列表项所对应的布局文件,数据源)</span></span><br><span class="line">	 arr_adapter=<span class="keyword">new</span> ArrayAdapter&lt;<span class="keyword">String</span>&gt;(<span class="keyword">this</span>,</span><br><span class="line">	 					android.R.layout.simple_list_item_1,</span><br><span class="line">	 					arr_data);</span><br><span class="line">	 <span class="comment">//3,视图（ListView）加载适配器</span></span><br><span class="line">	 listview.setAdapter(arr_adapter);	 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/14/android-layout/" itemprop="url">
-                android初学之路--布局
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-04-14T14:28:35+08:00" content="2015-04-14">
-            2015-04-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/android/" itemprop="url" rel="index">
-                  <span itemprop="name">android</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/04/14/android-layout/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/14/android-layout/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>布局的基本属性<br>
+          <h2 id="Activity">Activity</h2><p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/14/android-layout/#more" rel="contents">
+            <a class="btn" href="/2015/04/16/android-basic/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -541,8 +373,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/14/android-activity/" itemprop="url">
-                android初学之路--acticity的学习
+              <a class="post-title-link" href="/2015/03/19/android-first-step/" itemprop="url">
+                Android开发环境搭建
               </a>
             
           
@@ -552,8 +384,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-14T10:18:44+08:00" content="2015-04-14">
-            2015-04-14
+          <time itemprop="dateCreated" datetime="2015-03-19T20:08:15+08:00" content="2015-03-19">
+            2015-03-19
           </time>
         </span>
 
@@ -562,8 +394,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/代码段/" itemprop="url" rel="index">
-                  <span itemprop="name">代码段</span>
+                <a href="/categories/Android/" itemprop="url" rel="index">
+                  <span itemprop="name">Android</span>
                 </a>
               </span>
 
@@ -578,8 +410,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/14/android-activity/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/14/android-activity/" itemprop="commentsCount"></span>
+              <a href="/2015/03/19/android-first-step/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/19/android-first-step/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -594,9 +426,190 @@
 
       
         
-          <p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道
+          <p>这学期有安卓课程，在搭建android环境的时候还是遇到了一些问题，所以决定整理一份关于<br> android环境搭建的教程留着以后使用。主要包括jdk的安装，android studio和eclipse的配置，和sdk的安装<br>  主要是sdk的问题较为重要，毕竟在国内无法访问
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/14/android-activity/#more" rel="contents">
+            <a class="btn" href="/2015/03/19/android-first-step/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/03/12/wordpress-problems/" itemprop="url">
+                搭建wordpress后出现的问题
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-03-12T15:42:51+08:00" content="2015-03-12">
+            2015-03-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                  <span itemprop="name">博客搭建</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/03/12/wordpress-problems/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/12/wordpress-problems/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><a id="more"></a>
+<h4 id="（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</h4><p>找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。<br>然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。</p>
+<h4 id="（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？">（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？</h4><p>使用PHPMyAdmin进入数据库。数据库管理的高级管理可以进去。<br>找到wordpress数据库，打开wp_options表<br>修改表中键名为upload_path的键值 这个值是一个路径（可能在表的第二页）<br>里面是空的，添加“wp-content/uploads”就解决了。＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝双引号必加！类似于注册表键值</p>
+<h4 id="（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”">（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”</h4><p>在/var/www/wordpress文件夹下的wp-config.php添加如下代码 </p>
+<pre><code><span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_METHOD"</span>, <span class="string">"direct"</span>);
+<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_DIR"</span>, <span class="number">0777</span>);
+<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_FILE"</span>, <span class="number">0777</span>);
+</code></pre><h4 id="（四）解决无法创建文件夹的问题">（四）解决无法创建文件夹的问题</h4><p>在/ver/www/wordpress下，把wp-content的文件权限改成777</p>
+<pre><code><span class="title">sudo</span> chmod <span class="number">777</span> wp-content
+</code></pre></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/03/12/wordpress-first/" itemprop="url">
+                新学期
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-03-12T14:11:57+08:00" content="2015-03-12">
+            2015-03-12
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/生活轶事/" itemprop="url" rel="index">
+                  <span itemprop="name">生活轶事</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/03/12/wordpress-first/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/12/wordpress-first/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="博客要转移了">博客要转移了</h2><p>  在ubuntu上搭建了一晚上的环境，到夜里两点，不过总算是弄好了，今天刚收到阿里云寄来的幕布，已经拍完照穿上去，刚接到短信已经通过了，就等着正式可用了。过几天是不是好要做个关于备案还有搭建wordpress环境的博客来记录一下。</p>
+<p>   博客要转移了，申请了免费的万网主机，试一试做个真正的站长，看来需要学习的东西还是挺多的，就一个wordpress的环境就搭建了那么长时间。也是蛮拼的。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/12/wordpress-first/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -622,7 +635,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
   </nav>
 
  </div>
@@ -656,21 +669,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

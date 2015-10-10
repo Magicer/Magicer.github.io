@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 分享生活，" />
+  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 分享生活|Android/Java编程记录" />
 
 
 
@@ -198,7 +198,7 @@
           
             
               <a class="post-title-link" href="/2015/08/01/java-code-fragment/" itemprop="url">
-                java-code-fragment
+                java初学常用代码知识
               </a>
             
           
@@ -250,14 +250,12 @@
 
       
         
-          <blockquote class="blockquote-center">java代码片段</blockquote>
-
-<!-- Built-in tag (Require NexT 0.4.5 or above) -->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/01/java-code-fragment/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          <span itemprop="articleBody"><h2 id="File类">File类</h2><p>File类的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String pathname)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(File parent,String child)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>使用File操作文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">creatNewFile</span><span class="params">()</span> <span class="keyword">throws</span> IOExcetion <span class="comment">//创建文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span>                         <span class="comment">//删除文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span>                         <span class="comment">//判断给定的路径是否存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String separator            <span class="comment">//  “/” 注意：常量，但是未大写</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title">getParentFile</span><span class="params">()</span>                     <span class="comment">//找到一个指定路径的父路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdirs</span><span class="params">()</span>                         <span class="comment">//创建制定目录</span></span><br><span class="line"><span class="comment">/*其他方法*/</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span>         <span class="comment">//取得文件的名字</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span>    <span class="comment">//判断给定的路径是否是文件夹</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span>         <span class="comment">//判断给定的路径是否是文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHidden</span><span class="params">()</span>       <span class="comment">//判断是否隐藏</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span>      <span class="comment">//文件最后一次修改日期</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span>            <span class="comment">//取得文件大小，以字节为单位返回</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">renameTo</span><span class="params">(File dest)</span>  <span class="comment">//为文件重命名</span></span><br><span class="line"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span>   <span class="comment">//将目录中所有的文件以File对象数组的方式返回</span></span></span><br></pre></td></tr></table></figure></p>
+<p>简单示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  判断制定文件是否存在，若存在则删除，不存在则创建*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(File.separator + <span class="string">"home"</span> + File.separator</span><br><span class="line">                + <span class="string">"magicer"</span> + File.separator + <span class="string">"code"</span> + File.separator</span><br><span class="line">                + <span class="string">"Demo.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">            file.delete();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</span>
         
       
     </div>
@@ -340,7 +338,7 @@
 
       
         
-          <p>java泛型的简单使用。
+          <p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/08/01/generic-simple/#more" rel="contents">
               阅读全文 &raquo;
@@ -396,8 +394,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Other/" itemprop="url" rel="index">
-                  <span itemprop="name">Other</span>
+                <a href="/categories/生活轶事/" itemprop="url" rel="index">
+                  <span itemprop="name">生活轶事</span>
                 </a>
               </span>
 
@@ -484,8 +482,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件/" itemprop="url" rel="index">
-                  <span itemprop="name">软件</span>
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
                 </a>
               </span>
 
@@ -572,8 +570,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件/" itemprop="url" rel="index">
-                  <span itemprop="name">软件</span>
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
                 </a>
               </span>
 
@@ -631,7 +629,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
  </div>
@@ -665,21 +663,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

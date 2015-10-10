@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-08-05T13:12:52.067Z</updated>
+  <updated>2015-10-10T16:26:58.674Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -15,30 +15,23 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[java-code-fragment]]></title>
+    <title><![CDATA[java初学常用代码知识]]></title>
     <link href="http://magicer.xyz/2015/08/01/java-code-fragment/"/>
     <id>http://magicer.xyz/2015/08/01/java-code-fragment/</id>
     <published>2015-08-01T12:34:31.000Z</published>
-    <updated>2015-08-05T13:12:52.067Z</updated>
-    <content type="html"><![CDATA[<blockquote class="blockquote-center">java代码片段</blockquote>
-
-<!-- Built-in tag (Require NexT 0.4.5 or above) -->
-<a id="more"></a>
-<h2 id="fragment_1">fragment 1</h2><h3 id="File">File</h3><p>File类的构造方法</p>
+    <updated>2015-10-10T16:26:58.674Z</updated>
+    <content type="html"><![CDATA[<h2 id="File类">File类</h2><p>File类的构造方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String pathname)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(File parent,String child)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>使用File操作文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">creatNewFile</span><span class="params">()</span> <span class="keyword">throws</span> IOExcetion <span class="comment">//创建文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span>                         <span class="comment">//删除文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span>                         <span class="comment">//判断给定的路径是否存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String separator            <span class="comment">//  “/” 注意：常量，但是未大写</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title">getParentFile</span><span class="params">()</span>                     <span class="comment">//找到一个指定路径的父路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdirs</span><span class="params">()</span>                         <span class="comment">//创建制定目录</span></span><br><span class="line"><span class="comment">/*其他方法*/</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span>         <span class="comment">//取得文件的名字</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span>    <span class="comment">//判断给定的路径是否是文件夹</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span>         <span class="comment">//判断给定的路径是否是文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHidden</span><span class="params">()</span>       <span class="comment">//判断是否隐藏</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span>      <span class="comment">//文件最后一次修改日期</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span>            <span class="comment">//取得文件大小，以字节为单位返回</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">renameTo</span><span class="params">(File dest)</span>  <span class="comment">//为文件重命名</span></span><br><span class="line"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span>   <span class="comment">//将目录中所有的文件以File对象数组的方式返回</span></span></span><br></pre></td></tr></table></figure></p>
 <p>简单示例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  判断制定文件是否存在，若存在则删除，不存在则创建*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(File.separator + <span class="string">"home"</span> + File.separator</span><br><span class="line">                + <span class="string">"magicer"</span> + File.separator + <span class="string">"code"</span> + File.separator</span><br><span class="line">                + <span class="string">"Demo.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">            file.delete();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p><a href="#" id="fancybox-buttons">测试</a></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<blockquote class="blockquote-center">java代码片段</blockquote>
-
-<!-- Built-in tag (Require NexT 0.4.5 or above) -->]]>
-    
+    <![CDATA[<h2 id="File类">File类</h2><p>File类的构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br>]]>
     </summary>
     
-      <category term="代码片段" scheme="http://magicer.xyz/tags/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/"/>
+      <category term="java" scheme="http://magicer.xyz/tags/java/"/>
     
       <category term="Java" scheme="http://magicer.xyz/categories/Java/"/>
     
@@ -49,18 +42,18 @@
     <link href="http://magicer.xyz/2015/08/01/generic-simple/"/>
     <id>http://magicer.xyz/2015/08/01/generic-simple/</id>
     <published>2015-08-01T11:55:15.000Z</published>
-    <updated>2015-08-01T12:25:05.261Z</updated>
-    <content type="html"><![CDATA[<p>java泛型的简单使用。<a id="more"></a></p>
+    <updated>2015-10-10T16:27:54.026Z</updated>
+    <content type="html"><![CDATA[<p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法<a id="more"></a></p>
 <h2 id="java泛型的基本使用">java泛型的基本使用</h2><p>加上了通配符”？“。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span> &lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T info;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(T info)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.info=info;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> info;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Message&lt;String&gt; msg=<span class="keyword">new</span> Message&lt;String&gt;();</span><br><span class="line">        msg.setInfo(<span class="string">"Hello World!!!!"</span>);</span><br><span class="line">        print(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Message&lt;?&gt; temp)</span></span>&#123;</span><br><span class="line">        <span class="comment">/*当泛型作为参数的时候，因为不知道要传递的是什么类型的之，所以方法在编写的时候具有局限性</span><br><span class="line">        可以加上通配符”？“，来让参数通用，不管是什么类型的参数都可以作为参数传递了*/</span></span><br><span class="line">        System.out.println(temp.getInfo());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>本程序注释仅为个人观点，如有不符，还望指正。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>java泛型的简单使用。]]>
+    <![CDATA[<p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法]]>
     
     </summary>
     
-      <category term="泛型" scheme="http://magicer.xyz/tags/%E6%B3%9B%E5%9E%8B/"/>
+      <category term="java泛型" scheme="http://magicer.xyz/tags/java%E6%B3%9B%E5%9E%8B/"/>
     
       <category term="Java" scheme="http://magicer.xyz/categories/Java/"/>
     
@@ -71,7 +64,7 @@
     <link href="http://magicer.xyz/2015/07/09/total-two-month/"/>
     <id>http://magicer.xyz/2015/07/09/total-two-month/</id>
     <published>2015-07-09T14:06:59.000Z</published>
-    <updated>2015-08-01T12:24:30.669Z</updated>
+    <updated>2015-10-10T16:14:46.982Z</updated>
     <content type="html"><![CDATA[<a id="more"></a>
 <p><a href="http://blog.csdn.net/Captain_Magicer" target="_blank" rel="external">CSDN博客连接</a></p>
 <p><hr><br> 已经整整两个月没有写博客了，尽管子集的博客质量并不高，但是坚持下去还是会好起来的，毕竟限于自己的水平较低，水平低是正常的。现在的CSDN也可以用markdown写博客了，想着跟子集搭建的博客一块更新，也不是难事。毕竟自己的个人博客上的方可基本上没有，转移到CSDN上或与会好点。</p>
@@ -84,9 +77,7 @@
 <p><hr><br> 已经整整两个月没有写博客]]>
     </summary>
     
-      <category term="Other" scheme="http://magicer.xyz/tags/Other/"/>
-    
-      <category term="Other" scheme="http://magicer.xyz/categories/Other/"/>
+      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
     
   </entry>
   
@@ -95,7 +86,7 @@
     <link href="http://magicer.xyz/2015/05/09/android-eclipse-hot-key/"/>
     <id>http://magicer.xyz/2015/05/09/android-eclipse-hot-key/</id>
     <published>2015-05-09T12:26:50.000Z</published>
-    <updated>2015-05-09T12:35:26.650Z</updated>
+    <updated>2015-10-10T16:12:38.894Z</updated>
     <content type="html"><![CDATA[<p> 很多过去使用Visual Studio开发软件的网友可能不熟悉Java开发环境，今天Android开发网告诉大家一些提高Android开发效率的Eclipse快捷键，可以有效率的帮助我们管理代码和减少键盘输入。Eclipse相对于Visual Studio而言使用Java开发，响应速度和稳定性上有很大的欠缺，这些我们目前只能容忍下。<a id="more"></a></p>
  <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">转载自<span class="string">http:</span><span class="comment">//www.cnblogs.com/lm3515/archive/2011/03/16/1985671.html</span></span><br></pre></td></tr></table></figure>
 <p>　　比较常用的Android123整理如下:</p>
@@ -124,9 +115,11 @@
     
     </summary>
     
+      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+    
       <category term="eclipse" scheme="http://magicer.xyz/tags/eclipse/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -135,7 +128,7 @@
     <link href="http://magicer.xyz/2015/05/04/eclipse-android-auto/"/>
     <id>http://magicer.xyz/2015/05/04/eclipse-android-auto/</id>
     <published>2015-05-04T12:31:08.000Z</published>
-    <updated>2015-05-04T13:00:29.674Z</updated>
+    <updated>2015-10-10T15:59:39.470Z</updated>
     <content type="html"><![CDATA[<h2 id="（一）设置_java_文件的代码提示功能">（一）设置 java 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Java &gt; Editor - Content Assist &gt; Auto activation triggers for Java ，设置框中默认是一个点，<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.abcdefghijklmnopqrstuvwxyz(,</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="（二）设置_xml_文件的代码提示功能">（二）设置 xml 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Xml &gt; Xml Files &gt; Editor &gt; Content Assist &gt; Auto activation &gt; Prompt when these characters are inserted ，设置框中默认是 &lt;=: ，</p>
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;=:.abcdefghijklmnopqrstuvwxyz(,</span><br></pre></td></tr></table></figure>
@@ -147,7 +140,7 @@
     
       <category term="android" scheme="http://magicer.xyz/tags/android/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -156,7 +149,7 @@
     <link href="http://magicer.xyz/2015/05/04/git-tag-branch/"/>
     <id>http://magicer.xyz/2015/05/04/git-tag-branch/</id>
     <published>2015-05-04T04:21:55.000Z</published>
-    <updated>2015-05-04T13:01:30.074Z</updated>
+    <updated>2015-10-10T16:02:33.366Z</updated>
     <content type="html"><![CDATA[<p> Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br><a id="more"></a></p>
 <h2 id="（一）git_tag">（一）git tag</h2><h3 id="列出git中现有标签">列出git中现有标签</h3><p>   要想列出git中现有的所有标签，输入’git tag’命令运行即可：<br>  <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span></span><br><span class="line">v0<span class="built_in">.1</span></span><br><span class="line">v1<span class="built_in">.3</span></span><br></pre></td></tr></table></figure></p>
    <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin <span class="keyword">tag</span> <span class="variable">&lt;tagname&gt;</span>   	<span class="comment">##获取远程tag</span></span><br></pre></td></tr></table></figure>
@@ -174,7 +167,7 @@
     
       <category term="github" scheme="http://magicer.xyz/tags/github/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -183,7 +176,7 @@
     <link href="http://magicer.xyz/2015/04/30/github-config/"/>
     <id>http://magicer.xyz/2015/04/30/github-config/</id>
     <published>2015-04-30T06:32:59.000Z</published>
-    <updated>2015-04-30T07:08:02.355Z</updated>
+    <updated>2015-10-10T15:52:23.018Z</updated>
     <content type="html"><![CDATA[<p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
 <h2 id="生成ssh">生成ssh</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email<span class="variable">@example</span>.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
 <p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中<br>测试是否成功：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
@@ -198,7 +191,7 @@
     
       <category term="github" scheme="http://magicer.xyz/tags/github/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -207,7 +200,7 @@
     <link href="http://magicer.xyz/2015/04/30/sublime-text2/"/>
     <id>http://magicer.xyz/2015/04/30/sublime-text2/</id>
     <published>2015-04-30T03:44:06.000Z</published>
-    <updated>2015-05-18T06:53:24.330Z</updated>
+    <updated>2015-10-10T16:12:13.278Z</updated>
     <content type="html"><![CDATA[<p>  Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。</p>
 <p>   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto 功能，即时项目切换，多选择，多窗口等等。Sublime Text 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。<br><a id="more"></a></p>
 <h2 id="安装">安装</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository ppa:webupd8team/sublime-text-<span class="number">2</span></span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install sublime-text</span><br></pre></td></tr></table></figure>
@@ -223,7 +216,7 @@
     
       <category term="sublime" scheme="http://magicer.xyz/tags/sublime/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -232,7 +225,7 @@
     <link href="http://magicer.xyz/2015/04/30/ubuntu-32bit-lib/"/>
     <id>http://magicer.xyz/2015/04/30/ubuntu-32bit-lib/</id>
     <published>2015-04-30T03:35:35.000Z</published>
-    <updated>2015-04-30T08:05:36.237Z</updated>
+    <updated>2015-10-10T16:28:29.750Z</updated>
     <content type="html"><![CDATA[<p>很多软件只有32位的，有的依赖32位库还挺严重的；从ubuntu 13.10已经废弃了ia32-libs，但可以使用多架构，安装软件或包apt-get install program:i386。有的还是觉得烦，想一步到位安装所有的以前的ia32-libs，可以使用以下方法：<br><a id="more"></a></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo -<span class="tag">i</span></span><br><span class="line">cd /etc/apt/sources<span class="class">.list</span><span class="class">.d</span></span><br><span class="line">echo <span class="string">"deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse"</span> &gt;ia32-libs-raring<span class="class">.list</span></span><br><span class="line">apt-get update</span><br><span class="line">apt-get install ia32-libs</span><br></pre></td></tr></table></figure>
 <p>复制代码<br>PS:这种方法肯定能安装上ia32-libs，但由于添加的是13.04的源，所以有没有混淆暂时不清楚，网上也有很多用新立德软件包管理器这样做；够狠，你就这么干。也可以这么安装了ia32-libs后，把/etc/apt/sources.list.d目录下的ia32-libs-raring.list删掉，然后再sudo apt-get update</p>
@@ -242,18 +235,20 @@
     
     </summary>
     
+      <category term="linux" scheme="http://magicer.xyz/tags/linux/"/>
+    
       <category term="ubuntu" scheme="http://magicer.xyz/tags/ubuntu/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[安装hexo]]></title>
+    <title><![CDATA[安装Hexo，搭建博客]]></title>
     <link href="http://magicer.xyz/2015/04/30/hexo-install/"/>
     <id>http://magicer.xyz/2015/04/30/hexo-install/</id>
     <published>2015-04-30T01:28:51.000Z</published>
-    <updated>2015-04-30T08:02:32.281Z</updated>
+    <updated>2015-10-10T15:54:46.170Z</updated>
     <content type="html"><![CDATA[<p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。</p>
 <p>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务<br>比如Hexo的官方网站<a href="http://hexo.io" target="_blank" rel="external">http://hexo.io</a> 就是托管于github的pages服务上<br> 系统重装之后用hexo搭建的博客没有了，又花了整理了很长时间才搭建完成，在这里记录一下。<br><a id="more"></a></p>
 <h2 id="安装nodejs">安装nodejs</h2><p>安装钱需要系统上有python g++ 和gcc<br><a href="nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz">下载nodejs</a><br>下载完了之后解压<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf node-v0.<span class="number">12.2</span>.tar.gz -C /<span class="keyword">opt</span></span><br><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/node-v0.<span class="number">12.2</span></span><br><span class="line">./configure </span><br><span class="line"><span class="keyword">make</span> </span><br><span class="line">sudo <span class="keyword">make</span> install</span><br></pre></td></tr></table></figure></p>
@@ -270,7 +265,7 @@
     
       <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
@@ -279,7 +274,7 @@
     <link href="http://magicer.xyz/2015/04/29/sublime-chinese/"/>
     <id>http://magicer.xyz/2015/04/29/sublime-chinese/</id>
     <published>2015-04-29T14:09:30.000Z</published>
-    <updated>2015-04-30T03:25:01.237Z</updated>
+    <updated>2015-10-10T15:52:25.630Z</updated>
     <content type="html"><![CDATA[<p>在Ubuntu 14.04中安装了SublimeText 3之后发现既然不支持输入中文，于是在网上搜罗一下，发现很多人遇到了同样的问题，但是解决办法大该就只有一个。下面根据自身的安装及解决办法总结如下：</p>
 <a id="more"></a>
 <h2 id="1-_SublimeText_3的安装">1. SublimeText 3的安装</h2><p>安装方式有多种，本文所描述的是从官方网站上下载64位的.deb文件 ，具体为<a href="http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb文件，下载后双击即会自动使用默认的安装软件安装。" target="_blank" rel="external">http://c758482.r82.cf2.rackcdn.com/sublime-text_build-3059_amd64.deb文件，下载后双击即会自动使用默认的安装软件安装。</a></p>
@@ -308,112 +303,40 @@
     
       <category term="sublime" scheme="http://magicer.xyz/tags/sublime/"/>
     
-      <category term="软件" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
-    <title><![CDATA[notification的简单使用]]></title>
-    <link href="http://magicer.xyz/2015/04/16/android-notification-basic/"/>
-    <id>http://magicer.xyz/2015/04/16/android-notification-basic/</id>
+    <title><![CDATA[Android初学常见的几个知识点]]></title>
+    <link href="http://magicer.xyz/2015/04/16/android-basic/"/>
+    <id>http://magicer.xyz/2015/04/16/android-basic/</id>
     <published>2015-04-15T16:09:30.000Z</published>
-    <updated>2015-05-09T12:28:17.214Z</updated>
-    <content type="html"><![CDATA[<p>应用实例代码：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTIFICATION_ID=<span class="number">200</span>;</span><br><span class="line"><span class="keyword">private</span> Button btn;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">     	btn=(Button) findViewById(R.id.btn_notification);</span><br><span class="line">	btn.setOnClickListener(<span class="keyword">new</span> View. OnClickListener() &#123;</span><br><span class="line">	</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">			android.support.v4.app.NotificationCompat.Builder builder=<span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>);</span><br><span class="line">			builder.setSmallIcon(R.drawable.ic_launcher);</span><br><span class="line">			builder.setContentTitle(<span class="string">"通知"</span>);</span><br><span class="line">			builder.setContentText(<span class="string">"这是通知消息"</span>);</span><br><span class="line">			Notification notification=builder.build();</span><br><span class="line">			NotificationManager manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">			manager.notify(NOTIFICATION_ID,notification);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>应用实例代码：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span]]>
-    </summary>
-    
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
-    
-      <category term="代码段" scheme="http://magicer.xyz/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[android初学之路--ListView]]></title>
-    <link href="http://magicer.xyz/2015/04/14/android-listview/"/>
-    <id>http://magicer.xyz/2015/04/14/android-listview/</id>
-    <published>2015-04-14T07:31:56.000Z</published>
-    <updated>2015-05-09T12:28:33.262Z</updated>
-    <content type="html"><![CDATA[<h2 id="ListView的使用及ArrayAdapter">ListView的使用及ArrayAdapter</h2><p>应用实例：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ListView listview;</span><br><span class="line"><span class="keyword">private</span> ArrayAdapter&lt;<span class="keyword">String</span>&gt; arr_adapter;</span><br><span class="line"><span class="keyword">private</span> SimpleAdapter simple_adapter;</span><br><span class="line">@Override</span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">	 listview=(ListView) findViewById(R.id.listView1);</span><br><span class="line">	 <span class="keyword">String</span> []arr_data=&#123;<span class="string">"姓名"</span>,<span class="string">"性别"</span>,<span class="string">"年龄"</span>&#125;;</span><br><span class="line">	 <span class="comment">//1,新建一个适配器</span></span><br><span class="line">	 <span class="comment">//2,配置数据项</span></span><br><span class="line">	 <span class="comment">//ArrayAdapter(上下文，当前listview加载的每一个列表项所对应的布局文件,数据源)</span></span><br><span class="line">	 arr_adapter=<span class="keyword">new</span> ArrayAdapter&lt;<span class="keyword">String</span>&gt;(<span class="keyword">this</span>,</span><br><span class="line">	 					android.R.layout.simple_list_item_1,</span><br><span class="line">	 					arr_data);</span><br><span class="line">	 <span class="comment">//3,视图（ListView）加载适配器</span></span><br><span class="line">	 listview.setAdapter(arr_adapter);	 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="ListView的使用及ArrayAdapter">ListView的使用及ArrayAdapter</h2><p>应用实例：<br><figure class="highlight processing"><table><tr><td class="gutter]]>
-    </summary>
-    
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
-    
-      <category term="代码段" scheme="http://magicer.xyz/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[android初学之路--布局]]></title>
-    <link href="http://magicer.xyz/2015/04/14/android-layout/"/>
-    <id>http://magicer.xyz/2015/04/14/android-layout/</id>
-    <published>2015-04-14T06:28:35.000Z</published>
-    <updated>2015-05-09T12:29:15.614Z</updated>
-    <content type="html"><![CDATA[<p>布局的基本属性<br><a id="more"></a></p>
-<h2 id="LinearLayout">LinearLayout</h2><p>  weight属性</p>
-<h2 id="RelativeLout">RelativeLout</h2><h2 id="FramLayout">FramLayout</h2><h2 id="TableLayout">TableLayout</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<p>布局的基本属性<br>]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
-    
-      <category term="android" scheme="http://magicer.xyz/categories/android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[android初学之路--acticity的学习]]></title>
-    <link href="http://magicer.xyz/2015/04/14/android-activity/"/>
-    <id>http://magicer.xyz/2015/04/14/android-activity/</id>
-    <published>2015-04-14T02:18:44.000Z</published>
-    <updated>2015-05-09T12:28:58.406Z</updated>
-    <content type="html"><![CDATA[<p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道<a id="more"></a></p>
-<h2 id="(一)Activity的生命周期">(一)Activity的生命周期</h2><p><img src="/image/Android/activity_lifecycle.png"></p>
+    <updated>2015-10-10T16:11:09.354Z</updated>
+    <content type="html"><![CDATA[<h2 id="Activity">Activity</h2><p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道<a id="more"></a></p>
+<h3 id="(一)Activity的生命周期">(一)Activity的生命周期</h3><p><img src="/image/Android/activity_lifecycle.png"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.activity1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> String TAG=<span class="string">"TAG"</span>;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">		setContentView(R.layout.activity_main);</span><br><span class="line">		Log.d(TAG,<span class="string">"onCreate"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">super</span>.onStart();</span><br><span class="line">		Log.d(TAG,<span class="string">"onStart"</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">super</span>.onResume();</span><br><span class="line">		Log.d(TAG,<span class="string">"onResume"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">super</span>.onPause();</span><br><span class="line">		Log.d(TAG,<span class="string">"onPause"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestart</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">super</span>.onRestart();</span><br><span class="line">			Log.d(TAG,<span class="string">"onRestart"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">super</span>.onStop();</span><br><span class="line">		Log.d(TAG,<span class="string">"onStop"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="annotation">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">super</span>.onDestroy();</span><br><span class="line">		Log.d(TAG,<span class="string">"onDestroy"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>程序启动时经历：onCreate—&gt;onStart—&gt;onResume<br>按下返回键时：onPause—&gt;onStop—&gt;onDestroy<br>按下home键时：onPause—&gt;onStop<br>再次调用时：onRestart—&gt;onStart—&gt;onResume</p>
-<h2 id="打开另一个activity">打开另一个activity</h2><p>在onCreate()方法中添加以下代码来设置按钮button1的监听事件。<br>前提是：布局文件中已经添加了id为button1的按钮。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Button btn =(Button) findViewById(R.id.button1);</span><br><span class="line">	btn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			Intent itn =<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,activity2.class);</span><br><span class="line">			<span class="comment">//此处的activity2为第二个类的名，MainActivity为当前类的名字。</span></span><br><span class="line">			startActivity(itn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure></p>
-<p> 在另外创建一个类继承自activity 和一个布局文件。<br> 运行为android application.点击按钮即可进入另一个activity 。<br> 可以在第二个activity中设置监听事件来关闭新打开的activity。（在第二个类文件的onCreate()方法中添加）代码如下：<br> <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Button btn2=(Button) findViewById(R.id.btn2);</span><br><span class="line">	btn2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			finish();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
-    
-      <category term="代码段" scheme="http://magicer.xyz/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android初学之路--Toast的使用]]></title>
-    <link href="http://magicer.xyz/2015/04/13/toast/"/>
-    <id>http://magicer.xyz/2015/04/13/toast/</id>
-    <published>2015-04-13T13:09:52.000Z</published>
-    <updated>2015-05-09T12:30:31.878Z</updated>
-    <content type="html"><![CDATA[<h2 id="（一）最简单的使用案例">（一）最简单的使用案例</h2>  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText( getBaseContext(),&#10;&#9;&#9;    &#34;&#38656;&#35201;&#26174;&#31034;&#30340;&#25991;&#23383;&#34;&#65292;&#10;&#9;&#9;    LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
+<h3 id="打开另一个activity">打开另一个activity</h3><p>在onCreate()方法中添加以下代码来设置按钮button1的监听事件。<br>前提是：布局文件中已经添加了id为button1的按钮。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Button btn =(Button) findViewById(R.id.button1);</span><br><span class="line">	btn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			Intent itn =<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>,activity2.class);</span><br><span class="line">			<span class="comment">//此处的activity2为第二个类的名，MainActivity为当前类的名字。</span></span><br><span class="line">			startActivity(itn);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+<p> 在另外创建一个类继承自activity 和一个布局文件。<br> 运行为android application.点击按钮即可进入另一个activity 。<br> 可以在第二个activity中设置监听事件来关闭新打开的activity。（在第二个类文件的onCreate()方法中添加）代码如下：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Button btn2=(Button) findViewById(R.id.btn2);</span><br><span class="line">	btn2.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line"></span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			finish();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="Notification">Notification</h2><p>应用实例代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTIFICATION_ID=<span class="number">200</span>;</span><br><span class="line"><span class="keyword">private</span> Button btn;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">     	btn=(Button) findViewById(R.id.btn_notification);</span><br><span class="line">	btn.setOnClickListener(<span class="keyword">new</span> View. OnClickListener() &#123;</span><br><span class="line">	</span><br><span class="line">		<span class="annotation">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">			android.support.v4.app.NotificationCompat.Builder builder=<span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>);</span><br><span class="line">			builder.setSmallIcon(R.drawable.ic_launcher);</span><br><span class="line">			builder.setContentTitle(<span class="string">"通知"</span>);</span><br><span class="line">			builder.setContentText(<span class="string">"这是通知消息"</span>);</span><br><span class="line">			Notification notification=builder.build();</span><br><span class="line">			NotificationManager manager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">			manager.notify(NOTIFICATION_ID,notification);</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ListView的使用及ArrayAdapter">ListView的使用及ArrayAdapter</h2><p>应用实例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> ListView listview;</span><br><span class="line"><span class="keyword">private</span> ArrayAdapter&lt;String&gt; arr_adapter;</span><br><span class="line"><span class="keyword">private</span> SimpleAdapter simple_adapter;</span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	setContentView(R.layout.activity_main);</span><br><span class="line">	 listview=(ListView) findViewById(R.id.listView1);</span><br><span class="line">	 String []arr_data=&#123;<span class="string">"姓名"</span>,<span class="string">"性别"</span>,<span class="string">"年龄"</span>&#125;;</span><br><span class="line">	 <span class="comment">//1,新建一个适配器</span></span><br><span class="line">	 <span class="comment">//2,配置数据项</span></span><br><span class="line">	 <span class="comment">//ArrayAdapter(上下文，当前listview加载的每一个列表项所对应的布局文件,数据源)</span></span><br><span class="line">	 arr_adapter=<span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>,</span><br><span class="line">	 					android.R.layout.simple_list_item_1,</span><br><span class="line">	 					arr_data);</span><br><span class="line">	 <span class="comment">//3,视图（ListView）加载适配器</span></span><br><span class="line">	 listview.setAdapter(arr_adapter);	 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Toast的使用">Toast的使用</h2><h3 id="（一）最简单的使用案例">（一）最简单的使用案例</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText( getBaseContext(),</span><br><span class="line">		    <span class="string">"需要显示的文字"</span>，</span><br><span class="line">		    LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
 <p>  地一个参数是上下文，第二个参数是需要显示的文字提示，第三个参数是显示的时间，最后调用show()方法显示出来。</p>
-  <a id="more"></a>
-<h2 id="（二）构建自己的toast样式">（二）构建自己的toast样式</h2><p>  参见官方手册<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">              <span class="attribute">android:id</span>=<span class="value">"@+id/toast_layout_root"</span></span><br><span class="line">              <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">              <span class="attribute">android:padding</span>=<span class="value">"8dp"</span></span><br><span class="line">              <span class="attribute">android:background</span>=<span class="value">"#DAAA"</span></span><br><span class="line">              &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ImageView</span> <span class="attribute">android:src</span>=<span class="value">"@drawable/droid"</span></span><br><span class="line">               <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">               <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">               <span class="attribute">android:layout_marginRight</span>=<span class="value">"8dp"</span></span><br><span class="line">               /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span> <span class="attribute">android:id</span>=<span class="value">"@+id/text"</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:textColor</span>=<span class="value">"#FFF"</span></span><br><span class="line">              /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  LayoutInflater inflater = getLayoutInflater();&#10;View layout = inflater.inflate(R.layout.custom_toast,&#10;                               (ViewGroup) findViewById(R.id.toast_layout_root));&#10;&#10;TextView text = (TextView) layout.findViewById(R.id.text);&#10;text.setText(&#34;This is a custom toast&#34;);&#10;&#10;Toast toast = new Toast(getApplicationContext());&#10;toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);&#10;toast.setDuration(Toast.LENGTH_LONG);&#10;toast.setView(layout);&#10;toast.show();</span><br></pre></td></tr></table></figure>
-<h2 id="（三）toast的样式">（三）toast的样式</h2><p>  <img src=" /image/Android/toast.png" alt="toast" class="image_center"></p>
+<h3 id="（二）构建自己的toast样式">（二）构建自己的toast样式</h3><p>  参见官方手册<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">              <span class="attribute">android:id</span>=<span class="value">"@+id/toast_layout_root"</span></span><br><span class="line">              <span class="attribute">android:orientation</span>=<span class="value">"horizontal"</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"fill_parent"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"fill_parent"</span></span><br><span class="line">              <span class="attribute">android:padding</span>=<span class="value">"8dp"</span></span><br><span class="line">              <span class="attribute">android:background</span>=<span class="value">"#DAAA"</span></span><br><span class="line">              &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ImageView</span> <span class="attribute">android:src</span>=<span class="value">"@drawable/droid"</span></span><br><span class="line">               <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">               <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">               <span class="attribute">android:layout_marginRight</span>=<span class="value">"8dp"</span></span><br><span class="line">               /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span> <span class="attribute">android:id</span>=<span class="value">"@+id/text"</span></span><br><span class="line">              <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">              <span class="attribute">android:textColor</span>=<span class="value">"#FFF"</span></span><br><span class="line">              /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  LayoutInflater inflater = getLayoutInflater();</span><br><span class="line">View layout = inflater.inflate(R.layout.custom_toast,</span><br><span class="line">                               (ViewGroup) findViewById(R.id.toast_layout_root));</span><br><span class="line"></span><br><span class="line">TextView text = (TextView) layout.findViewById(R.id.text);</span><br><span class="line">text.setText(<span class="string">"This is a custom toast"</span>);</span><br><span class="line"></span><br><span class="line">Toast toast = <span class="keyword">new</span> Toast(getApplicationContext());</span><br><span class="line">toast.setGravity(Gravity.CENTER_VERTICAL, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">toast.setDuration(Toast.LENGTH_LONG);</span><br><span class="line">toast.setView(layout);</span><br><span class="line">toast.show();</span><br></pre></td></tr></table></figure>
+<h3 id="（三）toast的样式">（三）toast的样式</h3><p>  <img src=" /image/Android/toast.png" alt="toast" class="image_center"></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="（一）最简单的使用案例">（一）最简单的使用案例</h2>  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Toast.makeText( getBaseContext(),&#10;&#9;&#9;    &#34;&#38656;&#35201;&#26174;&#31034;&#30340;&#25991;&#23383;&#34;&#65292;&#10;&#9;&#9;    LENGTH_SHORT).show();</span><br></pre></td></tr></table></figure>
-<p>  地一个参数是上下文，第二个参数是需要显示的文字提示，第三个参数是显示的时间，最后调用show()方法显示出来。</p>]]>
+    <![CDATA[<h2 id="Activity">Activity</h2><p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道]]>
     
     </summary>
     
       <category term="android" scheme="http://magicer.xyz/tags/android/"/>
     
-      <category term="代码段" scheme="http://magicer.xyz/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
+      <category term="Android" scheme="http://magicer.xyz/categories/Android/"/>
     
   </entry>
   
@@ -422,7 +345,7 @@
     <link href="http://magicer.xyz/2015/03/19/android-first-step/"/>
     <id>http://magicer.xyz/2015/03/19/android-first-step/</id>
     <published>2015-03-19T12:08:15.000Z</published>
-    <updated>2015-10-10T15:13:36.794Z</updated>
+    <updated>2015-10-10T16:05:20.338Z</updated>
     <content type="html"><![CDATA[<p>这学期有安卓课程，在搭建android环境的时候还是遇到了一些问题，所以决定整理一份关于<br> android环境搭建的教程留着以后使用。主要包括jdk的安装，android studio和eclipse的配置，和sdk的安装<br>  主要是sdk的问题较为重要，毕竟在国内无法访问<a id="more"></a></p>
 <h2 id="（一）JDK的配置">（一）JDK的配置</h2><h3 id="ubtuntu环境下配置jdk">ubtuntu环境下配置jdk</h3><p>  在官网下载jdk，地址为：<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">JAVA下载链接</a><br>这里我们选择Java SE 8u40 Linux64位：jdk-8u40-linux-x64.tar.gz。<br>进入下载地址，下载之前需要接受许可协议。<br>下载之后，进入下载目录将JDK包放到/opt/Java目录下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/Java</span><br><span class="line">sudo mv jdk-<span class="number">8</span>u40-linux-x64<span class="class">.tar</span><span class="class">.gz</span>  /opt/Java</span><br><span class="line">cd /opt/Java</span><br><span class="line">sudo tar -zxvf jdk-<span class="number">8</span>u40-linux-x64<span class="class">.tar</span><span class="class">.gz</span>。</span><br></pre></td></tr></table></figure>
@@ -460,7 +383,7 @@
     
       <category term="java" scheme="http://magicer.xyz/tags/java/"/>
     
-      <category term="android" scheme="http://magicer.xyz/categories/android/"/>
+      <category term="Android" scheme="http://magicer.xyz/categories/Android/"/>
     
   </entry>
   
@@ -469,7 +392,7 @@
     <link href="http://magicer.xyz/2015/03/12/wordpress-problems/"/>
     <id>http://magicer.xyz/2015/03/12/wordpress-problems/</id>
     <published>2015-03-12T07:42:51.000Z</published>
-    <updated>2015-04-30T08:15:30.449Z</updated>
+    <updated>2015-10-10T16:02:12.674Z</updated>
     <content type="html"><![CDATA[<a id="more"></a>
 <h4 id="（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</h4><p>找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。<br>然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。</p>
 <h4 id="（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？">（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？</h4><p>使用PHPMyAdmin进入数据库。数据库管理的高级管理可以进去。<br>找到wordpress数据库，打开wp_options表<br>修改表中键名为upload_path的键值 这个值是一个路径（可能在表的第二页）<br>里面是空的，添加“wp-content/uploads”就解决了。＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝双引号必加！类似于注册表键值</p>
@@ -487,7 +410,7 @@
     
       <category term="wordpress" scheme="http://magicer.xyz/tags/wordpress/"/>
     
-      <category term="杂七杂八" scheme="http://magicer.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
@@ -496,7 +419,7 @@
     <link href="http://magicer.xyz/2015/03/12/wordpress-first/"/>
     <id>http://magicer.xyz/2015/03/12/wordpress-first/</id>
     <published>2015-03-12T06:11:57.000Z</published>
-    <updated>2015-04-30T08:07:33.213Z</updated>
+    <updated>2015-10-10T15:57:42.122Z</updated>
     <content type="html"><![CDATA[<h2 id="博客要转移了">博客要转移了</h2><p>  在ubuntu上搭建了一晚上的环境，到夜里两点，不过总算是弄好了，今天刚收到阿里云寄来的幕布，已经拍完照穿上去，刚接到短信已经通过了，就等着正式可用了。过几天是不是好要做个关于备案还有搭建wordpress环境的博客来记录一下。</p>
 <p>   博客要转移了，申请了免费的万网主机，试一试做个真正的站长，看来需要学习的东西还是挺多的，就一个wordpress的环境就搭建了那么长时间。也是蛮拼的。<br>  <a id="more"></a></p>
 <p>  <img src="/image/11855.jpg"></p>
@@ -509,9 +432,7 @@
     
     </summary>
     
-      <category term="记事" scheme="http://magicer.xyz/tags/%E8%AE%B0%E4%BA%8B/"/>
-    
-      <category term="杂七杂八" scheme="http://magicer.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
     
   </entry>
   
@@ -520,7 +441,7 @@
     <link href="http://magicer.xyz/2015/02/04/my-code/"/>
     <id>http://magicer.xyz/2015/02/04/my-code/</id>
     <published>2015-02-04T09:25:18.000Z</published>
-    <updated>2015-04-30T08:10:53.805Z</updated>
+    <updated>2015-10-10T15:58:15.030Z</updated>
     <content type="html"><![CDATA[<p><img src="/image/11865.jpg" width="340px" height="360px" class="img-topic"><br>  看了很久的书，总感觉自己学会了，可是真正到让自己打出来代码的时候就发现，其实自己什么都不会。到处是错误。当然错误是在所难免的，但是只看书还是不够的，还是需要多实际操作。也许这就是为什么大学生出来之后还需要在参加培训才能直接工作的原因吧。实际动手能里确实有点太差了。引以为戒吧！  <a id="more"></a></p>
 <p>  纸上得来终觉浅，觉知此事要躬行。</p>
 <p>  当感觉自己无所不能的时候，也许此时你是一无是处。认真学习固然重要，但是脱离了实践终究是纸上谈兵。成不了什么大气候。<img src="/image/11865.jpg"></p>
@@ -530,9 +451,122 @@
     
     </summary>
     
-      <category term="记事" scheme="http://magicer.xyz/tags/%E8%AE%B0%E4%BA%8B/"/>
+      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
     
-      <category term="杂七杂八" scheme="http://magicer.xyz/categories/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/"/>
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用linux遇到的一些问题]]></title>
+    <link href="http://magicer.xyz/2015/01/31/linux-problems/"/>
+    <id>http://magicer.xyz/2015/01/31/linux-problems/</id>
+    <published>2015-01-31T07:22:35.000Z</published>
+    <updated>2015-10-10T15:59:25.734Z</updated>
+    <content type="html"><![CDATA[<p>使用ubuntu linux 遇到的一些问题及解决方法。<a id="more"></a></p>
+<h2 id="ubuntu的使用">ubuntu的使用</h2><p>1.安装完ubuntu之后，windows分区无法挂载，出现如下图所示提示：<br><img src="/image_code/01.png" alt="ubuntu挂载"><br>解决方法：打开终端（快捷键ctrl+alt+t）输入：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ntfsfix <span class="regexp">/dev/</span>sda6</span><br></pre></td></tr></table></figure></p>
+<p>挂载系统盘时显示：</p>
+<blockquote>
+<p>Mounting volume… Windows is hibernated, refused to mount.<br>FAILED<br>Attempting to correct errors…<br>Processing $MFT and $MFTMirr…<br>Reading $MFT… OK<br>Reading $MFTMirr… OK<br>Comparing $MFTMirr to $MFT… OK<br>Processing of $MFT and $MFTMirr completed successfully.<br>Setting required flags on partition… OK<br>Going to empty the journal ($LogFile)… OK<br>Windows is hibernated, refused to mount.<br>Remount failed: Operation not permitted</p>
+</blockquote>
+<p>问题待解决。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>使用ubuntu linux 遇到的一些问题及解决方法。]]>
+    
+    </summary>
+    
+      <category term="ubuntu" scheme="http://magicer.xyz/tags/ubuntu/"/>
+    
+      <category term="系统使用" scheme="http://magicer.xyz/categories/%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[vim使用技巧及基本操作]]></title>
+    <link href="http://magicer.xyz/2015/01/30/vim-note1/"/>
+    <id>http://magicer.xyz/2015/01/30/vim-note1/</id>
+    <published>2015-01-30T06:05:56.000Z</published>
+    <updated>2015-10-10T16:02:10.374Z</updated>
+    <content type="html"><![CDATA[<p>vim 的基本操作 <a id="more"></a></p>
+<h2 id="基本操作">基本操作</h2><h3 id="复制粘贴">复制粘贴</h3><p><code>yw</code>复制光标所在单词<br><code>yy</code>复制当前行<br><code>nyy</code>复制n行<br><code>y$</code>复制光标所在位置到行末的字符<br><code>p</code>粘贴到光标后<br><code>P</code>粘贴到光标前<br><code>d$</code>删除光标至行尾的所有字符<br><code>dd</code>删除光标所在行<br><code>ndd</code>删除光标所在行在内的后n行。<br><code>dw</code>删除光标所在的单词<br><code>x</code>会删除光标下的字符。<br><code>xp</code>交换两个字符位置<br><code>ddp</code> 上下两行调换</p>
+<h3 id="插入">插入</h3><p><code>a</code>从光标后插入。<br><code>i</code>从光标前插入。<br><code>A</code>从行末插入。<br><code>s</code>先删除光标下字符，然后进入插入模式。<br><code>o</code>在本行的下方增加一行，并进入插入模式。<br><code>O</code>在本行的上方增加一行，并进入插入模式。</p>
+<h3 id="移动">移动</h3><p><code>hjkl</code>分别为左，下，上，右。<br><code>$</code>移动到行尾。<br><code>0</code>移动到行首。<br><code>（</code>移动到段落开头<br><code>）</code>移动到段落结尾<br><code>gg</code>跳到文件头。<br><code>G</code>移动到文件最后列<br><code>M</code>移动到视窗的中间列<br><code>{</code><br><code>}</code><br><code>w/W</code>光标移动到下一个字首<br><code>e/E</code>光标移动到下一个字末<br><code>b/B</code>光标移动到上一个字首</p>
+<h3 id="保存退出">保存退出</h3><p><code>:q</code>不保存退出<br><code>:q!</code>不保存强制退出<br><code>:w</code>保存<br><code>:w filename</code>保存到文件filename中<br><code>:w! filename</code>强制保存到文件filename中<br><code>:wq</code>保存退出（或者是<code>：x</code> 或 <code>ZZ</code>）<br><code>:</code><br><code>:</code></p>
+<h3 id="其他">其他</h3><p><code>r</code>替换光标下字符。（不进入插入模式）<br><code>.</code>重复上次操作。<br><code>u</code>撤销。<br><code>cl</code>修改当前字符<br><code>cc</code>修改当前行<br><code>c$</code>替换自光标到行尾的字符</p>
+<h2 id="命令">命令</h2><p><code>&gt;G</code>命令会增加从当前行到文档末尾处的缩进。</p>
+<h2 id="使用技巧（-的使用）">使用技巧（.的使用）</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<p>vim 的基本操作]]>
+    
+    </summary>
+    
+      <category term="vim" scheme="http://magicer.xyz/tags/vim/"/>
+    
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[git及github的操作]]></title>
+    <link href="http://magicer.xyz/2015/01/26/git-basic/"/>
+    <id>http://magicer.xyz/2015/01/26/git-basic/</id>
+    <published>2015-01-26T11:21:56.000Z</published>
+    <updated>2015-10-10T16:18:14.902Z</updated>
+    <content type="html"><![CDATA[<p>  Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br>  <img src="https://github.com/Magicer/Image/blob/master/Hexo/github/github.jpg?raw=true" class="img-topic"><br>  <a id="more"></a></p>
+<h2 id="git的基本命令">git的基本命令</h2><p>git clone：当你有远程git版本库，只需要在本地克隆一份：</p>
+<pre><code><span class="comment"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone: https:<span class="comment">//github.com/Magicer/project.git</span></span><br><span class="line">下载指定分支</span><br><span class="line">git clone -<span class="tag">b</span> &lt;branch&gt; &lt;remote_repo&gt; 例如： git clone -<span class="tag">b</span> 指定的分支名字</span><br></pre></td></tr></table></figure></span>
+</code></pre><p>git init :也可以使用git init初始化一个本地仓库。运行了git init之后文件夹下的文件就会被进行版本控制</p>
+<p>git add: 将当前更改或者是新增文件加入到git的索引中。</p>
+<p>git status: </p>
+<p>git commit (-m): 提交当前工作区的修改内容。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> commit -m <span class="string">"提交信息"</span></span><br></pre></td></tr></table></figure>
+<p>git rm：从当前工作空间中和索引中删除文件 如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm index.html</span><br></pre></td></tr></table></figure></p>
+<h2 id="git的分支命令">git的分支命令</h2><p>git branch : 创建分支命令。（加上分支名，不加时显示所有分支）<br>  git branch -d :删除分支</p>
+<p>git checkout :  切换分支命令。<br>  git checkout -b： 新建并切换到该分支。</p>
+<p>git merge gh_pages：合并分支gh_pages到当前分支</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。]]>
+    
+    </summary>
+    
+      <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+    
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[C语言之gets()和fgets(),puts()和fputs()]]></title>
+    <link href="http://magicer.xyz/2015/01/25/gets%E5%92%8Cfget/"/>
+    <id>http://magicer.xyz/2015/01/25/gets和fget/</id>
+    <published>2015-01-25T06:38:19.000Z</published>
+    <updated>2015-10-10T16:03:47.790Z</updated>
+    <content type="html"><![CDATA[<p>主要介绍gets(),fgets()和puts()fputs()的基本使用方法。<a id="more"></a></p>
+<h2 id="（一）gets()和fgets()">（一）gets()和fgets()</h2><h3 id="gets()">gets()</h3><p>  gets()函数作用是从操作系统的标准输入设备获取一个<code>字符串</code>。<br>  gets()读取换行符之前（不包含换行符）的所有字符，在这些字符后<code>添加一个空字符</code>（<code>\0</code>）,然后把这个字符串交给调用它的程序。它读取换行符并将其舍弃。下一次读取会在新的一行开始。</p>
+<p>  gets()函数的构造如下：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *gets(<span class="keyword">char</span> * s)</span><br><span class="line">&#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="keyword">return</span> (s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  可以看出gets()函数返回一个指向char的指针。但是返回的是传给他的同一个指针。</p>
+<p>  gets()可能有两个返回值，如果一切顺利，返回读入字符串的地址。如果出错或gets()遇到文件结尾，他返回一个空（或0）地址。（就是空指针NULL）。<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(gets(name)!=NULL)</span><br></pre></td></tr></table></figure></p>
+<h3 id="fgets()">fgets()</h3><p>  gets()函数不检测目标数组是否能够容纳输入，多出来的字符简单的溢出到相邻的内存区，所以不安全。<br>  可以用fgets()函数代替，<code>fgets()函数读到换行符不会像gets()那样丢弃。而是存到字符串里。</code><br>  使用例子：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[MAX];</span><br><span class="line"><span class="keyword">char</span> * ptr;</span><br><span class="line">ptr=fgets(name,MAX,stdin);</span><br></pre></td></tr></table></figure></p>
+<p>  fgets()函数有三个参数：<br>  第一个参数：是输入的字符串。<br>  第二个参数：来说明读入的最大字符数。如果那个参数为n，fgets()会读取最多<code>n-1</code>个字符或读完地一个换行符为止。<br>  第三个参数：来说明读哪一个文件，从键盘上读取数据，可以使用stdin（代表standard input）来做参数，在stdio.h中定义。</p>
+<h3 id="scanf()函数">scanf()函数</h3><p>  scanf()函数如果使用<code>%s</code>格式，字符读到下一个<code>空白字符</code>（空格，制表符或换行符）。可以使用<code>%10s</code>来表示读入十个字符或遇到第一个空白字符。</p>
+<p>  scanf()函数返回一个整数值（成功读取的项目数），或者当遇到文件结束时返回一个EOF。</p>
+<h2 id="puts()和fputs()">puts()和fputs()</h2><h3 id="puts()">puts()</h3><p>  puts()和gets()函数的使用类似，只是用来显示字符串。只需要给出字符串的<code>地址</code>。<code>puts()显示字符串时会自动添加换行符。</code></p>
+<h3 id="fputs()">fputs()</h3><p>  fputs()和puts()的区别：</p>
+<ul>
+<li>fputs()需要第二个参数来说明要写的文件。可以使用stdout（表示standard output）来作为参数进行输出显示，stdout在stdio.h。</li>
+<li><p>和puts()不同，fputs()并不为输出自动添加换行符。</p>
+<p>gets()丢弃输入的换行符，但是puts()为输出添加换行符。另一方面，fgets()存储输入的换行符，而fputs()也不为输出添加换行符。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> line[<span class="number">49</span>];</span><br><span class="line"><span class="keyword">while</span>(fgets(line,<span class="number">49</span>,stdin))</span><br><span class="line">  <span class="built_in">fputs</span>(line,stdout)</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>主要介绍gets(),fgets()和puts()fputs()的基本使用方法。]]>
+    
+    </summary>
+    
+      <category term="c" scheme="http://magicer.xyz/tags/c/"/>
+    
+      <category term="C" scheme="http://magicer.xyz/categories/C/"/>
     
   </entry>
   

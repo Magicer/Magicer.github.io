@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="泛型," />
+  <meta name="keywords" content="java泛型," />
 
 
 
@@ -41,15 +41,15 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="java泛型的简单使用。">
+<meta name="description" content="java泛型的简单使用。泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛型的简单使用">
 <meta property="og:url" content="http://magicer.xyz/2015/08/01/generic-simple/index.html">
 <meta property="og:site_name" content="Magicer|张同爽的个人博客">
-<meta property="og:description" content="java泛型的简单使用。">
+<meta property="og:description" content="java泛型的简单使用。泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="泛型的简单使用">
-<meta name="twitter:description" content="java泛型的简单使用。">
+<meta name="twitter:description" content="java泛型的简单使用。泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -245,7 +245,7 @@
       
 
       
-        <span itemprop="articleBody"><p>java泛型的简单使用。<a id="more"></a></p>
+        <span itemprop="articleBody"><p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法<a id="more"></a></p>
 <h2 id="java泛型的基本使用">java泛型的基本使用</h2><p>加上了通配符”？“。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//泛型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Message</span> &lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T info;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(T info)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.info=info;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> info;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Message&lt;String&gt; msg=<span class="keyword">new</span> Message&lt;String&gt;();</span><br><span class="line">        msg.setInfo(<span class="string">"Hello World!!!!"</span>);</span><br><span class="line">        print(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(Message&lt;?&gt; temp)</span></span>&#123;</span><br><span class="line">        <span class="comment">/*当泛型作为参数的时候，因为不知道要传递的是什么类型的之，所以方法在编写的时候具有局限性</span><br><span class="line">        可以加上通配符”？“，来让参数通用，不管是什么类型的参数都可以作为参数传递了*/</span></span><br><span class="line">        System.out.println(temp.getInfo());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>本程序注释仅为个人观点，如有不符，还望指正。</p>
@@ -257,7 +257,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/泛型/" rel="tag">#泛型</a>
+            <a href="/tags/java泛型/" rel="tag">#java泛型</a>
           
         </div>
       
@@ -266,7 +266,7 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/01/java-code-fragment/" rel="prev">java-code-fragment</a>
+              <a href="/2015/08/01/java-code-fragment/" rel="prev">java初学常用代码知识</a>
             
           </div>
 
@@ -338,21 +338,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
