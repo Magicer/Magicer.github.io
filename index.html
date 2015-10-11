@@ -75,6 +75,16 @@
 <![endif]-->
   
 
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?b5bdd1596ad83890347bc7b5b563cd5f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
 
 
   <div class="container one-column 
@@ -251,7 +261,9 @@
       
         
           <span itemprop="articleBody"><p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。</p>
-<h2 id="gitcafe的使用">gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）<br>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
+<h2 id="gitcafe的使用">gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）</p>
+<!-- HTML -->
+<p>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
 <h2 id="托管代码到gitcafe">托管代码到gitcafe</h2><p>  在这里说明，我安装了git插件，安装方法：</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>在<code>_config.yml.</code>中配置（可以同时托管代码在github和gitcafe上，）</p>
@@ -1047,8 +1059,6 @@
     })();
   </script>
     
-     
-
     
   
   
