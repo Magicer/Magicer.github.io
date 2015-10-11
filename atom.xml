@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-10-10T16:26:58.674Z</updated>
+  <updated>2015-10-11T05:35:18.594Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -15,11 +15,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Hexo博客转移 从github到gitcafe]]></title>
+    <link href="http://magicer.xyz/2015/10/11/Hexo-github-gitcafe/"/>
+    <id>http://magicer.xyz/2015/10/11/Hexo-github-gitcafe/</id>
+    <published>2015-10-11T05:27:08.000Z</published>
+    <updated>2015-10-11T05:35:18.594Z</updated>
+    <content type="html"><![CDATA[<p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="ht]]>
+    </summary>
+    
+      <category term="gitcafe" scheme="http://magicer.xyz/tags/gitcafe/"/>
+    
+      <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+    
+      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[java初学常用代码知识]]></title>
     <link href="http://magicer.xyz/2015/08/01/java-code-fragment/"/>
     <id>http://magicer.xyz/2015/08/01/java-code-fragment/</id>
     <published>2015-08-01T12:34:31.000Z</published>
-    <updated>2015-10-10T16:26:58.674Z</updated>
+    <updated>2015-10-10T16:27:01.574Z</updated>
     <content type="html"><![CDATA[<h2 id="File类">File类</h2><p>File类的构造方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String pathname)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(File parent,String child)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>使用File操作文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">creatNewFile</span><span class="params">()</span> <span class="keyword">throws</span> IOExcetion <span class="comment">//创建文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span>                         <span class="comment">//删除文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span>                         <span class="comment">//判断给定的路径是否存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String separator            <span class="comment">//  “/” 注意：常量，但是未大写</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title">getParentFile</span><span class="params">()</span>                     <span class="comment">//找到一个指定路径的父路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdirs</span><span class="params">()</span>                         <span class="comment">//创建制定目录</span></span><br><span class="line"><span class="comment">/*其他方法*/</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span>         <span class="comment">//取得文件的名字</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span>    <span class="comment">//判断给定的路径是否是文件夹</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span>         <span class="comment">//判断给定的路径是否是文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHidden</span><span class="params">()</span>       <span class="comment">//判断是否隐藏</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span>      <span class="comment">//文件最后一次修改日期</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span>            <span class="comment">//取得文件大小，以字节为单位返回</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">renameTo</span><span class="params">(File dest)</span>  <span class="comment">//为文件重命名</span></span><br><span class="line"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span>   <span class="comment">//将目录中所有的文件以File对象数组的方式返回</span></span></span><br></pre></td></tr></table></figure></p>
@@ -532,41 +552,6 @@
       <category term="github" scheme="http://magicer.xyz/tags/github/"/>
     
       <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[C语言之gets()和fgets(),puts()和fputs()]]></title>
-    <link href="http://magicer.xyz/2015/01/25/gets%E5%92%8Cfget/"/>
-    <id>http://magicer.xyz/2015/01/25/gets和fget/</id>
-    <published>2015-01-25T06:38:19.000Z</published>
-    <updated>2015-10-10T16:03:47.790Z</updated>
-    <content type="html"><![CDATA[<p>主要介绍gets(),fgets()和puts()fputs()的基本使用方法。<a id="more"></a></p>
-<h2 id="（一）gets()和fgets()">（一）gets()和fgets()</h2><h3 id="gets()">gets()</h3><p>  gets()函数作用是从操作系统的标准输入设备获取一个<code>字符串</code>。<br>  gets()读取换行符之前（不包含换行符）的所有字符，在这些字符后<code>添加一个空字符</code>（<code>\0</code>）,然后把这个字符串交给调用它的程序。它读取换行符并将其舍弃。下一次读取会在新的一行开始。</p>
-<p>  gets()函数的构造如下：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *gets(<span class="keyword">char</span> * s)</span><br><span class="line">&#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="keyword">return</span> (s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  可以看出gets()函数返回一个指向char的指针。但是返回的是传给他的同一个指针。</p>
-<p>  gets()可能有两个返回值，如果一切顺利，返回读入字符串的地址。如果出错或gets()遇到文件结尾，他返回一个空（或0）地址。（就是空指针NULL）。<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(gets(name)!=NULL)</span><br></pre></td></tr></table></figure></p>
-<h3 id="fgets()">fgets()</h3><p>  gets()函数不检测目标数组是否能够容纳输入，多出来的字符简单的溢出到相邻的内存区，所以不安全。<br>  可以用fgets()函数代替，<code>fgets()函数读到换行符不会像gets()那样丢弃。而是存到字符串里。</code><br>  使用例子：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[MAX];</span><br><span class="line"><span class="keyword">char</span> * ptr;</span><br><span class="line">ptr=fgets(name,MAX,stdin);</span><br></pre></td></tr></table></figure></p>
-<p>  fgets()函数有三个参数：<br>  第一个参数：是输入的字符串。<br>  第二个参数：来说明读入的最大字符数。如果那个参数为n，fgets()会读取最多<code>n-1</code>个字符或读完地一个换行符为止。<br>  第三个参数：来说明读哪一个文件，从键盘上读取数据，可以使用stdin（代表standard input）来做参数，在stdio.h中定义。</p>
-<h3 id="scanf()函数">scanf()函数</h3><p>  scanf()函数如果使用<code>%s</code>格式，字符读到下一个<code>空白字符</code>（空格，制表符或换行符）。可以使用<code>%10s</code>来表示读入十个字符或遇到第一个空白字符。</p>
-<p>  scanf()函数返回一个整数值（成功读取的项目数），或者当遇到文件结束时返回一个EOF。</p>
-<h2 id="puts()和fputs()">puts()和fputs()</h2><h3 id="puts()">puts()</h3><p>  puts()和gets()函数的使用类似，只是用来显示字符串。只需要给出字符串的<code>地址</code>。<code>puts()显示字符串时会自动添加换行符。</code></p>
-<h3 id="fputs()">fputs()</h3><p>  fputs()和puts()的区别：</p>
-<ul>
-<li>fputs()需要第二个参数来说明要写的文件。可以使用stdout（表示standard output）来作为参数进行输出显示，stdout在stdio.h。</li>
-<li><p>和puts()不同，fputs()并不为输出自动添加换行符。</p>
-<p>gets()丢弃输入的换行符，但是puts()为输出添加换行符。另一方面，fgets()存储输入的换行符，而fputs()也不为输出添加换行符。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> line[<span class="number">49</span>];</span><br><span class="line"><span class="keyword">while</span>(fgets(line,<span class="number">49</span>,stdin))</span><br><span class="line">  <span class="built_in">fputs</span>(line,stdout)</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>主要介绍gets(),fgets()和puts()fputs()的基本使用方法。]]>
-    
-    </summary>
-    
-      <category term="c" scheme="http://magicer.xyz/tags/c/"/>
-    
-      <category term="C" scheme="http://magicer.xyz/categories/C/"/>
     
   </entry>
   
