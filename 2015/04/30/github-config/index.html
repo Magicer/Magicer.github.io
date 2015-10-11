@@ -247,9 +247,10 @@
       
         <span itemprop="articleBody"><p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
 <h2 id="生成ssh">生成ssh</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email<span class="variable">@example</span>.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
-<p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中<br>测试是否成功：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中</p>
+<h2 id="测试是否成功：">测试是否成功：</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
 <p>当出现以下提示时即设置成功<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line"></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
 <p>测试是否设置正确：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span></span><br></pre></td></tr></table></figure></p>
 </span>
       
@@ -354,7 +355,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -403,7 +404,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成ssh"><span class="nav-number">1.</span> <span class="nav-text">生成ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">2.</span> <span class="nav-text">配置git</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成ssh"><span class="nav-number">1.</span> <span class="nav-text">生成ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否成功："><span class="nav-number">2.</span> <span class="nav-text">测试是否成功：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">3.</span> <span class="nav-text">配置git</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

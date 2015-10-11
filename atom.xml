@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-10-11T05:35:18.594Z</updated>
+  <updated>2015-10-11T11:04:27.865Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -19,8 +19,15 @@
     <link href="http://magicer.xyz/2015/10/11/Hexo-github-gitcafe/"/>
     <id>http://magicer.xyz/2015/10/11/Hexo-github-gitcafe/</id>
     <published>2015-10-11T05:27:08.000Z</published>
-    <updated>2015-10-11T05:35:18.594Z</updated>
-    <content type="html"><![CDATA[<p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。</p>
+    <updated>2015-10-11T11:04:27.865Z</updated>
+    <content type="html"><![CDATA[<p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。</p>
+<h2 id="gitcafe的使用">gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）<br>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
+<h2 id="托管代码到gitcafe">托管代码到gitcafe</h2><p>  在这里说明，我安装了git插件，安装方法：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>在<code>_config.yml.</code>中配置（可以同时托管代码在github和gitcafe上，）</p>
+<figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: &lt;repository url&gt;</span><br><span class="line">  branch: [branch]</span><br><span class="line">  <span class="literal">message</span>: [<span class="literal">message</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#或者:</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  <span class="literal">message</span>: [<span class="literal">message</span>]</span><br><span class="line">  repo: </span><br><span class="line">    github: &lt;repository url&gt;,[branch]</span><br><span class="line">    gitcafe: &lt;repository url&gt;,[branch]</span><br></pre></td></tr></table></figure>
+<h2 id="pages服务">pages服务</h2><p>  托管上代码之后应该分支应该会直接是<code>gitcafe-pages</code>分支，之后<code>项目设置</code>自定义域名<br>  <img src="/image_code/Gitcafe-pages-setting.png" alt="gitcafe-pages"></p>
+<p>  修改域名的解析搬移即可完成。<br>  新建CNAME解析，解析到<code>gitcafe.io</code>,现在gitcafe已经不支持A记录解析方式。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="ht]]>
@@ -29,6 +36,8 @@
       <category term="gitcafe" scheme="http://magicer.xyz/tags/gitcafe/"/>
     
       <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+    
+      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
     
       <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
@@ -196,12 +205,13 @@
     <link href="http://magicer.xyz/2015/04/30/github-config/"/>
     <id>http://magicer.xyz/2015/04/30/github-config/</id>
     <published>2015-04-30T06:32:59.000Z</published>
-    <updated>2015-10-10T15:52:23.018Z</updated>
+    <updated>2015-10-11T10:45:21.645Z</updated>
     <content type="html"><![CDATA[<p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
 <h2 id="生成ssh">生成ssh</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email<span class="variable">@example</span>.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
-<p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中<br>测试是否成功：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中</p>
+<h2 id="测试是否成功：">测试是否成功：</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
 <p>当出现以下提示时即设置成功<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line"></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
 <p>测试是否设置正确：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span></span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
