@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-10-12T05:32:37.109Z</updated>
+  <updated>2015-10-12T06:45:04.717Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -15,12 +15,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Hexo博客主题NexT使用自定义的CSS样式]]></title>
+    <link href="http://magicer.xyz/2015/10/hexo-custom-style/"/>
+    <id>http://magicer.xyz/2015/10/hexo-custom-style/</id>
+    <published>2015-10-12T06:21:35.000Z</published>
+    <updated>2015-10-12T06:45:04.717Z</updated>
+    <content type="html"><![CDATA[<p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
+<h2 id="添加样式支持">添加样式支持</h2><p>  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。<br>  首先，在样式文件的<code>source</code>文件夹下找到<code>css</code>文件夹，打开<code>main.styl</code>文件，在最后添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//My Layer</span></span><br><span class="line"><span class="comment">//--------------------------------------------------</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"_my/mycss"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="新建自定义样式">新建自定义样式</h2><p>找到样式文件夹<code>css</code> 新建<code>_my</code>文件夹，在其中新建<code>mycss.styl</code>文件，之后就可以按照stylus的格式自定义样式了。</p>
+<h2 id="例子">例子</h2><p>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
+<p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.myButton</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#0f94bd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value">Arial</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">17px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">11px</span> <span class="number">27px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-shadow</span>:<span class="value"><span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="hexcolor">#2f6627</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">hover &#123;</span><br><span class="line">    background-color:<span class="hexcolor">#5cbf2a</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">active &#123;</span><br><span class="line">    position:relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>样式如下：<br><a href="#" class="myButton">MyButton</a><br>效果已经出来了，怎么样？？是不是瞬间高大上。。有想要使用的样式，自行百度，找到后粘贴即可使用。</p>
+<h2 id="推荐">推荐</h2><p>推荐一个css button样式的生成网站：<a href="http://www.bestcssbuttongenerator.com/" target="_blank" rel="external">http://www.bestcssbuttongenerator.com/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
+<h2 id="添加样]]>
+    </summary>
+    
+      <category term="NexT" scheme="http://magicer.xyz/tags/NexT/"/>
+    
+      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
+    
+      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Hexo博客转移 从github到gitcafe]]></title>
     <link href="http://magicer.xyz/2015/10/Hexo-github-gitcafe/"/>
     <id>http://magicer.xyz/2015/10/Hexo-github-gitcafe/</id>
     <published>2015-10-11T05:27:08.000Z</published>
-    <updated>2015-10-12T05:32:37.109Z</updated>
-    <content type="html"><![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
+    <updated>2015-10-12T06:13:35.985Z</updated>
+    <content type="html"><![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" class="myButton" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
 <h2 id="gitcafe的使用">gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）</p>
 <!-- HTML -->
 <p>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
@@ -32,7 +62,7 @@
 <p>  修改域名的解析搬移即可完成。<br>  新建CNAME解析，解析到<code>gitcafe.io</code>,现在gitcafe已经不支持A记录解析方式。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。]]>
+    <![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" class="myButton">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。]]>
     
     </summary>
     
@@ -533,31 +563,6 @@
       <category term="ubuntu" scheme="http://magicer.xyz/tags/ubuntu/"/>
     
       <category term="系统使用" scheme="http://magicer.xyz/categories/%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[vim使用技巧及基本操作]]></title>
-    <link href="http://magicer.xyz/2015/01/vim-note1/"/>
-    <id>http://magicer.xyz/2015/01/vim-note1/</id>
-    <published>2015-01-30T06:05:56.000Z</published>
-    <updated>2015-10-10T16:02:10.374Z</updated>
-    <content type="html"><![CDATA[<p>vim 的基本操作 <a id="more"></a></p>
-<h2 id="基本操作">基本操作</h2><h3 id="复制粘贴">复制粘贴</h3><p><code>yw</code>复制光标所在单词<br><code>yy</code>复制当前行<br><code>nyy</code>复制n行<br><code>y$</code>复制光标所在位置到行末的字符<br><code>p</code>粘贴到光标后<br><code>P</code>粘贴到光标前<br><code>d$</code>删除光标至行尾的所有字符<br><code>dd</code>删除光标所在行<br><code>ndd</code>删除光标所在行在内的后n行。<br><code>dw</code>删除光标所在的单词<br><code>x</code>会删除光标下的字符。<br><code>xp</code>交换两个字符位置<br><code>ddp</code> 上下两行调换</p>
-<h3 id="插入">插入</h3><p><code>a</code>从光标后插入。<br><code>i</code>从光标前插入。<br><code>A</code>从行末插入。<br><code>s</code>先删除光标下字符，然后进入插入模式。<br><code>o</code>在本行的下方增加一行，并进入插入模式。<br><code>O</code>在本行的上方增加一行，并进入插入模式。</p>
-<h3 id="移动">移动</h3><p><code>hjkl</code>分别为左，下，上，右。<br><code>$</code>移动到行尾。<br><code>0</code>移动到行首。<br><code>（</code>移动到段落开头<br><code>）</code>移动到段落结尾<br><code>gg</code>跳到文件头。<br><code>G</code>移动到文件最后列<br><code>M</code>移动到视窗的中间列<br><code>{</code><br><code>}</code><br><code>w/W</code>光标移动到下一个字首<br><code>e/E</code>光标移动到下一个字末<br><code>b/B</code>光标移动到上一个字首</p>
-<h3 id="保存退出">保存退出</h3><p><code>:q</code>不保存退出<br><code>:q!</code>不保存强制退出<br><code>:w</code>保存<br><code>:w filename</code>保存到文件filename中<br><code>:w! filename</code>强制保存到文件filename中<br><code>:wq</code>保存退出（或者是<code>：x</code> 或 <code>ZZ</code>）<br><code>:</code><br><code>:</code></p>
-<h3 id="其他">其他</h3><p><code>r</code>替换光标下字符。（不进入插入模式）<br><code>.</code>重复上次操作。<br><code>u</code>撤销。<br><code>cl</code>修改当前字符<br><code>cc</code>修改当前行<br><code>c$</code>替换自光标到行尾的字符</p>
-<h2 id="命令">命令</h2><p><code>&gt;G</code>命令会增加从当前行到文档末尾处的缩进。</p>
-<h2 id="使用技巧（-的使用）">使用技巧（.的使用）</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<p>vim 的基本操作]]>
-    
-    </summary>
-    
-      <category term="vim" scheme="http://magicer.xyz/tags/vim/"/>
-    
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   

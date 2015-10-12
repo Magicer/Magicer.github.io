@@ -2,8 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://magicer.xyz/2015/10/hexo-custom-style/</loc>
+    <lastmod>2015-10-12T06:45:04.717Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://magicer.xyz/about/index.html</loc>
+    <lastmod>2015-10-12T06:18:53.757Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://magicer.xyz/2015/10/Hexo-github-gitcafe/</loc>
-    <lastmod>2015-10-12T05:32:37.109Z</lastmod>
+    <lastmod>2015-10-12T06:13:35.985Z</lastmod>
   </url>
   
   <url>
@@ -134,11 +144,6 @@
   <url>
     <loc>http://magicer.xyz/2015/04/sublime-chinese/</loc>
     <lastmod>2015-10-10T15:52:25.630Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://magicer.xyz/about/index.html</loc>
-    <lastmod>2015-10-10T15:18:30.418Z</lastmod>
   </url>
   
   <url>

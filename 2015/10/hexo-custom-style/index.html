@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="c," />
+  <meta name="keywords" content="NexT,hexo," />
 
 
 
@@ -41,15 +41,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="主要介绍gets(),fgets()和puts()fputs()的基本使用方法。">
+<meta name="description" content="今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：
+添加样式支持  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。  首先，在样式文件的source文件夹下找到css文件夹，打开main.styl文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言之gets()和fgets(),puts()和fputs()">
-<meta property="og:url" content="http://magicer.xyz/2015/01/gets和fget/index.html">
+<meta property="og:title" content="Hexo博客主题NexT使用自定义的CSS样式">
+<meta property="og:url" content="http://magicer.xyz/2015/10/hexo-custom-style/index.html">
 <meta property="og:site_name" content="Magicer|张同爽的个人博客">
-<meta property="og:description" content="主要介绍gets(),fgets()和puts()fputs()的基本使用方法。">
+<meta property="og:description" content="今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：
+添加样式支持  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。  首先，在样式文件的source文件夹下找到css文件夹，打开main.styl文件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言之gets()和fgets(),puts()和fputs()">
-<meta name="twitter:description" content="主要介绍gets(),fgets()和puts()fputs()的基本使用方法。">
+<meta name="twitter:title" content="Hexo博客主题NexT使用自定义的CSS样式">
+<meta name="twitter:description" content="今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：
+添加样式支持  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。  首先，在样式文件的source文件夹下找到css文件夹，打开main.styl文件">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +62,7 @@
   };
 </script>
 
-  <title> C语言之gets()和fgets(),puts()和fputs() | Magicer|张同爽的个人博客 </title>
+  <title> Hexo博客主题NexT使用自定义的CSS样式 | Magicer|张同爽的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +208,7 @@
           
           
             
-              C语言之gets()和fgets(),puts()和fputs()
+              Hexo博客主题NexT使用自定义的CSS样式
             
           
         </h1>
@@ -214,8 +217,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-01-25T14:38:19+08:00" content="2015-01-25">
-            2015-01-25
+          <time itemprop="dateCreated" datetime="2015-10-12T14:21:35+08:00" content="2015-10-12">
+            2015-10-12
           </time>
         </span>
 
@@ -224,8 +227,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/C/" itemprop="url" rel="index">
-                  <span itemprop="name">C</span>
+                <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                  <span itemprop="name">博客搭建</span>
                 </a>
               </span>
 
@@ -240,8 +243,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/01/gets和fget/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/gets和fget/" itemprop="commentsCount"></span>
+              <a href="/2015/10/hexo-custom-style/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/hexo-custom-style/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -255,23 +258,16 @@
       
 
       
-        <span itemprop="articleBody"><p>主要介绍gets(),fgets()和puts()fputs()的基本使用方法。<a id="more"></a></p>
-<h2 id="（一）gets()和fgets()">（一）gets()和fgets()</h2><h3 id="gets()">gets()</h3><p>  gets()函数作用是从操作系统的标准输入设备获取一个<code>字符串</code>。<br>  gets()读取换行符之前（不包含换行符）的所有字符，在这些字符后<code>添加一个空字符</code>（<code>\0</code>）,然后把这个字符串交给调用它的程序。它读取换行符并将其舍弃。下一次读取会在新的一行开始。</p>
-<p>  gets()函数的构造如下：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *gets(<span class="keyword">char</span> * s)</span><br><span class="line">&#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="keyword">return</span> (s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>  可以看出gets()函数返回一个指向char的指针。但是返回的是传给他的同一个指针。</p>
-<p>  gets()可能有两个返回值，如果一切顺利，返回读入字符串的地址。如果出错或gets()遇到文件结尾，他返回一个空（或0）地址。（就是空指针NULL）。<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(gets(name)!=NULL)</span><br></pre></td></tr></table></figure></p>
-<h3 id="fgets()">fgets()</h3><p>  gets()函数不检测目标数组是否能够容纳输入，多出来的字符简单的溢出到相邻的内存区，所以不安全。<br>  可以用fgets()函数代替，<code>fgets()函数读到换行符不会像gets()那样丢弃。而是存到字符串里。</code><br>  使用例子：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[MAX];</span><br><span class="line"><span class="keyword">char</span> * ptr;</span><br><span class="line">ptr=fgets(name,MAX,stdin);</span><br></pre></td></tr></table></figure></p>
-<p>  fgets()函数有三个参数：<br>  第一个参数：是输入的字符串。<br>  第二个参数：来说明读入的最大字符数。如果那个参数为n，fgets()会读取最多<code>n-1</code>个字符或读完地一个换行符为止。<br>  第三个参数：来说明读哪一个文件，从键盘上读取数据，可以使用stdin（代表standard input）来做参数，在stdio.h中定义。</p>
-<h3 id="scanf()函数">scanf()函数</h3><p>  scanf()函数如果使用<code>%s</code>格式，字符读到下一个<code>空白字符</code>（空格，制表符或换行符）。可以使用<code>%10s</code>来表示读入十个字符或遇到第一个空白字符。</p>
-<p>  scanf()函数返回一个整数值（成功读取的项目数），或者当遇到文件结束时返回一个EOF。</p>
-<h2 id="puts()和fputs()">puts()和fputs()</h2><h3 id="puts()">puts()</h3><p>  puts()和gets()函数的使用类似，只是用来显示字符串。只需要给出字符串的<code>地址</code>。<code>puts()显示字符串时会自动添加换行符。</code></p>
-<h3 id="fputs()">fputs()</h3><p>  fputs()和puts()的区别：</p>
-<ul>
-<li>fputs()需要第二个参数来说明要写的文件。可以使用stdout（表示standard output）来作为参数进行输出显示，stdout在stdio.h。</li>
-<li><p>和puts()不同，fputs()并不为输出自动添加换行符。</p>
-<p>gets()丢弃输入的换行符，但是puts()为输出添加换行符。另一方面，fgets()存储输入的换行符，而fputs()也不为输出添加换行符。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> line[<span class="number">49</span>];</span><br><span class="line"><span class="keyword">while</span>(fgets(line,<span class="number">49</span>,stdin))</span><br><span class="line">  <span class="built_in">fputs</span>(line,stdout)</span><br></pre></td></tr></table></figure></li>
-</ul>
+        <span itemprop="articleBody"><p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
+<h2 id="添加样式支持">添加样式支持</h2><p>  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。<br>  首先，在样式文件的<code>source</code>文件夹下找到<code>css</code>文件夹，打开<code>main.styl</code>文件，在最后添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//My Layer</span></span><br><span class="line"><span class="comment">//--------------------------------------------------</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"_my/mycss"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="新建自定义样式">新建自定义样式</h2><p>找到样式文件夹<code>css</code> 新建<code>_my</code>文件夹，在其中新建<code>mycss.styl</code>文件，之后就可以按照stylus的格式自定义样式了。</p>
+<h2 id="例子">例子</h2><p>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
+<p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.myButton</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#0f94bd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value">Arial</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">17px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">11px</span> <span class="number">27px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-shadow</span>:<span class="value"><span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="hexcolor">#2f6627</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">hover &#123;</span><br><span class="line">    background-color:<span class="hexcolor">#5cbf2a</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">active &#123;</span><br><span class="line">    position:relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>样式如下：<br><a href="#" class="myButton">MyButton</a><br>效果已经出来了，怎么样？？是不是瞬间高大上。。有想要使用的样式，自行百度，找到后粘贴即可使用。</p>
+<h2 id="推荐">推荐</h2><p>推荐一个css button样式的生成网站：<a href="http://www.bestcssbuttongenerator.com/" target="_blank" rel="external">http://www.bestcssbuttongenerator.com/</a></p>
 </span>
       
     </div>
@@ -280,7 +276,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag">#c</a>
+            <a href="/tags/NexT/" rel="tag">#NexT</a>
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
           
         </div>
       
@@ -289,13 +287,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/01/git-basic/" rel="prev">git及github的操作</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/linux-basic/" rel="next">linux基本操作之压缩与解压命令</a>
+              <a href="/2015/10/Hexo-github-gitcafe/" rel="next">Hexo博客转移 从github到gitcafe</a>
             
           </div>
         </div>
@@ -310,10 +306,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/01/gets和fget/"
-     data-title="C语言之gets()和fgets(),puts()和fputs()"
+        <div class="ds-share flat" data-thread-key="2015/10/hexo-custom-style/"
+     data-title="Hexo博客主题NexT使用自定义的CSS样式"
      data-content=""
-     data-url="http://magicer.xyz/2015/01/gets和fget/">
+     data-url="http://magicer.xyz/2015/10/hexo-custom-style/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -339,8 +335,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/01/gets和fget/"
-                   data-title="C语言之gets()和fgets(),puts()和fputs()" data-url="http://magicer.xyz/2015/01/gets和fget/">
+              <div class="ds-thread" data-thread-key="2015/10/hexo-custom-style/"
+                   data-title="Hexo博客主题NexT使用自定义的CSS样式" data-url="http://magicer.xyz/2015/10/hexo-custom-style/">
               </div>
             
           </div>
@@ -443,7 +439,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）gets()和fgets()"><span class="nav-number">1.</span> <span class="nav-text">（一）gets()和fgets()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gets()"><span class="nav-number">1.1.</span> <span class="nav-text">gets()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fgets()"><span class="nav-number">1.2.</span> <span class="nav-text">fgets()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scanf()函数"><span class="nav-number">1.3.</span> <span class="nav-text">scanf()函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#puts()和fputs()"><span class="nav-number">2.</span> <span class="nav-text">puts()和fputs()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#puts()"><span class="nav-number">2.1.</span> <span class="nav-text">puts()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fputs()"><span class="nav-number">2.2.</span> <span class="nav-text">fputs()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加样式支持"><span class="nav-number">1.</span> <span class="nav-text">添加样式支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建自定义样式"><span class="nav-number">2.</span> <span class="nav-text">新建自定义样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐"><span class="nav-number">4.</span> <span class="nav-text">推荐</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
