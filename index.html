@@ -267,7 +267,7 @@
 <h2 id="例子">例子</h2><p>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
 <p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.myButton</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#0f94bd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value">Arial</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">17px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">11px</span> <span class="number">27px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-shadow</span>:<span class="value"><span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="hexcolor">#2f6627</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">hover &#123;</span><br><span class="line">    background-color:<span class="hexcolor">#5cbf2a</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">active &#123;</span><br><span class="line">    position:relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>(ps:这里直接使用的css的格式写的，因为css的代码在网上很好找到，而stylus预处理器的就不那么容易找到了，stylus一样支持css格式，所以在这里直接使用了css文件，没有写成stylus语法。其实让我写我也不会，哈哈！)<br>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>样式如下：<br><a href="#" class="myButton">MyButton</a><br>效果已经出来了，怎么样？？是不是瞬间高大上。。有想要使用的样式，自行百度，找到后粘贴即可使用。</p>
 <h2 id="推荐">推荐</h2><p>推荐一个css button样式的生成网站：<a href="http://www.bestcssbuttongenerator.com/" target="_blank" rel="external">http://www.bestcssbuttongenerator.com/</a></p>
 </span>
@@ -353,7 +353,7 @@
 
       
         
-          <p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" class="myButton">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。
+          <p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/10/Hexo-github-gitcafe/#more" rel="contents">
               阅读全文 &raquo;
@@ -446,6 +446,91 @@
 <h2 id="自定义NexT">自定义NexT</h2><p> 1、添加Title 。<br>  NexT主题的Title和网站主页上的左上角的LOGO字体是一样的，在这里我想设置成不一样的怎么办呢？其实很简单，只需要在配置文件中添加一个<code>name</code>（注意：这个配置文件的位置是HEXO的配置文件不是主题的配置文件。<br>  ps：我觉得还是用logo比较好，由于子集以前就是用的name，在这里就不更改了）<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: <span class="string">Magicer|张同爽的个人博客</span></span><br><span class="line"><span class="attribute">name</span>: <span class="string">Magicer</span></span><br></pre></td></tr></table></figure></p>
 <p>然后，在NexT主题文件夹中找到<code>layout</code>文件夹下的<code>_partials</code>文件夹下的<code>header.swig</code>文件 找到：<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"site-title"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>将<code>config.title</code>修改为<code>config.name</code>即可</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/08/vim-notes/" itemprop="url">
+                解决vim使用过程中与遇到问题
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-14T12:02:47+08:00" content="2015-08-14">
+            2015-08-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/08/vim-notes/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/vim-notes/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> ～/.vimrc</span><br><span class="line">##也可以 <span class="keyword">vim</span> /etc/<span class="keyword">vim</span>/vimrc</span><br></pre></td></tr></table></figure></p>
+<p>在其中输入以下代码：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> encoding=UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> langmenu=zh_CN.UTF-<span class="number">8</span></span><br><span class="line">language <span class="keyword">message</span> zh_CN.UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> fileencodings=ucs-bom,utf-<span class="number">8</span>,cp936,gb18030,big5,euc-jp,euc-kr,latin1</span><br><span class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
 </span>
         
       
@@ -817,93 +902,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/eclipse-android-auto/" itemprop="url">
-                eclipse-android自动提示代码
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-05-04T20:31:08+08:00" content="2015-05-04">
-            2015-05-04
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件使用/" itemprop="url" rel="index">
-                  <span itemprop="name">软件使用</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/05/eclipse-android-auto/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/eclipse-android-auto/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="（一）设置_java_文件的代码提示功能">（一）设置 java 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Java &gt; Editor - Content Assist &gt; Auto activation triggers for Java ，设置框中默认是一个点，<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.abcdefghijklmnopqrstuvwxyz(,</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="（二）设置_xml_文件的代码提示功能">（二）设置 xml 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Xml &gt; Xml Files &gt; Editor &gt; Content Assist &gt; Auto activation &gt; Prompt when these characters are inserted ，设置框中默认是 &lt;=: ，</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;=:.abcdefghijklmnopqrstuvwxyz(,</span><br></pre></td></tr></table></figure>
-<p>把delay该小一点。默认为500</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -942,7 +940,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

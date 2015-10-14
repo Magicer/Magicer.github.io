@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://magicer.xyz/"/>
-  <updated>2015-10-12T06:45:04.717Z</updated>
+  <updated>2015-10-12T11:35:20.655Z</updated>
   <id>http://magicer.xyz/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://magicer.xyz/2015/10/hexo-custom-style/"/>
     <id>http://magicer.xyz/2015/10/hexo-custom-style/</id>
     <published>2015-10-12T06:21:35.000Z</published>
-    <updated>2015-10-12T06:45:04.717Z</updated>
+    <updated>2015-10-12T11:35:20.655Z</updated>
     <content type="html"><![CDATA[<p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
 <h2 id="添加样式支持">添加样式支持</h2><p>  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。<br>  首先，在样式文件的<code>source</code>文件夹下找到<code>css</code>文件夹，打开<code>main.styl</code>文件，在最后添加：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//My Layer</span></span><br><span class="line"><span class="comment">//--------------------------------------------------</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"_my/mycss"</span>;</span><br></pre></td></tr></table></figure>
@@ -27,7 +27,7 @@
 <h2 id="例子">例子</h2><p>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
 <p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.myButton</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#0f94bd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value">Arial</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">17px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">11px</span> <span class="number">27px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-shadow</span>:<span class="value"><span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="hexcolor">#2f6627</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">hover &#123;</span><br><span class="line">    background-color:<span class="hexcolor">#5cbf2a</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">active &#123;</span><br><span class="line">    position:relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>(ps:这里直接使用的css的格式写的，因为css的代码在网上很好找到，而stylus预处理器的就不那么容易找到了，stylus一样支持css格式，所以在这里直接使用了css文件，没有写成stylus语法。其实让我写我也不会，哈哈！)<br>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>样式如下：<br><a href="#" class="myButton">MyButton</a><br>效果已经出来了，怎么样？？是不是瞬间高大上。。有想要使用的样式，自行百度，找到后粘贴即可使用。</p>
 <h2 id="推荐">推荐</h2><p>推荐一个css button样式的生成网站：<a href="http://www.bestcssbuttongenerator.com/" target="_blank" rel="external">http://www.bestcssbuttongenerator.com/</a></p>
 ]]></content>
@@ -49,8 +49,8 @@
     <link href="http://magicer.xyz/2015/10/Hexo-github-gitcafe/"/>
     <id>http://magicer.xyz/2015/10/Hexo-github-gitcafe/</id>
     <published>2015-10-11T05:27:08.000Z</published>
-    <updated>2015-10-12T06:13:35.985Z</updated>
-    <content type="html"><![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" class="myButton" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
+    <updated>2015-10-12T06:47:28.269Z</updated>
+    <content type="html"><![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
 <h2 id="gitcafe的使用">gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）</p>
 <!-- HTML -->
 <p>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
@@ -62,7 +62,7 @@
 <p>  修改域名的解析搬移即可完成。<br>  新建CNAME解析，解析到<code>gitcafe.io</code>,现在gitcafe已经不支持A记录解析方式。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" class="myButton">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。]]>
+    <![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。]]>
     
     </summary>
     
@@ -81,7 +81,7 @@
     <link href="http://magicer.xyz/2015/08/blog-theme-changed/"/>
     <id>http://magicer.xyz/2015/08/blog-theme-changed/</id>
     <published>2015-08-20T12:31:37.000Z</published>
-    <updated>2015-10-12T05:22:44.617Z</updated>
+    <updated>2015-10-14T05:06:08.056Z</updated>
     <content type="html"><![CDATA[<p><img src="https://gitcafe.com/Magicer/Magicer/raw/gitcafe-pages/image/756094.jpg" alt="NexT" class="full-image"></p>
 <p>博客主题由原先的Jacman换成了现在高大上的NexT主题，Jacman主题显得过于花哨，而NexT却显得高大上一点。比较了一下，还是更喜欢NexT的感觉。下面就简单说明一下过程。<br>详细的下载安装及设置教程在这里：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br> 效果图就不用看了吧，毕竟效果已经摆出来了，如果你也喜欢，那就动手吧。</p>
 <h2 id="自定义NexT">自定义NexT</h2><p> 1、添加Title 。<br>  NexT主题的Title和网站主页上的左上角的LOGO字体是一样的，在这里我想设置成不一样的怎么办呢？其实很简单，只需要在配置文件中添加一个<code>name</code>（注意：这个配置文件的位置是HEXO的配置文件不是主题的配置文件。<br>  ps：我觉得还是用logo比较好，由于子集以前就是用的name，在这里就不更改了）<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: <span class="string">Magicer|张同爽的个人博客</span></span><br><span class="line"><span class="attribute">name</span>: <span class="string">Magicer</span></span><br></pre></td></tr></table></figure></p>
@@ -96,6 +96,25 @@
       <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
     
       <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[解决vim使用过程中与遇到问题]]></title>
+    <link href="http://magicer.xyz/2015/08/vim-notes/"/>
+    <id>http://magicer.xyz/2015/08/vim-notes/</id>
+    <published>2015-08-14T04:02:47.000Z</published>
+    <updated>2015-10-14T04:12:44.372Z</updated>
+    <content type="html"><![CDATA[<h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> ～/.vimrc</span><br><span class="line">##也可以 <span class="keyword">vim</span> /etc/<span class="keyword">vim</span>/vimrc</span><br></pre></td></tr></table></figure></p>
+<p>在其中输入以下代码：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> encoding=UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> langmenu=zh_CN.UTF-<span class="number">8</span></span><br><span class="line">language <span class="keyword">message</span> zh_CN.UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> fileencodings=ucs-bom,utf-<span class="number">8</span>,cp936,gb18030,big5,euc-jp,euc-kr,latin1</span><br><span class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span clas]]>
+    </summary>
+    
+      <category term="vim" scheme="http://magicer.xyz/tags/vim/"/>
+    
+      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
@@ -234,7 +253,7 @@
     <link href="http://magicer.xyz/2015/05/git-tag-branch/"/>
     <id>http://magicer.xyz/2015/05/git-tag-branch/</id>
     <published>2015-05-04T04:21:55.000Z</published>
-    <updated>2015-10-10T16:02:33.366Z</updated>
+    <updated>2015-10-13T17:35:02.906Z</updated>
     <content type="html"><![CDATA[<p> Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br><a id="more"></a></p>
 <h2 id="（一）git_tag">（一）git tag</h2><h3 id="列出git中现有标签">列出git中现有标签</h3><p>   要想列出git中现有的所有标签，输入’git tag’命令运行即可：<br>  <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">tag</span></span><br><span class="line">v0<span class="built_in">.1</span></span><br><span class="line">v1<span class="built_in">.3</span></span><br></pre></td></tr></table></figure></p>
    <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin <span class="keyword">tag</span> <span class="variable">&lt;tagname&gt;</span>   	<span class="comment">##获取远程tag</span></span><br></pre></td></tr></table></figure>
@@ -242,7 +261,7 @@
 <h4 id="带注释的标签">带注释的标签</h4><p> 然而，带注释的标签是git仓库中的对象，它是一组校验和，包含标签名、email、日期，标签信息，GPG签名和验证<br> <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">tag</span> -a v1.<span class="number">4</span> -m ‘version <span class="number">1.4</span>‘</span><br><span class="line">$ git <span class="keyword">tag</span></span><br><span class="line">v0.<span class="number">1</span></span><br><span class="line">v1.<span class="number">3</span></span><br><span class="line">v1.<span class="number">4</span></span><br><span class="line"><span class="variable">$git</span> show</span><br><span class="line"><span class="variable">$git</span> push origin --delete <span class="keyword">tag</span> <span class="variable">&lt;tagname&gt;</span> <span class="comment">##删除远程tag</span></span><br></pre></td></tr></table></figure></p>
 <p>可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象。</p>
 <h3 id="发布标签">发布标签</h3><p> 通常的git push不会将标签对象提交到git服务器，我们需要进行显式的操作：<br> <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">push</span> origin v0.1.2 <span class="preprocessor"># 将v0.1.2标签提交到git服务器</span></span><br><span class="line">$ git <span class="keyword">push</span> origin –tags <span class="preprocessor"># 将本地所有标签一次性提交到git服务器</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="（二）git_branch">（二）git branch</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="operator">-a</span> <span class="comment">##显示远程分支 红色为远程分支</span></span><br><span class="line">git branch <span class="operator">-d</span> gh-pages  <span class="comment">##删除本地分支</span></span><br><span class="line">git push origin :branch_name  <span class="comment">##删除远程分支</span></span><br></pre></td></tr></table></figure>
+<h2 id="（二）git_branch">（二）git branch</h2> <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git branch -a <span class="preprocessor">##显示远程分支 红色为远程分支</span></span><br><span class="line">git branch -d gh-pages  <span class="preprocessor">##删除本地分支</span></span><br><span class="line">git <span class="keyword">push</span> origin :branch_name  <span class="preprocessor">##删除远程分支</span></span><br><span class="line"></span><br><span class="line">git branch branch_name</span><br><span class="line">git commit </span><br><span class="line">git <span class="keyword">push</span> origin branch_name <span class="preprocessor">##提交本地分支</span></span><br></pre></td></tr></table></figure>
 <h2 id="（三）在shell中显示分支名字">（三）在shell中显示分支名字</h2><p> 只需要把下面代码添加到 ～/.bashrc文件中即可。<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">## Parses out the branch name from .git/HEAD:</span></span><br><span class="line"><span class="function"><span class="title">find_git_branch</span></span> () &#123;</span><br><span class="line">    <span class="built_in">local</span> dir=. head</span><br><span class="line">    until [ <span class="string">"<span class="variable">$dir</span>"</span> -ef / ]; <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="operator">-f</span> <span class="string">"<span class="variable">$dir</span>/.git/HEAD"</span> ]; <span class="keyword">then</span></span><br><span class="line">            head=$(&lt; <span class="string">"<span class="variable">$dir</span>/.git/HEAD"</span>)</span><br><span class="line">            <span class="keyword">if</span> [[ <span class="variable">$head</span> = ref:\ refs/heads/* ]]; <span class="keyword">then</span></span><br><span class="line">                git_branch=<span class="string">" | <span class="variable">$&#123;head#*/*/&#125;</span>"</span></span><br><span class="line">            <span class="keyword">elif</span> [[ <span class="variable">$head</span> != <span class="string">''</span> ]]; <span class="keyword">then</span></span><br><span class="line">                git_branch=<span class="string">" | (detached)"</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                git_branch=<span class="string">" | (unknow)"</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            <span class="built_in">return</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        dir=<span class="string">"../<span class="variable">$dir</span>"</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    git_branch=<span class="string">''</span></span><br><span class="line">&#125;</span><br><span class="line">green=$<span class="string">'\[\e[1;32m\]'</span></span><br><span class="line">normal=$<span class="string">'\[\e[m\]'</span></span><br><span class="line">PROMPT_COMMAND=<span class="string">"find_git_branch; <span class="variable">$PROMPT_COMMAND</span>"</span></span><br><span class="line">PS1=<span class="string">"\u@\h:\w<span class="variable">$green</span>\$git_branch <span class="variable">$normal</span>\$ "</span></span><br></pre></td></tr></table></figure></p>
 ]]></content>
     <summary type="html">
@@ -538,31 +557,6 @@
     </summary>
     
       <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[使用linux遇到的一些问题]]></title>
-    <link href="http://magicer.xyz/2015/01/linux-problems/"/>
-    <id>http://magicer.xyz/2015/01/linux-problems/</id>
-    <published>2015-01-31T07:22:35.000Z</published>
-    <updated>2015-10-10T15:59:25.734Z</updated>
-    <content type="html"><![CDATA[<p>使用ubuntu linux 遇到的一些问题及解决方法。<a id="more"></a></p>
-<h2 id="ubuntu的使用">ubuntu的使用</h2><p>1.安装完ubuntu之后，windows分区无法挂载，出现如下图所示提示：<br><img src="/image_code/01.png" alt="ubuntu挂载"><br>解决方法：打开终端（快捷键ctrl+alt+t）输入：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ntfsfix <span class="regexp">/dev/</span>sda6</span><br></pre></td></tr></table></figure></p>
-<p>挂载系统盘时显示：</p>
-<blockquote>
-<p>Mounting volume… Windows is hibernated, refused to mount.<br>FAILED<br>Attempting to correct errors…<br>Processing $MFT and $MFTMirr…<br>Reading $MFT… OK<br>Reading $MFTMirr… OK<br>Comparing $MFTMirr to $MFT… OK<br>Processing of $MFT and $MFTMirr completed successfully.<br>Setting required flags on partition… OK<br>Going to empty the journal ($LogFile)… OK<br>Windows is hibernated, refused to mount.<br>Remount failed: Operation not permitted</p>
-</blockquote>
-<p>问题待解决。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>使用ubuntu linux 遇到的一些问题及解决方法。]]>
-    
-    </summary>
-    
-      <category term="ubuntu" scheme="http://magicer.xyz/tags/ubuntu/"/>
-    
-      <category term="系统使用" scheme="http://magicer.xyz/categories/%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
