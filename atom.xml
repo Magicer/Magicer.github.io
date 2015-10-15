@@ -3,9 +3,9 @@
   <title><![CDATA[Magicer|张同爽的个人博客]]></title>
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://magicer.xyz/"/>
-  <updated>2015-10-12T11:35:20.655Z</updated>
-  <id>http://magicer.xyz/</id>
+  <link href="http://blog.magicer.xyz/"/>
+  <updated>2015-10-15T10:44:09.332Z</updated>
+  <id>http://blog.magicer.xyz/</id>
   
   <author>
     <name><![CDATA[Magicer]]></name>
@@ -15,9 +15,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Android Studio使用中的问题]]></title>
+    <link href="http://blog.magicer.xyz/2015/10/android-studio-basic/"/>
+    <id>http://blog.magicer.xyz/2015/10/android-studio-basic/</id>
+    <published>2015-10-15T10:37:15.000Z</published>
+    <updated>2015-10-15T10:44:09.332Z</updated>
+    <content type="html"><![CDATA[<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="exter]]>
+    </summary>
+    
+      <category term="android" scheme="http://blog.magicer.xyz/tags/android/"/>
+    
+      <category term="android studio" scheme="http://blog.magicer.xyz/tags/android-studio/"/>
+    
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Hexo博客主题NexT使用自定义的CSS样式]]></title>
-    <link href="http://magicer.xyz/2015/10/hexo-custom-style/"/>
-    <id>http://magicer.xyz/2015/10/hexo-custom-style/</id>
+    <link href="http://blog.magicer.xyz/2015/10/hexo-custom-style/"/>
+    <id>http://blog.magicer.xyz/2015/10/hexo-custom-style/</id>
     <published>2015-10-12T06:21:35.000Z</published>
     <updated>2015-10-12T11:35:20.655Z</updated>
     <content type="html"><![CDATA[<p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
@@ -36,18 +56,18 @@
 <h2 id="添加样]]>
     </summary>
     
-      <category term="NexT" scheme="http://magicer.xyz/tags/NexT/"/>
+      <category term="NexT" scheme="http://blog.magicer.xyz/tags/NexT/"/>
     
-      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.magicer.xyz/tags/hexo/"/>
     
-      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hexo博客转移 从github到gitcafe]]></title>
-    <link href="http://magicer.xyz/2015/10/Hexo-github-gitcafe/"/>
-    <id>http://magicer.xyz/2015/10/Hexo-github-gitcafe/</id>
+    <link href="http://blog.magicer.xyz/2015/10/Hexo-github-gitcafe/"/>
+    <id>http://blog.magicer.xyz/2015/10/Hexo-github-gitcafe/</id>
     <published>2015-10-11T05:27:08.000Z</published>
     <updated>2015-10-12T06:47:28.269Z</updated>
     <content type="html"><![CDATA[<p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
@@ -66,20 +86,20 @@
     
     </summary>
     
-      <category term="gitcafe" scheme="http://magicer.xyz/tags/gitcafe/"/>
+      <category term="gitcafe" scheme="http://blog.magicer.xyz/tags/gitcafe/"/>
     
-      <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+      <category term="github" scheme="http://blog.magicer.xyz/tags/github/"/>
     
-      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.magicer.xyz/tags/hexo/"/>
     
-      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Hexo博客主题换成了NexT]]></title>
-    <link href="http://magicer.xyz/2015/08/blog-theme-changed/"/>
-    <id>http://magicer.xyz/2015/08/blog-theme-changed/</id>
+    <link href="http://blog.magicer.xyz/2015/08/blog-theme-changed/"/>
+    <id>http://blog.magicer.xyz/2015/08/blog-theme-changed/</id>
     <published>2015-08-20T12:31:37.000Z</published>
     <updated>2015-10-14T05:06:08.056Z</updated>
     <content type="html"><![CDATA[<p><img src="https://gitcafe.com/Magicer/Magicer/raw/gitcafe-pages/image/756094.jpg" alt="NexT" class="full-image"></p>
@@ -93,16 +113,16 @@
 <p>博客主题由原先的Jacman换成了]]>
     </summary>
     
-      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.magicer.xyz/tags/hexo/"/>
     
-      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[解决vim使用过程中与遇到问题]]></title>
-    <link href="http://magicer.xyz/2015/08/vim-notes/"/>
-    <id>http://magicer.xyz/2015/08/vim-notes/</id>
+    <link href="http://blog.magicer.xyz/2015/08/vim-notes/"/>
+    <id>http://blog.magicer.xyz/2015/08/vim-notes/</id>
     <published>2015-08-14T04:02:47.000Z</published>
     <updated>2015-10-14T04:12:44.372Z</updated>
     <content type="html"><![CDATA[<h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> ～/.vimrc</span><br><span class="line">##也可以 <span class="keyword">vim</span> /etc/<span class="keyword">vim</span>/vimrc</span><br></pre></td></tr></table></figure></p>
@@ -112,16 +132,16 @@
     <![CDATA[<h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span clas]]>
     </summary>
     
-      <category term="vim" scheme="http://magicer.xyz/tags/vim/"/>
+      <category term="vim" scheme="http://blog.magicer.xyz/tags/vim/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[java初学常用代码知识]]></title>
-    <link href="http://magicer.xyz/2015/08/java-code-fragment/"/>
-    <id>http://magicer.xyz/2015/08/java-code-fragment/</id>
+    <link href="http://blog.magicer.xyz/2015/08/java-code-fragment/"/>
+    <id>http://blog.magicer.xyz/2015/08/java-code-fragment/</id>
     <published>2015-08-01T12:34:31.000Z</published>
     <updated>2015-10-10T16:27:01.574Z</updated>
     <content type="html"><![CDATA[<h2 id="File类">File类</h2><p>File类的构造方法</p>
@@ -135,16 +155,16 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br>]]>
     </summary>
     
-      <category term="java" scheme="http://magicer.xyz/tags/java/"/>
+      <category term="java" scheme="http://blog.magicer.xyz/tags/java/"/>
     
-      <category term="Java" scheme="http://magicer.xyz/categories/Java/"/>
+      <category term="Java" scheme="http://blog.magicer.xyz/categories/Java/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[泛型的简单使用]]></title>
-    <link href="http://magicer.xyz/2015/08/generic-simple/"/>
-    <id>http://magicer.xyz/2015/08/generic-simple/</id>
+    <link href="http://blog.magicer.xyz/2015/08/generic-simple/"/>
+    <id>http://blog.magicer.xyz/2015/08/generic-simple/</id>
     <published>2015-08-01T11:55:15.000Z</published>
     <updated>2015-10-10T16:27:54.026Z</updated>
     <content type="html"><![CDATA[<p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法<a id="more"></a></p>
@@ -157,16 +177,16 @@
     
     </summary>
     
-      <category term="java泛型" scheme="http://magicer.xyz/tags/java%E6%B3%9B%E5%9E%8B/"/>
+      <category term="java泛型" scheme="http://blog.magicer.xyz/tags/java%E6%B3%9B%E5%9E%8B/"/>
     
-      <category term="Java" scheme="http://magicer.xyz/categories/Java/"/>
+      <category term="Java" scheme="http://blog.magicer.xyz/categories/Java/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[整整两个月了]]></title>
-    <link href="http://magicer.xyz/2015/07/total-two-month/"/>
-    <id>http://magicer.xyz/2015/07/total-two-month/</id>
+    <link href="http://blog.magicer.xyz/2015/07/total-two-month/"/>
+    <id>http://blog.magicer.xyz/2015/07/total-two-month/</id>
     <published>2015-07-09T14:06:59.000Z</published>
     <updated>2015-10-10T16:14:46.982Z</updated>
     <content type="html"><![CDATA[<a id="more"></a>
@@ -181,14 +201,14 @@
 <p><hr><br> 已经整整两个月没有写博客]]>
     </summary>
     
-      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
+      <category term="生活轶事" scheme="http://blog.magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[（转）Android开发效率—Eclipse快捷键]]></title>
-    <link href="http://magicer.xyz/2015/05/android-eclipse-hot-key/"/>
-    <id>http://magicer.xyz/2015/05/android-eclipse-hot-key/</id>
+    <link href="http://blog.magicer.xyz/2015/05/android-eclipse-hot-key/"/>
+    <id>http://blog.magicer.xyz/2015/05/android-eclipse-hot-key/</id>
     <published>2015-05-09T12:26:50.000Z</published>
     <updated>2015-10-10T16:12:38.894Z</updated>
     <content type="html"><![CDATA[<p> 很多过去使用Visual Studio开发软件的网友可能不熟悉Java开发环境，今天Android开发网告诉大家一些提高Android开发效率的Eclipse快捷键，可以有效率的帮助我们管理代码和减少键盘输入。Eclipse相对于Visual Studio而言使用Java开发，响应速度和稳定性上有很大的欠缺，这些我们目前只能容忍下。<a id="more"></a></p>
@@ -219,18 +239,18 @@
     
     </summary>
     
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+      <category term="android" scheme="http://blog.magicer.xyz/tags/android/"/>
     
-      <category term="eclipse" scheme="http://magicer.xyz/tags/eclipse/"/>
+      <category term="eclipse" scheme="http://blog.magicer.xyz/tags/eclipse/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[eclipse-android自动提示代码]]></title>
-    <link href="http://magicer.xyz/2015/05/eclipse-android-auto/"/>
-    <id>http://magicer.xyz/2015/05/eclipse-android-auto/</id>
+    <link href="http://blog.magicer.xyz/2015/05/eclipse-android-auto/"/>
+    <id>http://blog.magicer.xyz/2015/05/eclipse-android-auto/</id>
     <published>2015-05-04T12:31:08.000Z</published>
     <updated>2015-10-10T15:59:39.470Z</updated>
     <content type="html"><![CDATA[<h2 id="（一）设置_java_文件的代码提示功能">（一）设置 java 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Java &gt; Editor - Content Assist &gt; Auto activation triggers for Java ，设置框中默认是一个点，<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.abcdefghijklmnopqrstuvwxyz(,</span></span><br></pre></td></tr></table></figure></p>
@@ -242,16 +262,16 @@
     <![CDATA[<h2 id="（一）设置_java_文件的代码提示功能">（一）设置 java 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Java &gt; Editor - Content Assist &g]]>
     </summary>
     
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+      <category term="android" scheme="http://blog.magicer.xyz/tags/android/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[git tag 、branch的使用]]></title>
-    <link href="http://magicer.xyz/2015/05/git-tag-branch/"/>
-    <id>http://magicer.xyz/2015/05/git-tag-branch/</id>
+    <link href="http://blog.magicer.xyz/2015/05/git-tag-branch/"/>
+    <id>http://blog.magicer.xyz/2015/05/git-tag-branch/</id>
     <published>2015-05-04T04:21:55.000Z</published>
     <updated>2015-10-13T17:35:02.906Z</updated>
     <content type="html"><![CDATA[<p> Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br><a id="more"></a></p>
@@ -269,16 +289,16 @@
     
     </summary>
     
-      <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+      <category term="github" scheme="http://blog.magicer.xyz/tags/github/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[配置github]]></title>
-    <link href="http://magicer.xyz/2015/04/github-config/"/>
-    <id>http://magicer.xyz/2015/04/github-config/</id>
+    <link href="http://blog.magicer.xyz/2015/04/github-config/"/>
+    <id>http://blog.magicer.xyz/2015/04/github-config/</id>
     <published>2015-04-30T06:32:59.000Z</published>
     <updated>2015-10-11T10:45:21.645Z</updated>
     <content type="html"><![CDATA[<p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
@@ -294,16 +314,16 @@
     
     </summary>
     
-      <category term="github" scheme="http://magicer.xyz/tags/github/"/>
+      <category term="github" scheme="http://blog.magicer.xyz/tags/github/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[安装sublime_text2]]></title>
-    <link href="http://magicer.xyz/2015/04/sublime-text2/"/>
-    <id>http://magicer.xyz/2015/04/sublime-text2/</id>
+    <link href="http://blog.magicer.xyz/2015/04/sublime-text2/"/>
+    <id>http://blog.magicer.xyz/2015/04/sublime-text2/</id>
     <published>2015-04-30T03:44:06.000Z</published>
     <updated>2015-10-10T16:12:13.278Z</updated>
     <content type="html"><![CDATA[<p>  Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。</p>
@@ -319,16 +339,16 @@
     
     </summary>
     
-      <category term="sublime" scheme="http://magicer.xyz/tags/sublime/"/>
+      <category term="sublime" scheme="http://blog.magicer.xyz/tags/sublime/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[ubuntu安装32位库]]></title>
-    <link href="http://magicer.xyz/2015/04/ubuntu-32bit-lib/"/>
-    <id>http://magicer.xyz/2015/04/ubuntu-32bit-lib/</id>
+    <link href="http://blog.magicer.xyz/2015/04/ubuntu-32bit-lib/"/>
+    <id>http://blog.magicer.xyz/2015/04/ubuntu-32bit-lib/</id>
     <published>2015-04-30T03:35:35.000Z</published>
     <updated>2015-10-10T16:28:29.750Z</updated>
     <content type="html"><![CDATA[<p>很多软件只有32位的，有的依赖32位库还挺严重的；从ubuntu 13.10已经废弃了ia32-libs，但可以使用多架构，安装软件或包apt-get install program:i386。有的还是觉得烦，想一步到位安装所有的以前的ia32-libs，可以使用以下方法：<br><a id="more"></a></p>
@@ -340,18 +360,18 @@
     
     </summary>
     
-      <category term="linux" scheme="http://magicer.xyz/tags/linux/"/>
+      <category term="linux" scheme="http://blog.magicer.xyz/tags/linux/"/>
     
-      <category term="ubuntu" scheme="http://magicer.xyz/tags/ubuntu/"/>
+      <category term="ubuntu" scheme="http://blog.magicer.xyz/tags/ubuntu/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[安装Hexo，搭建博客]]></title>
-    <link href="http://magicer.xyz/2015/04/hexo-install/"/>
-    <id>http://magicer.xyz/2015/04/hexo-install/</id>
+    <link href="http://blog.magicer.xyz/2015/04/hexo-install/"/>
+    <id>http://blog.magicer.xyz/2015/04/hexo-install/</id>
     <published>2015-04-30T01:28:51.000Z</published>
     <updated>2015-10-10T15:54:46.170Z</updated>
     <content type="html"><![CDATA[<p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。</p>
@@ -368,16 +388,16 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://magicer.xyz/tags/hexo/"/>
+      <category term="hexo" scheme="http://blog.magicer.xyz/tags/hexo/"/>
     
-      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[sublime输入中文]]></title>
-    <link href="http://magicer.xyz/2015/04/sublime-chinese/"/>
-    <id>http://magicer.xyz/2015/04/sublime-chinese/</id>
+    <link href="http://blog.magicer.xyz/2015/04/sublime-chinese/"/>
+    <id>http://blog.magicer.xyz/2015/04/sublime-chinese/</id>
     <published>2015-04-29T14:09:30.000Z</published>
     <updated>2015-10-10T15:52:25.630Z</updated>
     <content type="html"><![CDATA[<p>在Ubuntu 14.04中安装了SublimeText 3之后发现既然不支持输入中文，于是在网上搜罗一下，发现很多人遇到了同样的问题，但是解决办法大该就只有一个。下面根据自身的安装及解决办法总结如下：</p>
@@ -406,16 +426,16 @@
     
     </summary>
     
-      <category term="sublime" scheme="http://magicer.xyz/tags/sublime/"/>
+      <category term="sublime" scheme="http://blog.magicer.xyz/tags/sublime/"/>
     
-      <category term="软件使用" scheme="http://magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+      <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android初学常见的几个知识点]]></title>
-    <link href="http://magicer.xyz/2015/04/android-basic/"/>
-    <id>http://magicer.xyz/2015/04/android-basic/</id>
+    <link href="http://blog.magicer.xyz/2015/04/android-basic/"/>
+    <id>http://blog.magicer.xyz/2015/04/android-basic/</id>
     <published>2015-04-15T16:09:30.000Z</published>
     <updated>2015-10-10T16:11:09.354Z</updated>
     <content type="html"><![CDATA[<h2 id="Activity">Activity</h2><p>Activity 是用户接口程序，原则上它会提供给用户一个交互式的接口功能。它是 android 应用程序的基本功能单元。Activity 本身是没有界面的。所以activity类创建了一个窗口，开发人员可以通过setContentView(View)接口把UI放到activity创建的窗口上，当activity指向全屏窗口时，也可以用其他方式实现：作为漂浮窗口（通过windowIsFloating的主题集合），或者嵌入到其他的activity（使用ActivityGroup）。activity是单独的，用于处理用户操作。几乎所有的activity都要和用户打交道<a id="more"></a></p>
@@ -439,16 +459,16 @@
     
     </summary>
     
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+      <category term="android" scheme="http://blog.magicer.xyz/tags/android/"/>
     
-      <category term="Android" scheme="http://magicer.xyz/categories/Android/"/>
+      <category term="Android" scheme="http://blog.magicer.xyz/categories/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android开发环境搭建]]></title>
-    <link href="http://magicer.xyz/2015/03/android-first-step/"/>
-    <id>http://magicer.xyz/2015/03/android-first-step/</id>
+    <link href="http://blog.magicer.xyz/2015/03/android-first-step/"/>
+    <id>http://blog.magicer.xyz/2015/03/android-first-step/</id>
     <published>2015-03-19T12:08:15.000Z</published>
     <updated>2015-10-10T16:05:20.338Z</updated>
     <content type="html"><![CDATA[<p>这学期有安卓课程，在搭建android环境的时候还是遇到了一些问题，所以决定整理一份关于<br> android环境搭建的教程留着以后使用。主要包括jdk的安装，android studio和eclipse的配置，和sdk的安装<br>  主要是sdk的问题较为重要，毕竟在国内无法访问<a id="more"></a></p>
@@ -484,18 +504,18 @@
     
     </summary>
     
-      <category term="android" scheme="http://magicer.xyz/tags/android/"/>
+      <category term="android" scheme="http://blog.magicer.xyz/tags/android/"/>
     
-      <category term="java" scheme="http://magicer.xyz/tags/java/"/>
+      <category term="java" scheme="http://blog.magicer.xyz/tags/java/"/>
     
-      <category term="Android" scheme="http://magicer.xyz/categories/Android/"/>
+      <category term="Android" scheme="http://blog.magicer.xyz/categories/Android/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[搭建wordpress后出现的问题]]></title>
-    <link href="http://magicer.xyz/2015/03/wordpress-problems/"/>
-    <id>http://magicer.xyz/2015/03/wordpress-problems/</id>
+    <link href="http://blog.magicer.xyz/2015/03/wordpress-problems/"/>
+    <id>http://blog.magicer.xyz/2015/03/wordpress-problems/</id>
     <published>2015-03-12T07:42:51.000Z</published>
     <updated>2015-10-10T16:02:12.674Z</updated>
     <content type="html"><![CDATA[<a id="more"></a>
@@ -513,16 +533,16 @@
 <h4 id="（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</h4><p>找到ph]]>
     </summary>
     
-      <category term="wordpress" scheme="http://magicer.xyz/tags/wordpress/"/>
+      <category term="wordpress" scheme="http://blog.magicer.xyz/tags/wordpress/"/>
     
-      <category term="博客搭建" scheme="http://magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[新学期]]></title>
-    <link href="http://magicer.xyz/2015/03/wordpress-first/"/>
-    <id>http://magicer.xyz/2015/03/wordpress-first/</id>
+    <link href="http://blog.magicer.xyz/2015/03/wordpress-first/"/>
+    <id>http://blog.magicer.xyz/2015/03/wordpress-first/</id>
     <published>2015-03-12T06:11:57.000Z</published>
     <updated>2015-10-10T15:57:42.122Z</updated>
     <content type="html"><![CDATA[<h2 id="博客要转移了">博客要转移了</h2><p>  在ubuntu上搭建了一晚上的环境，到夜里两点，不过总算是弄好了，今天刚收到阿里云寄来的幕布，已经拍完照穿上去，刚接到短信已经通过了，就等着正式可用了。过几天是不是好要做个关于备案还有搭建wordpress环境的博客来记录一下。</p>
@@ -537,26 +557,7 @@
     
     </summary>
     
-      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[我的代码之旅————纸上得来终觉浅]]></title>
-    <link href="http://magicer.xyz/2015/02/my-code/"/>
-    <id>http://magicer.xyz/2015/02/my-code/</id>
-    <published>2015-02-04T09:25:18.000Z</published>
-    <updated>2015-10-10T15:58:15.030Z</updated>
-    <content type="html"><![CDATA[<p><img src="/image/11865.jpg" width="340px" height="360px" class="img-topic"><br>  看了很久的书，总感觉自己学会了，可是真正到让自己打出来代码的时候就发现，其实自己什么都不会。到处是错误。当然错误是在所难免的，但是只看书还是不够的，还是需要多实际操作。也许这就是为什么大学生出来之后还需要在参加培训才能直接工作的原因吧。实际动手能里确实有点太差了。引以为戒吧！  <a id="more"></a></p>
-<p>  纸上得来终觉浅，觉知此事要躬行。</p>
-<p>  当感觉自己无所不能的时候，也许此时你是一无是处。认真学习固然重要，但是脱离了实践终究是纸上谈兵。成不了什么大气候。<img src="/image/11865.jpg"></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[看了很久的书，总感觉自己学会了，可是真正到让自己打出来代码的时候就发现，其实自己什么都不会。到处是错误。当然错误是在所难免的，但是只看书还是不够的，还是需要多实际操作。也许这就是为什么大学生出来之后还需要在参加培训才能直接工作的原因吧。实际动手能里确实有点太差了。引以为戒吧！ <!--more-->]]>
-    
-    </summary>
-    
-      <category term="生活轶事" scheme="http://magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
+      <category term="生活轶事" scheme="http://blog.magicer.xyz/categories/%E7%94%9F%E6%B4%BB%E8%BD%B6%E4%BA%8B/"/>
     
   </entry>
   
