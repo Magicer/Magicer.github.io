@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.magicer.xyz/README.html</loc>
+    <lastmod>2015-10-16T15:49:51.124Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.magicer.xyz/about/index.html</loc>
     <lastmod>2015-10-15T14:29:25.176Z</lastmod>
   </url>
@@ -184,11 +189,6 @@
   <url>
     <loc>http://blog.magicer.xyz/google32992d994507fa75.html</loc>
     <lastmod>2015-04-30T07:06:38.963Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.magicer.xyz/README.html</loc>
-    <lastmod>2015-04-30T07:06:38.923Z</lastmod>
   </url>
   
   <url>
