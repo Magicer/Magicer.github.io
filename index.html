@@ -26,11 +26,11 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
-    <meta name="description" content="记录生活 |Android|Java" />
+    <meta name="description" content="记录学习中遇到的问题" />
 
 
 
-  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 分享生活|Android/Java编程记录" />
+  <meta name="keywords" content="张同爽的个人博客 http://magicer.xyz 记录学习中遇到的问题|Android/Java编程记录" />
 
 
 
@@ -41,21 +41,21 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/icon.png##/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="记录生活 |Android|Java">
+<meta name="description" content="记录学习中遇到的问题">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Magicer|张同爽的个人博客">
 <meta property="og:url" content="http://blog.magicer.xyz/index.html">
 <meta property="og:site_name" content="Magicer|张同爽的个人博客">
-<meta property="og:description" content="记录生活 |Android|Java">
+<meta property="og:description" content="记录学习中遇到的问题">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Magicer|张同爽的个人博客">
-<meta name="twitter:description" content="记录生活 |Android|Java">
+<meta name="twitter:description" content="记录学习中遇到的问题">
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post'
+    sidebar: 'always'
   };
 </script>
 
@@ -207,6 +207,426 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/the-basic-of-android-animation/" itemprop="url">
+                Android Animation基础（一）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-27T15:18:29+08:00" content="2015-10-27">
+            2015-10-27
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Android/" itemprop="url" rel="index">
+                  <span itemprop="name">Android</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/the-basic-of-android-animation/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/the-basic-of-android-animation/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="视图动画（View_Animation）">视图动画（View Animation）</h2><p> 主要有AlphaAnimation ,RotateAnimation,TranslateAnimation,ScaleAnimation四种动画方式，在3.0之前广泛使用，但是由于不具有交互性（当View发生视图动画后，其响应事件的位置仍然在动画前的地方），渐渐的属性动画使用的多起来。一般试图动画制作普通的动画效果，不做交互。优点就是效率高使用方便。</p>
+<h3 id="通过XML定义动画">通过XML定义动画</h3><p>在<code>anim</code>文件夹下创建，通过xml创建的动画可读性较好。<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml <span class="variable">version=</span><span class="string">"1.0"</span> <span class="variable">encoding=</span><span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;set xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:<span class="variable">interpolator=</span><span class="string">"@[package:]anim/interpolator_resource"</span></span><br><span class="line">    android:<span class="variable">shareInterpolator=</span>[<span class="string">"true"</span> | <span class="string">"false"</span>] &gt;</span><br><span class="line">    &lt;alpha</span><br><span class="line">        android:<span class="variable">fromAlpha=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toAlpha=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;scale</span><br><span class="line">        android:<span class="variable">fromXScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toXScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">fromYScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toYScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotX=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotY=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;translate</span><br><span class="line">        android:<span class="variable">fromXDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toXDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">fromYDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toYDelta=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;rotate</span><br><span class="line">        android:<span class="variable">fromDegrees=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toDegrees=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotX=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotY=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面来解释一下：<br><code>android:interpolator</code> ：表示动画集合采用的插值器，插值器影响动画的速度。<br><code>android:shareInterpolator</code> ：表示集合中的动画是否和集合公用同一个插值器。<br><code>pivot</code>：支点，枢纽；</p>
+<p>通过xml创建的动画怎么使用呢：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animation animation=AnimationUtils.loadAnimation(<span class="keyword">this</span>,R.anim.viewanimation);</span><br><span class="line">view.startAnimation(animation);</span><br></pre></td></tr></table></figure></p>
+<h3 id="透明度动画AlphaAnimation">透明度动画AlphaAnimation</h3><p>这个应该很清楚，设置开始值，结束值即可。<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AlphaAnimation aa=new AlphaAnimation(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">aa.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(aa);</span><br><span class="line">/*</span><br><span class="line">* <span class="keyword">public</span> AlphaAnimation (<span class="built_in">float</span> fromAlpha, <span class="built_in">float</span> toAlpha)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
+<h3 id="位移动画_TranslateAnimation">位移动画 TranslateAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">TranslateAnimation ta=new TranslateAnimation(<span class="number">0</span>,<span class="number">300</span>,<span class="number">0</span>,<span class="number">300</span>);</span><br><span class="line">ta.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(ta);</span><br><span class="line">/*</span><br><span class="line">*构造方法一：</span><br><span class="line">*<span class="keyword">public</span> TranslateAnimation (<span class="built_in">float</span> fromXDelta, <span class="built_in">float</span> toXDelta, </span><br><span class="line">                            <span class="built_in">float</span> fromYDelta, <span class="built_in">float</span> toYDelta)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> TranslateAnimation (<span class="built_in">int</span> fromXType, <span class="built_in">float</span> fromXValue, </span><br><span class="line">                            <span class="built_in">int</span> toXType, <span class="built_in">float</span> toXValue, </span><br><span class="line">                            <span class="built_in">int</span> fromYType, <span class="built_in">float</span> fromYValue, </span><br><span class="line">                            <span class="built_in">int</span> toYType, <span class="built_in">float</span> toYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF,</span><br><span class="line">* Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="缩放动画_ScaleAnimation">缩放动画 ScaleAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ScaleAnimation sa=new ScaleAnimation(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">sa.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(sa);</span><br><span class="line">/*</span><br><span class="line">*构造方法一</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY, </span><br><span class="line">                        <span class="built_in">float</span> pivotX, <span class="built_in">float</span> pivotY)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法三</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY, </span><br><span class="line">                        <span class="built_in">int</span> pivotXType, <span class="built_in">float</span> pivotXValue, </span><br><span class="line">                        <span class="built_in">int</span> pivotYType, <span class="built_in">float</span> pivotYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </span><br><span class="line">*Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="旋转动画_RotateAnimation">旋转动画 RotateAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">RotateAnimation ra=new RotateAnimation(<span class="number">0</span>,<span class="number">360</span>,<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">ra.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(ra);</span><br><span class="line">/*</span><br><span class="line">*构造方法一</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees, </span><br><span class="line">                        <span class="built_in">float</span> pivotX, <span class="built_in">float</span> pivotY)</span><br><span class="line">*pivotX等于<span class="number">0</span>是左边 Y=<span class="number">0</span>是上边</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法三</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees, </span><br><span class="line">                        <span class="built_in">int</span> pivotXType, <span class="built_in">float</span> pivotXValue, </span><br><span class="line">                        <span class="built_in">int</span> pivotYType, <span class="built_in">float</span> pivotYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </span><br><span class="line">*Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<h3 id="动画集合SetAnimation">动画集合SetAnimation</h3><p>动画集合简单只需要把需要的动画add上就OK了。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">AnimationSet <span class="keyword">as</span>=<span class="keyword">new</span> AnimationSet(<span class="literal">true</span>);</span><br><span class="line"><span class="keyword">as</span>.setDuration(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">AlphaAnimation alphaAnimation=<span class="keyword">new</span> AlphaAnimation(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">alphaAnimation.setDuration(<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">as</span>.addAnimation(alphaAnimation);</span><br><span class="line"></span><br><span class="line">RotateAnimation rotateAnimation=<span class="keyword">new</span> RotateAnimation(<span class="number">0</span>,<span class="number">360</span>);</span><br><span class="line">rotateAnimation.setDuration(<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">as</span>.addAnimation(rotateAnimation);</span><br><span class="line"></span><br><span class="line">View.startAnimation(<span class="keyword">as</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong><em>dddddd</em></strong><br><em>真是醉了</em><br><strong>dddddddd</strong></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/press-again-to-quit/" itemprop="url">
+                Android 中实现“再按一次退出程序”的提醒
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-26T14:35:04+08:00" content="2015-10-26">
+            2015-10-26
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Android/" itemprop="url" rel="index">
+                  <span itemprop="name">Android</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/press-again-to-quit/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/press-again-to-quit/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>见很多软件都有 按一次退出程序的提醒，觉得挺人性化，便从网上找到了代码，在这里记录一下：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">long</span> exitTime=<span class="number">0</span>;</span><br><span class="line"> @Override</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> onKeyDown(<span class="built_in">int</span> <span class="variable">keyCode</span>, KeyEvent event) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">keyCode</span> == KeyEvent.KEYCODE_BACK &amp;&amp; </span><br><span class="line">            event.getAction() == KeyEvent.ACTION_DOWN) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((System.currentTimeMillis() - exitTime) &gt; <span class="number">2000</span>) &#123;</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"再按一次退出程序"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                exitTime = System.currentTimeMillis();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                finish();</span><br><span class="line">                System.<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onKeyDown(<span class="variable">keyCode</span>, event);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/android-listview-general/" itemprop="url">
+                Android 中 ListView 的使用
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-25T14:45:03+08:00" content="2015-10-25">
+            2015-10-25
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/Android/" itemprop="url" rel="index">
+                  <span itemprop="name">Android</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/android-listview-general/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-listview-general/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>ListView是android应用开发中使用频率非常高的一个系统组件，几乎所有的应用中都要用到，尽管现在RecycleView有想要替代ListView的意味，但ListView仍然很重要。所以ListView值得我们深入的研究。下面就记录下ListView的使用。</p>
+<h2 id="ViewHolder">ViewHolder</h2><p>使用ViewHolder模式能够提高ListView的效率.基本的使用方法如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolderAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; mData;</span><br><span class="line">    <span class="keyword">private</span> LayoutInflater mInflater;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewHolderAdapter</span><span class="params">(Context context,List&lt;String&gt; data )</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mData=data;</span><br><span class="line">        mInflater=LayoutInflater.from(context);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> mData.<span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> mData.<span class="title">get</span><span class="params">(position)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">        ViewHolder holder=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//判断是否缓存</span></span><br><span class="line">        <span class="keyword">if</span> (convertView==<span class="keyword">null</span>)&#123;</span><br><span class="line">            holder=<span class="keyword">new</span> ViewHolder();</span><br><span class="line">            <span class="comment">//实例化布局</span></span><br><span class="line">            convertView=mInflater.inflate(R.layout.listitem,<span class="keyword">null</span>);</span><br><span class="line">            holder.img=(ImageView)convertView.findViewById(R.id.imageView);</span><br><span class="line">            holder.title=(TextView)convertView.findViewById(R.id.textView);</span><br><span class="line"></span><br><span class="line">            convertView.setTag(holder);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//通过Tag找到缓存的布局</span></span><br><span class="line">            holder=(ViewHolder)convertView.getTag();</span><br><span class="line">        &#125;</span><br><span class="line">        holder.img.setBackgroundResource(R.mipmap.ic_launcher);</span><br><span class="line">        holder.title.setText(mData.get(position));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> convertView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义的ViewHolder类</span></span><br><span class="line">      <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> ImageView img;</span><br><span class="line">        <span class="keyword">public</span> TextView title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ListView样式">ListView样式</h2><p>divider:分割线颜色，<br>diverHeight:分割线宽度，<br>scrollbars=none:去掉滑动条，<br>listSelector：取消点击效果 （transparent：透明的）<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListView</span><br><span class="line">      android:<span class="variable">layout_width=</span><span class="string">"wrap_content"</span></span><br><span class="line">      android:<span class="variable">layout_height=</span><span class="string">"wrap_content"</span></span><br><span class="line">      android:<span class="variable">id=</span><span class="string">"@+id/listView"</span></span><br><span class="line">      android:<span class="variable">divider=</span><span class="string">"@android:color/darker_gray"</span></span><br><span class="line">      android:<span class="variable">dividerHeight=</span><span class="string">"1dp"</span></span><br><span class="line">      android:<span class="variable">scrollbars=</span><span class="string">"none"</span> </span><br><span class="line">      android:<span class="variable">listSelector=</span><span class="string">"@android:color/transparent"</span>/&gt;</span><br><span class="line">&lt;ImageView</span><br><span class="line">      android:<span class="variable">layout_width=</span><span class="string">"match_parent"</span></span><br><span class="line">      android:<span class="variable">layout_height=</span><span class="string">"match_parent"</span></span><br><span class="line">      android:<span class="variable">id=</span><span class="string">"@+id/empty_listview"</span></span><br><span class="line">      android:<span class="variable">src=</span><span class="string">"@mipmap/ic_launcher"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通常可以添加一个默认的图片，在ListView Item 为空的时候显示，<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mListView= (ListView) findViewById(R.<span class="property">id</span>.listView);</span><br><span class="line">mListView.setEmptyView(findViewById(R.<span class="property">id</span>.empty_listview));</span><br></pre></td></tr></table></figure></p>
+<h2 id="ListView动态修改">ListView动态修改</h2><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mData.add(<span class="string">"iMac"</span>);</span><br><span class="line">mAdapter.notifyDataSetChanged<span class="literal">()</span>;</span><br></pre></td></tr></table></figure>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/android-studio-keymap/" itemprop="url">
+                Android Studio 快捷键的使用
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-25T14:13:17+08:00" content="2015-10-25">
+            2015-10-25
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/android-studio-keymap/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-studio-keymap/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>Android Studio 是Google官方的安卓开发IDE ，提供了集成的Android开发工具用于开发和调试，基于Gradle的构建支持。</p>
+<p>用好Android Studio 快捷键是必须要掌握的，下面介绍一下AS 的常用快捷键：</p>
+<h2 id="常用：">常用：</h2><p><code>Ctrl+Alt +L</code>:  格式化代码（在ubuntu上可能冲突，锁屏快捷键，修改系统的快捷键即可）<br><code>Alt+Insert</code>: 生成代码（get set方法，构造函数等）<br><code>Ctrl+Y</code>: 删除行<br><code>Ctrl+O</code> 显示父类所有的方法<br><code>Ctrl+J</code>：   自动代码<br><code>Ctrl+E</code>  打开最近的文件<br><code>Ctrl+Shift+Backspace</code> 跳转到上次编辑的地方<br><code>Ctrl+F12</code> 显示当前文件的结构<br><code>Alt+Q</code>  可以看到当前方法的声明<br><code>Ctrl+P</code>  显示参数信息<br><code>Ctrl+Shift+Insert</code> 可以选择剪贴板内容并插入</p>
+<h2 id="快捷键：">快捷键：</h2><p><code>Alt+回车</code>:   导入包，自动修正<br><code>Ctrl+N</code>:   查找类<br><code>Ctrl+Shift+N</code>: 查找文件<br><code>Ctrl+Alt+L</code>：   格式化代码<br><code>Ctrl+Alt+O</code>:   优化导入的包和类<br><code>Alt+Insert</code>: 生成代码（get set方法，构造函数等）<br><code>Ctrl+E</code>或<code>Alt+Space+C</code>:  最近更改的代码<br><code>Ctrl+Y</code>: 删除行<br><code>Ctrl+F</code>:   查找文本<br><code>Ctrl+R</code>：  替换文本<br><code>Ctrl+D</code>: 集合了复制粘贴<br><code>Ctrl+space</code> 输入代码时按次组合键会列出与之相匹配的类，方法名，成员变量（支持XML）<br><code>Ctrl+向上箭头或向下箭头</code>： 在有自动匹配下拉列表时，次快捷键会自动关闭下拉列表 光标移动到下一行<br><code>Ctrl+F</code> 搜索<br><code>Ctrl+Shift+A</code>：快速查找android studio中的菜单<br><code>Ctrl+B</code>  直接跳转到类，方法，成员变量定义的地方 （Ctrl+鼠标左键）<br><code>Ctrl+O</code> 显示父类所有的方法 </p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/music-play-list/" itemprop="url">
+                music-play-list
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-23T19:04:15+08:00" content="2015-10-23">
+            2015-10-23
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/music-play-list/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/music-play-list/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/android-studio-basic/" itemprop="url">
                 Android Studio使用中的问题
               </a>
@@ -260,7 +680,8 @@
 
       
         
-          <span itemprop="articleBody"><h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
+          <span itemprop="articleBody"><p>Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,<br>话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。</p>
+<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
 <p>下载后：File-&gt;import seetting-&gt;下载主题的路径；</p>
 </span>
         
@@ -462,454 +883,11 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/blog-theme-changed/" itemprop="url">
-                Hexo博客主题换成了NexT
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-20T20:31:37+08:00" content="2015-08-20">
-            2015-08-20
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/博客搭建/" itemprop="url" rel="index">
-                  <span itemprop="name">博客搭建</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/blog-theme-changed/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/blog-theme-changed/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><img src="https://gitcafe.com/Magicer/Magicer/raw/gitcafe-pages/image/756094.jpg" alt="NexT" class="full-image"><br>博客主题由原先的Jacman换成了现在高大上的NexT主题，Jacman主题显得过于花哨，而NexT却显得高大上一点。比较了一下，还是更喜欢NexT的感觉。下面就简单说明一下过程。<br>详细的下载安装及设置教程在这里：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br> 效果图就不用看了吧，毕竟效果已经摆出来了，如果你也喜欢，那就动手吧。</p>
-<h2 id="自定义NexT">自定义NexT</h2><p> 1、添加Title 。<br>  NexT主题的Title和网站主页上的左上角的LOGO字体是一样的，在这里我想设置成不一样的怎么办呢？其实很简单，只需要在配置文件中添加一个<code>name</code>（注意：这个配置文件的位置是HEXO的配置文件不是主题的配置文件。<br>  ps：我觉得还是用logo比较好，由于子集以前就是用的name，在这里就不更改了）<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: <span class="string">Magicer|张同爽的个人博客</span></span><br><span class="line"><span class="attribute">name</span>: <span class="string">Magicer</span></span><br></pre></td></tr></table></figure></p>
-<p>然后，在NexT主题文件夹中找到<code>layout</code>文件夹下的<code>_partials</code>文件夹下的<code>header.swig</code>文件 找到：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"site-title"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>将<code>config.title</code>修改为<code>config.name</code>即可<br>2、使页面地步链接到about界面</p>
-<p>找到：主题<code>layout</code>文件夹下的<code>_partials</code>文件夹下的 <code>footer.swig</code>文件：<br>找到：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>将其改为</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"theme-link"</span> <span class="attribute">href</span>=<span class="value">"/about/index.html"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>当然也可以连接到一个网址，比如我的设置就是这样的：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"theme-link"</span> <span class="attribute">href</span>=<span class="value">"http://magicer.xyz"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/vim-notes/" itemprop="url">
-                解决vim使用过程中与遇到问题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-14T12:02:47+08:00" content="2015-08-14">
-            2015-08-14
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件使用/" itemprop="url" rel="index">
-                  <span itemprop="name">软件使用</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/vim-notes/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/vim-notes/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="vim中无法输入中文或输入中文乱码">vim中无法输入中文或输入中文乱码</h2><p>  打开终端输入：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> ～/.vimrc</span><br><span class="line">##也可以 <span class="keyword">vim</span> /etc/<span class="keyword">vim</span>/vimrc</span><br></pre></td></tr></table></figure></p>
-<p>在其中输入以下代码：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> encoding=UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> langmenu=zh_CN.UTF-<span class="number">8</span></span><br><span class="line">language <span class="keyword">message</span> zh_CN.UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">set</span> fileencodings=ucs-bom,utf-<span class="number">8</span>,cp936,gb18030,big5,euc-jp,euc-kr,latin1</span><br><span class="line"><span class="keyword">set</span> fileencoding=utf-<span class="number">8</span></span><br></pre></td></tr></table></figure></p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/java-code-fragment/" itemprop="url">
-                java初学常用代码知识
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T20:34:31+08:00" content="2015-08-01">
-            2015-08-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Java/" itemprop="url" rel="index">
-                  <span itemprop="name">Java</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/java-code-fragment/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/java-code-fragment/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="File类">File类</h2><p>File类的构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(String pathname)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">File</span><span class="params">(File parent,String child)</span></span>;</span><br></pre></td></tr></table></figure>
-<p>使用File操作文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">creatNewFile</span><span class="params">()</span> <span class="keyword">throws</span> IOExcetion <span class="comment">//创建文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">delete</span><span class="params">()</span>                         <span class="comment">//删除文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span>                         <span class="comment">//判断给定的路径是否存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String separator            <span class="comment">//  “/” 注意：常量，但是未大写</span></span><br><span class="line"><span class="keyword">public</span> File <span class="title">getParentFile</span><span class="params">()</span>                     <span class="comment">//找到一个指定路径的父路径</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">mkdirs</span><span class="params">()</span>                         <span class="comment">//创建制定目录</span></span><br><span class="line"><span class="comment">/*其他方法*/</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span>         <span class="comment">//取得文件的名字</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDirectory</span><span class="params">()</span>    <span class="comment">//判断给定的路径是否是文件夹</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFile</span><span class="params">()</span>         <span class="comment">//判断给定的路径是否是文件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isHidden</span><span class="params">()</span>       <span class="comment">//判断是否隐藏</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">lastModified</span><span class="params">()</span>      <span class="comment">//文件最后一次修改日期</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">length</span><span class="params">()</span>            <span class="comment">//取得文件大小，以字节为单位返回</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">renameTo</span><span class="params">(File dest)</span>  <span class="comment">//为文件重命名</span></span><br><span class="line"><span class="keyword">public</span> File[] <span class="title">listFiles</span><span class="params">()</span>   <span class="comment">//将目录中所有的文件以File对象数组的方式返回</span></span></span><br></pre></td></tr></table></figure></p>
-<p>简单示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  判断制定文件是否存在，若存在则删除，不存在则创建*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file = <span class="keyword">new</span> File(File.separator + <span class="string">"home"</span> + File.separator</span><br><span class="line">                + <span class="string">"magicer"</span> + File.separator + <span class="string">"code"</span> + File.separator</span><br><span class="line">                + <span class="string">"Demo.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (file.exists()) &#123;</span><br><span class="line">            file.delete();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/08/generic-simple/" itemprop="url">
-                泛型的简单使用
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T19:55:15+08:00" content="2015-08-01">
-            2015-08-01
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Java/" itemprop="url" rel="index">
-                  <span itemprop="name">Java</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/08/generic-simple/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/generic-simple/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>java泛型的简单使用。<br>泛型的定义：泛型是JDK 1.5的一项新特性，它的本质是参数化类型（Parameterized Type）的应用，也就是说所操作的数据类型被指定为一个参数，在用到的时候在指定具体的类型。这种参数类型可以用在类、接口和方法的创建中，分别称为泛型类、泛型接口和泛型方法
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/generic-simple/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/total-two-month/" itemprop="url">
-                整整两个月了
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-09T22:06:59+08:00" content="2015-07-09">
-            2015-07-09
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/生活轶事/" itemprop="url" rel="index">
-                  <span itemprop="name">生活轶事</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/07/total-two-month/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/total-two-month/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><a id="more"></a>
-<p><a href="http://blog.csdn.net/Captain_Magicer" target="_blank" rel="external">CSDN博客连接</a></p>
-<p><hr><br> 已经整整两个月没有写博客了，尽管子集的博客质量并不高，但是坚持下去还是会好起来的，毕竟限于自己的水平较低，水平低是正常的。现在的CSDN也可以用markdown写博客了，想着跟子集搭建的博客一块更新，也不是难事。毕竟自己的个人博客上的方可基本上没有，转移到CSDN上或与会好点。</p>
-<p><hr><br> 在这两个月里，经同学介绍进了西门子电子开关插座公司做实习生，一开始同学说是跟编程有关，奔着试一试的态度就去了，不过到了面试过后发现，跟他描述的全然不同，不过，一个星期在那儿干一两天也基本上够我这一周的零花，这点还是不错的，假期就不回去了，在学校进修。（嘻嘻，说的真好听。） 在SWAS主要是负责公司的员工申请的各种服务，或为其申请服务。不过公司不能连网，这点让我很是头疼，作为一个想成为程序猿的我来说，这点真的很难忍受。安装各种软件都有限制。毕竟跟编程不沾边，也就看来了。整点外快嘛。不过在这里的这段时间，让我学到了不少东西，在学校里是学不到的。就这样。这两个月了。博客都荒废了。想着现在该重新拾起了。</p>
-<p><hr><br>自从电脑上的游戏安装上了之后，就没有消停过，看来真的应该卸载了。不然电脑都碰不到了。哎。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </nav>
 
  </div>
@@ -939,11 +917,11 @@
           <img class="site-author-image" src="/images/avatar.jpg" alt="Magicer" itemprop="image"/>
           <p class="site-author-name" itemprop="name">Magicer</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">记录生活 |Android|Java</p>
+        <p class="site-description motion-element" itemprop="description">记录学习中遇到的问题</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +935,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

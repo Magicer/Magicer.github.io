@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.magicer.xyz/2015/10/the-basic-of-android-animation/</loc>
+    <lastmod>2015-10-27T11:56:46.853Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/2015/10/android-listview-general/</loc>
+    <lastmod>2015-10-27T11:49:53.441Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/2015/10/music-play-list/</loc>
+    <lastmod>2015-10-26T10:43:17.924Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/about/index.html</loc>
+    <lastmod>2015-10-26T10:43:10.008Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/2015/10/android-studio-keymap/</loc>
+    <lastmod>2015-10-26T10:42:56.932Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/2015/10/press-again-to-quit/</loc>
+    <lastmod>2015-10-26T06:39:51.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.magicer.xyz/2015/10/android-studio-basic/</loc>
+    <lastmod>2015-10-25T13:08:08.232Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.magicer.xyz/2015/08/blog-theme-changed/</loc>
     <lastmod>2015-10-16T17:20:51.318Z</lastmod>
   </url>
@@ -9,16 +44,6 @@
   <url>
     <loc>http://blog.magicer.xyz/blog-theme-changed.html</loc>
     <lastmod>2015-10-16T17:13:28.326Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.magicer.xyz/2015/10/android-studio-basic/</loc>
-    <lastmod>2015-10-16T17:12:45.510Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.magicer.xyz/about/index.html</loc>
-    <lastmod>2015-10-16T15:54:36.936Z</lastmod>
   </url>
   
   <url>
