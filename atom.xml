@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.magicer.xyz/"/>
-  <updated>2015-10-28T12:44:24.436Z</updated>
+  <updated>2015-10-28T14:02:02.168Z</updated>
   <id>http://blog.magicer.xyz/</id>
   
   <author>
@@ -13,6 +13,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[404界面的样式表无法加载问题]]></title>
+    <link href="http://blog.magicer.xyz/2015/10/blog-404-style-not-found/"/>
+    <id>http://blog.magicer.xyz/2015/10/blog-404-style-not-found/</id>
+    <published>2015-10-28T13:54:13.000Z</published>
+    <updated>2015-10-28T14:02:02.168Z</updated>
+    <content type="html"><![CDATA[<p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
+<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无法加载样式表，而如果网址是 <code>http://magicer.xyz/dd</code>样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法<br> 原先的link是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 而现在是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"/styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 只加了个`/``问题就解决了，但是 在电脑上测试的时候无法加载样式表，但是传到服务器上之后就可以。头像的问题一样如此解决。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
+<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无]]>
+    </summary>
+    
+      <category term="css" scheme="http://blog.magicer.xyz/tags/css/"/>
+    
+      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android Animation基础（一）]]></title>
@@ -480,32 +502,6 @@
       <category term="ubuntu" scheme="http://blog.magicer.xyz/tags/ubuntu/"/>
     
       <category term="软件使用" scheme="http://blog.magicer.xyz/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[安装Hexo，搭建博客]]></title>
-    <link href="http://blog.magicer.xyz/2015/04/hexo-install/"/>
-    <id>http://blog.magicer.xyz/2015/04/hexo-install/</id>
-    <published>2015-04-30T01:28:51.000Z</published>
-    <updated>2015-10-10T15:54:46.170Z</updated>
-    <content type="html"><![CDATA[<p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。</p>
-<p>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务<br>比如Hexo的官方网站<a href="http://hexo.io" target="_blank" rel="external">http://hexo.io</a> 就是托管于github的pages服务上<br> 系统重装之后用hexo搭建的博客没有了，又花了整理了很长时间才搭建完成，在这里记录一下。<br><a id="more"></a></p>
-<h2 id="安装nodejs">安装nodejs</h2><p>安装钱需要系统上有python g++ 和gcc<br><a href="nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz">下载nodejs</a><br>下载完了之后解压<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf node-v0.<span class="number">12.2</span>.tar.gz -C /<span class="keyword">opt</span></span><br><span class="line"><span class="keyword">cd</span> /<span class="keyword">opt</span>/node-v0.<span class="number">12.2</span></span><br><span class="line">./configure </span><br><span class="line"><span class="keyword">make</span> </span><br><span class="line">sudo <span class="keyword">make</span> install</span><br></pre></td></tr></table></figure></p>
-<p>安装完成后检查<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -<span class="property">version</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="安装git">安装git</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install git-core</span><br></pre></td></tr></table></figure>
-<h2 id="安装hexo">安装hexo</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo -g</span><br></pre></td></tr></table></figure>
-<p>进入想要写文章的博客目录。<br>运行 hexo init<br>之后运行 npm install</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。</p>
-<p>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务<br>比如Hexo的官方网站<a href="http://hexo.io">http://hexo.io</a> 就是托管于github的pages服务上<br> 系统重装之后用hexo搭建的博客没有了，又花了整理了很长时间才搭建完成，在这里记录一下。<br>]]>
-    
-    </summary>
-    
-      <category term="hexo" scheme="http://blog.magicer.xyz/tags/hexo/"/>
-    
-      <category term="博客搭建" scheme="http://blog.magicer.xyz/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   

@@ -207,6 +207,94 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/git-tag-branch/" itemprop="url">
+                git tag 、branch的使用
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-05-04T12:21:55+08:00" content="2015-05-04">
+            2015-05-04
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/软件使用/" itemprop="url" rel="index">
+                  <span itemprop="name">软件使用</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/05/git-tag-branch/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/git-tag-branch/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p> Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/git-tag-branch/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/github-config/" itemprop="url">
                 配置github
               </a>
@@ -814,98 +902,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/03/wordpress-problems/" itemprop="url">
-                搭建wordpress后出现的问题
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-03-12T15:42:51+08:00" content="2015-03-12">
-            2015-03-12
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/博客搭建/" itemprop="url" rel="index">
-                  <span itemprop="name">博客搭建</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/03/wordpress-problems/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/wordpress-problems/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><a id="more"></a>
-<h4 id="（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</h4><p>找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。<br>然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。</p>
-<h4 id="（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？">（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？</h4><p>使用PHPMyAdmin进入数据库。数据库管理的高级管理可以进去。<br>找到wordpress数据库，打开wp_options表<br>修改表中键名为upload_path的键值 这个值是一个路径（可能在表的第二页）<br>里面是空的，添加“wp-content/uploads”就解决了。＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝双引号必加！类似于注册表键值</p>
-<h4 id="（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”">（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”</h4><p>在/var/www/wordpress文件夹下的wp-config.php添加如下代码 </p>
-<pre><code><span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_METHOD"</span>, <span class="string">"direct"</span>);
-<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_DIR"</span>, <span class="number">0777</span>);
-<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_FILE"</span>, <span class="number">0777</span>);
-</code></pre><h4 id="（四）解决无法创建文件夹的问题">（四）解决无法创建文件夹的问题</h4><p>在/ver/www/wordpress下，把wp-content的文件权限改成777</p>
-<pre><code><span class="title">sudo</span> chmod <span class="number">777</span> wp-content
-</code></pre></span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -944,7 +940,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -958,7 +954,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

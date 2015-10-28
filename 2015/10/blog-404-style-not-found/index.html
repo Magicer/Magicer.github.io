@@ -30,7 +30,7 @@
 
 
 
-  <meta name="keywords" content="github," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -41,15 +41,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/icon.png##/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。">
+<meta name="description" content="今天终于发现了404页面样式表无法加载的的解决方法。
+ 原先的时候是当输入的域名后有多个/的时候404页面的样式表无法加载，比如访问的页面是 http://magicer.xyz/dd/d。此时就无法加载样式表，而如果网址是 http://magicer.xyz/dd样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法 原先的link是 1&amp;lt;link rel=&quot;sty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置github">
-<meta property="og:url" content="http://blog.magicer.xyz/2015/04/github-config/index.html">
+<meta property="og:title" content="404界面的样式表无法加载问题">
+<meta property="og:url" content="http://blog.magicer.xyz/2015/10/blog-404-style-not-found/index.html">
 <meta property="og:site_name" content="Magicer|张同爽的个人博客">
-<meta property="og:description" content="电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。">
+<meta property="og:description" content="今天终于发现了404页面样式表无法加载的的解决方法。
+ 原先的时候是当输入的域名后有多个/的时候404页面的样式表无法加载，比如访问的页面是 http://magicer.xyz/dd/d。此时就无法加载样式表，而如果网址是 http://magicer.xyz/dd样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法 原先的link是 1&amp;lt;link rel=&quot;sty">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="配置github">
-<meta name="twitter:description" content="电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。">
+<meta name="twitter:title" content="404界面的样式表无法加载问题">
+<meta name="twitter:description" content="今天终于发现了404页面样式表无法加载的的解决方法。
+ 原先的时候是当输入的域名后有多个/的时候404页面的样式表无法加载，比如访问的页面是 http://magicer.xyz/dd/d。此时就无法加载样式表，而如果网址是 http://magicer.xyz/dd样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法 原先的link是 1&amp;lt;link rel=&quot;sty">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +62,7 @@
   };
 </script>
 
-  <title> 配置github | Magicer|张同爽的个人博客 </title>
+  <title> 404界面的样式表无法加载问题 | Magicer|张同爽的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,7 +208,7 @@
           
           
             
-              配置github
+              404界面的样式表无法加载问题
             
           
         </h1>
@@ -214,8 +217,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-04-30T14:32:59+08:00" content="2015-04-30">
-            2015-04-30
+          <time itemprop="dateCreated" datetime="2015-10-28T21:54:13+08:00" content="2015-10-28">
+            2015-10-28
           </time>
         </span>
 
@@ -224,8 +227,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/软件使用/" itemprop="url" rel="index">
-                  <span itemprop="name">软件使用</span>
+                <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                  <span itemprop="name">博客搭建</span>
                 </a>
               </span>
 
@@ -240,8 +243,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/04/github-config/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/github-config/" itemprop="commentsCount"></span>
+              <a href="/2015/10/blog-404-style-not-found/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/blog-404-style-not-found/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -255,13 +258,10 @@
       
 
       
-        <span itemprop="articleBody"><p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
-<h2 id="生成ssh">生成ssh</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email<span class="variable">@example</span>.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
-<p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中</p>
-<h2 id="测试是否成功：">测试是否成功：</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>当出现以下提示时即设置成功<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
-<p>测试是否设置正确：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span></span><br></pre></td></tr></table></figure></p>
+        <span itemprop="articleBody"><p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
+<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无法加载样式表，而如果网址是 <code>http://magicer.xyz/dd</code>样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法<br> 原先的link是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 而现在是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"/styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 只加了个`/``问题就解决了，但是 在电脑上测试的时候无法加载样式表，但是传到服务器上之后就可以。头像的问题一样如此解决。</p>
 </span>
       
     </div>
@@ -270,7 +270,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/github/" rel="tag">#github</a>
+            <a href="/tags/css/" rel="tag">#css</a>
           
         </div>
       
@@ -279,13 +279,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/05/git-tag-branch/" rel="prev">git tag 、branch的使用</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/sublime-text2/" rel="next">安装sublime_text2</a>
+              <a href="/2015/10/the-basic-of-android-animation/" rel="next">Android Animation基础（一）</a>
             
           </div>
         </div>
@@ -300,10 +298,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/04/github-config/"
-     data-title="配置github"
+        <div class="ds-share flat" data-thread-key="2015/10/blog-404-style-not-found/"
+     data-title="404界面的样式表无法加载问题"
      data-content=""
-     data-url="http://blog.magicer.xyz/2015/04/github-config/">
+     data-url="http://blog.magicer.xyz/2015/10/blog-404-style-not-found/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -329,8 +327,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/04/github-config/"
-                   data-title="配置github" data-url="http://blog.magicer.xyz/2015/04/github-config/">
+              <div class="ds-thread" data-thread-key="2015/10/blog-404-style-not-found/"
+                   data-title="404界面的样式表无法加载问题" data-url="http://blog.magicer.xyz/2015/10/blog-404-style-not-found/">
               </div>
             
           </div>
@@ -433,7 +431,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成ssh"><span class="nav-number">1.</span> <span class="nav-text">生成ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否成功："><span class="nav-number">2.</span> <span class="nav-text">测试是否成功：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">3.</span> <span class="nav-text">配置git</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

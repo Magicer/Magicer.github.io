@@ -207,6 +207,93 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/blog-404-style-not-found/" itemprop="url">
+                404界面的样式表无法加载问题
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-28T21:54:13+08:00" content="2015-10-28">
+            2015-10-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/博客搭建/" itemprop="url" rel="index">
+                  <span itemprop="name">博客搭建</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/blog-404-style-not-found/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/blog-404-style-not-found/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
+<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无法加载样式表，而如果网址是 <code>http://magicer.xyz/dd</code>样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法<br> 原先的link是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 而现在是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"/styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 只加了个`/``问题就解决了，但是 在电脑上测试的时候无法加载样式表，但是传到服务器上之后就可以。头像的问题一样如此解决。</p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/the-basic-of-android-animation/" itemprop="url">
                 Android Animation基础（一）
               </a>
@@ -794,94 +881,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/10/Hexo-github-gitcafe/" itemprop="url">
-                Hexo博客转移 从github到gitcafe
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-10-11T13:27:08+08:00" content="2015-10-11">
-            2015-10-11
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/博客搭建/" itemprop="url" rel="index">
-                  <span itemprop="name">博客搭建</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/10/Hexo-github-gitcafe/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/Hexo-github-gitcafe/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/Hexo-github-gitcafe/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -920,7 +919,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -934,7 +933,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
