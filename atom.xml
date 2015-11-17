@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://blog.magicer.xyz/"/>
-  <updated>2015-10-28T14:02:02.168Z</updated>
+  <updated>2015-10-28T14:27:16.904Z</updated>
   <id>http://blog.magicer.xyz/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://blog.magicer.xyz/2015/10/blog-404-style-not-found/"/>
     <id>http://blog.magicer.xyz/2015/10/blog-404-style-not-found/</id>
     <published>2015-10-28T13:54:13.000Z</published>
-    <updated>2015-10-28T14:02:02.168Z</updated>
+    <updated>2015-10-28T14:27:16.904Z</updated>
     <content type="html"><![CDATA[<p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
 <p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无法加载样式表，而如果网址是 <code>http://magicer.xyz/dd</code>样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法<br> 原先的link是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
 <p> 而现在是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"/styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
@@ -136,10 +136,15 @@
     <link href="http://blog.magicer.xyz/2015/10/music-play-list/"/>
     <id>http://blog.magicer.xyz/2015/10/music-play-list/</id>
     <published>2015-10-23T11:04:15.000Z</published>
-    <updated>2015-10-26T10:43:17.924Z</updated>
-    <content type="html"><![CDATA[<h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio>]]></content>
+    <updated>2015-10-28T14:46:25.140Z</updated>
+    <content type="html"><![CDATA[<h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio>
+
+<p><br><br> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=149235&auto=0&height=66"></iframe><br> <br><br> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=28718066&auto=0&height=66"></iframe></p>
+]]></content>
     <summary type="html">
-    <![CDATA[<h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio>]]>
+    <![CDATA[<h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio>
+
+<p><b]]>
     </summary>
     
   </entry>
