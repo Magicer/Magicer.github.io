@@ -269,6 +269,142 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/" itemprop="url">
+                  fragmentpageradapter-and-fragmentstatepageradapter
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-03T01:40:46+08:00" content="2016-09-03">
+              2016-09-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/fragmentpageradapter-and-fragmentstatepageradapter/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/" class="leancloud_visitors" data-flag-title="fragmentpageradapter-and-fragmentstatepageradapter">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="使用FragmentPagerAdapter时Fragment的生命周期">使用FragmentPagerAdapter时Fragment的生命周期</h2><p><code>FragmentPagerAdapter</code> 会保存在内存中保存Fragment的实例，当<code>ViewPager</code>中<code>Fragment</code>的数量较多时，建议使用<code>FragmentStatePagerAdapter</code>。</p>
+<p>当使用<code>FragmentPagerAdapter</code>时Fragment的生命周期怎么走呢？（使用的是v4包下的Fragment）</p>
+<p>当viewpager加载时，会加载当前页跟相邻页的fragment（如果有），那么此时，Fragment的log日志是这样的<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> +position <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> +position <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>我们看到，有两个Fragment的生命周期都走了，而他们基本上算是交替执行的。那么当我们滑动到第三个页面再划回第一个页面呢？生命周期又会怎么走？<br>肯定的第三个页面和第四个页面的<code>onAttach</code>，<code>onCreate</code>,<code>onCreateView</code>,<code>onActivityCreate</code>,<code>onStart</code>,<code>onResume</code>生命周期都会执行。那么顺序是怎么样的呢？我们来看下log日志。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下是滑动到Fragment3时走的的生命周期</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line"></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onPause:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStop:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDestroyView:</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是滑动到fragment0的</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onPause:</span> <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStop:</span> <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDestroyView:</span> <span class="number">3</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onPause:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStop:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDestroyView:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>我们发现<code>Fragment2</code>的生命周期先走到了<code>onResume</code>，之后<code>Fragment0</code>走到了<code>onDestoryView</code>中，而当我们重新滑到<code>Fragment0</code>的时候，<code>Fragment0</code>的生命周期是从<code>onCreateView</code>开始走的，并没有走<code>onCreate</code>方法。</p>
+<h2 id="使用FragmentStatePagerAdapter时Fragment的生命周期">使用FragmentStatePagerAdapter时Fragment的生命周期</h2><p>当使用<code>FragmentStatePagerAdapter</code>时，第一次走的生命周期跟<code>FragmentPagerAdapter</code>是一样的。但是当我们滑动到第三个<code>Fragment</code>（即：Fragment 2）再划回第一个<code>Fragment</code>（Fragment 0）呢？<br>生命周期如下：<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onAttach: </span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onCreate: </span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onCreateView: +position 2</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onActivityCreated: 2</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onStart: 2</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onResume: 2</span></span><br><span class="line"></span><br><span class="line"><span class="http"><span class="attribute">I/fragment</span>: <span class="string">onAttach: </span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onCreate: </span></span><br><span class="line"></span><br><span class="line"><span class="http"><span class="attribute">I/fragment</span>: <span class="string">onPause: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onStop: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDestroyView: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDestroy: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDetach: 0</span></span><br><span class="line"></span><br><span class="line"><span class="http"><span class="attribute">I/fragment</span>: <span class="string">onCreateView: +position 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onActivityCreated: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onStart: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onResume: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onAttach: </span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onCreate: </span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onPause: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onStop: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDestroyView: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDestroy: 3</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onDetach: 3</span></span><br><span class="line"></span><br><span class="line"><span class="http"><span class="attribute">I/fragment</span>: <span class="string">onCreateView: +position 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onActivityCreated: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onStart: 0</span></span><br><span class="line"><span class="attribute">I/fragment</span>: <span class="string">onResume: 0</span></span><br><span class="line"></span><br><span class="line"><span class="groovy">I/<span class="string">fragment:</span> <span class="string">onPause:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStop:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDestroyView:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDestroy:</span> <span class="number">2</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onDetach:</span> <span class="number">2</span></span></span></span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>我们可以看到，当我们滑动到第三个Fragment（<code>Fragment 2</code>）时，第一个Fragment（<code>Fragment 0</code>）的生命周期已经走到了<code>onDetach</code>，此时<code>Fragment0</code>已经和activity解绑。也就不会在内存中保存Fragment的实例。</p>
+<h2 id="分析">分析</h2><p>通过上面的Fragment的生命周期我们可以看到，当ViewPager使用<code>FragmentPagerAdapter</code>时滑动viewpager，Fragment并不会跟acvitity解绑，并且划回该Fragment时，<code>onCreate</code>方法也不会执行。<code>FragmentStatePagerAdapter</code>时，Fragment已经跟activity解绑了，重新划回该Fragment时，Fragment的生命周期会全部走一遍。</p>
+<p>因此当我们在Fragment的onCreate方法中执行的网络请求，那么在<code>FragmentPagerAdapter</code>中，该网络请求只会执行一次，而<code>FragmentStatePagerAdapter</code>则会每次都得到执行。    </p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/text/" itemprop="url">
                   测试flow.ci
                 </a>
@@ -1198,156 +1334,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/eclipse-problem-1/" itemprop="url">
-                  eclipse使用过程中遇到的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-01T09:38:34+08:00" content="2016-03-01">
-              2016-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/eclipse-problem-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/eclipse-problem-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/eclipse-problem-1/" class="leancloud_visitors" data-flag-title="eclipse使用过程中遇到的问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在使用eclipse的时候遇到到很多问题，在这里记录一下。</p>
-<h2 id="Failed_to_create_the_Java_Virtual_Machine_的问题的解决">Failed to create the Java Virtual Machine 的问题的解决</h2><p>  path等的配置都没有问题，但是运行eclipse的时候还是无法运行 ，那么怎么解决呢？<br>   在eclipse文件夹下找到<code>eclipse.ini</code> 文件 打开修改为下面</p>
-<pre><code> -startup
-plugins/org<span class="class">.eclipse</span><span class="class">.equinox</span><span class="class">.launcher_1</span>.<span class="number">3.0</span><span class="class">.v20120522-1813</span><span class="class">.jar</span>
---launcher<span class="class">.library</span>
-plugins/org<span class="class">.eclipse</span><span class="class">.equinox</span><span class="class">.launcher</span><span class="class">.win32</span><span class="class">.win32</span><span class="class">.x86_1</span>.<span class="number">1.200</span><span class="class">.v20120913-144807</span>
--product
-com<span class="class">.android</span><span class="class">.ide</span><span class="class">.eclipse</span><span class="class">.adt</span><span class="class">.package</span><span class="class">.adtproduct</span>
--showsplash
-org<span class="class">.eclipse</span><span class="class">.platform</span>
---launcher<span class="class">.XXMaxPermSize</span>
-<span class="number">128</span>m
---launcher<span class="class">.defaultAction</span>
-openFile
--vmargs
--Dosgi.requiredJavaVersion=<span class="number">1.6</span>
--XX:MaxPermSize=<span class="number">256</span>m
--Xms512m
--Xmx512m
-</code></pre><p>即修改这几个地方：<code>--launcher.XXMaxPermSize
- 128m</code>  <code>-Dosgi.requiredJavaVersion=1.7</code><br> <code>-XX:MaxPermSize=256m
- -Xms512m
- -Xmx512m</code></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1393,7 +1379,7 @@ openFile
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1410,7 +1396,7 @@ openFile
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

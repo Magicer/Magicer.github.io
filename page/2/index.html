@@ -269,6 +269,156 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/eclipse-problem-1/" itemprop="url">
+                  eclipse使用过程中遇到的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-01T09:38:34+08:00" content="2016-03-01">
+              2016-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/eclipse-problem-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/eclipse-problem-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/eclipse-problem-1/" class="leancloud_visitors" data-flag-title="eclipse使用过程中遇到的问题">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在使用eclipse的时候遇到到很多问题，在这里记录一下。</p>
+<h2 id="Failed_to_create_the_Java_Virtual_Machine_的问题的解决">Failed to create the Java Virtual Machine 的问题的解决</h2><p>  path等的配置都没有问题，但是运行eclipse的时候还是无法运行 ，那么怎么解决呢？<br>   在eclipse文件夹下找到<code>eclipse.ini</code> 文件 打开修改为下面</p>
+<pre><code> -startup
+plugins/org<span class="class">.eclipse</span><span class="class">.equinox</span><span class="class">.launcher_1</span>.<span class="number">3.0</span><span class="class">.v20120522-1813</span><span class="class">.jar</span>
+--launcher<span class="class">.library</span>
+plugins/org<span class="class">.eclipse</span><span class="class">.equinox</span><span class="class">.launcher</span><span class="class">.win32</span><span class="class">.win32</span><span class="class">.x86_1</span>.<span class="number">1.200</span><span class="class">.v20120913-144807</span>
+-product
+com<span class="class">.android</span><span class="class">.ide</span><span class="class">.eclipse</span><span class="class">.adt</span><span class="class">.package</span><span class="class">.adtproduct</span>
+-showsplash
+org<span class="class">.eclipse</span><span class="class">.platform</span>
+--launcher<span class="class">.XXMaxPermSize</span>
+<span class="number">128</span>m
+--launcher<span class="class">.defaultAction</span>
+openFile
+-vmargs
+-Dosgi.requiredJavaVersion=<span class="number">1.6</span>
+-XX:MaxPermSize=<span class="number">256</span>m
+-Xms512m
+-Xmx512m
+</code></pre><p>即修改这几个地方：<code>--launcher.XXMaxPermSize
+ 128m</code>  <code>-Dosgi.requiredJavaVersion=1.7</code><br> <code>-XX:MaxPermSize=256m
+ -Xms512m
+ -Xmx512m</code></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/java-note-one/" itemprop="url">
                   Java笔记（一）
                 </a>
@@ -1146,136 +1296,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/android-studio-basic/" itemprop="url">
-                  Android Studio使用中的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T18:37:15+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/android-studio-basic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-studio-basic/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/android-studio-basic/" class="leancloud_visitors" data-flag-title="Android Studio使用中的问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,<br>话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。</p>
-<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
-<p>下载后：File-&gt;import seetting-&gt;下载主题的路径；</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1321,7 +1341,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">47</span>
+              <span class="site-state-item-count">48</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1338,7 +1358,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
