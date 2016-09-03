@@ -140,6 +140,12 @@
 
 
 
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1260303104&web_id=1260303104" type="text/javascript"></script>
+  </div>
+
+
+
 
 
   
@@ -370,135 +376,6 @@ openFile
  128m</code>  <code>-Dosgi.requiredJavaVersion=1.7</code><br> <code>-XX:MaxPermSize=256m
  -Xms512m
  -Xmx512m</code></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/java-note-one/" itemprop="url">
-                  Java笔记（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-05T12:01:36+08:00" content="2015-12-05">
-              2015-12-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/java-note-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/java-note-one/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/12/java-note-one/" class="leancloud_visitors" data-flag-title="Java笔记（一）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>用于记录java的一些知识。</p>
-<h2 id="StringBuffer">StringBuffer</h2><p>StringBuffer线程安全的，<br>StringBuilder线程不安全，在大多数实现中比StringBuffer快<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer <span class="keyword">sb</span>= <span class="keyword">new</span> StringBuffer(<span class="string">"sb"</span>);</span><br><span class="line">        <span class="keyword">sb</span>.<span class="built_in">append</span>(<span class="string">"+2sb"</span>);</span><br><span class="line">        System.out.println(<span class="keyword">sb</span>);</span><br><span class="line">        System.out.println(<span class="keyword">sb</span>.length());</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">sb</span>.<span class="built_in">delete</span>(<span class="number">2</span>, <span class="number">3</span>);//删除第二个字符 </span><br><span class="line">        System.out.println(<span class="keyword">sb</span>);</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1206,8 +1083,8 @@ openFile
             
               
                 
-                <a class="post-title-link" href="/2015/10/music-play-list/" itemprop="url">
-                  music-play-list
+                <a class="post-title-link" href="/2015/10/android-studio-basic/" itemprop="url">
+                  Android Studio使用中的问题
                 </a>
               
             
@@ -1220,19 +1097,38 @@ openFile
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-23T19:04:15+08:00" content="2015-10-23">
-              2015-10-23
+            <time itemprop="dateCreated" datetime="2015-10-15T18:37:15+08:00" content="2015-10-15">
+              2015-10-15
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/music-play-list/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/music-play-list/" itemprop="commentsCount"></span>
+                <a href="/2015/10/android-studio-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-studio-basic/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1242,7 +1138,7 @@ openFile
 
           
           
-             <span id="/2015/10/music-play-list/" class="leancloud_visitors" data-flag-title="music-play-list">
+             <span id="/2015/10/android-studio-basic/" class="leancloud_visitors" data-flag-title="Android Studio使用中的问题">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1265,9 +1161,146 @@ openFile
       
         
           
-            <h2 id="Someone_Like_You">Someone Like You</h2> <audio src="/music/Someone Like You.mp3" controls="controls"><br> 不支持mp3<br> </audio>
+            <p>Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,<br>话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。</p>
+<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
+<p>下载后：File-&gt;import seetting-&gt;下载主题的路径；</p>
 
-<p><br><br> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=149235&auto=0&height=66"></iframe><br> <br><br> <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=28718066&auto=0&height=66"></iframe></p>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/hexo-custom-style/" itemprop="url">
+                  Hexo博客主题NexT使用自定义的CSS样式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-12T14:21:35+08:00" content="2015-10-12">
+              2015-10-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/hexo-custom-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/hexo-custom-style/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/hexo-custom-style/" class="leancloud_visitors" data-flag-title="Hexo博客主题NexT使用自定义的CSS样式">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>  今天，创建自己的about页面的时候，像使用自定义的css样式，就像这是不是NexT可以使用自定义的CSS样式，片尝试了一下，还是可以的，因为markdown支持html标签，使用自定义的CSS样式还是不错的。下面总结一下具体的使用过程：</p>
+<h2 id="添加样式支持">添加样式支持</h2><p>  为了不吧原先的像是文件搞得太乱，这里，添加子集的样式文件。<br>  首先，在样式文件的<code>source</code>文件夹下找到<code>css</code>文件夹，打开<code>main.styl</code>文件，在最后添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//My Layer</span></span><br><span class="line"><span class="comment">//--------------------------------------------------</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"_my/mycss"</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="新建自定义样式">新建自定义样式</h2><p>找到样式文件夹<code>css</code> 新建<code>_my</code>文件夹，在其中新建<code>mycss.styl</code>文件，之后就可以按照stylus的格式自定义样式了。</p>
+<h2 id="例子">例子</h2><p>例如：我想在文章中添加个自定义样式的按钮，怎么做呢？？？</p>
+<p>打开新建的<code>mycss.styl</code>文件，在其中添加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.myButton</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#0f94bd</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">border-radius</span>:<span class="value"><span class="number">15px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value">inline-block</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">cursor</span>:<span class="value">pointer</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">color</span>:<span class="value"><span class="hexcolor">#ffffff</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-family</span>:<span class="value">Arial</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">17px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">11px</span> <span class="number">27px</span></span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-decoration</span>:<span class="value">none</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">text-shadow</span>:<span class="value"><span class="number">0px</span> <span class="number">1px</span> <span class="number">0px</span> <span class="hexcolor">#2f6627</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">hover &#123;</span><br><span class="line">    background-color:<span class="hexcolor">#5cbf2a</span></span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="rule"><span class="attribute">.myButton</span>:<span class="value">active &#123;</span><br><span class="line">    position:relative</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">1px</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(ps:这里直接使用的css的格式写的，因为css的代码在网上很好找到，而stylus预处理器的就不那么容易找到了，stylus一样支持css格式，所以在这里直接使用了css文件，没有写成stylus语法。其实让我写我也不会，哈哈！)<br>  引用：在想要引用的时候添加<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">class</span>=<span class="value">"myButton"</span>&gt;</span>MyButton<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>样式如下：<br><a href="#" class="myButton">MyButton</a><br>效果已经出来了，怎么样？？是不是瞬间高大上。。有想要使用的样式，自行百度，找到后粘贴即可使用。</p>
+<h2 id="推荐">推荐</h2><p>推荐一个css button样式的生成网站：<a href="http://www.bestcssbuttongenerator.com/" target="_blank" rel="external">http://www.bestcssbuttongenerator.com/</a></p>
 
           
         
@@ -1341,7 +1374,7 @@ openFile
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
