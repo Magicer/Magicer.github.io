@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://m.magicer.xyz/about/index.html</loc>
-    <lastmod>2016-09-03T08:58:15.286Z</lastmod>
+    <loc>http://m.magicer.xyz/2016/09/viewpager-pageradapter/</loc>
+    <lastmod>2016-09-04T14:28:47.302Z</lastmod>
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/</loc>
-    <lastmod>2016-09-02T17:41:59.807Z</lastmod>
+    <lastmod>2016-09-04T14:09:21.130Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/about/index.html</loc>
+    <lastmod>2016-09-03T13:39:56.325Z</lastmod>
   </url>
   
   <url>

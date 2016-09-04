@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://m.magicer.xyz/"/>
-  <updated>2016-09-02T17:41:59.807Z</updated>
+  <updated>2016-09-04T14:28:47.302Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -15,11 +15,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[fragmentpageradapter-and-fragmentstatepageradapter]]></title>
+    <title><![CDATA[ViewPager PagerAdapter的简单使用]]></title>
+    <link href="http://m.magicer.xyz/2016/09/viewpager-pageradapter/"/>
+    <id>http://m.magicer.xyz/2016/09/viewpager-pageradapter/</id>
+    <published>2016-09-04T14:07:04.000Z</published>
+    <updated>2016-09-04T14:28:47.302Z</updated>
+    <content type="html"><![CDATA[<p>以下是官方文档中对ViewPager的说明</p>
+<blockquote>
+<p>Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.</p>
+</blockquote>
+<p>  <code>ViewPager</code>是<code>android.support-v4</code>包下的一个组件。用来实现左右滑动的效果。和TabLayout的联动使用的效果挺不错。那么ViewPager的基本使用，是怎样的呢。<br>  呢？和其他的组件一样。我们只需要在布局中添加即可。<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.v4.view.ViewPager</span></span><br><span class="line">     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">     <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">     <span class="attribute">android:id</span>=<span class="value">"@+id/viewpager"</span></span><br><span class="line">     /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在这里我们需要一个<code>PagerAdapter</code>来对ViewPager进行填充。首先我们需要一个数据源，在这里我们用一个<code>List&lt;ImageView&gt;</code>。当创建PagerAdapter的时候，<br>我们需要实现四个方法：<code>getCount</code>, <code>isViewFromObject</code>, <code>instantiateItem</code>, <code>destroyItem</code>。最基础的应用的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;ImageView&gt; mList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;ImageView&gt; list)</span> </span>&#123;</span><br><span class="line">        mList = list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view == object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 实例化页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        container.addView(mList.get(position));</span><br><span class="line">        <span class="keyword">return</span> mList.get(position);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 删除页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @param</span> object</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">        container.removeView(mList.get(position));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>以下是官方文档中对ViewPager的说明</p>
+<blockquote>
+<p>Layout manager that allows the user to flip left and right through pages of data. You supply an]]>
+    </summary>
+    
+      <category term="PagerAdapter" scheme="http://m.magicer.xyz/tags/PagerAdapter/"/>
+    
+      <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[使用FragmentPagerAdapter和FragmentStatePagerAdapter时Fragment生命周期区别]]></title>
     <link href="http://m.magicer.xyz/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/"/>
     <id>http://m.magicer.xyz/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/</id>
     <published>2016-09-02T17:40:46.000Z</published>
-    <updated>2016-09-02T17:41:59.807Z</updated>
+    <updated>2016-09-04T14:09:21.130Z</updated>
     <content type="html"><![CDATA[<h2 id="使用FragmentPagerAdapter时Fragment的生命周期">使用FragmentPagerAdapter时Fragment的生命周期</h2><p><code>FragmentPagerAdapter</code> 会保存在内存中保存Fragment的实例，当<code>ViewPager</code>中<code>Fragment</code>的数量较多时，建议使用<code>FragmentStatePagerAdapter</code>。</p>
 <p>当使用<code>FragmentPagerAdapter</code>时Fragment的生命周期怎么走呢？（使用的是v4包下的Fragment）</p>
 <p>当viewpager加载时，会加载当前页跟相邻页的fragment（如果有），那么此时，Fragment的log日志是这样的<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onAttach:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreate:</span> </span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> +position <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onCreateView:</span> +position <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onActivityCreated:</span> +position <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">0</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onStart:</span> <span class="number">1</span></span><br><span class="line">I/<span class="string">fragment:</span> <span class="string">onResume:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
@@ -527,48 +553,6 @@ openFile
     </summary>
     
       <category term="vim" scheme="http://m.magicer.xyz/tags/vim/"/>
-    
-      <category term="Software" scheme="http://m.magicer.xyz/categories/Software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[（转）Android开发效率—Eclipse快捷键]]></title>
-    <link href="http://m.magicer.xyz/2015/05/android-eclipse-hot-key/"/>
-    <id>http://m.magicer.xyz/2015/05/android-eclipse-hot-key/</id>
-    <published>2015-05-09T12:26:50.000Z</published>
-    <updated>2016-03-08T11:43:09.718Z</updated>
-    <content type="html"><![CDATA[<p> 很多过去使用Visual Studio开发软件的网友可能不熟悉Java开发环境，今天Android开发网告诉大家一些提高Android开发效率的Eclipse快捷键，可以有效率的帮助我们管理代码和减少键盘输入。Eclipse相对于Visual Studio而言使用Java开发，响应速度和稳定性上有很大的欠缺，这些我们目前只能容忍下。<a id="more"></a></p>
- <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">转载自<span class="string">http:</span><span class="comment">//www.cnblogs.com/lm3515/archive/2011/03/16/1985671.html</span></span><br></pre></td></tr></table></figure>
-<p>　　比较常用的Android123整理如下:</p>
-<p>　　自动补充import Package Ctrl+Shift+O，这里O代表Organize Import的意思。</p>
-<p>　　格式化代码缩进 Ctrl+Shift+F，这里面我们可以记忆F为Format格式化的意思。</p>
-<p>　　快速查找代码 Ctrl+F，撤消到上一次Ctrl+Z</p>
-<p>　　智能内容感知 Alt+/ ，该快捷键可以方便的匹配我们使用的类信息，/ 在键盘上和?是同一个按键。</p>
-<p>　　调用运行Run As对话框可以使用Ctrl+F11，如果为Debug调试方式可以直接使用F11。</p>
-<p>　　生成一个板块注释Alt+Shift+J ，单行注释为Ctrl+/键</p>
-<p>用Eclipse开发，不知道快捷键可不行啊。<br>熟悉快捷键可以大大的提高效率：</p>
-<h2 id="常用">常用</h2><p>Ctrl+M 当前窗口最大化<br>Ctrl+F7 视窗口切换<br>Ctrl+F8 模式切换<br>Ctrl+F6 编辑窗口切换(手指张得太大不雅观啊)<br>Ctrl+E 编辑窗口切换(这个比较文雅点??)<br>Alt+← 前一个编辑的页面<br>Alt+→ 下一个编辑的页面<br>Ctrl+Alt+↓ 复制(增加)当前行到下一行<br>Ctrl+Alt+↑ 复制(增加)当前行到上一行<br>Alt+↓ 当前行和下面一行交互位置(用不着剪切了)<br>Alt+↑ 当前行和上面一行交互位置<br>Ctrl+D 删除当前行<br>Alt+Enter 显示当前选择文件的属性<br>Shift+Enter 在当前行插入空行(下一行)<br>Shift+Ctrl+Enter 在当前行插入空行(上一行)<br>Ctrl+Q 定位到最后编辑的地方<br>Ctrl+L 定位在具体某行<br>Ctrl+/ 注释当前行(可多行),再按则取消注释<br>Ctrl+Shift+R 找文件<br>Ctrl+Shift+T 找类<br>Ctrl+K 选中的Word快速定位到下一个<br>Ctrl+Shift+K 选中的Word快速定位到上一个<br>Ctrl+Shift+U 选中后列出查询到的结果<br>Ctrl+/(小键盘) 折叠当前类中的所有代码<br>Ctrl+×(小键盘) 展开当前类中的所有代码<br>Ctrl+Shift+P 定位到对于的匹配符(如{},())<br>CTRL+SHIFT+X 切换字符的大小写(大写)<br>CTRL+SHIFT+Y 切换字符的大小写(小写)<br>Ctrl+1 当某行出错时或警告时,跳出帮助<br>Ctrl+Shift+F 格式排版<br>Alt+Shift+R 重命名 (改量和类名时很方便)<br>Alt+Shift+C 修改函数结<br>Alt+Shift+M 重构方法 (选中要重构方法,再生成个新方法)<br>Alt+Shift+Z 重构恢复<br>Ctrl+W 关闭当前窗口<br>Ctrl+Shift+F4 关闭所有打开的窗口<br>Ctrl+Shift+O ： import相关类，同时若已经import的类，没有被用到，就删除。<br>sysout-&gt;Ctrl+Space-&gt;System.out.println()<br>Window-&gt;reference-&gt;Workbench-&gt;Keys 有兴趣的可以自定义热键</p>
-<h2 id="编辑">编辑</h2><p>作用域 功能 快捷键<br>全局 查找并替换 Ctrl+F<br>文本编辑器 查找上一个 Ctrl+Shift+K<br>文本编辑器 查找下一个 Ctrl+K<br>全局 撤销 Ctrl+Z<br>全局 复制 Ctrl+C<br>全局 恢复上一个选择 Alt+Shift+↓<br>全局 剪切 Ctrl+X<br>全局 快速修正 Ctrl1+1<br>全局 内容辅助 Alt+/<br>全局 全部选中 Ctrl+A<br>全局 删除 Delete<br>全局 上下文信息 Alt+？<br>Alt+Shift+?<br>Ctrl+Shift+Space<br>Java编辑器 显示工具提示描述 F2<br>Java编辑器 选择封装元素 Alt+Shift+↑<br>Java编辑器 选择上一个元素 Alt+Shift+←<br>Java编辑器 选择下一个元素 Alt+Shift+→<br>文本编辑器 增量查找 Ctrl+J<br>文本编辑器 增量逆向查找 Ctrl+Shift+J<br>全局 粘贴 Ctrl+V<br>全局 重做 Ctrl+Y</p>
-<h2 id="查看">查看</h2><p>作用域 功能 快捷键<br>全局 放大 Ctrl+=<br>全局 缩小 Ctrl+-</p>
-<h2 id="窗口">窗口</h2><p>作用域 功能 快捷键<br>全局 激活编辑器 F12<br>全局 切换编辑器 Ctrl+Shift+W<br>全局 上一个编辑器 Ctrl+Shift+F6<br>全局 上一个视图 Ctrl+Shift+F7<br>全局 上一个透视图 Ctrl+Shift+F8<br>全局 下一个编辑器 Ctrl+F6<br>全局 下一个视图 Ctrl+F7<br>全局 下一个透视图 Ctrl+F8<br>文本编辑器 显示标尺上下文菜单 Ctrl+W<br>全局 显示视图菜单 Ctrl+F10<br>全局 显示系统菜单 Alt+-</p>
-<h2 id="导航">导航</h2><p>作用域 功能 快捷键<br>Java编辑器 打开结构 Ctrl+F3<br>全局 打开类型 Ctrl+Shift+T<br>全局 打开类型层次结构 F4<br>全局 打开声明 F3<br>全局 打开外部javadoc Shift+F2<br>全局 打开资源 Ctrl+Shift+R<br>全局 后退历史记录 Alt+←<br>全局 前进历史记录 Alt+→<br>全局 上一个 Ctrl+,<br>全局 下一个 Ctrl+.<br>Java编辑器 显示大纲 Ctrl+O<br>全局 在层次结构中打开类型 Ctrl+Shift+H<br>全局 转至匹配的括号 Ctrl+Shift+P<br>全局 转至上一个编辑位置 Ctrl+Q<br>Java编辑器 转至上一个成员 Ctrl+Shift+↑<br>Java编辑器 转至下一个成员 Ctrl+Shift+↓<br>文本编辑器 转至行 Ctrl+L</p>
-<h2 id="搜索">搜索</h2><p>作用域 功能 快捷键<br>全局 出现在文件中 Ctrl+Shift+U<br>全局 打开搜索对话框 Ctrl+H<br>全局 工作区中的声明 Ctrl+G<br>全局 工作区中的引用 Ctrl+Shift+G</p>
-<h2 id="文本编辑">文本编辑</h2><p>作用域 功能 快捷键<br>文本编辑器 改写切换 Insert<br>文本编辑器 上滚行 Ctrl+↑<br>文本编辑器 下滚行 Ctrl+↓</p>
-<h2 id="文件">文件</h2><p>作用域 功能 快捷键<br>全局 保存 Ctrl+X<br>Ctrl+S<br>全局 打印 Ctrl+P<br>全局 关闭 Ctrl+F4<br>全局 全部保存 Ctrl+Shift+S<br>全局 全部关闭 Ctrl+Shift+F4<br>全局 属性 Alt+Enter<br>全局 新建 Ctrl+N</p>
-<h2 id="项目">项目</h2><p>作用域 功能 快捷键<br>全局 全部构建 Ctrl+B</p>
-<h2 id="源代码">源代码</h2><p>作用域 功能 快捷键<br>Java编辑器 格式化 Ctrl+Shift+F<br>Java编辑器 取消注释 Ctrl+\<br>Java编辑器 注释 Ctrl+/<br>Java编辑器 添加导入 Ctrl+Shift+M<br>Java编辑器 组织导入 Ctrl+Shift+O<br>Java编辑器 使用try/catch块来包围 未设置，太常用了，所以在这里列出,建议自己设置。<br>也可以使用Ctrl+1自动修正。</p>
-<h2 id="运行">运行</h2><p>作用域 功能 快捷键<br>全局 单步返回 F7<br>全局 单步跳过 F6<br>全局 单步跳入 F5<br>全局 单步跳入选择 Ctrl+F5<br>全局 调试上次启动 F11<br>全局 继续 F8<br>全局 使用过滤器单步执行 Shift+F5<br>全局 添加/去除断点 Ctrl+Shift+B<br>全局 显示 Ctrl+D<br>全局 运行上次启动 Ctrl+F11<br>全局 运行至行 Ctrl+R<br>全局 执行 Ctrl+U</p>
-<h2 id="重构">重构</h2><p>作用域 功能 快捷键<br>全局 撤销重构 Alt+Shift+Z<br>全局 抽取方法 Alt+Shift+M<br>全局 抽取局部变量 Alt+Shift+L<br>全局 内联 Alt+Shift+I<br>全局 移动 Alt+Shift+V<br>全局 重命名 Alt+Shift+R<br>全局 重做 Alt+Shift+Y</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p> 很多过去使用Visual Studio开发软件的网友可能不熟悉Java开发环境，今天Android开发网告诉大家一些提高Android开发效率的Eclipse快捷键，可以有效率的帮助我们管理代码和减少键盘输入。Eclipse相对于Visual Studio而言使用Java开发，响应速度和稳定性上有很大的欠缺，这些我们目前只能容忍下。]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
-    
-      <category term="eclipse" scheme="http://m.magicer.xyz/tags/eclipse/"/>
     
       <category term="Software" scheme="http://m.magicer.xyz/categories/Software/"/>
     

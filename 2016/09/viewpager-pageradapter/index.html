@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="c," />
+  <meta name="keywords" content="PagerAdapter," />
 
 
 
@@ -82,15 +82,27 @@
 
 
 
-<meta name="description" content="c语言中typedef和define的使用">
+<meta name="description" content="以下是官方文档中对ViewPager的说明
+
+Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
+
+  Vi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C语言之 typedef和define的使用">
-<meta property="og:url" content="http://m.magicer.xyz/2015/01/typedefine/index.html">
+<meta property="og:title" content="ViewPager PagerAdapter的简单使用">
+<meta property="og:url" content="http://m.magicer.xyz/2016/09/viewpager-pageradapter/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="c语言中typedef和define的使用">
+<meta property="og:description" content="以下是官方文档中对ViewPager的说明
+
+Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
+
+  Vi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言之 typedef和define的使用">
-<meta name="twitter:description" content="c语言中typedef和define的使用">
+<meta name="twitter:title" content="ViewPager PagerAdapter的简单使用">
+<meta name="twitter:description" content="以下是官方文档中对ViewPager的说明
+
+Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
+
+  Vi">
 
 
 
@@ -108,7 +120,7 @@
   };
 </script>
 
-  <title> C语言之 typedef和define的使用 | Magicer </title>
+  <title> ViewPager PagerAdapter的简单使用 | Magicer </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +284,7 @@
             
             
               
-                C语言之 typedef和define的使用
+                ViewPager PagerAdapter的简单使用
               
             
           </h1>
@@ -284,8 +296,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-18T10:54:43+08:00" content="2015-01-18">
-              2015-01-18
+            <time itemprop="dateCreated" datetime="2016-09-04T22:07:04+08:00" content="2016-09-04">
+              2016-09-04
             </time>
           </span>
 
@@ -298,8 +310,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -314,8 +326,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/01/typedefine/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/typedefine/" itemprop="commentsCount"></span>
+                <a href="/2016/09/viewpager-pageradapter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/viewpager-pageradapter/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -325,7 +337,7 @@
 
           
           
-             <span id="/2015/01/typedefine/" class="leancloud_visitors" data-flag-title="C语言之 typedef和define的使用">
+             <span id="/2016/09/viewpager-pageradapter/" class="leancloud_visitors" data-flag-title="ViewPager PagerAdapter的简单使用">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -346,31 +358,13 @@
       
 
       
-        <p>c语言中typedef和define的使用<br><a id="more"></a></p>
-<h2 id="typedef和define的使用">typedef和define的使用</h2><h2 id="（一）typedef的使用">（一）typedef的使用</h2><p>  typedef，使你能够为某一个类型创建自己的别名。例如：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> BYTE;</span><br></pre></td></tr></table></figure></p>
-<p>  随后你就可以使用<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  	BYTE x,y[<span class="number">10</span>],*z;</span><br><span class="line">```  </span><br><span class="line">  <span class="preprocessor">###1、结合指针的用法  </span></span><br><span class="line">  ```c</span><br><span class="line">  tyoedef <span class="keyword">char</span> *STRING;</span><br><span class="line">  STRING name,sign;</span><br></pre></td></tr></table></figure></p>
-<p>  意思是<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> * name,*sign;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2、使用指针时和define的区别">2、使用指针时和define的区别</h3>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> STRING char *</span></span><br><span class="line">STRING name,sign;</span><br></pre></td></tr></table></figure>
-<p>  被解释为<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *name,sign;</span><br></pre></td></tr></table></figure></p>
-<p>  第二个<code>sign</code>没有被设置为字符指针。</p>
-<h3 id="3、typedef和结构">3、typedef和结构</h3><p>  例：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="keyword">complex</span>&#123;</span><br><span class="line">  	<span class="keyword">float</span> real;</span><br><span class="line">  	<span class="keyword">float</span> imag;</span><br><span class="line">&#125; COMPLEXL;</span><br></pre></td></tr></table></figure></p>
-<p>  这样就可以用<code>COMPLEX</code>代替<code>struct complex</code>来表示复数了。</p>
-<h2 id="（二）define的使用">（二）define的使用</h2><h3 id="1、define的通常用法">1、define的通常用法</h3><pre><code><span class="hexcolor">#def</span>ine name stuff
-</code></pre><p>  每当有符号那么出现时在这条指令后面时，预处理器就会把它替换成stuff。</p>
-<h3 id="2、使用#define可能出现副作用">2、使用<code>#define</code>可能出现副作用</h3><p>   <code>#define</code>机制包括了一个规定，允许把参数替换到文本中。<br>  例如：</p>
-<pre><code><span class="hexcolor">#def</span>ine <span class="function"><span class="title">SQUARE</span><span class="params">(x)</span></span>       x*x
-</code></pre><p>  如果在定义了之后使用<code>SQUARE（5）</code>结果是25;<br>  但是如果使用</p>
-<pre><code>a=5<span class="comment">;</span>
-printf<span class="list">(<span class="string">"%d\n"</span>,SQUARE<span class="list">(<span class="keyword">a+1</span>)</span>)</span><span class="comment">;</span>
-</code></pre><p>  结果会是什么样呢？？<br>也许你会说是<code>36</code>,可是真的是么？？？让我们分析一下。<br>define语句后出现<code>SQUARE(x)</code>的地方会被替换为<code>x*x</code><br>在这个例子中a+1相当与x。所以此时愿意应为</p>
-<pre><code>printf(<span class="string">"%d\n"</span>,<span class="literal">a</span>+<span class="number">1</span>*<span class="literal">a</span>+<span class="number">1</span>)<span class="comment">;</span>
-</code></pre><p>现在你感觉结果是多少呢？没错，是11.<br>当然解决这个问题也很简单，加上括号不就解决了么。</p>
-<pre><code><span class="hexcolor">#def</span>ine <span class="function"><span class="title">SQUARE</span><span class="params">(x)</span></span>   (x)*(x)
-</code></pre><p>而如果是</p>
-<pre><code><span class="hexcolor">#def</span>ine <span class="function"><span class="title">DOUBLE</span><span class="params">(x)</span></span>  (x)+(x)
-</code></pre><p>则需要写成</p>
-<pre><code><span class="hexcolor">#def</span>ine <span class="function"><span class="title">DOUBLE</span><span class="params">(x)</span></span>   ((x)+(x))
-</code></pre><p>道理一样。</p>
+        <p>以下是官方文档中对ViewPager的说明</p>
+<blockquote>
+<p>Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.</p>
+</blockquote>
+<p>  <code>ViewPager</code>是<code>android.support-v4</code>包下的一个组件。用来实现左右滑动的效果。和TabLayout的联动使用的效果挺不错。那么ViewPager的基本使用，是怎样的呢。<br>  呢？和其他的组件一样。我们只需要在布局中添加即可。<br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.v4.view.ViewPager</span></span><br><span class="line">     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">     <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">     <span class="attribute">android:id</span>=<span class="value">"@+id/viewpager"</span></span><br><span class="line">     /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>在这里我们需要一个<code>PagerAdapter</code>来对ViewPager进行填充。首先我们需要一个数据源，在这里我们用一个<code>List&lt;ImageView&gt;</code>。当创建PagerAdapter的时候，<br>我们需要实现四个方法：<code>getCount</code>, <code>isViewFromObject</code>, <code>instantiateItem</code>, <code>destroyItem</code>。最基础的应用的代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;ImageView&gt; mList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;ImageView&gt; list)</span> </span>&#123;</span><br><span class="line">        mList = list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view == object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 实例化页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        container.addView(mList.get(position));</span><br><span class="line">        <span class="keyword">return</span> mList.get(position);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 删除页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @param</span> object</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">        container.removeView(mList.get(position));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -391,7 +385,7 @@ printf<span class="list">(<span class="string">"%d\n"</span>,SQUARE<span class="
       
         <div class="post-tags">
           
-            <a href="/tags/c/" rel="tag">#c</a>
+            <a href="/tags/PagerAdapter/" rel="tag">#PagerAdapter</a>
           
         </div>
       
@@ -400,17 +394,13 @@ printf<span class="list">(<span class="string">"%d\n"</span>,SQUARE<span class="
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/typedef和define/" rel="next" title="C语言之 typedef和define的使用">
-                <i class="fa fa-chevron-left"></i> C语言之 typedef和define的使用
+              <a href="/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/" rel="next" title="使用FragmentPagerAdapter和FragmentStatePagerAdapter时Fragment生命周期区别">
+                <i class="fa fa-chevron-left"></i> 使用FragmentPagerAdapter和FragmentStatePagerAdapter时Fragment生命周期区别
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/01/linux-basic/" rel="prev" title="linux基本操作之压缩与解压命令">
-                linux基本操作之压缩与解压命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,8 +458,8 @@ printf<span class="list">(<span class="string">"%d\n"</span>,SQUARE<span class="
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/01/typedefine/"
-           data-title="C语言之 typedef和define的使用" data-url="http://m.magicer.xyz/2015/01/typedefine/">
+      <div class="ds-thread" data-thread-key="2016/09/viewpager-pageradapter/"
+           data-title="ViewPager PagerAdapter的简单使用" data-url="http://m.magicer.xyz/2016/09/viewpager-pageradapter/">
       </div>
     
   </div>
@@ -598,7 +588,7 @@ printf<span class="list">(<span class="string">"%d\n"</span>,SQUARE<span class="
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#typedef和define的使用"><span class="nav-number">1.</span> <span class="nav-text">typedef和define的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）typedef的使用"><span class="nav-number">2.</span> <span class="nav-text">（一）typedef的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用指针时和define的区别"><span class="nav-number">2.1.</span> <span class="nav-text">2、使用指针时和define的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、typedef和结构"><span class="nav-number">2.2.</span> <span class="nav-text">3、typedef和结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）define的使用"><span class="nav-number">3.</span> <span class="nav-text">（二）define的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、define的通常用法"><span class="nav-number">3.1.</span> <span class="nav-text">1、define的通常用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用#define可能出现副作用"><span class="nav-number">3.2.</span> <span class="nav-text">2、使用#define可能出现副作用</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
