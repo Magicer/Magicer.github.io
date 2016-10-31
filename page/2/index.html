@@ -275,6 +275,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/03/Java-Jsoup-jar-1/" itemprop="url">
+                  Jsoup.jar的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-02T20:34:25+08:00" content="2016-03-02">
+              2016-03-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/Java-Jsoup-jar-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/Java-Jsoup-jar-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/03/Java-Jsoup-jar-1/" class="leancloud_visitors" data-flag-title="Jsoup.jar的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Jsoup的使用方法参见：<a href="http://www.open-open.com/jsoup/" target="_blank" rel="external">http://www.open-open.com/jsoup/</a>.上面是中文版的也有官方API。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> * 通过网页来获取数据。</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line">Document doc =Jsoup.connect(<span class="string">"http://blog.magicer.xyz/"</span>).get();</span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * 得到页面中 第一个class为“post-title”的内容，然后输出其的值</span><br><span class="line"> *</span><br><span class="line">  */</span></span><br><span class="line">org.jsoup.nodes.Element string=doc.getElementsByClass(<span class="string">"post-title"</span>).first();</span><br><span class="line">		System.out.println(string); <span class="comment">/*输出结果为</span><br><span class="line">		&lt;h1 class="post-title" itemprop="name headline"&gt;</span><br><span class="line">		 &lt;a class="post-title-link" </span><br><span class="line">		 href="/2016/03/eclipse-import-jar/" itemprop="url"&gt; </span><br><span class="line">		 Eclipse如何导入外部jar包 &lt;/a&gt; &lt;/h1&gt;</span><br><span class="line">		*/</span></span><br><span class="line">		String title=string.text();</span><br><span class="line">  <span class="comment">/*</span><br><span class="line">   * 获得class名为post-title-link的属性的值</span><br><span class="line">   * (此处是一个a标签的href属性的值：/2016/03/eclipse-import-jar/)</span><br><span class="line">   * </span><br><span class="line">   */</span></span><br><span class="line">  String string2=doc.getElementsByClass(<span class="string">"post-title-link"</span>).attr(<span class="string">"href"</span>);</span><br><span class="line">  System.out.println(string2);   <span class="comment">//输出结果为：/2016/03/eclipse-import-jar/</span></span><br><span class="line">System.out.println(title);  	<span class="comment">//输出结果是：Eclipse如何导入外部jar包 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * 通过get()方法得到body的内容 get()方法的索引（index）从0 （即first（）方法）开始</span><br><span class="line"> * 	get(0)=first();</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line">org.jsoup.nodes.Element postBodyString= doc.getElementsByClass(<span class="string">"post-body"</span>).get(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">String postBody=postBodyString.text();  <span class="comment">//得到post-body的内容</span></span><br><span class="line">System.out.println(postBody);  <span class="comment">// 可以正常的输出post-body的内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> * 获得menu菜单项</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line">org.jsoup.nodes.Element element=doc.getElementsByClass(<span class="string">"menu"</span>).first();</span><br><span class="line"></span><br><span class="line">String menu= element.text();</span><br><span class="line">System.out.println(menu);  <span class="comment">// 输出结果为：首页 分类 归档 标签 关于</span></span><br></pre></td></tr></table></figure>
+<p>Elements这个对象提供了一系列类似于DOM的方法来查找元素，抽取并处理其中的数据。具体如下：</p>
+<h3 id="查找元素">查找元素</h3><p>getElementById(String id)<br>getElementsByTag(String tag)<br>getElementsByClass(String className)<br>getElementsByAttribute(String key) (and related methods)<br>Element siblings: siblingElements(), firstElementSibling(), lastElementSibling();nextElementSibling(), previousElementSibling()<br>Graph: parent(), children(), child(int index)</p>
+<h3 id="元素数据">元素数据</h3><p>attr(String key)获取属性attr(String key, String value)设置属性<br>attributes()获取所有属性<br>id(), className() and classNames()<br>text()获取文本内容text(String value) 设置文本内容<br>html()获取元素内HTMLhtml(String value)设置元素内的HTML内容<br>outerHtml()获取元素外HTML内容<br>data()获取数据内容（例如：script和style标签)<br>tag() and tagName()</p>
+<h3 id="操作HTML和文本">操作HTML和文本</h3><p>append(String html), prepend(String html)<br>appendText(String text), prependText(String text)<br>appendElement(String tagName), prependElement(String tagName)<br>html(String value)</p>
+<h3 id="Selector选择器概述">Selector选择器概述</h3><p>tagname: 通过标签查找元素，比如：a<br>ns|tag: 通过标签在命名空间查找元素，比如：可以用 fb|name 语法来查找 <fb:name> 元素<br><code>#id</code>: 通过ID查找元素，比如：#logo<br>.class: 通过class名称查找元素，比如：.masthead</fb:name></p>
+<p>[^attr]: 利用属性名前缀来查找元素，比如：可以用[^data-] 来查找带有HTML5 Dataset属性的元素</p>
+<p>[attr^=value], [attr$=value], [attr<em>=value]: 利用匹配属性值开头、结尾或包含属性值来查找元素，比如：[href</em>=/path/]<br>[attr~=regex]: 利用属性值匹配正则表达式来查找元素，比如： img[src~=(?i).(png|jpe?g)]<br><em>: 这个符号将匹配所有元素<br>Selector选择器组合使用<br>el#id: 元素+ID，比如： div#logo<br>el.class: 元素+class，比如： div.masthead<br>el[attr]: 元素+class，比如： a[href]<br>任意组合，比如：a[href].highlight<br>ancestor child: 查找某个元素下子元素，比如：可以用.body p 查找在”body”元素下的所有p元素<br>parent &gt; child: 查找某个父元素下的直接子元素，比如：可以用div.content &gt; p 查找 p 元素，也可以用body &gt; </em> 查找body标签下所有直接子元素<br>siblingA + siblingB: 查找在A元素之前第一个同级元素B，比如：div.head + div<br>siblingA ~ siblingX: 查找A元素之前的同级X元素，比如：h1 ~ p<br>el, el, el:多个选择器组合，查找匹配任一选择器的唯一元素，例如：div.masthead, div.logo</p>
+<h3 id="伪选择器selectors">伪选择器selectors</h3><p>:lt(n): 查找哪些元素的同级索引值（它的位置在DOM树中是相对于它的父节点）小于n，比如：td:lt(3) 表示小于三列的元素<br>:gt(n):查找哪些元素的同级索引值大于n，比如： div p:gt(2)表示哪些div中有包含2个以上的p元素<br>:eq(n): 查找哪些元素的同级索引值与n相等，比如：form input:eq(1)表示包含一个input标签的Form元素<br>:has(seletor): 查找匹配选择器包含元素的元素，比如：div:has(p)表示哪些div包含了p元素<br>:not(selector): 查找与选择器不匹配的元素，比如： div:not(.logo) 表示不包含 class=”logo” 元素的所有 div 列表<br>:contains(text): 查找包含给定文本的元素，搜索不区分大不写，比如： p:contains(jsoup)<br>:containsOwn(text): 查找直接包含给定文本的元素<br>:matches(regex): 查找哪些元素的文本匹配指定的正则表达式，比如：div:matches((?i)login)<br>:matchesOwn(regex): 查找自身包含文本匹配指定正则表达式的元素<br>注意：上述伪选择器索引是从0开始的，也就是说第一个元素索引值为0，第二个元素index为1等<br>可以查看Selector API参考来了解更详细的内容</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/eclipse-import-jar/" itemprop="url">
                   Eclipse如何导入外部jar包
                 </a>
@@ -1196,136 +1333,6 @@ openFile
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/android-studio-basic/" itemprop="url">
-                  Android Studio使用中的问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-15T18:37:15+08:00" content="2015-10-15">
-              2015-10-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/android-studio-basic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-studio-basic/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/android-studio-basic/" class="leancloud_visitors" data-flag-title="Android Studio使用中的问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,<br>话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。</p>
-<h2 id="添加主题">添加主题</h2><p> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
-<p>下载后：File-&gt;import seetting-&gt;下载主题的路径；</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1371,7 +1378,7 @@ openFile
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-count">42</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1388,7 +1395,7 @@ openFile
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
