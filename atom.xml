@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://m.magicer.xyz/"/>
-  <updated>2016-10-31T15:49:41.957Z</updated>
+  <updated>2016-12-19T15:25:55.642Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -13,6 +13,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[使用SpannableStringBuilder打造超炫酷的TextView]]></title>
+    <link href="http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/"/>
+    <id>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</id>
+    <published>2016-12-19T13:53:08.000Z</published>
+    <updated>2016-12-19T15:25:55.642Z</updated>
+    <content type="html"><![CDATA[<p>   前段时间项目中使用到了一种效果是更改textview中制定字符串的颜色.于是就查找了下资料,发现了使用<code>SpannableStringBuilder</code>可以很轻易的就实现,并不用使用自定义View.那么就直接先来个代码练练手,运行看下效果.<br>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String content = <span class="string">"NO ZUO NO DIE!"</span>;</span><br><span class="line">SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder(content);</span><br><span class="line">ForegroundColorSpan colorSpan = <span class="keyword">new</span> ForegroundColorSpan(Color.parseColor(<span class="string">"#009688"</span>));</span><br><span class="line">spannableStringBuilder.setSpan(colorSpan,<span class="number">3</span>,<span class="number">6</span>, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);</span><br><span class="line">mTextView.setText(spannableStringBuilder);</span><br></pre></td></tr></table></figure></p>
+<p>   运行完了之后肯定会有些疑惑,最主要的<code>SpannableStringBuilder</code>是什么鬼?  <code>ForegroundColorSpan</code>又是什么? <code>Spanned.SPAN_EXCLUSIVE_INCLUSIVE</code> 是什么意思? 那么我们来一个一个的解释. <a id="more"></a></p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setSpan</span> <span class="params">(Object what,  //设置的样式,看完下面的就明白了.</span><br><span class="line">             <span class="keyword">int</span> start,   //开始的位置. 索引是从<span class="number">0</span>开始的.</span><br><span class="line">             <span class="keyword">int</span> end,   //样式结束的位置,不包括end</span><br><span class="line">             <span class="keyword">int</span> flags)</span> <span class="comment">// 样式的标志. 下面详细介绍</span></span></span><br></pre></td></tr></table></figure>
+<p>flags:</p>
+<ul>
+<li><code>Spannable.SPAN_EXCLUSIVE_INCLUSIVE</code> : 在 Span前面输入的字符不应用 Span的效果，在后面输入的字符应用Span效果。</li>
+<li><code>Spannable.SPAN_INCLUSIVE_EXCLUSIVE</code>:  在 Span前面输入的字符应用 Span 的效果，在后面输入的字符不应用Span效果。</li>
+<li><code>Spanned.SPAN_INCLUSIVE_INCLUSIVE</code>:   前后都包括</li>
+<li><code>Spanned.SPAN_EXCLUSIVE_EXCLUSIVE</code>: 前后都不包括</li>
+</ul>
+<h3 id="SpannableStringBuilder是什么鬼?">SpannableStringBuilder是什么鬼?</h3><p>  官方文档是这样写的.  <code>This is the class for text whose content and markup can both be changed.</code><br>很简单,主要作用就是给文本内容添加样式的.主要通过<code>setSpan</code>方法设置样式.就像上面程序中那样. <code>setSpan</code>方法的三个参数是什么意思呢</p>
+<h3 id="ForegroundColorSpan_是什么?">ForegroundColorSpan 是什么?</h3><p>  根据它的意思就可以猜到,他是用来改变前景色的(也就是文本颜色).有文本颜色那是不是也有背景颜色等其他的呢?那是肯定的啦.只改变个文本颜色岂不是太low了呀.<br>  那么都是主要的都是有哪些呢?<br><img src="/image/spannablestringbuilder/spannablestringbuilder_rich_text.png" height="483" width="982" alt="span类"></p>
+<p>这个类里面的之类都是可以的. <a href="https://developer.android.google.cn/reference/android/text/style/CharacterStyle.html" target="_blank" rel="external">点我查看,无需翻墙</a><br>这些类跟<code>ForegroundColorSpan</code>都是大同小异的.掌握了一个,其他的也就掌握了.<br>我认为常用的是<code>ImageSpan</code>,<code>ClickableSpan</code>,<code>ForegroundColorSpan</code></p>
+<h2 id="再来几个代码练练">再来几个代码练练</h2><p>  再来个<code>ImageSpan</code>跟<code>ForegroundColorSpan</code>混合的的看下效果.<br>  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> content = <span class="string">"NO ZUO NO DIE!"</span>;</span><br><span class="line">SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder(content);</span><br><span class="line">ForegroundColorSpan colorSpan = <span class="keyword">new</span> ForegroundColorSpan(Color.parseColor(<span class="string">"#009688"</span>));</span><br><span class="line">spannableStringBuilder.setSpan(colorSpan,<span class="number">3</span>,<span class="number">6</span>, Spanned.SPAN_INCLUSIVE_INCLUSIVE);</span><br><span class="line">ImageSpan imageSpan = <span class="keyword">new</span> ImageSpan(<span class="keyword">this</span>,R.mipmap.ic_launcher);</span><br><span class="line">spannableStringBuilder.setSpan(imageSpan,<span class="number">2</span>,<span class="number">3</span>,Spanned.SPAN_EXCLUSIVE_INCLUSIVE);</span><br><span class="line">mTextView.setText(spannableStringBuilder);</span><br></pre></td></tr></table></figure></p>
+<p>  最后来张效果图:</p>
+<p><img src="/image/spannablestringbuilder/spannablestringbuilder_img.png" height="603" width="326" alt="效果图"></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>   前段时间项目中使用到了一种效果是更改textview中制定字符串的颜色.于是就查找了下资料,发现了使用<code>SpannableStringBuilder</code>可以很轻易的就实现,并不用使用自定义View.那么就直接先来个代码练练手,运行看下效果.<br>   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String content = <span class="string">"NO ZUO NO DIE!"</span>;</span><br><span class="line">SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder(content);</span><br><span class="line">ForegroundColorSpan colorSpan = <span class="keyword">new</span> ForegroundColorSpan(Color.parseColor(<span class="string">"#009688"</span>));</span><br><span class="line">spannableStringBuilder.setSpan(colorSpan,<span class="number">3</span>,<span class="number">6</span>, Spanned.SPAN_EXCLUSIVE_INCLUSIVE);</span><br><span class="line">mTextView.setText(spannableStringBuilder);</span><br></pre></td></tr></table></figure></p>
+<p>   运行完了之后肯定会有些疑惑,最主要的<code>SpannableStringBuilder</code>是什么鬼?  <code>ForegroundColorSpan</code>又是什么? <code>Spanned.SPAN_EXCLUSIVE_INCLUSIVE</code> 是什么意思? 那么我们来一个一个的解释.]]>
+    
+    </summary>
+    
+      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
+    
+      <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
+    
+      <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android基础知识之  Toolbar 的使用]]></title>
@@ -549,34 +586,6 @@ openFile
       <category term="gitcafe" scheme="http://m.magicer.xyz/tags/gitcafe/"/>
     
       <category term="github" scheme="http://m.magicer.xyz/tags/github/"/>
-    
-      <category term="hexo" scheme="http://m.magicer.xyz/tags/hexo/"/>
-    
-      <category term="Hexo" scheme="http://m.magicer.xyz/categories/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Hexo博客主题换成了NexT]]></title>
-    <link href="http://m.magicer.xyz/2015/08/blog-theme-changed/"/>
-    <id>http://m.magicer.xyz/2015/08/blog-theme-changed/</id>
-    <published>2015-08-20T12:31:37.000Z</published>
-    <updated>2016-10-13T13:42:07.343Z</updated>
-    <content type="html"><![CDATA[<p><img src="https://gitcafe.com/Magicer/Magicer/raw/gitcafe-pages/image/756094.jpg" alt="NexT" class="full-image"><br>博客主题由原先的Jacman换成了现在高大上的NexT主题，Jacman主题显得过于花哨，而NexT却显得高大上一点。比较了一下，还是更喜欢NexT的感觉。下面就简单说明一下过程。<br>详细的下载安装及设置教程在这里：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a><br> 效果图就不用看了吧，毕竟效果已经摆出来了，如果你也喜欢，那就动手吧。</p>
-<h2 id="自定义NexT">自定义NexT</h2><p> 1、添加Title 。<br>  NexT主题的Title和网站主页上的左上角的LOGO字体是一样的，在这里我想设置成不一样的怎么办呢？其实很简单，只需要在配置文件中添加一个<code>name</code>（注意：这个配置文件的位置是HEXO的配置文件不是主题的配置文件。<br>  ps：我觉得还是用logo比较好，由于子集以前就是用的name，在这里就不更改了）<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">title</span>: <span class="string">Magicer</span></span><br><span class="line"><span class="attribute">name</span>: <span class="string">Magicer</span></span><br></pre></td></tr></table></figure></p>
-<p>然后，在NexT主题文件夹中找到<code>layout</code>文件夹下的<code>_partials</code>文件夹下的<code>header.swig</code>文件 找到：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"site-title"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.title</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>将<code>config.title</code>修改为<code>config.name</code>即可<br>2、使页面地步链接到about界面</p>
-<p>找到：主题<code>layout</code>文件夹下的<code>_partials</code>文件夹下的 <code>footer.swig</code>文件：<br>找到：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>将其改为</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"theme-link"</span> <span class="attribute">href</span>=<span class="value">"/about/index.html"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>当然也可以连接到一个网址，比如我的设置就是这样的：</p>
-<figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">class</span>=<span class="value">"theme-link"</span> <span class="attribute">href</span>=<span class="value">"http://magicer.xyz"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"author"</span> <span class="attribute">itemprop</span>=<span class="value">"copyrightHolder"</span>&gt;</span></span><span class="expression">&#123;&#123; <span class="variable">config.author</span> &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="https://gitcafe.com/Magicer/Magicer/raw/gitcafe-pages/image/756094.jpg" alt="NexT" class="full-image"><br>博客主题由原先的Jacman换成了现在高大]]>
-    </summary>
     
       <category term="hexo" scheme="http://m.magicer.xyz/tags/hexo/"/>
     

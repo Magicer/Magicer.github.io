@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
+    <lastmod>2016-12-19T15:25:55.642Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
     <lastmod>2016-10-31T15:49:41.957Z</lastmod>
   </url>
