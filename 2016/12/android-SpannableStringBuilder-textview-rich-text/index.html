@@ -361,7 +361,7 @@
 <h3 id="SpannableStringBuilder是什么鬼?">SpannableStringBuilder是什么鬼?</h3><p>  官方文档是这样写的.  <code>This is the class for text whose content and markup can both be changed.</code><br>很简单,主要作用就是给文本内容添加样式的.主要通过<code>setSpan</code>方法设置样式.就像上面程序中那样. <code>setSpan</code>方法的三个参数是什么意思呢</p>
 <h3 id="ForegroundColorSpan_是什么?">ForegroundColorSpan 是什么?</h3><p>  根据它的意思就可以猜到,他是用来改变前景色的(也就是文本颜色).有文本颜色那是不是也有背景颜色等其他的呢?那是肯定的啦.只改变个文本颜色岂不是太low了呀.<br>  那么都是主要的都是有哪些呢?<br><img src="/image/spannablestringbuilder/spannablestringbuilder_rich_text.png" height="483" width="982" alt="span类"></p>
 <p>这个类里面的之类都是可以的. <a href="https://developer.android.google.cn/reference/android/text/style/CharacterStyle.html" target="_blank" rel="external">点我查看,无需翻墙</a><br>这些类跟<code>ForegroundColorSpan</code>都是大同小异的.掌握了一个,其他的也就掌握了.<br>我认为常用的是<code>ImageSpan</code>,<code>ClickableSpan</code>,<code>ForegroundColorSpan</code></p>
-<h2 id="再来几个代码练练">再来几个代码练练</h2><p>  再来个<code>ImageSpan</code>跟<code>ForegroundColorSpan</code>混合的的看下效果.<br>  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> content = <span class="string">"NO ZUO NO DIE!"</span>;</span><br><span class="line">SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder(content);</span><br><span class="line">ForegroundColorSpan colorSpan = <span class="keyword">new</span> ForegroundColorSpan(Color.parseColor(<span class="string">"#009688"</span>));</span><br><span class="line">spannableStringBuilder.setSpan(colorSpan,<span class="number">3</span>,<span class="number">6</span>, Spanned.SPAN_INCLUSIVE_INCLUSIVE);</span><br><span class="line">ImageSpan imageSpan = <span class="keyword">new</span> ImageSpan(<span class="keyword">this</span>,R.mipmap.ic_launcher);</span><br><span class="line">spannableStringBuilder.setSpan(imageSpan,<span class="number">2</span>,<span class="number">3</span>,Spanned.SPAN_EXCLUSIVE_INCLUSIVE);</span><br><span class="line">mTextView.setText(spannableStringBuilder);</span><br></pre></td></tr></table></figure></p>
+<h3 id="再来几个代码练练">再来几个代码练练</h3><p>  再来个<code>ImageSpan</code>跟<code>ForegroundColorSpan</code>混合的的看下效果.<br>  <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> content = <span class="string">"NO ZUO NO DIE!"</span>;</span><br><span class="line">SpannableStringBuilder spannableStringBuilder = <span class="keyword">new</span> SpannableStringBuilder(content);</span><br><span class="line">ForegroundColorSpan colorSpan = <span class="keyword">new</span> ForegroundColorSpan(Color.parseColor(<span class="string">"#009688"</span>));</span><br><span class="line">spannableStringBuilder.setSpan(colorSpan,<span class="number">3</span>,<span class="number">6</span>, Spanned.SPAN_INCLUSIVE_INCLUSIVE);</span><br><span class="line">ImageSpan imageSpan = <span class="keyword">new</span> ImageSpan(<span class="keyword">this</span>,R.mipmap.ic_launcher);</span><br><span class="line">spannableStringBuilder.setSpan(imageSpan,<span class="number">2</span>,<span class="number">3</span>,Spanned.SPAN_EXCLUSIVE_INCLUSIVE);</span><br><span class="line">mTextView.setText(spannableStringBuilder);</span><br></pre></td></tr></table></figure></p>
 <p>  最后来张效果图:</p>
 <p><img src="/image/spannablestringbuilder/spannablestringbuilder_img.png" height="603" width="326" alt="效果图"></p>
 
@@ -402,6 +402,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/android-api-23-permission/" rel="prev" title="Android 6.0之后的动态权限">
+                Android 6.0之后的动态权限 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -505,7 +509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -589,7 +593,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpannableStringBuilder是什么鬼?"><span class="nav-number">1.</span> <span class="nav-text">SpannableStringBuilder是什么鬼?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ForegroundColorSpan_是什么?"><span class="nav-number">2.</span> <span class="nav-text">ForegroundColorSpan 是什么?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再来几个代码练练"><span class="nav-number"></span> <span class="nav-text">再来几个代码练练</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SpannableStringBuilder是什么鬼?"><span class="nav-number">1.</span> <span class="nav-text">SpannableStringBuilder是什么鬼?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ForegroundColorSpan_是什么?"><span class="nav-number">2.</span> <span class="nav-text">ForegroundColorSpan 是什么?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再来几个代码练练"><span class="nav-number">3.</span> <span class="nav-text">再来几个代码练练</span></a></li></ol></div>
             
           </div>
         </section>
@@ -610,7 +614,7 @@
 <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

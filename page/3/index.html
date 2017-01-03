@@ -275,6 +275,138 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/android-listview-general/" itemprop="url">
+                  Android 中 ListView 的使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-25T14:45:03+08:00" content="2015-10-25">
+              2015-10-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/android-listview-general/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/android-listview-general/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/android-listview-general/" class="leancloud_visitors" data-flag-title="Android 中 ListView 的使用">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>ListView是android应用开发中使用频率非常高的一个系统组件，几乎所有的应用中都要用到，尽管现在RecycleView有想要替代ListView的意味，但ListView仍然很重要。所以ListView值得我们深入的研究。下面就记录下ListView的使用。</p>
+<h2 id="ViewHolder">ViewHolder</h2><p>使用ViewHolder模式能够提高ListView的效率.基本的使用方法如下：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolderAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; mData;</span><br><span class="line">    <span class="keyword">private</span> LayoutInflater mInflater;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewHolderAdapter</span><span class="params">(Context context,List&lt;String&gt; data )</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mData=data;</span><br><span class="line">        mInflater=LayoutInflater.from(context);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> mData.<span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> mData.<span class="title">get</span><span class="params">(position)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> position;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</span><br><span class="line">        ViewHolder holder=<span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//判断是否缓存</span></span><br><span class="line">        <span class="keyword">if</span> (convertView==<span class="keyword">null</span>)&#123;</span><br><span class="line">            holder=<span class="keyword">new</span> ViewHolder();</span><br><span class="line">            <span class="comment">//实例化布局</span></span><br><span class="line">            convertView=mInflater.inflate(R.layout.listitem,<span class="keyword">null</span>);</span><br><span class="line">            holder.img=(ImageView)convertView.findViewById(R.id.imageView);</span><br><span class="line">            holder.title=(TextView)convertView.findViewById(R.id.textView);</span><br><span class="line"></span><br><span class="line">            convertView.setTag(holder);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//通过Tag找到缓存的布局</span></span><br><span class="line">            holder=(ViewHolder)convertView.getTag();</span><br><span class="line">        &#125;</span><br><span class="line">        holder.img.setBackgroundResource(R.mipmap.ic_launcher);</span><br><span class="line">        holder.title.setText(mData.get(position));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> convertView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义的ViewHolder类</span></span><br><span class="line">      <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span></span>&#123;</span><br><span class="line">        <span class="keyword">public</span> ImageView img;</span><br><span class="line">        <span class="keyword">public</span> TextView title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ListView样式">ListView样式</h2><p>divider:分割线颜色，<br>diverHeight:分割线宽度，<br>scrollbars=none:去掉滑动条，<br>listSelector：取消点击效果 （transparent：透明的）<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListView</span><br><span class="line">      android:<span class="variable">layout_width=</span><span class="string">"wrap_content"</span></span><br><span class="line">      android:<span class="variable">layout_height=</span><span class="string">"wrap_content"</span></span><br><span class="line">      android:<span class="variable">id=</span><span class="string">"@+id/listView"</span></span><br><span class="line">      android:<span class="variable">divider=</span><span class="string">"@android:color/darker_gray"</span></span><br><span class="line">      android:<span class="variable">dividerHeight=</span><span class="string">"1dp"</span></span><br><span class="line">      android:<span class="variable">scrollbars=</span><span class="string">"none"</span> </span><br><span class="line">      android:<span class="variable">listSelector=</span><span class="string">"@android:color/transparent"</span>/&gt;</span><br><span class="line">&lt;ImageView</span><br><span class="line">      android:<span class="variable">layout_width=</span><span class="string">"match_parent"</span></span><br><span class="line">      android:<span class="variable">layout_height=</span><span class="string">"match_parent"</span></span><br><span class="line">      android:<span class="variable">id=</span><span class="string">"@+id/empty_listview"</span></span><br><span class="line">      android:<span class="variable">src=</span><span class="string">"@mipmap/ic_launcher"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通常可以添加一个默认的图片，在ListView Item 为空的时候显示，<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mListView= (ListView) findViewById(R.<span class="property">id</span>.listView);</span><br><span class="line">mListView.setEmptyView(findViewById(R.<span class="property">id</span>.empty_listview));</span><br></pre></td></tr></table></figure></p>
+<h2 id="ListView动态修改">ListView动态修改</h2><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mData.add(<span class="string">"iMac"</span>);</span><br><span class="line">mAdapter.notifyDataSetChanged<span class="literal">()</span>;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/android-studio-keymap/" itemprop="url">
                   Android Studio 快捷键的使用
                 </a>
@@ -1179,137 +1311,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/eclipse-android-auto/" itemprop="url">
-                  eclipse-android自动提示代码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-04T20:31:08+08:00" content="2015-05-04">
-              2015-05-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/eclipse-android-auto/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/eclipse-android-auto/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/05/eclipse-android-auto/" class="leancloud_visitors" data-flag-title="eclipse-android自动提示代码">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="（一）设置_java_文件的代码提示功能">（一）设置 java 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Java &gt; Editor - Content Assist &gt; Auto activation triggers for Java ，设置框中默认是一个点，<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">.abcdefghijklmnopqrstuvwxyz(,</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="（二）设置_xml_文件的代码提示功能">（二）设置 xml 文件的代码提示功能</h2><p>打 开 Eclipse 依次选择 Window &gt; Preferences &gt; Xml &gt; Xml Files &gt; Editor &gt; Content Assist &gt; Auto activation &gt; Prompt when these characters are inserted ，设置框中默认是 &lt;=: ，</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;=:.abcdefghijklmnopqrstuvwxyz(,</span><br></pre></td></tr></table></figure>
-<p>把delay该小一点。默认为500</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1355,7 +1356,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1449,7 +1450,7 @@
 <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

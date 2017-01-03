@@ -275,6 +275,144 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/android-api-23-permission/" itemprop="url">
+                  Android 6.0之后的动态权限
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-03T21:12:09+08:00" content="2017-01-03">
+              2017-01-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/android-api-23-permission/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/android-api-23-permission/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/android-api-23-permission/" class="leancloud_visitors" data-flag-title="Android 6.0之后的动态权限">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言">前言</h2><p>  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在<code>AndroidManifest.xml</code>文件中显示的声明即可。如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.INTERNET"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，在Android 6.0之后，Android对应用程序的权限进行了进一步的规范。分出来危险权限和一般权限，当我们需要危险权限的时候需要在运行时进行授权。这样做也有好处。对于一些应用用户的选择更多了。</p>
+<h2 id="权限分类">权限分类</h2><p><a href="https://developer.android.google.cn/training/permissions/index.html" target="_blank" rel="external">官方权限教程</a><br>当我们需要用到危险权限时，我们就需要动态的申请权限，那么危险权限有哪些呢？</p>
+<h3 id="危险权限">危险权限</h3><p><img src="https://segmentfault.com/img/bVHIe5?w=871&amp;h=910" alt="图片描述"></p>
+<h3 id="一般权限">一般权限</h3><p>对于常规的权限我们只需要在清单文件中注册即可，比如网络权限。</p>
+<h2 id="动态注册权限">动态注册权限</h2><p>如果您的应用需要危险权限，则每次执行需要这一权限的操作时您都必须检查自己是否具有该权限。用户始终可以自由调用此权限，因此，即使应用昨天使用了相机，它不能假设自己今天仍具有该权限。</p>
+<p>要检查您是否具有某项权限，请调用<code>ContextCompat.checkSelfPermission()</code> 方法。例如，以下代码段显示了如何检查 Activity 是否具有在日历中进行写入的权限：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Assume thisActivity is the current activity</span></span><br><span class="line"><span class="keyword">int</span> permissionCheck = ContextCompat.checkSelfPermission(thisActivity,</span><br><span class="line">        Manifest.permission.WRITE_CALENDAR);</span><br></pre></td></tr></table></figure>
+<p>如果应用具有此权限，方法将返回 <code>PackageManager.PERMISSION_GRANTED</code>，并且应用可以继续操作。如果应用不具有此权限，方法将返回 <code>PERMISSION_DENIED</code>，且应用必须明确向用户要求权限。</p>
+<p>以上是官方文档中关于检测权限的说明。<br>先来个小demo。看下怎么动态的请求权限，也可以看<a href="https://developer.android.google.cn/training/permissions/requesting.html#perm-request" target="_blank" rel="external">官方文档</a>中的介绍。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PERMISSION_REQUEST_CODE = <span class="number">1</span>; <span class="comment">//权限请求码</span></span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    <span class="keyword">if</span> (checkPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</span><br><span class="line">        <span class="comment">//获取权限后的操作。读取文件</span></span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//请求权限</span></span><br><span class="line">        ActivityCompat.requestPermissions(<span class="keyword">this</span>,</span><br><span class="line">                <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</span><br><span class="line">                PERMISSION_REQUEST_CODE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="javadoc">/**</span><br><span class="line"> * 检测权限是否授权</span><br><span class="line"> *<span class="javadoctag"> @return</span></span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">checkPermission</span><span class="params">(Context context, String permission)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context,permission);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, @NonNull String[] permissions, @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">    <span class="keyword">switch</span> (requestCode)&#123;</span><br><span class="line">        <span class="keyword">case</span> PERMISSION_REQUEST_CODE:</span><br><span class="line">            <span class="keyword">if</span> (grantResults.length &gt;<span class="number">0</span> &amp;&amp;</span><br><span class="line">                    grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                <span class="comment">//得到了授权</span></span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"授权成功"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//未授权</span></span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"授权失败"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当用户点击了<code>禁止</code>按钮后，当我们下次还需要该权限怎么办？  <a href="https://developer.android.google.cn/reference/android/support/v4/app/ActivityCompat.html#shouldShowRequestPermissionRationale%28android.app.Activity,%20java.lang.String%29" target="_blank" rel="external">shouldShowRequestPermissionRationale()</a>函数会在用户点击了禁止后返回<code>true</code>，我们可以在该方法返回true时在提示用户开启权限。<br>代码跟上面的差不多。可以简要看一下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> PERMISSION_REQUEST_CODE = <span class="number">1</span>; <span class="comment">//权限请求码</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Button mButton;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        mButton = (Button) findViewById(R.id.activity_main_storage_btn);</span><br><span class="line">        mButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                storagePermission();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">storagePermission</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (checkPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</span><br><span class="line">            <span class="comment">//获取权限后的操作。读取文件</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//            //请求权限</span></span><br><span class="line"><span class="comment">//            ActivityCompat.requestPermissions(this,</span></span><br><span class="line"><span class="comment">//                    new String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</span></span><br><span class="line"><span class="comment">//                    PERMISSION_REQUEST_CODE);</span></span><br><span class="line">            <span class="keyword">if</span> (ActivityCompat.shouldShowRequestPermissionRationale(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"需要开启存储权限"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                showRequestPermissionDialog(<span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,PERMISSION_REQUEST_CODE);</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                ActivityCompat.requestPermissions(<span class="keyword">this</span>,</span><br><span class="line">                        <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</span><br><span class="line">                        PERMISSION_REQUEST_CODE);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showRequestPermissionDialog</span><span class="params">(<span class="keyword">final</span> String[] permissions, <span class="keyword">final</span> <span class="keyword">int</span> requestCode)</span> </span>&#123;</span><br><span class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>);</span><br><span class="line">        builder.setMessage(<span class="string">"使用该功能需要使用SD卡权限\n是否再次开启权限"</span>);</span><br><span class="line">        builder.setPositiveButton(<span class="string">"是"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">            <span class="annotation">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>,permissions,requestCode);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        builder.setNegativeButton(<span class="string">"否"</span>,<span class="keyword">null</span>);</span><br><span class="line">        builder.setCancelable(<span class="keyword">true</span>);</span><br><span class="line">        builder.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 检测权限是否授权</span><br><span class="line">     *<span class="javadoctag"> @return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">checkPermission</span><span class="params">(Context context, String permission)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(context,permission);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, @NonNull String[] permissions, @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onRequestPermissionsResult(requestCode, permissions, grantResults);</span><br><span class="line">        <span class="keyword">switch</span> (requestCode)&#123;</span><br><span class="line">            <span class="keyword">case</span> PERMISSION_REQUEST_CODE:</span><br><span class="line">                <span class="keyword">if</span> (grantResults.length &gt;<span class="number">0</span> &amp;&amp;</span><br><span class="line">                        grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                    <span class="comment">//得到了授权</span></span><br><span class="line">                    Toast.makeText(<span class="keyword">this</span>, <span class="string">"授权成功"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//未授权</span></span><br><span class="line">                    Toast.makeText(<span class="keyword">this</span>, <span class="string">"授权失败"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/android-SpannableStringBuilder-textview-rich-text/" itemprop="url">
                   使用SpannableStringBuilder打造超炫酷的TextView
                 </a>
@@ -1163,147 +1301,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/bubble-selection-insert-sort-1/" itemprop="url">
-                  Java插入排序，选择排序和冒泡排序的简单使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-14T19:18:41+08:00" content="2016-03-14">
-              2016-03-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/bubble-selection-insert-sort-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/bubble-selection-insert-sort-1/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/bubble-selection-insert-sort-1/" class="leancloud_visitors" data-flag-title="Java插入排序，选择排序和冒泡排序的简单使用">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中的进行排序，而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。</p>
-<h2 id="冒泡排序">冒泡排序</h2><p>经过一次次的交换，最小的数慢慢的交换到数组开头，像冒泡泡。</p>
-<p>专业描述：<br> 前提条件：序列S={S0,S1,S2….Sn-1}是n个可排序元素的系列<br> 1、令j从n-1递增到j，重复 2—4<br> 2、令i从1递增到j，重复 3<br> 3、如果元素Si-1个Si成反序 交换他们<br> 4、结束标记，序列{S0………Sj}被排序，且Sj最大    </p>
-<p>算法步骤：<br>1、比较相邻的元素，如果第一个大，就交换他们。<br>2、对每一个相邻的元素都比较并交换，从开始到最后一对，每次都可以保证最后的那个元素是最大的。<br>3、针对所有的元素，重复执行，除了最后一个（因为最后一个已经是最大的）。<br>4、每次重复上面的步骤，知道没有任何一对数字需要比较<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[]arr)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> temp;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;arr.length-<span class="number">1</span>;i++)&#123;  <span class="comment">//控制循环次数，最多length-1次</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;arr.length-<span class="number">1</span>-i;j++)&#123;   </span><br><span class="line">				<span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;  <span class="comment">//交换，大的值交换到后面</span></span><br><span class="line">					temp=arr[j];</span><br><span class="line">					arr[j]=arr[j+<span class="number">1</span>];</span><br><span class="line">					arr[j+<span class="number">1</span>]=temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//打印出每次排序的数组；</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> num:arr)&#123;</span><br><span class="line">				System.out.print(num+<span class="string">"  "</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] arrays=&#123;<span class="number">12</span>,<span class="number">14</span>,<span class="number">65</span>,<span class="number">21</span>,<span class="number">23</span>,<span class="number">3</span>,<span class="number">45</span>,<span class="number">4</span>&#125;;</span><br><span class="line">		bubbleSort(arrays);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>伪代码如下：<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i &lt;<span class="comment">---1 to length[A]</span></span><br><span class="line">	do <span class="keyword">for</span> j &lt;<span class="comment">---length[A] down to i+1</span></span><br><span class="line">		do <span class="keyword">if</span> A[j] &lt; A[j-<span class="number">1</span>]</span><br><span class="line">		<span class="keyword">then</span> exchange A[j] &lt;<span class="comment">--&gt; A[j-1]</span></span><br></pre></td></tr></table></figure></p>
-<p>在网上找了个图示，如下：<br><img src="/image/sort/bubble.gif" alt="Bubble Sort"></p>
-<h2 id="插入排序">插入排序</h2><p>插入排序的一个典型例子就是扑克牌，联想一下扑克牌我们就可以很好的理解插入排序是如何工作的。<br>算法步骤：<br>1、将待排序序列第一个元素看做一个有序序列，把第二个元素到最后一个元素当作是未排序序列。<br>2、从头到尾依次扫描未排序序列，将扫描到的每个元素插入有序序列的适当位置。（如果待插入的元素和有序序列中的某个元素相等，则将带插入元素插入到相等元素的后面）<br><img src="/image/sort/insert.gif" alt="Insert Short"></p>
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> j &lt;<span class="comment">-- 2 to length[A]</span></span><br><span class="line">	<span class="built_in">do</span> key &lt;<span class="comment">-- A[j]</span></span><br><span class="line">	<span class="comment">##insert A[j] into the sorted sequence A[1......j-1]</span></span><br><span class="line">	i &lt;<span class="comment">--j-1</span></span><br><span class="line">	<span class="keyword">while</span> i &gt;=<span class="number">0</span> <span class="operator">and</span> A[i] &gt; key</span><br><span class="line">		<span class="built_in">do</span> A[i+<span class="number">1</span>] &lt;<span class="comment">-- A[i]</span></span><br><span class="line">		i &lt;<span class="comment">-- i</span></span><br><span class="line">	A[i+<span class="number">1</span>] &lt;<span class="comment">-- key</span></span><br></pre></td></tr></table></figure>
-<p>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;<span class="keyword">int</span> insertNode;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;array.length;i++)&#123;</span><br><span class="line">		insertNode = array[i];</span><br><span class="line">		j = i+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span>(j&gt;=<span class="number">0</span>&amp;&amp;insertNode &lt; array[j])&#123;</span><br><span class="line">			array[j+<span class="number">1</span>] = array[j];</span><br><span class="line">			j--</span><br><span class="line">&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="选择排序">选择排序</h2><p><img src="/image/sort/selection.gif" alt="Selection Sort"></p>
-<p>基本思想：直接选择排序的基本思想是：第i趟排序开始时，当前有序区和无序区分别为R[1····i-1]和R[i····n]（1&lt;=i&lt;=n）该趟排序则是从当前无序区选出关键字最小的记录 R[k] 将它与无序区的第一个记录R[i]交换，使R[1····i]和R[i+1···n]分别变为新的有序区和新的无序区。因为每趟排序均使有序区中增加了一个记录，且有序区中的记录关键字均不大于无序区中记录的关键字，即第i趟排序之后 R[1···i].keys&lt;=R[i+1···n].keys 所以进行n-1趟排序之后有R[1·····n-1].key,即经过n-1趟排序之后，整个文件R[1····n]递增有序。注意：第1趟排序开始时，无序区为R[1·····n]。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">choose</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;a.length;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> tmp = a[i];</span><br><span class="line">		<span class="keyword">int</span> index = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;a.length;j++)&#123;  </span><br><span class="line">			<span class="keyword">if</span>(tmp&gt;array[j])&#123;     <span class="comment">//比较值，取出值小的下标</span></span><br><span class="line">				tmp = array[j];</span><br><span class="line">				index = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(i!=index)&#123;   <span class="comment">//交换两个的值，当前最小值的坐标等于当前坐标时。</span></span><br><span class="line">			<span class="keyword">int</span> k = array[i];</span><br><span class="line">			array[i] = array[index];</span><br><span class="line">			array[index] = k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="简洁说明">简洁说明</h3><p> 选择排序时依次固定一个下标,让每个下标中的数和它后面的所有的数进行比较;<br> 代码如下:<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span>[] arr = &#123; <span class="number">2</span>, <span class="number">23</span>, <span class="number">4</span>, <span class="number">543</span>, <span class="number">53</span>, <span class="number">23</span>, <span class="number">56</span> &#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; arr.length ; j++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr[i] &gt; arr[j]) &#123;</span><br><span class="line">			swap(arr, i, j);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i:arr)&#123;</span><br><span class="line">	System.out.print(i+<span class="string">","</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1349,7 +1346,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1443,7 +1440,7 @@
 <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
