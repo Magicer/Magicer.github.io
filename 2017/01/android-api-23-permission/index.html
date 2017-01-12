@@ -82,16 +82,19 @@
 
 
 
-<meta name="description" content="前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;lt;uses-permission android:name=&quot;android.permi">
+<meta name="description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 6.0之后的动态权限">
 <meta property="og:url" content="http://m.magicer.xyz/2017/01/android-api-23-permission/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;lt;uses-permission android:name=&quot;android.permi">
+<meta property="og:description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 <meta property="og:image" content="https://segmentfault.com/img/bVHIe5?w=871&h=910">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 6.0之后的动态权限">
-<meta name="twitter:description" content="前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&amp;gt;&amp;lt;uses-permission android:name=&quot;android.permi">
+<meta name="twitter:description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 
 
 
@@ -347,7 +350,8 @@
       
 
       
-        <h2 id="前言">前言</h2><p>  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在<code>AndroidManifest.xml</code>文件中显示的声明即可。如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.INTERNET"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+        <p><a href="http://blog.magicer.xyz/2017/01/android-api-23-permission/" target="_blank" rel="external">原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/</a></p>
+<h2 id="前言">前言</h2><p>  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在<code>AndroidManifest.xml</code>文件中显示的声明即可。如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.INTERNET"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">uses-permission</span> <span class="attribute">android:name</span>=<span class="value">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>但是，在Android 6.0之后，Android对应用程序的权限进行了进一步的规范。分出来危险权限和一般权限，当我们需要危险权限的时候需要在运行时进行授权。这样做也有好处。对于一些应用用户的选择更多了。<br><a id="more"></a></p>
 <h2 id="权限分类">权限分类</h2><p><a href="https://developer.android.google.cn/training/permissions/index.html" target="_blank" rel="external">官方权限教程</a><br>当我们需要用到危险权限时，我们就需要动态的申请权限，那么危险权限有哪些呢？</p>
 <h3 id="危险权限">危险权限</h3><p><img src="https://segmentfault.com/img/bVHIe5?w=871&amp;h=910" alt="图片描述"></p>

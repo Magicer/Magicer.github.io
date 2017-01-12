@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
-    <lastmod>2017-01-12T13:03:26.026Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
-    <lastmod>2017-01-03T13:20:49.261Z</lastmod>
+    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
+    <lastmod>2017-01-12T13:17:26.886Z</lastmod>
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
-    <lastmod>2016-12-19T15:31:53.038Z</lastmod>
+    <lastmod>2017-01-12T13:16:35.506Z</lastmod>
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
-    <lastmod>2016-10-31T15:49:41.957Z</lastmod>
+    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
+    <lastmod>2017-01-12T13:15:48.982Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
+    <lastmod>2017-01-12T13:13:48.346Z</lastmod>
   </url>
   
   <url>
