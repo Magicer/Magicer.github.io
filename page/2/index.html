@@ -275,6 +275,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/add-sharesdk/" itemprop="url">
+                  为Hexo NexT主题添加ShareSDK的分享
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-19T11:43:59+08:00" content="2016-04-19">
+              2016-04-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/add-sharesdk/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/add-sharesdk/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/04/add-sharesdk/" class="leancloud_visitors" data-flag-title="为Hexo NexT主题添加ShareSDK的分享">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天发现一个分享的的sdk,可以在各个平台使用。由于不太喜欢主题提供的几个分享的样式。就试了试怎么这个。发现还是不错滴。。下面是分享的按钮和分享的样式：<br><strong>效果见下面——</strong><br>传送门：<a href="http://sharesdk.mob.com/#/sharesdk" target="_blank" rel="external">ShareSDK</a><br><a href="http://wiki.mob.com/sharesdk-for-web%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90/" target="_blank" rel="external">Web集成官方文档</a></p>
+<p>下面是在网页上分享按钮的代码，只需要将以下代码添加到想要显示的位置即可。<code>appkey</code>是你自己的appkey。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--MOB SHARE BEGIN--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"-mob-share-ui-button -mob-share-open"</span>&gt;</span>分享<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"-mob-share-ui"</span> <span class="attribute">style</span>=<span class="value">"display: none"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span> <span class="attribute">class</span>=<span class="value">"-mob-share-list"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-weibo"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>新浪微博<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-tencentweibo"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>腾讯微博<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-qzone"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>QQ空间<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-qq"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>QQ好友<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-renren"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>人人网<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-kaixin"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>开心网<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-douban"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>豆瓣<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-facebook"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>Facebook<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">li</span> <span class="attribute">class</span>=<span class="value">"-mob-share-twitter"</span>&gt;</span><span class="tag">&lt;<span class="title">p</span>&gt;</span>Twitter<span class="tag">&lt;/<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"-mob-share-close"</span>&gt;</span>取消<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"-mob-share-ui-bg"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">"-mob-share"</span> <span class="attribute">src</span>=<span class="value">"http://f1.webshare.mob.com/code/mob-share.js?appkey=你的appkey"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--MOB SHARE END--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="添加到NexT中">添加到NexT中</h2><p>那么怎么添加到next主题上呢。步骤如下</p>
+<h3 id="1-创建文件">1.创建文件</h3><p>我们首先要在主题文件夹下的<code>layout</code>文件夹找到<code>_partials</code>下的<code>share</code>文件夹，之后添加一个名为<code>sharesdk.swig</code>的文件。我们可以看出来。这个文件夹下放的全部是分享的配置文件.添加的内容为上面的那一大段代码。只需要修改一部分。修改的部分为：<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">id</span>=<span class="value">"-mob-share"</span> <span class="attribute">src</span>=<span class="value">"http://f1.webshare.mob.com/code/mob-share.js?appkey=</span></span></span><span class="expression">&#123;&#123; <span class="variable">theme.shareSDKappkey</span> &#125;&#125;</span><span class="xml"><span class="tag"><span class="value">"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>修改这写的目的是为了让我们能够在主题的配置文件中添加appkey。（只需要在主题的配置文件中添加一个<code>shareSDKappkey</code>并为其附上值即可）。</p>
+<h3 id="2添加可选配置">2添加可选配置</h3><p>虽然我们添加了sharesdk的分享的按钮了，但是如果有一天我们不想使用了呢。当然，很简单。只需要修改配置文件就可以了。那么如何实现呢？<br>首先，找到主题文件夹下的<code>layout</code>文件夹下的<code>post.swig</code><br>大概在16行左右添加<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"post-spread"</span>&gt;</span></span><br><span class="line">  </span><span class="template_tag">&#123;% <span class="keyword">if</span> theme.jiathis %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/jiathis.swig' %&#125;</span><span class="xml"></span><br><span class="line">  </span><span class="template_tag">&#123;% elseif theme.baidushare %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/baidushare.swig' %&#125;</span><span class="xml"></span><br><span class="line">  </span><span class="template_tag">&#123;% elseif theme.add_this_id %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/add-this.swig' %&#125;</span><span class="xml"></span><br><span class="line">  </span><span class="template_tag">&#123;% elseif theme.duoshuo_shortname and theme.duoshuo_share %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/duoshuo_share.swig' %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% elseif theme.sharesdk %&#125;</span><span class="xml"></span><br><span class="line">    </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/sharesdk.swig' %&#125;</span><span class="xml"></span><br><span class="line">  </span><span class="template_tag">&#123;% <span class="keyword">endif</span> %&#125;</span><span class="xml"></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>添加了代码<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template_tag">&#123;% elseif theme.sharesdk %&#125;</span><span class="xml"></span><br><span class="line">        </span><span class="template_tag">&#123;% <span class="keyword">include</span> '_partials/share/sharesdk.swig' %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码就是根据主题文件的配置，来为文档添加相应的swig文件。要想实现在配置文件中选择性的使用分享功能，只需要在配置文件中修改即可。</p>
+<h2 id="修改_config-yml">修改_config.yml</h2><p>接下来就是修改项目的配置文件了。<br>在主题的配置文件中添加：<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#Share</span></span><br><span class="line"><span class="label">sharesdk:</span> true</span><br><span class="line"><span class="label">shareSDKappkey:</span> appkey</span><br></pre></td></tr></table></figure></p>
+<p>如果想使用就可以设置为true并添加appkey了。当然不想使用。直接注释就可以了。</p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/github-could-not-load-css/" itemprop="url">
                   修改了host文件之后github无法记载样式表的解决方案
                 </a>
@@ -1241,142 +1378,6 @@ openFile
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/the-basic-of-android-animation/" itemprop="url">
-                  Android Animation基础（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-27T15:18:29+08:00" content="2015-10-27">
-              2015-10-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/the-basic-of-android-animation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/the-basic-of-android-animation/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/10/the-basic-of-android-animation/" class="leancloud_visitors" data-flag-title="Android Animation基础（一）">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="视图动画（View_Animation）">视图动画（View Animation）</h2><p> 主要有AlphaAnimation ,RotateAnimation,TranslateAnimation,ScaleAnimation四种动画方式，在3.0之前广泛使用，但是由于不具有交互性（当View发生视图动画后，其响应事件的位置仍然在动画前的地方），渐渐的属性动画使用的多起来。一般试图动画制作普通的动画效果，不做交互。优点就是效率高使用方便。</p>
-<h3 id="通过XML定义动画">通过XML定义动画</h3><p>在<code>anim</code>文件夹下创建，通过xml创建的动画可读性较好。<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml <span class="variable">version=</span><span class="string">"1.0"</span> <span class="variable">encoding=</span><span class="string">"utf-8"</span>?&gt;</span><br><span class="line">&lt;set xmlns:<span class="variable">android=</span><span class="string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    android:<span class="variable">interpolator=</span><span class="string">"@[package:]anim/interpolator_resource"</span></span><br><span class="line">    android:<span class="variable">shareInterpolator=</span>[<span class="string">"true"</span> | <span class="string">"false"</span>] &gt;</span><br><span class="line">    &lt;alpha</span><br><span class="line">        android:<span class="variable">fromAlpha=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toAlpha=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;scale</span><br><span class="line">        android:<span class="variable">fromXScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toXScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">fromYScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toYScale=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotX=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotY=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;translate</span><br><span class="line">        android:<span class="variable">fromXDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toXDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">fromYDelta=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toYDelta=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;rotate</span><br><span class="line">        android:<span class="variable">fromDegrees=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">toDegrees=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotX=</span><span class="string">"float"</span></span><br><span class="line">        android:<span class="variable">pivotY=</span><span class="string">"float"</span> /&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">        ...</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure></p>
-<p>下面来解释一下：<br><code>android:interpolator</code> ：表示动画集合采用的插值器，插值器影响动画的速度。<br><code>android:shareInterpolator</code> ：表示集合中的动画是否和集合公用同一个插值器。<br><code>pivot</code>：支点，枢纽；</p>
-<p>通过xml创建的动画怎么使用呢：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animation animation=AnimationUtils.loadAnimation(<span class="keyword">this</span>,R.anim.viewanimation);</span><br><span class="line">view.startAnimation(animation);</span><br></pre></td></tr></table></figure></p>
-<h3 id="透明度动画AlphaAnimation">透明度动画AlphaAnimation</h3><p>这个应该很清楚，设置开始值，结束值即可。<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AlphaAnimation aa=new AlphaAnimation(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">aa.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(aa);</span><br><span class="line">/*</span><br><span class="line">* <span class="keyword">public</span> AlphaAnimation (<span class="built_in">float</span> fromAlpha, <span class="built_in">float</span> toAlpha)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure></p>
-<h3 id="位移动画_TranslateAnimation">位移动画 TranslateAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">TranslateAnimation ta=new TranslateAnimation(<span class="number">0</span>,<span class="number">300</span>,<span class="number">0</span>,<span class="number">300</span>);</span><br><span class="line">ta.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(ta);</span><br><span class="line">/*</span><br><span class="line">*构造方法一：</span><br><span class="line">*<span class="keyword">public</span> TranslateAnimation (<span class="built_in">float</span> fromXDelta, <span class="built_in">float</span> toXDelta, </span><br><span class="line">                            <span class="built_in">float</span> fromYDelta, <span class="built_in">float</span> toYDelta)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> TranslateAnimation (<span class="built_in">int</span> fromXType, <span class="built_in">float</span> fromXValue, </span><br><span class="line">                            <span class="built_in">int</span> toXType, <span class="built_in">float</span> toXValue, </span><br><span class="line">                            <span class="built_in">int</span> fromYType, <span class="built_in">float</span> fromYValue, </span><br><span class="line">                            <span class="built_in">int</span> toYType, <span class="built_in">float</span> toYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF,</span><br><span class="line">* Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<h3 id="缩放动画_ScaleAnimation">缩放动画 ScaleAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ScaleAnimation sa=new ScaleAnimation(<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">sa.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(sa);</span><br><span class="line">/*</span><br><span class="line">*构造方法一</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY, </span><br><span class="line">                        <span class="built_in">float</span> pivotX, <span class="built_in">float</span> pivotY)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法三</span><br><span class="line">*<span class="keyword">public</span> ScaleAnimation (<span class="built_in">float</span> fromX, <span class="built_in">float</span> toX, </span><br><span class="line">                        <span class="built_in">float</span> fromY, <span class="built_in">float</span> toY, </span><br><span class="line">                        <span class="built_in">int</span> pivotXType, <span class="built_in">float</span> pivotXValue, </span><br><span class="line">                        <span class="built_in">int</span> pivotYType, <span class="built_in">float</span> pivotYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </span><br><span class="line">*Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<h3 id="旋转动画_RotateAnimation">旋转动画 RotateAnimation</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">RotateAnimation ra=new RotateAnimation(<span class="number">0</span>,<span class="number">360</span>,<span class="number">100</span>,<span class="number">100</span>);</span><br><span class="line">ra.setDuration(<span class="number">1000</span>);</span><br><span class="line">View.startAnimation(ra);</span><br><span class="line">/*</span><br><span class="line">*构造方法一</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees)</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法二</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees, </span><br><span class="line">                        <span class="built_in">float</span> pivotX, <span class="built_in">float</span> pivotY)</span><br><span class="line">*pivotX等于<span class="number">0</span>是左边 Y=<span class="number">0</span>是上边</span><br><span class="line">*/</span><br><span class="line">/*</span><br><span class="line">*构造方法三</span><br><span class="line">*<span class="keyword">public</span> RotateAnimation (<span class="built_in">float</span> fromDegrees, <span class="built_in">float</span> toDegrees, </span><br><span class="line">                        <span class="built_in">int</span> pivotXType, <span class="built_in">float</span> pivotXValue, </span><br><span class="line">                        <span class="built_in">int</span> pivotYType, <span class="built_in">float</span> pivotYValue)</span><br><span class="line">*<span class="keyword">type</span>的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </span><br><span class="line">*Animation.RELATIVE_TO_PARENT 之一</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
-<h3 id="动画集合SetAnimation">动画集合SetAnimation</h3><p>动画集合简单只需要把需要的动画add上就OK了。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">AnimationSet <span class="keyword">as</span>=<span class="keyword">new</span> AnimationSet(<span class="literal">true</span>);</span><br><span class="line"><span class="keyword">as</span>.setDuration(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">AlphaAnimation alphaAnimation=<span class="keyword">new</span> AlphaAnimation(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">alphaAnimation.setDuration(<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">as</span>.addAnimation(alphaAnimation);</span><br><span class="line"></span><br><span class="line">RotateAnimation rotateAnimation=<span class="keyword">new</span> RotateAnimation(<span class="number">0</span>,<span class="number">360</span>);</span><br><span class="line">rotateAnimation.setDuration(<span class="number">1000</span>);</span><br><span class="line"><span class="keyword">as</span>.addAnimation(rotateAnimation);</span><br><span class="line"></span><br><span class="line">View.startAnimation(<span class="keyword">as</span>);</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1422,7 +1423,7 @@ openFile
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">45</span>
+              <span class="site-state-item-count">46</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1439,7 +1440,7 @@ openFile
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
