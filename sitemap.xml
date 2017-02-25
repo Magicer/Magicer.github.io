@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-create-operator/</loc>
+    <lastmod>2017-02-25T16:41:49.340Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://m.magicer.xyz/2017/01/android-retrofit2-basic/</loc>
     <lastmod>2017-01-13T15:37:57.679Z</lastmod>
   </url>
