@@ -1,0 +1,863 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="RxJava," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Magicer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png##/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="变换操作摘抄自Reactive X文档中文翻译
+map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
+flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
+groupBy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJava 变换操作符">
+<meta property="og:url" content="http://m.magicer.xyz/2017/02/rxjava-transform-operator/index.html">
+<meta property="og:site_name" content="Magicer">
+<meta property="og:description" content="变换操作摘抄自Reactive X文档中文翻译
+map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
+flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
+groupBy">
+<meta property="og:image" content="http://reactivex.io/documentation/operators/images/scan.png">
+<meta property="og:image" content="http://reactivex.io/documentation/operators/images/groupBy.c.png">
+<meta property="og:image" content="http://reactivex.io/documentation/operators/images/mergeMap.png">
+<meta property="og:image" content="http://reactivex.io/documentation/operators/images/window5.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJava 变换操作符">
+<meta name="twitter:description" content="变换操作摘抄自Reactive X文档中文翻译
+map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
+flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
+groupBy">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 10239987,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> RxJava 变换操作符 | Magicer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', '62087510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55690660";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div style="display: none;">
+    <script src="http://s6.cnzz.com/stat.php?id=1260303104&web_id=1260303104" type="text/javascript"></script>
+  </div>
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Magicer</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Magicer</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                RxJava 变换操作符
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-27T22:37:29+08:00" content="2017-02-27">
+              2017-02-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/rxjava-transform-operator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/rxjava-transform-operator/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/02/rxjava-transform-operator/" class="leancloud_visitors" data-flag-title="RxJava 变换操作符">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="变换操作">变换操作</h2><p>摘抄自<a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Transforming-Observables.html" target="_blank" rel="external">Reactive X文档中文翻译</a></p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Map.html" target="_blank" rel="external">map</a> 对序列的每一项都应用一个函数来变换Observable发射的数据序列</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/FlatMap.html" target="_blank" rel="external">flatmap</a> 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Scan.html" target="_blank" rel="external">scan</a> 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/GroupBy.html" target="_blank" rel="external">groupBy</a> 将Observable分拆为Observable集合，将原始Observable发射的数据按Key分组，每一个Observable发射一组不同的数据</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Buffer.html" target="_blank" rel="external">buffer</a> 它定期从Observable收集数据到一个集合，然后把这些数据集合打包发射，而不是一次发射一个</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Window.html" target="_blank" rel="external">window</a> 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项<br><a id="more"></a></p>
+<h2 id="map">map</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Map.html" target="_blank" rel="external">map</a> 对序列的每一项都应用一个函数来变换Observable发射的数据序列</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//比如将每个字符串拼接上 \n from magicer</span></span><br><span class="line">        <span class="keyword">String</span>[] <span class="built_in">str</span> = &#123;<span class="string">"winter is coming"</span>,<span class="string">"the king in the north"</span>&#125;;</span><br><span class="line">        Observable.from(<span class="built_in">str</span>).<span class="built_in">map</span>(<span class="keyword">new</span> Func1&lt;<span class="keyword">String</span>, <span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">String</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">                <span class="keyword">return</span> s+<span class="string">"\n from magicer"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).subscribe(<span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">                Log.i(TAG, <span class="string">"call: "</span>+s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="flatmap">flatmap</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/FlatMap.html" target="_blank" rel="external">flatmap</a> 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里的nickName是个List&lt;String&gt;</span></span><br><span class="line">   Observable<span class="built_in">.</span>from(mStudents)<span class="built_in">.</span>flatMap(<span class="literal">new</span> Func1<span class="subst">&lt;</span>Student, Observable<span class="subst">&lt;</span><span class="built_in">String</span><span class="subst">&gt;&gt;</span>() &#123;</span><br><span class="line">       @Override</span><br><span class="line">       <span class="keyword">public</span> Observable<span class="subst">&lt;</span><span class="built_in">String</span><span class="subst">&gt;</span> call(Student student) &#123;</span><br><span class="line">           <span class="keyword">return</span> Observable<span class="built_in">.</span>from(student<span class="built_in">.</span>getNickNames());</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)<span class="built_in">.</span>subscribe(<span class="literal">new</span> Action1<span class="subst">&lt;</span><span class="built_in">String</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">       @Override</span><br><span class="line">       <span class="keyword">public</span> <span class="literal">void</span> call(<span class="built_in">String</span> s) &#123;</span><br><span class="line">           <span class="keyword">Log</span><span class="built_in">.</span>i(<span class="built_in">TAG</span>, <span class="string">"call: "</span><span class="subst">+</span>s);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="scan">scan</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Scan.html" target="_blank" rel="external">scan</a> 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值</p>
+<p><img src="http://reactivex.io/documentation/operators/images/scan.png" alt="scan"></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)<span class="built_in">.</span>scan(<span class="literal">new</span> Func2<span class="subst">&lt;</span><span class="built_in">Integer</span>, <span class="built_in">Integer</span>, <span class="built_in">Integer</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           <span class="keyword">public</span> <span class="built_in">Integer</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>, <span class="built_in">Integer</span> integer2) &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="built_in">integer</span><span class="subst">+</span>integer2;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)<span class="built_in">.</span>subscribe(<span class="literal">new</span> Action1<span class="subst">&lt;</span><span class="built_in">Integer</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           <span class="keyword">public</span> <span class="literal">void</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>) &#123;</span><br><span class="line">               <span class="keyword">Log</span><span class="built_in">.</span>i(<span class="built_in">TAG</span>, <span class="string">"call: "</span><span class="subst">+</span><span class="built_in">integer</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="groupby">groupby</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/GroupBy.html" target="_blank" rel="external">groupBy</a> 将Observable分拆为Observable集合，将原始Observable发射的数据按Key分组，每一个Observable发射一组不同的数据</p>
+<p><img src="http://reactivex.io/documentation/operators/images/groupBy.c.png" alt="groupby"></p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.interval(<span class="number">1</span>, <span class="type">TimeUnit</span>.<span class="type">SECONDS</span>).groupBy(new <span class="type">Func1</span>&lt;<span class="type">Long</span>, <span class="type">Long</span>&gt;() &#123;</span><br><span class="line">            @<span class="type">Override</span></span><br><span class="line">            public <span class="type">Long</span> call(<span class="type">Long</span> aLong) &#123;</span><br><span class="line">                <span class="keyword">return</span> aLong %<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).subscribe(new <span class="type">Action1</span>&lt;<span class="type">GroupedObservable</span>&lt;<span class="type">Long</span>, <span class="type">Long</span>&gt;&gt;() &#123;</span><br><span class="line">            @<span class="type">Override</span></span><br><span class="line">            public <span class="type">void</span> call(final <span class="type">GroupedObservable</span>&lt;<span class="type">Long</span>, <span class="type">Long</span>&gt; <span class="literal">result</span>) &#123;</span><br><span class="line">                <span class="literal">result</span>.subscribe(new <span class="type">Action1</span>&lt;<span class="type">Long</span>&gt;() &#123;</span><br><span class="line">                    @<span class="type">Override</span></span><br><span class="line">                    public <span class="type">void</span> call(<span class="type">Long</span> aLong) &#123;</span><br><span class="line">                         <span class="type">Log</span>.i(<span class="type">TAG</span>, <span class="string">"groupby call: "</span>+aLong+<span class="string">" getKey:"</span>+<span class="literal">result</span>.getKey());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="buffer">buffer</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Buffer.html" target="_blank" rel="external">buffer</a> 它定期从Observable收集数据到一个集合，然后把这些数据集合打包发射，而不是一次发射一个<br><img src="http://reactivex.io/documentation/operators/images/mergeMap.png" alt="buffer"></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>interval(<span class="number">1</span>,TimeUnit<span class="built_in">.</span>SECONDS)</span><br><span class="line">                <span class="built_in">.</span>buffer(<span class="number">3</span>,TimeUnit<span class="built_in">.</span>SECONDS)</span><br><span class="line">                <span class="built_in">.</span>subscribe(<span class="literal">new</span> Action1<span class="subst">&lt;</span><span class="built_in">List</span><span class="subst">&lt;</span>Long<span class="subst">&gt;&gt;</span>() &#123;</span><br><span class="line">                    @Override</span><br><span class="line">                    <span class="keyword">public</span> <span class="literal">void</span> call(<span class="built_in">List</span><span class="subst">&lt;</span>Long<span class="subst">&gt;</span> longs) &#123;</span><br><span class="line">                        <span class="keyword">Log</span><span class="built_in">.</span>i(<span class="built_in">TAG</span>, <span class="string">"call: "</span><span class="subst">+</span>longs);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="window">window</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Window.html" target="_blank" rel="external">window</a> 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项<br>Window和Buffer类似，但不是发射来自原始Observable的数据包，它发射的是Observables，这些Observables中的每一个都发射原始Observable数据的一个子集，最后发射一个onCompleted通知。</p>
+<p><img src="http://reactivex.io/documentation/operators/images/window5.png" alt="window"><br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>,TimeUnit.SECONDS)</span><br><span class="line">               .window(<span class="number">3</span>,TimeUnit.SECONDS)</span><br><span class="line">               .subscribe(<span class="keyword">new</span> Action1&lt;Observable&lt;<span class="keyword">Long</span>&gt;&gt;() &#123;</span><br><span class="line">                   @Override</span><br><span class="line">                   <span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">call</span>(<span class="keyword">final</span> Observable&lt;<span class="keyword">Long</span>&gt; longObservable) &#123;</span><br><span class="line">                       longObservable.subscribe(<span class="keyword">new</span> Action1&lt;<span class="keyword">Long</span>&gt;() &#123;</span><br><span class="line">                           @Override</span><br><span class="line">                           <span class="keyword">public</span> <span class="keyword">void</span> <span class="keyword">call</span>(<span class="keyword">Long</span> aLong) &#123;</span><br><span class="line">                               Log.i(TAG, <span class="string">"call: "</span>+aLong);</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;);</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RxJava/" rel="tag">#RxJava</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/rxjava-create-operator/" rel="next" title="RxJava Creat操作符">
+                <i class="fa fa-chevron-left"></i> RxJava Creat操作符
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!--MOB SHARE BEGIN-->
+                            <div class="-mob-share-ui-button -mob-share-open">分享</div>
+                            <div class="-mob-share-ui" style="display: none">
+                                <ul class="-mob-share-list">
+                                    <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                                    <li class="-mob-share-tencentweibo"><p>腾讯微博</p></li>
+                                    <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                                    <li class="-mob-share-qq"><p>QQ好友</p></li>
+                                    <li class="-mob-share-weixin"><p>微信</p></li>
+                                    <li class="-mob-share-douban"><p>豆瓣</p></li>
+                                    <li class="-mob-share-renren"><p>人人网</p></li>
+                                    <li class="-mob-share-kaixin"><p>开心网</p></li>
+                                    <li class="-mob-share-facebook"><p>Facebook</p></li>
+                                    <li class="-mob-share-twitter"><p>Twitter</p></li>
+                                    <li class="-mob-share-pocket"><p>Pocket</p></li>
+                                    <li class="-mob-share-google"><p>Google+</p></li>
+                                    <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                                    <li class="-mob-share-mingdao"><p>明道</p></li>
+                                    <li class="-mob-share-pengyou"><p>朋友网</p></li>
+                                    <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                                    <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                                    <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                                </ul>
+                                <div class="-mob-share-close">取消</div>
+                            </div>
+                            <div class="-mob-share-ui-bg"></div>
+                            <script id="-mob-share"
+                            src="http://f1.webshare.mob.com/code/mob-share.js?appkey=11eb1336d7f8d"></script>
+                            <!--MOB SHARE END-->
+
+                        
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/rxjava-transform-operator/"
+           data-title="RxJava 变换操作符" data-url="http://m.magicer.xyz/2017/02/rxjava-transform-operator/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Magicer" />
+          <p class="site-author-name" itemprop="name">Magicer</p>
+          <p class="site-description motion-element" itemprop="description">记录学习中遇到的问题</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Magicer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Captain_Magicer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3681817060" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变换操作"><span class="nav-number">1.</span> <span class="nav-text">变换操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">2.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flatmap"><span class="nav-number">3.</span> <span class="nav-text">flatmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scan"><span class="nav-number">4.</span> <span class="nav-text">scan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groupby"><span class="nav-number">5.</span> <span class="nav-text">groupby</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffer"><span class="nav-number">6.</span> <span class="nav-text">buffer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window"><span class="nav-number">7.</span> <span class="nav-text">window</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magicer</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<span id="busuanzi_container_site_pv">
+  &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp  总访问<span id="busuanzi_value_site_pv"></span> 次
+</span>
+<span id="busuanzi_container_site_uv">&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp  
+  您是本站第<span id="busuanzi_value_site_uv"></span>位访客
+</span>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"magicerblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("uGLqj2i7uNm869NacXqpKs0Q-gzGzoHsz", "QKlx4tW4OdkfqKRHWqFbA4xq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
