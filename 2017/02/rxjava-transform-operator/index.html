@@ -85,8 +85,8 @@
 <meta name="description" content="变换操作摘抄自Reactive X文档中文翻译
 map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
 flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
-scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
-groupBy">
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值   
+grou">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RxJava 变换操作符">
 <meta property="og:url" content="http://m.magicer.xyz/2017/02/rxjava-transform-operator/index.html">
@@ -94,8 +94,8 @@ groupBy">
 <meta property="og:description" content="变换操作摘抄自Reactive X文档中文翻译
 map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
 flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
-scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
-groupBy">
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值   
+grou">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/scan.png">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/groupBy.c.png">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/mergeMap.png">
@@ -105,8 +105,8 @@ groupBy">
 <meta name="twitter:description" content="变换操作摘抄自Reactive X文档中文翻译
 map 对序列的每一项都应用一个函数来变换Observable发射的数据序列
 flatmap 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable
-scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值
-groupBy">
+scan 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值   
+grou">
 
 
 
@@ -365,10 +365,9 @@ groupBy">
         <h2 id="变换操作">变换操作</h2><p>摘抄自<a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Transforming-Observables.html" target="_blank" rel="external">Reactive X文档中文翻译</a></p>
 <p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Map.html" target="_blank" rel="external">map</a> 对序列的每一项都应用一个函数来变换Observable发射的数据序列</p>
 <p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/FlatMap.html" target="_blank" rel="external">flatmap</a> 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable</p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Scan.html" target="_blank" rel="external">scan</a> 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值</p>
+<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Scan.html" target="_blank" rel="external">scan</a> 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值   </p>
 <p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/GroupBy.html" target="_blank" rel="external">groupBy</a> 将Observable分拆为Observable集合，将原始Observable发射的数据按Key分组，每一个Observable发射一组不同的数据</p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Buffer.html" target="_blank" rel="external">buffer</a> 它定期从Observable收集数据到一个集合，然后把这些数据集合打包发射，而不是一次发射一个</p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Window.html" target="_blank" rel="external">window</a> 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项<br><a id="more"></a></p>
+<p>[buffer][5 ?<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Window.html" target="_blank" rel="external">window</a> 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项<br><a id="more"></a></p>
 <h2 id="map">map</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Map.html" target="_blank" rel="external">map</a> 对序列的每一项都应用一个函数来变换Observable发射的数据序列</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//比如将每个字符串拼接上 \n from magicer</span></span><br><span class="line">        <span class="keyword">String</span>[] <span class="built_in">str</span> = &#123;<span class="string">"winter is coming"</span>,<span class="string">"the king in the north"</span>&#125;;</span><br><span class="line">        Observable.from(<span class="built_in">str</span>).<span class="built_in">map</span>(<span class="keyword">new</span> Func1&lt;<span class="keyword">String</span>, <span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">String</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">                <span class="keyword">return</span> s+<span class="string">"\n from magicer"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).subscribe(<span class="keyword">new</span> Action1&lt;<span class="keyword">String</span>&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> call(<span class="keyword">String</span> s) &#123;</span><br><span class="line">                Log.i(TAG, <span class="string">"call: "</span>+s);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="flatmap">flatmap</h2><p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/FlatMap.html" target="_blank" rel="external">flatmap</a> 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable</p>
@@ -419,6 +418,10 @@ groupBy">
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/rxjava-fliter-operator/" rel="prev" title="RxJava 过滤操作符">
+                RxJava 过滤操作符 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -522,7 +525,7 @@ groupBy">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">48</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -539,7 +542,7 @@ groupBy">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
