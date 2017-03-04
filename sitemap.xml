@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://m.magicer.xyz/2017/03/lets-go-env/</loc>
-    <lastmod>2017-03-03T15:08:17.211Z</lastmod>
+    <loc>http://m.magicer.xyz/2017/03/golang-struct-basic/</loc>
+    <lastmod>2017-03-04T16:21:38.258Z</lastmod>
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</loc>
-    <lastmod>2017-02-28T16:05:40.551Z</lastmod>
+    <lastmod>2017-03-03T15:15:41.655Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/03/lets-go-env/</loc>
+    <lastmod>2017-03-03T15:08:17.211Z</lastmod>
   </url>
   
   <url>

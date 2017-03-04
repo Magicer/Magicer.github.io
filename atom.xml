@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Magicer]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://m.magicer.xyz/"/>
-  <updated>2017-03-03T15:08:17.211Z</updated>
+  <updated>2017-03-04T16:21:38.258Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -13,6 +13,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[一个Android程序猿的Golang学习之路: 结构体和方法]]></title>
+    <link href="http://m.magicer.xyz/2017/03/golang-struct-basic/"/>
+    <id>http://m.magicer.xyz/2017/03/golang-struct-basic/</id>
+    <published>2017-03-04T15:41:05.000Z</published>
+    <updated>2017-03-04T16:21:38.258Z</updated>
+    <content type="html"><![CDATA[<p><code>Golang</code>中的<code>struct</code>有点跟<code>Java</code>中的类相似.<a id="more"></a></p>
+<h2 id="struct">struct</h2><p>管他什么特性不特性的,先来段代码.看看跟学过的其他语言有啥区别.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="typename">string</span></span><br><span class="line">    age  <span class="typename">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    grade  <span class="typename">string</span></span><br><span class="line">    Person <span class="comment">//匿名字段</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    stu := <span class="built_in">new</span>(Student)</span><br><span class="line">    <span class="keyword">var</span> stu2 Student = Student&#123;<span class="string">"一年级"</span>, Person&#123;<span class="string">"Arya Stark"</span>, <span class="number">15</span>&#125;&#125;</span><br><span class="line">    stu3 := Student&#123;grade: <span class="string">"二年级"</span>, Person: Person&#123;<span class="string">"Magicer"</span>, <span class="number">32</span>&#125;&#125;</span><br><span class="line">    stu.grade = <span class="string">"三年级"</span></span><br><span class="line">    stu.Person = Person&#123;<span class="string">"Jon Snow"</span>, <span class="number">33</span>&#125;</span><br><span class="line">    fmt.Println(stu) <span class="comment">//输出  &amp;&#123;三年级 &#123;Jon Snow 33&#125;&#125;</span></span><br><span class="line">    <span class="comment">//在这里可以直接stu.name获得匿名字段的值,也可以stu.Person.name</span></span><br><span class="line">    fmt.Println(stu.name, stu.age, stu.grade, stu.Person) <span class="comment">//输出Jon Snow 33 三年级 &#123;Jon Snow 33&#125;</span></span><br><span class="line">    fmt.Println(stu2)                                     <span class="comment">//输出   &#123;一年级 &#123;Arya Stark 15&#125;&#125;</span></span><br><span class="line">    fmt.Println(stu3)                                     <span class="comment">//输出   &#123;二年级 &#123;Magicer 32&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Golang</code>中没有继承,但是我们可以使用组合的方式来实现和继承类似的效果.比如上面的代码.我们不能通过显示的让<code>Student</code>继承自<code>Person</code>但是我们可以通过组合的方式来得到这种效果.</p>
+<h2 id="type">type</h2><p>我们可以通过type关键字来定义一个类型.比如这里的<code>Person</code>类型和<code>Student</code>类型.我们还可以通过<code>type</code>关键字来为<code>int</code>等来设置别名 如<code>type grade int</code>.通过type关键字来定义的</p>
+<h2 id="方法">方法</h2><p>先来段跟方法有关的代码,看下<code>Golang</code>中的方法是个什么鬼.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">type <span class="type">Student</span> <span class="class"><span class="keyword">struct</span> </span>&#123;</span><br><span class="line">    name string</span><br><span class="line">    age  int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//值方法</span></span><br><span class="line"><span class="comment">//当我们不需要在方法中使用这个结构的值的时候, 可以使用_</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="params">(<span class="number">_</span> Student)</span></span> lean() &#123;</span><br><span class="line">    fmt.<span class="type">Println</span>(<span class="string">"Student lean"</span>)</span><br><span class="line">&#125; <span class="comment">//指针方法</span></span><br><span class="line"><span class="comment">//这里的(stu *Student)用来表示这个方法是属于谁的.可以位于不同的文件中,只要是在同一个包中就可以</span></span><br><span class="line"><span class="comment">//在这里我们的stu是Student的指针,只有这时候我们才可以修改p的值,</span></span><br><span class="line"><span class="comment">// 当使用(stu Student)时,我们使用的是一份copy.</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="params">(stu *Student)</span></span> eat(food string) &#123;</span><br><span class="line">    fmt.<span class="type">Println</span>(stu.name, <span class="string">" eat "</span>, food, <span class="string">"\t "</span>, stu)</span><br><span class="line">&#125;</span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    stu := <span class="keyword">new</span>(<span class="type">Student</span>)</span><br><span class="line">    stu.eat(<span class="string">"Apple"</span>) <span class="comment">//student eat  Apple     &amp;&#123; 0&#125;</span></span><br><span class="line">    stu.lean()       <span class="comment">// Student lean</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> stu2 <span class="type">Student</span> = <span class="type">Student</span>&#123;<span class="string">"Jason"</span>, <span class="number">22</span>&#125;</span><br><span class="line">    fmt.<span class="type">Println</span>(stu2) <span class="comment">//&#123;Jason 22&#125;</span></span><br><span class="line">    stu2.eat(<span class="string">"Apple"</span>) <span class="comment">//Jason  eat  Apple     &amp;&#123;Jason 22&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们看到上面<code>Student</code>中的<code>name</code>和<code>age</code>字段都是非导出字段.那么如果我们要在不同的包中对其的值进行修改怎么办呢?<br>这个时候我们就可以写上跟<code>Java</code>中<code>setter</code>和<code>getter</code>方法.如下<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func (stu *Student) setName(<span class="property">name</span> <span class="type">string</span>) &#123;</span><br><span class="line">    stu.<span class="property">name</span> = <span class="property">name</span></span><br><span class="line">&#125;</span><br><span class="line">func (stu *Student) getName() <span class="type">string</span> &#123;</span><br><span class="line"><span class="command">    return</span> stu.<span class="property">name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个<code>Golang</code>初学者,记录的东西难免有错误,还望多多指出啊.谢谢.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><code>Golang</code>中的<code>struct</code>有点跟<code>Java</code>中的类相似.]]>
+    
+    </summary>
+    
+      <category term="struct" scheme="http://m.magicer.xyz/tags/struct/"/>
+    
+      <category term="Golang" scheme="http://m.magicer.xyz/categories/Golang/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[ubuntu下搭建Golang开发环境]]></title>
@@ -49,9 +75,9 @@
     <link href="http://m.magicer.xyz/2017/02/rxjava-fliter-operator/"/>
     <id>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</id>
     <published>2017-02-28T14:45:50.000Z</published>
-    <updated>2017-02-28T16:05:40.551Z</updated>
+    <updated>2017-03-03T15:15:41.655Z</updated>
     <content type="html"><![CDATA[<h1 id="过滤操作">过滤操作</h1><p>我觉得对于过滤操作看下面这个图就够了。之后就是熟悉使用多敲敲吧。<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Filtering-Observables.html" target="_blank" rel="external">详细看着里</a></p>
-<p><img src="/img/bVJUo4" alt="图片描述"><br><a id="more"></a><br><a href="##filter">filter( )</a> — 过滤数据<br><a href="##take">take</a> 只发射前面的N项数据</p>
+<p><img src="/image/Android/rxjava/filter.png" alt="图片描述"><br><a id="more"></a><br><a href="##filter">filter( )</a> — 过滤数据<br><a href="##take">take</a> 只发射前面的N项数据</p>
 <h2 id="filter">filter</h2><p>Filter操作符使用你指定的一个谓词函数测试数据项，只有通过测试的数据才会被发射。<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Filter.html" target="_blank" rel="external">filter( )</a> — 过滤数据</p>
 <p><img src="http://reactivex.io/documentation/operators/images/filter.png" alt="filter"></p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>)</span><br><span class="line">               <span class="built_in">.</span>filter(<span class="literal">new</span> Func1<span class="subst">&lt;</span><span class="built_in">Integer</span>, <span class="built_in">Boolean</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">                   @Override</span><br><span class="line">                   <span class="keyword">public</span> <span class="built_in">Boolean</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>) &#123;</span><br><span class="line">                       <span class="keyword">return</span> <span class="built_in">integer</span><span class="subst">%</span><span class="number">2</span> <span class="subst">==</span><span class="number">0</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)<span class="built_in">.</span>subscribe(<span class="literal">new</span> Action1<span class="subst">&lt;</span><span class="built_in">Integer</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           <span class="keyword">public</span> <span class="literal">void</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>) &#123;</span><br><span class="line">               <span class="keyword">Log</span><span class="built_in">.</span>i(<span class="built_in">TAG</span>, <span class="string">"call: "</span><span class="subst">+</span><span class="built_in">integer</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
@@ -77,7 +103,7 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="过滤操作">过滤操作</h1><p>我觉得对于过滤操作看下面这个图就够了。之后就是熟悉使用多敲敲吧。<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Filtering-Observables.html">详细看着里</a></p>
-<p><img src="/img/bVJUo4" alt="图片描述"><br>]]>
+<p><img src="/image/Android/rxjava/filter.png" alt="图片描述"><br>]]>
     
     </summary>
     
@@ -661,28 +687,6 @@ openFile
       <category term="eclipse" scheme="http://m.magicer.xyz/tags/eclipse/"/>
     
       <category term="Software" scheme="http://m.magicer.xyz/categories/Software/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[404界面的样式表无法加载问题]]></title>
-    <link href="http://m.magicer.xyz/2015/10/blog-404-style-not-found/"/>
-    <id>http://m.magicer.xyz/2015/10/blog-404-style-not-found/</id>
-    <published>2015-10-28T13:54:13.000Z</published>
-    <updated>2016-03-08T13:13:05.125Z</updated>
-    <content type="html"><![CDATA[<p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
-<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无法加载样式表，而如果网址是 <code>http://magicer.xyz/dd</code>样式表就可以加载。处了此问题后，问题一直没有解决，但是今天突然发现了解决方法<br> 原先的link是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p> 而现在是<br> <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="variable">rel=</span><span class="string">"stylesheet"</span> <span class="variable">media=</span><span class="string">"screen"</span> <span class="variable">href=</span><span class="string">"/styl4.css"</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<p> 只加了个`/``问题就解决了，但是 在电脑上测试的时候无法加载样式表，但是传到服务器上之后就可以。头像的问题一样如此解决。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p> 今天终于发现了404页面样式表无法加载的的解决方法。</p>
-<p> 原先的时候是当输入的域名后有多个<code>/</code>的时候404页面的样式表无法加载，比如访问的页面是<br> <code>http://magicer.xyz/dd/d</code>。此时就无]]>
-    </summary>
-    
-      <category term="css" scheme="http://m.magicer.xyz/tags/css/"/>
-    
-      <category term="Hexo" scheme="http://m.magicer.xyz/categories/Hexo/"/>
     
   </entry>
   

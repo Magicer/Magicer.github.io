@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PagerAdapter," />
+  <meta name="keywords" content="struct," />
 
 
 
@@ -82,27 +82,15 @@
 
 
 
-<meta name="description" content="以下是官方文档中对ViewPager的说明
-
-Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
-
-  Vi">
+<meta name="description" content="Golang中的struct有点跟Java中的类相似.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ViewPager PagerAdapter的简单使用">
-<meta property="og:url" content="http://m.magicer.xyz/2016/09/viewpager-pageradapter/index.html">
+<meta property="og:title" content="一个Android程序猿的Golang学习之路: 结构体和方法">
+<meta property="og:url" content="http://m.magicer.xyz/2017/03/golang-struct-basic/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="以下是官方文档中对ViewPager的说明
-
-Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
-
-  Vi">
+<meta property="og:description" content="Golang中的struct有点跟Java中的类相似.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ViewPager PagerAdapter的简单使用">
-<meta name="twitter:description" content="以下是官方文档中对ViewPager的说明
-
-Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.
-
-  Vi">
+<meta name="twitter:title" content="一个Android程序猿的Golang学习之路: 结构体和方法">
+<meta name="twitter:description" content="Golang中的struct有点跟Java中的类相似.">
 
 
 
@@ -120,7 +108,7 @@ Layout manager that allows the user to flip left and right through pages of data
   };
 </script>
 
-  <title> ViewPager PagerAdapter的简单使用 | Magicer </title>
+  <title> 一个Android程序猿的Golang学习之路: 结构体和方法 | Magicer </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +272,7 @@ Layout manager that allows the user to flip left and right through pages of data
             
             
               
-                ViewPager PagerAdapter的简单使用
+                一个Android程序猿的Golang学习之路: 结构体和方法
               
             
           </h1>
@@ -296,8 +284,8 @@ Layout manager that allows the user to flip left and right through pages of data
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-04T22:07:04+08:00" content="2016-09-04">
-              2016-09-04
+            <time itemprop="dateCreated" datetime="2017-03-04T23:41:05+08:00" content="2017-03-04">
+              2017-03-04
             </time>
           </span>
 
@@ -310,8 +298,8 @@ Layout manager that allows the user to flip left and right through pages of data
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Golang/" itemprop="url" rel="index">
+                    <span itemprop="name">Golang</span>
                   </a>
                 </span>
 
@@ -326,8 +314,8 @@ Layout manager that allows the user to flip left and right through pages of data
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/viewpager-pageradapter/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/viewpager-pageradapter/" itemprop="commentsCount"></span>
+                <a href="/2017/03/golang-struct-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/golang-struct-basic/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,7 +325,7 @@ Layout manager that allows the user to flip left and right through pages of data
 
           
           
-             <span id="/2016/09/viewpager-pageradapter/" class="leancloud_visitors" data-flag-title="ViewPager PagerAdapter的简单使用">
+             <span id="/2017/03/golang-struct-basic/" class="leancloud_visitors" data-flag-title="一个Android程序猿的Golang学习之路: 结构体和方法">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -358,13 +346,14 @@ Layout manager that allows the user to flip left and right through pages of data
       
 
       
-        <p>以下是官方文档中对ViewPager的说明</p>
-<blockquote>
-<p>Layout manager that allows the user to flip left and right through pages of data. You supply an implementation of a PagerAdapter to generate the pages that the view shows.</p>
-</blockquote>
-<p>  <code>ViewPager</code>是<code>android.support-v4</code>包下的一个组件。用来实现左右滑动的效果。和TabLayout的联动使用的效果挺不错。那么ViewPager的基本使用，是怎样的呢。<br>  呢？和其他的组件一样。我们只需要在布局中添加即可。<br>  <a id="more"></a><br>  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">android.support.v4.view.ViewPager</span></span><br><span class="line">     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">     <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">     <span class="attribute">android:id</span>=<span class="value">"@+id/viewpager"</span></span><br><span class="line">     /&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>在这里我们需要一个<code>PagerAdapter</code>来对ViewPager进行填充。首先我们需要一个数据源，在这里我们用一个<code>List&lt;ImageView&gt;</code>。当创建PagerAdapter的时候，<br>我们需要实现四个方法：<code>getCount</code>, <code>isViewFromObject</code>, <code>instantiateItem</code>, <code>destroyItem</code>。最基础的应用的代码如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;ImageView&gt; mList;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;ImageView&gt; list)</span> </span>&#123;</span><br><span class="line">        mList = list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mList.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view == object;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 实例化页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        container.addView(mList.get(position));</span><br><span class="line">        <span class="keyword">return</span> mList.get(position);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * 删除页面</span><br><span class="line">     *<span class="javadoctag"> @param</span> container</span><br><span class="line">     *<span class="javadoctag"> @param</span> position</span><br><span class="line">     *<span class="javadoctag"> @param</span> object</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</span><br><span class="line">        container.removeView(mList.get(position));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><code>Golang</code>中的<code>struct</code>有点跟<code>Java</code>中的类相似.<a id="more"></a></p>
+<h2 id="struct">struct</h2><p>管他什么特性不特性的,先来段代码.看看跟学过的其他语言有啥区别.</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Person <span class="keyword">struct</span> &#123;</span><br><span class="line">    name <span class="typename">string</span></span><br><span class="line">    age  <span class="typename">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    grade  <span class="typename">string</span></span><br><span class="line">    Person <span class="comment">//匿名字段</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">func</span> main() &#123;</span><br><span class="line">    stu := <span class="built_in">new</span>(Student)</span><br><span class="line">    <span class="keyword">var</span> stu2 Student = Student&#123;<span class="string">"一年级"</span>, Person&#123;<span class="string">"Arya Stark"</span>, <span class="number">15</span>&#125;&#125;</span><br><span class="line">    stu3 := Student&#123;grade: <span class="string">"二年级"</span>, Person: Person&#123;<span class="string">"Magicer"</span>, <span class="number">32</span>&#125;&#125;</span><br><span class="line">    stu.grade = <span class="string">"三年级"</span></span><br><span class="line">    stu.Person = Person&#123;<span class="string">"Jon Snow"</span>, <span class="number">33</span>&#125;</span><br><span class="line">    fmt.Println(stu) <span class="comment">//输出  &amp;&#123;三年级 &#123;Jon Snow 33&#125;&#125;</span></span><br><span class="line">    <span class="comment">//在这里可以直接stu.name获得匿名字段的值,也可以stu.Person.name</span></span><br><span class="line">    fmt.Println(stu.name, stu.age, stu.grade, stu.Person) <span class="comment">//输出Jon Snow 33 三年级 &#123;Jon Snow 33&#125;</span></span><br><span class="line">    fmt.Println(stu2)                                     <span class="comment">//输出   &#123;一年级 &#123;Arya Stark 15&#125;&#125;</span></span><br><span class="line">    fmt.Println(stu3)                                     <span class="comment">//输出   &#123;二年级 &#123;Magicer 32&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Golang</code>中没有继承,但是我们可以使用组合的方式来实现和继承类似的效果.比如上面的代码.我们不能通过显示的让<code>Student</code>继承自<code>Person</code>但是我们可以通过组合的方式来得到这种效果.</p>
+<h2 id="type">type</h2><p>我们可以通过type关键字来定义一个类型.比如这里的<code>Person</code>类型和<code>Student</code>类型.我们还可以通过<code>type</code>关键字来为<code>int</code>等来设置别名 如<code>type grade int</code>.通过type关键字来定义的</p>
+<h2 id="方法">方法</h2><p>先来段跟方法有关的代码,看下<code>Golang</code>中的方法是个什么鬼.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">type <span class="type">Student</span> <span class="class"><span class="keyword">struct</span> </span>&#123;</span><br><span class="line">    name string</span><br><span class="line">    age  int</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//值方法</span></span><br><span class="line"><span class="comment">//当我们不需要在方法中使用这个结构的值的时候, 可以使用_</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="params">(<span class="number">_</span> Student)</span></span> lean() &#123;</span><br><span class="line">    fmt.<span class="type">Println</span>(<span class="string">"Student lean"</span>)</span><br><span class="line">&#125; <span class="comment">//指针方法</span></span><br><span class="line"><span class="comment">//这里的(stu *Student)用来表示这个方法是属于谁的.可以位于不同的文件中,只要是在同一个包中就可以</span></span><br><span class="line"><span class="comment">//在这里我们的stu是Student的指针,只有这时候我们才可以修改p的值,</span></span><br><span class="line"><span class="comment">// 当使用(stu Student)时,我们使用的是一份copy.</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="params">(stu *Student)</span></span> eat(food string) &#123;</span><br><span class="line">    fmt.<span class="type">Println</span>(stu.name, <span class="string">" eat "</span>, food, <span class="string">"\t "</span>, stu)</span><br><span class="line">&#125;</span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    stu := <span class="keyword">new</span>(<span class="type">Student</span>)</span><br><span class="line">    stu.eat(<span class="string">"Apple"</span>) <span class="comment">//student eat  Apple     &amp;&#123; 0&#125;</span></span><br><span class="line">    stu.lean()       <span class="comment">// Student lean</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> stu2 <span class="type">Student</span> = <span class="type">Student</span>&#123;<span class="string">"Jason"</span>, <span class="number">22</span>&#125;</span><br><span class="line">    fmt.<span class="type">Println</span>(stu2) <span class="comment">//&#123;Jason 22&#125;</span></span><br><span class="line">    stu2.eat(<span class="string">"Apple"</span>) <span class="comment">//Jason  eat  Apple     &amp;&#123;Jason 22&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们看到上面<code>Student</code>中的<code>name</code>和<code>age</code>字段都是非导出字段.那么如果我们要在不同的包中对其的值进行修改怎么办呢?<br>这个时候我们就可以写上跟<code>Java</code>中<code>setter</code>和<code>getter</code>方法.如下<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func (stu *Student) setName(<span class="property">name</span> <span class="type">string</span>) &#123;</span><br><span class="line">    stu.<span class="property">name</span> = <span class="property">name</span></span><br><span class="line">&#125;</span><br><span class="line">func (stu *Student) getName() <span class="type">string</span> &#123;</span><br><span class="line"><span class="command">    return</span> stu.<span class="property">name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一个<code>Golang</code>初学者,记录的东西难免有错误,还望多多指出啊.谢谢.</p>
 
       
     </div>
@@ -385,7 +374,7 @@ Layout manager that allows the user to flip left and right through pages of data
       
         <div class="post-tags">
           
-            <a href="/tags/PagerAdapter/" rel="tag">#PagerAdapter</a>
+            <a href="/tags/struct/" rel="tag">#struct</a>
           
         </div>
       
@@ -394,17 +383,13 @@ Layout manager that allows the user to flip left and right through pages of data
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/" rel="next" title="使用FragmentPagerAdapter和FragmentStatePagerAdapter时Fragment生命周期区别">
-                <i class="fa fa-chevron-left"></i> 使用FragmentPagerAdapter和FragmentStatePagerAdapter时Fragment生命周期区别
+              <a href="/2017/03/lets-go-env/" rel="next" title="ubuntu下搭建Golang开发环境">
+                <i class="fa fa-chevron-left"></i> ubuntu下搭建Golang开发环境
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/toolbar-basic/" rel="prev" title="Android基础知识之  Toolbar 的使用">
-                Android基础知识之  Toolbar 的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -462,8 +447,8 @@ Layout manager that allows the user to flip left and right through pages of data
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/viewpager-pageradapter/"
-           data-title="ViewPager PagerAdapter的简单使用" data-url="http://m.magicer.xyz/2016/09/viewpager-pageradapter/">
+      <div class="ds-thread" data-thread-key="2017/03/golang-struct-basic/"
+           data-title="一个Android程序猿的Golang学习之路: 结构体和方法" data-url="http://m.magicer.xyz/2017/03/golang-struct-basic/">
       </div>
     
   </div>
@@ -592,7 +577,7 @@ Layout manager that allows the user to flip left and right through pages of data
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#struct"><span class="nav-number">1.</span> <span class="nav-text">struct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type"><span class="nav-number">2.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a></li></ol></div>
             
           </div>
         </section>

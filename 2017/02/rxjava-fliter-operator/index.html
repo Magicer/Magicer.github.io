@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2017/02/rxjava-fliter-operator/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="过滤操作我觉得对于过滤操作看下面这个图就够了。之后就是熟悉使用多敲敲吧。详细看着里">
-<meta property="og:image" content="/img/bVJUo4">
+<meta property="og:image" content="/image/Android/rxjava/filter.png">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/filter.png">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/take.png">
 <meta property="og:image" content="http://reactivex.io/documentation/operators/images/takeLast.n.png">
@@ -358,7 +358,7 @@
 
       
         <h1 id="过滤操作">过滤操作</h1><p>我觉得对于过滤操作看下面这个图就够了。之后就是熟悉使用多敲敲吧。<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Filtering-Observables.html" target="_blank" rel="external">详细看着里</a></p>
-<p><img src="/img/bVJUo4" alt="图片描述"><br><a id="more"></a><br><a href="##filter">filter( )</a> — 过滤数据<br><a href="##take">take</a> 只发射前面的N项数据</p>
+<p><img src="/image/Android/rxjava/filter.png" alt="图片描述"><br><a id="more"></a><br><a href="##filter">filter( )</a> — 过滤数据<br><a href="##take">take</a> 只发射前面的N项数据</p>
 <h2 id="filter">filter</h2><p>Filter操作符使用你指定的一个谓词函数测试数据项，只有通过测试的数据才会被发射。<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Filter.html" target="_blank" rel="external">filter( )</a> — 过滤数据</p>
 <p><img src="http://reactivex.io/documentation/operators/images/filter.png" alt="filter"></p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Observable<span class="built_in">.</span>just(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">2</span>)</span><br><span class="line">               <span class="built_in">.</span>filter(<span class="literal">new</span> Func1<span class="subst">&lt;</span><span class="built_in">Integer</span>, <span class="built_in">Boolean</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">                   @Override</span><br><span class="line">                   <span class="keyword">public</span> <span class="built_in">Boolean</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>) &#123;</span><br><span class="line">                       <span class="keyword">return</span> <span class="built_in">integer</span><span class="subst">%</span><span class="number">2</span> <span class="subst">==</span><span class="number">0</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)<span class="built_in">.</span>subscribe(<span class="literal">new</span> Action1<span class="subst">&lt;</span><span class="built_in">Integer</span><span class="subst">&gt;</span>() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           <span class="keyword">public</span> <span class="literal">void</span> call(<span class="built_in">Integer</span> <span class="built_in">integer</span>) &#123;</span><br><span class="line">               <span class="keyword">Log</span><span class="built_in">.</span>i(<span class="built_in">TAG</span>, <span class="string">"call: "</span><span class="subst">+</span><span class="built_in">integer</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
@@ -524,7 +524,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">50</span>
+              <span class="site-state-item-count">51</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -541,7 +541,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
