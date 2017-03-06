@@ -88,6 +88,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2017/03/lets-go-env/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="一个android程序猿的Go之旅!">
+<meta property="og:updated_time" content="2017-03-03T15:08:17.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu下搭建Golang开发环境">
 <meta name="twitter:description" content="一个android程序猿的Go之旅!">
@@ -347,16 +348,17 @@
 
       
         <p>一个android程序猿的Go之旅!<a id="more"></a></p>
-<h2 id="Ubuntu开发环境下">Ubuntu开发环境下</h2><p><a href="https://golang.org/dl/" target="_blank" rel="external">下载地址 </a></p>
-<p>之后进入到下载目录后运行如下命令解压下载的go开发包到 <code>/usr/local</code>。官方推荐的目录。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -C /usr/local -xzf go1.<span class="number">8</span><span class="class">.linux-amd64</span><span class="class">.tar</span><span class="class">.gz</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置变量">配置变量</h2><p>打开<code>/etc/profile</code>或者<code>$HOME/.profile</code>文件，加入如下内容<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export <span class="constant">PATH=</span><span class="variable">$PATH</span><span class="symbol">:/usr/local/go/bin</span></span><br></pre></td></tr></table></figure></p>
-<p>自定义安装目录时：GoROOT为自定义的安装目录<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOROOT=<span class="variable">$HOME</span>/go1.X</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>##Ubuntu开发环境下</p>
+<p><a href="https://golang.org/dl/" target="_blank" rel="external">下载地址 </a></p>
+<p>之后进入到下载目录后运行如下命令解压下载的go开发包到 <code>/usr/local</code>。官方推荐的目录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -C /usr/local -xzf go1.8.linux-amd64.tar.gz</div></pre></td></tr></table></figure></p>
+<p>##配置变量<br>打开<code>/etc/profile</code>或者<code>$HOME/.profile</code>文件，加入如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=$PATH:/usr/local/go/bin</div></pre></td></tr></table></figure></p>
+<p>自定义安装目录时：GoROOT为自定义的安装目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export GOROOT=$HOME/go1.X</div><div class="line">export PATH=$PATH:$GOROOT/bin</div></pre></td></tr></table></figure></p>
 <p>打开终端，运行<code>go env</code>看有没有输出环境信息。有则配置成功</p>
-<h2 id="安装sublime">安装sublime</h2><p><a href="https://www.sublimetext.com/" target="_blank" rel="external">进入官网下载</a><br>ctrl+` 输入如下内容安装Package Control<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  urllib.request,os;pf=<span class="string">'Package Control.sublime-package'</span>;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.<span class="keyword">join</span>(ipp,pf),<span class="string">'wb'</span>).<span class="keyword">write</span>(urllib.request.urlopen(<span class="string">'http://sublime.wbond.net/'</span>+pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure></p>
+<p>##安装sublime<br><a href="https://www.sublimetext.com/" target="_blank" rel="external">进入官网下载</a><br>ctrl+` 输入如下内容安装Package Control<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import  urllib.request,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib.request.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
 <p><a href="http://blog.magicer.xyz/2015/04/sublime-text2/" target="_blank" rel="external">Sublime安装</a><br><a href="http://blog.magicer.xyz/2015/04/sublime-chinese/" target="_blank" rel="external">sublime输入中文</a></p>
-<h2 id="安装GoSublime插件">安装GoSublime插件</h2><p>安装完<code>GoSublime</code>之后可能会报错：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">MarGo:</span> Missing required environment <span class="string">variables:</span> GOPATH</span><br></pre></td></tr></table></figure></p>
-<p>这是因为配置的问题。打开<code>GoSublime</code>的配置文件。<br>输入上面配置的信息<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">env</span>": </span><br><span class="line">    <span class="value">&#123; </span><br><span class="line">        "<span class="attribute">GOPATH</span>": <span class="value"><span class="string">"$HOME/golang"</span></span>,</span><br><span class="line">        "<span class="attribute">GOROOT</span>": <span class="value"><span class="string">"GOROOT=$HOME/go1.X"</span></span><br><span class="line">    </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="测试">测试</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"runtime"</span></span><br><span class="line"></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.<span class="type">Printf</span>(<span class="string">"format %s"</span>, runtime.<span class="type">Version</span>())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##安装GoSublime插件<br>安装完<code>GoSublime</code>之后可能会报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MarGo: Missing required environment variables: GOPATH</div></pre></td></tr></table></figure></p>
+<p>这是因为配置的问题。打开<code>GoSublime</code>的配置文件。<br>输入上面配置的信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;env&quot;: </div><div class="line">    &#123; </div><div class="line">        &quot;GOPATH&quot;: &quot;$HOME/golang&quot;,</div><div class="line">        &quot;GOROOT&quot;: &quot;GOROOT=$HOME/go1.X&quot;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>##测试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line"></div><div class="line">import &quot;fmt&quot;</div><div class="line">import &quot;runtime&quot;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    fmt.Printf(&quot;format %s&quot;, runtime.Version())</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>使用<code>Sublime</code>按<code>Ctrl+B</code>运行下程序看下输出。</p>
 
       
@@ -501,7 +503,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -509,7 +511,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -518,7 +520,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -585,7 +587,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu开发环境下"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu开发环境下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置变量"><span class="nav-number">2.</span> <span class="nav-text">配置变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装sublime"><span class="nav-number">3.</span> <span class="nav-text">安装sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装GoSublime插件"><span class="nav-number">4.</span> <span class="nav-text">安装GoSublime插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

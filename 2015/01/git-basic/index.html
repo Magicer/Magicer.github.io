@@ -89,9 +89,11 @@
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。">
 <meta property="og:image" content="https://github.com/Magicer/Image/blob/master/Hexo/github/github.jpg?raw=true">
+<meta property="og:updated_time" content="2016-03-02T07:12:40.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git及github的操作">
 <meta name="twitter:description" content="Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。">
+<meta name="twitter:image" content="https://github.com/Magicer/Image/blob/master/Hexo/github/github.jpg?raw=true">
 
 
 
@@ -348,15 +350,15 @@
 
       
         <p>  Git是一个免费的、分布式的版本控制工具，或是一个强调速度快的源代码管理工具。Git诞生于2005年，最初是Linus Torvalds开发出来用于管理Linux内核的开发。<br>  <img src="https://github.com/Magicer/Image/blob/master/Hexo/github/github.jpg?raw=true" class="img-topic"><br>  <a id="more"></a></p>
-<h2 id="git的基本命令">git的基本命令</h2><p>git clone：当你有远程git版本库，只需要在本地克隆一份：</p>
-<pre><code><span class="comment"><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone: https:<span class="comment">//github.com/Magicer/project.git</span></span><br><span class="line">下载指定分支</span><br><span class="line">git clone -<span class="tag">b</span> &lt;branch&gt; &lt;remote_repo&gt; 例如： git clone -<span class="tag">b</span> 指定的分支名字</span><br></pre></td></tr></table></figure></span>
+<p>##git的基本命令<br>git clone：当你有远程git版本库，只需要在本地克隆一份：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone: https://github.com/Magicer/project.git</div><div class="line">下载指定分支</div><div class="line">git clone -b &lt;branch&gt; &lt;remote_repo&gt; 例如： git clone -b 指定的分支名字</div></pre></td></tr></table></figure>
 </code></pre><p>git init :也可以使用git init初始化一个本地仓库。运行了git init之后文件夹下的文件就会被进行版本控制</p>
 <p>git add: 将当前更改或者是新增文件加入到git的索引中。</p>
 <p>git status: </p>
 <p>git commit (-m): 提交当前工作区的修改内容。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> commit -m <span class="string">"提交信息"</span></span><br></pre></td></tr></table></figure>
-<p>git rm：从当前工作空间中和索引中删除文件 如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm index.html</span><br></pre></td></tr></table></figure></p>
-<h2 id="git的分支命令">git的分支命令</h2><p>git branch : 创建分支命令。（加上分支名，不加时显示所有分支）<br>  git branch -d :删除分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;提交信息&quot;</div></pre></td></tr></table></figure>
+<p>git rm：从当前工作空间中和索引中删除文件 如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rm index.html</div></pre></td></tr></table></figure></p>
+<p>##git的分支命令<br>git branch : 创建分支命令。（加上分支名，不加时显示所有分支）<br>  git branch -d :删除分支</p>
 <p>git checkout :  切换分支命令。<br>  git checkout -b： 新建并切换到该分支。</p>
 <p>git merge gh_pages：合并分支gh_pages到当前分支</p>
 
@@ -388,7 +390,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/gets和fget/" rel="next" title="C语言之gets()和fgets(),puts()和fputs()">
+              <a href="/2015/01/gets-get/" rel="next" title="C语言之gets()和fgets(),puts()和fputs()">
                 <i class="fa fa-chevron-left"></i> C语言之gets()和fgets(),puts()和fputs()
               </a>
             
@@ -502,7 +504,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -510,7 +512,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -519,7 +521,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -586,7 +588,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git的基本命令"><span class="nav-number">1.</span> <span class="nav-text">git的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的分支命令"><span class="nav-number">2.</span> <span class="nav-text">git的分支命令</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

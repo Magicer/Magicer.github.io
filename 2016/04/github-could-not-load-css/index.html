@@ -92,14 +92,16 @@
 <meta property="og:description" content="今天由于某种原因想要使用Google结果就修改了Host文件，结果发现，在登录Githu的时候无法加载样式表了。好悲催，好不容易Google可以使用了，不能把host文件在改回去吧，不能忍。于是，看了分析了一下github页面，发现：
   复制上图中的地址 然后在ipaddress.com上找到该地址的IP。例如：  
   查找完之后，打开host文件添加  1185.31.17.133  ass">
-<meta property="og:image" content="/image/Github/css_js_loaded/problem.png">
-<meta property="og:image" content="/image/Github/css_js_loaded/network.png">
-<meta property="og:image" content="/image/Github/css_js_loaded/detail.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Github/css_js_loaded/problem.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Github/css_js_loaded/network.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Github/css_js_loaded/detail.png">
+<meta property="og:updated_time" content="2016-04-14T08:13:40.062Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改了host文件之后github无法记载样式表的解决方案">
 <meta name="twitter:description" content="今天由于某种原因想要使用Google结果就修改了Host文件，结果发现，在登录Githu的时候无法加载样式表了。好悲催，好不容易Google可以使用了，不能把host文件在改回去吧，不能忍。于是，看了分析了一下github页面，发现：
   复制上图中的地址 然后在ipaddress.com上找到该地址的IP。例如：  
   查找完之后，打开host文件添加  1185.31.17.133  ass">
+<meta name="twitter:image" content="http://m.magicer.xyz/image/Github/css_js_loaded/problem.png">
 
 
 
@@ -357,8 +359,8 @@
       
         <p>今天由于某种原因想要使用Google结果就修改了Host文件，结果发现，在登录Githu的时候无法加载样式表了。好悲催，好不容易Google可以使用了，不能把host文件在改回去吧，不能忍。于是，看了分析了一下github页面，发现：<br><img src="/image/Github/css_js_loaded/problem.png" alt="Problem"><br><img src="/image/Github/css_js_loaded/network.png" alt="Network"></p>
 <p>  复制上图中的地址 然后在<a href="http://ipaddress.com/ip-lookup/" target="_blank" rel="external">ipaddress.com</a>上找到该地址的IP。例如：<br>  <img src="/image/Github/css_js_loaded/detail.png" alt="Detail"></p>
-<p>  查找完之后，打开host文件添加<br>  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">185.31</span>.<span class="number">17.133</span>  assets-cdn<span class="class">.github</span><span class="class">.com</span></span><br></pre></td></tr></table></figure></p>
-<p>  其他的资源无法加载，解决方法类似：<br>  下面是我往host文件中添加的记录：<br>  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	 # Github start</span><br><span class="line">	<span class="number">192.30</span>.<span class="number">252.141</span>	gist.github.<span class="keyword">com</span></span><br><span class="line"># Github end</span><br><span class="line">#fix github cdn problem because of GFW</span><br><span class="line">#<span class="number">185.31</span>.<span class="number">17.184</span>  github.<span class="keyword">global</span>.ssl.fastly.net</span><br><span class="line"><span class="number">23.235</span>.<span class="number">40.133</span> assets-cdn.github.<span class="keyword">com</span></span><br><span class="line"><span class="number">185.31</span>.<span class="number">17.133</span> avatars3.githubusercontent.<span class="keyword">com</span></span><br><span class="line"><span class="number">23.235</span>.<span class="number">40.133</span> avatars1.githubusercontent.<span class="keyword">com</span></span><br><span class="line"><span class="number">185.31</span>.<span class="number">17.133</span> avatars0.githubusercontent.<span class="keyword">com</span></span><br><span class="line"><span class="number">192.30</span>.<span class="number">252.120</span> 	github.<span class="keyword">com</span></span><br><span class="line"><span class="number">185.31</span>.<span class="number">17.133</span> avatars2.githubusercontent.<span class="keyword">com</span></span><br></pre></td></tr></table></figure></p>
+<p>  查找完之后，打开host文件添加<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">185.31.17.133  assets-cdn.github.com</div></pre></td></tr></table></figure></p>
+<p>  其他的资源无法加载，解决方法类似：<br>  下面是我往host文件中添加的记录：<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	 # Github start</div><div class="line">	192.30.252.141	gist.github.com</div><div class="line"># Github end</div><div class="line">#fix github cdn problem because of GFW</div><div class="line">#185.31.17.184  github.global.ssl.fastly.net</div><div class="line">23.235.40.133 assets-cdn.github.com</div><div class="line">185.31.17.133 avatars3.githubusercontent.com</div><div class="line">23.235.40.133 avatars1.githubusercontent.com</div><div class="line">185.31.17.133 avatars0.githubusercontent.com</div><div class="line">192.30.252.120 	github.com</div><div class="line">185.31.17.133 avatars2.githubusercontent.com</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -502,7 +504,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -510,7 +512,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -519,7 +521,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

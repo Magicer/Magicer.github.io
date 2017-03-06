@@ -2,328 +2,465 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://m.magicer.xyz/2017/03/golang-struct-basic/</loc>
-    <lastmod>2017-03-04T16:21:38.258Z</lastmod>
+    <loc>http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/</loc>
+    
+    <lastmod>2017-03-06T15:39:59.089Z</lastmod>
+    
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</loc>
-    <lastmod>2017-03-03T15:15:41.655Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/03/lets-go-env/</loc>
-    <lastmod>2017-03-03T15:08:17.211Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/02/rxjava-transform-operator/</loc>
-    <lastmod>2017-02-28T15:17:50.534Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/02/rxjava-create-operator/</loc>
-    <lastmod>2017-02-28T15:17:50.482Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-retrofit2-basic/</loc>
-    <lastmod>2017-01-13T15:37:57.679Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
-    <lastmod>2017-01-12T13:17:26.886Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
-    <lastmod>2017-01-12T13:16:35.506Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
-    <lastmod>2017-01-12T13:15:48.982Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
-    <lastmod>2017-01-12T13:13:48.346Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/03/bubble-selection-insert-sort-1/</loc>
-    <lastmod>2016-10-13T13:42:09.231Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2015/08/blog-theme-changed/</loc>
-    <lastmod>2016-10-13T13:42:07.343Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/about/index.html</loc>
-    <lastmod>2016-10-13T13:36:03.151Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/09/viewpager-pageradapter/</loc>
-    <lastmod>2016-09-04T15:04:56.242Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/</loc>
-    <lastmod>2016-09-04T14:09:21.130Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/08/text/</loc>
-    <lastmod>2016-08-14T06:30:56.418Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/04/add-sharesdk/</loc>
-    <lastmod>2016-05-01T01:08:28.453Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/04/github-could-not-load-css/</loc>
-    <lastmod>2016-04-14T08:13:40.062Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2015/04/sublime-text2/</loc>
-    <lastmod>2016-04-07T12:15:46.203Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/03/eclipse-import-jar/</loc>
-    <lastmod>2016-03-26T10:38:06.000Z</lastmod>
+    <loc>http://m.magicer.xyz/2017/03/task/</loc>
+    
+    <lastmod>2017-03-06T15:38:41.237Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2014/12/markdown-note/</loc>
-    <lastmod>2016-03-08T13:13:15.843Z</lastmod>
+    
+    <lastmod>2017-03-06T15:14:03.006Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/about/index.html</loc>
+    
+    <lastmod>2017-03-06T15:07:20.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/03/golang-struct-basic/</loc>
+    
+    <lastmod>2017-03-04T16:21:38.258Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</loc>
+    
+    <lastmod>2017-03-03T15:15:41.655Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/03/lets-go-env/</loc>
+    
+    <lastmod>2017-03-03T15:08:17.211Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-transform-operator/</loc>
+    
+    <lastmod>2017-02-28T15:17:50.534Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-create-operator/</loc>
+    
+    <lastmod>2017-02-28T15:17:50.482Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-retrofit2-basic/</loc>
+    
+    <lastmod>2017-01-13T15:37:57.679Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
+    
+    <lastmod>2017-01-12T13:17:26.886Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
+    
+    <lastmod>2017-01-12T13:16:35.506Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
+    
+    <lastmod>2017-01-12T13:15:48.982Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
+    
+    <lastmod>2017-01-12T13:13:48.346Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/03/bubble-selection-insert-sort-1/</loc>
+    
+    <lastmod>2016-10-13T13:42:09.231Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2015/08/blog-theme-changed/</loc>
+    
+    <lastmod>2016-10-13T13:42:07.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/09/viewpager-pageradapter/</loc>
+    
+    <lastmod>2016-09-04T15:04:56.242Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/09/fragmentpageradapter-and-fragmentstatepageradapter/</loc>
+    
+    <lastmod>2016-09-04T14:09:21.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/08/text/</loc>
+    
+    <lastmod>2016-08-14T06:30:56.418Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/04/add-sharesdk/</loc>
+    
+    <lastmod>2016-05-01T01:08:28.453Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/04/github-could-not-load-css/</loc>
+    
+    <lastmod>2016-04-14T08:13:40.062Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2015/04/sublime-text2/</loc>
+    
+    <lastmod>2016-04-07T12:15:46.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/03/eclipse-import-jar/</loc>
+    
+    <lastmod>2016-03-26T10:38:06.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/04/hexo-install/</loc>
+    
     <lastmod>2016-03-08T13:13:11.265Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/Hexo-github-gitcafe/</loc>
+    
     <lastmod>2016-03-08T13:13:07.250Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/hexo-custom-style/</loc>
+    
     <lastmod>2016-03-08T13:13:06.218Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/blog-404-style-not-found/</loc>
+    
     <lastmod>2016-03-08T13:13:05.125Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2016/03/java-static-keywords/</loc>
+    
     <lastmod>2016-03-08T13:07:37.437Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/the-basic-of-android-animation/</loc>
+    
     <lastmod>2016-03-08T12:23:00.859Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/05/git-tag-branch/</loc>
+    
     <lastmod>2016-03-08T11:44:15.609Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/linux-basic/</loc>
+    
     <lastmod>2016-03-08T11:43:35.234Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/05/android-eclipse-hot-key/</loc>
+    
     <lastmod>2016-03-08T11:43:09.718Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/android-studio-basic/</loc>
+    
     <lastmod>2016-03-08T11:42:48.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/blog-theme-changed.html</loc>
+    
     <lastmod>2016-03-08T09:48:46.250Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2016/03/Java-Jsoup-jar-1/</loc>
+    
     <lastmod>2016-03-02T13:25:13.312Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/04/github-config/</loc>
+    
     <lastmod>2016-03-02T07:19:08.828Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/08/vim-notes/</loc>
+    
     <lastmod>2016-03-02T07:16:26.328Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/vim-note1/</loc>
+    
     <lastmod>2016-03-02T07:16:25.515Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/04/ubuntu-32bit-lib/</loc>
+    
     <lastmod>2016-03-02T07:16:24.656Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/03/wordpress-problems/</loc>
+    
     <lastmod>2016-03-02T07:16:21.953Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/04/sublime-chinese/</loc>
+    
     <lastmod>2016-03-02T07:13:39.171Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2014/12/My-first-Blog/</loc>
+    
     <lastmod>2016-03-02T07:13:37.203Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/linux-problems/</loc>
+    
     <lastmod>2016-03-02T07:13:07.781Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/git-basic/</loc>
+    
     <lastmod>2016-03-02T07:12:40.562Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2016/03/eclipse-problem-1/</loc>
+    
     <lastmod>2016-03-02T07:09:42.640Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/05/eclipse-android-auto/</loc>
+    
     <lastmod>2016-03-02T07:09:41.953Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/android-studio-keymap/</loc>
+    
     <lastmod>2016-03-02T07:09:37.250Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/README.html</loc>
-    <lastmod>2015-11-17T04:57:25.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/android-listview-general/</loc>
+    
     <lastmod>2015-10-27T11:49:53.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/10/press-again-to-quit/</loc>
+    
     <lastmod>2015-10-26T06:39:51.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/photo/index-1.html</loc>
+    
     <lastmod>2015-10-14T06:55:24.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/typedef%E5%92%8Cdefine/</loc>
+    
     <lastmod>2015-10-10T16:29:31.570Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/typedefine/</loc>
+    
     <lastmod>2015-10-10T16:29:31.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/04/android-basic/</loc>
+    
     <lastmod>2015-10-10T16:11:09.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/03/android-first-step/</loc>
+    
     <lastmod>2015-10-10T16:05:20.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/gets%E5%92%8Cfget/</loc>
+    
     <lastmod>2015-10-10T16:03:47.790Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2015/01/gets-get/</loc>
+    
     <lastmod>2015-10-10T16:03:47.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/tags/index.html</loc>
+    
     <lastmod>2015-10-10T15:18:25.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/categories/index.html</loc>
+    
     <lastmod>2015-10-10T15:17:16.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/index.html</loc>
+    
     <lastmod>2015-10-05T09:01:33.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/404.html</loc>
+    
     <lastmod>2015-08-05T14:06:33.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/google32992d994507fa75.html</loc>
+    
     <lastmod>2015-04-30T07:06:38.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/downloads/codeg/code.html</loc>
+    
     <lastmod>2015-01-26T05:09:12.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/downloads/codeg/index.html</loc>
+    
     <lastmod>2015-01-25T07:25:02.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/photo/index.html</loc>
+    
     <lastmod>2015-01-03T16:04:05.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/tags/index-2.html</loc>
+    
     <lastmod>2014-12-27T02:56:51.000Z</lastmod>
+    
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/blog/index.html</loc>
+    
     <lastmod>2014-12-27T01:08:16.000Z</lastmod>
+    
   </url>
   
 </urlset>

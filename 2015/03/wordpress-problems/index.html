@@ -82,18 +82,22 @@
 
 
 
-<meta name="description" content="（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
-（二）无法建立目录wp-content">
+<meta name="description" content="####（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题
+找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
+####（二）无法建立目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建wordpress后出现的问题">
 <meta property="og:url" content="http://m.magicer.xyz/2015/03/wordpress-problems/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
-（二）无法建立目录wp-content">
+<meta property="og:description" content="####（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题
+找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
+####（二）无法建立目录">
+<meta property="og:updated_time" content="2016-03-02T07:16:21.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建wordpress后出现的问题">
-<meta name="twitter:description" content="（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
-（二）无法建立目录wp-content">
+<meta name="twitter:description" content="####（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题
+找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。
+####（二）无法建立目录">
 
 
 
@@ -350,14 +354,16 @@
 
       
         <a id="more"></a>
-<h4 id="（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</h4><p>找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。<br>然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。</p>
-<h4 id="（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？">（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？</h4><p>使用PHPMyAdmin进入数据库。数据库管理的高级管理可以进去。<br>找到wordpress数据库，打开wp_options表<br>修改表中键名为upload_path的键值 这个值是一个路径（可能在表的第二页）<br>里面是空的，添加“wp-content/uploads”就解决了。＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝双引号必加！类似于注册表键值</p>
-<h4 id="（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”">（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”</h4><p>在/var/www/wordpress文件夹下的wp-config.php添加如下代码 </p>
-<pre><code><span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_METHOD"</span>, <span class="string">"direct"</span>);
-<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_DIR"</span>, <span class="number">0777</span>);
-<span class="class"><span class="keyword">define</span></span>(<span class="string">"FS_CHMOD_FILE"</span>, <span class="number">0777</span>);
-</code></pre><h4 id="（四）解决无法创建文件夹的问题">（四）解决无法创建文件夹的问题</h4><p>在/ver/www/wordpress下，把wp-content的文件权限改成777</p>
-<pre><code><span class="title">sudo</span> chmod <span class="number">777</span> wp-content
+<p>####（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</p>
+<p>找到php.ini文件 (一般在/etc/php /etc  /usr/local/etc下)打开后找到upload_max_filesize修改其默认值（2M）。<br>然后重启apache2（我用ubuntu14.04文件在/etc/php5/apache2下）。</p>
+<p>####（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？<br>使用PHPMyAdmin进入数据库。数据库管理的高级管理可以进去。<br>找到wordpress数据库，打开wp_options表<br>修改表中键名为upload_path的键值 这个值是一个路径（可能在表的第二页）<br>里面是空的，添加“wp-content/uploads”就解决了。＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝双引号必加！类似于注册表键值</p>
+<p>####（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”<br>在/var/www/wordpress文件夹下的wp-config.php添加如下代码 </p>
+<pre><code>define(&quot;FS_METHOD&quot;, &quot;direct&quot;);
+define(&quot;FS_CHMOD_DIR&quot;, 0777);
+define(&quot;FS_CHMOD_FILE&quot;, 0777);
+</code></pre><p>####（四）解决无法创建文件夹的问题</p>
+<p>在/ver/www/wordpress下，把wp-content的文件权限改成777</p>
+<pre><code>sudo chmod 777 wp-content
 </code></pre>
       
     </div>
@@ -501,7 +507,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -509,7 +515,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -518,7 +524,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -585,7 +591,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）出现_上传的文件尺寸超过php-ini中定义的upload_max_filesize值-的问题"><span class="nav-number">1.</span> <span class="nav-text">（一）出现 上传的文件尺寸超过php.ini中定义的upload_max_filesize值.的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？"><span class="nav-number">2.</span> <span class="nav-text">（二）无法建立目录wp-content/uploads/2015/03。有没有上级目录的写权限？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”"><span class="nav-number">3.</span> <span class="nav-text">（三）解决”要执行请求的操作，WordPress需要访问您网页服务器的权限”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（四）解决无法创建文件夹的问题"><span class="nav-number">4.</span> <span class="nav-text">（四）解决无法创建文件夹的问题</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

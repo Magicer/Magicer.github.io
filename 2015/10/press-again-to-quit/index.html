@@ -88,6 +88,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2015/10/press-again-to-quit/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="见很多软件都有 按一次退出程序的提醒，觉得挺人性化，便从网上找到了代码，在这里记录一下：12345678910111213141516private long exitTime=0; @Overridepublic boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;        if (keyCode == KeyEvent.KEYCODE">
+<meta property="og:updated_time" content="2015-10-26T06:39:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 中实现“再按一次退出程序”的提醒">
 <meta name="twitter:description" content="见很多软件都有 按一次退出程序的提醒，觉得挺人性化，便从网上找到了代码，在这里记录一下：12345678910111213141516private long exitTime=0; @Overridepublic boolean onKeyDown(int keyCode, KeyEvent event) &amp;#123;        if (keyCode == KeyEvent.KEYCODE">
@@ -346,7 +347,7 @@
       
 
       
-        <p>见很多软件都有 按一次退出程序的提醒，觉得挺人性化，便从网上找到了代码，在这里记录一下：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">long</span> exitTime=<span class="number">0</span>;</span><br><span class="line"> @Override</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">boolean</span> onKeyDown(<span class="built_in">int</span> <span class="variable">keyCode</span>, KeyEvent event) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">keyCode</span> == KeyEvent.KEYCODE_BACK &amp;&amp; </span><br><span class="line">            event.getAction() == KeyEvent.ACTION_DOWN) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((System.currentTimeMillis() - exitTime) &gt; <span class="number">2000</span>) &#123;</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"再按一次退出程序"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                exitTime = System.currentTimeMillis();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                finish();</span><br><span class="line">                System.<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onKeyDown(<span class="variable">keyCode</span>, event);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+        <p>见很多软件都有 按一次退出程序的提醒，觉得挺人性化，便从网上找到了代码，在这里记录一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">private long exitTime=0;</div><div class="line"> @Override</div><div class="line">public boolean onKeyDown(int keyCode, KeyEvent event) &#123;</div><div class="line">        if (keyCode == KeyEvent.KEYCODE_BACK &amp;&amp; </div><div class="line">            event.getAction() == KeyEvent.ACTION_DOWN) &#123;</div><div class="line">            if ((System.currentTimeMillis() - exitTime) &gt; 2000) &#123;</div><div class="line">                Toast.makeText(this, &quot;再按一次退出程序&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">                exitTime = System.currentTimeMillis();</div><div class="line">            &#125; else &#123;</div><div class="line">                finish();</div><div class="line">                System.exit(0);</div><div class="line">            &#125;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        return super.onKeyDown(keyCode, event);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -490,7 +491,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -498,7 +499,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -507,7 +508,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

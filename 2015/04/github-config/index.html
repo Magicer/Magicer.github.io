@@ -88,6 +88,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2015/04/github-config/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。">
+<meta property="og:updated_time" content="2016-03-02T07:19:08.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置github">
 <meta name="twitter:description" content="电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。">
@@ -347,12 +348,14 @@
 
       
         <p>电脑系统重新安装了，很多软件都需要重新设置，鼓捣了很长时间，顺便记录一下各种配置及修改。感觉好累啊。<br><a id="more"></a></p>
-<h2 id="生成ssh">生成ssh</h2><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email<span class="variable">@example</span>.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br></pre></td></tr></table></figure>
+<p>##生成ssh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line"># Creates a new ssh key, using the provided email as a label</div><div class="line"># Generating public/private rsa key pair.</div></pre></td></tr></table></figure>
 <p>第一步不用直接回车就可以，之后按照流程输入就行，<br>然后把id_rsa.pub文件中的内容复制到github设置里面的ssh中</p>
-<h2 id="测试是否成功：">测试是否成功：</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
-<p>当出现以下提示时即设置成功<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span></span><br><span class="line"><span class="comment"># provide shell access.</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="配置git">配置git</h2><p>在终端输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user<span class="class">.name</span>  <span class="string">"username"</span></span><br><span class="line">git config --global user<span class="class">.email</span>  <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
-<p>测试是否设置正确：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span></span><br></pre></td></tr></table></figure></p>
+<p>##测试是否成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p>当出现以下提示时即设置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Hi username! You&apos;ve successfully authenticated, but GitHub does not</div><div class="line"># provide shell access.</div></pre></td></tr></table></figure></p>
+<p>##配置git</p>
+<p>在终端输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name  &quot;username&quot;</div><div class="line">git config --global user.email  &quot;email&quot;</div></pre></td></tr></table></figure></p>
+<p>测试是否设置正确：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global --list</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -496,7 +499,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -504,7 +507,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -513,7 +516,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -580,7 +583,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成ssh"><span class="nav-number">1.</span> <span class="nav-text">生成ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试是否成功："><span class="nav-number">2.</span> <span class="nav-text">测试是否成功：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">3.</span> <span class="nav-text">配置git</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

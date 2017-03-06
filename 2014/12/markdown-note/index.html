@@ -88,10 +88,12 @@
 <meta property="og:url" content="http://m.magicer.xyz/2014/12/markdown-note/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="markdown的基本用法。">
-<meta property="og:image" content="/image/465140.jpg">
+<meta property="og:image" content="http://m.magicer.xyz/image/465140.jpg">
+<meta property="og:updated_time" content="2017-03-06T15:14:03.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="markdown的基本使用方法">
 <meta name="twitter:description" content="markdown的基本用法。">
+<meta name="twitter:image" content="http://m.magicer.xyz/image/465140.jpg">
 
 
 
@@ -348,27 +350,34 @@
 
       
         <p>markdown的基本用法。<a id="more"></a></p>
-<h2 id="Markdown的用法笔记_（hexo）">Markdown的用法笔记 （hexo）</h2><h2 id="如何添加目录">如何添加目录</h2><blockquote>
+<p>##Markdown的用法笔记 （hexo）</p>
+<p>##如何添加目录</p>
+<blockquote>
 <p>按照一定的层次添加标题，目录会自动创建。</p>
 </blockquote>
-<h2 id="段落">段落</h2><blockquote>
+<p>##段落</p>
+<blockquote>
 <p>段落前后都要有空行</p>
 </blockquote>
-<h2 id="代码段">代码段</h2><blockquote>
+<p>##代码段</p>
+<blockquote>
 <p>代码段<code>printf()</code>在行内可以使用反引号来标记出来</p>
 <p>只需要在代码段前面加<code>4</code>个空格或制表符。<br>        也可以使用</p>
 </blockquote>
 <p><code>` </code>bash<br>         (没有空格)<br><code>` </code></p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>hexo generate</span><br><span class="line"><span class="variable">$ </span>hexo server</span><br><span class="line"><span class="variable">$ </span>hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div><div class="line">$ hexo server</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <pre><code>代码段（用的制表符）
-</code></pre><h2 id="强调">强调</h2><blockquote>
+</code></pre><p>##强调</p>
+<blockquote>
 <p>斜体斜体_     粗体两个__<br>   _强调的内容(斜体)_<br>   --强调（粗体）--<br>效果如下：<br>   <em>强调的内容</em><br>   <strong>粗体强调</strong></p>
 </blockquote>
-<h2 id="链接">链接</h2><blockquote>
+<p>##链接</p>
+<blockquote>
 <p><a href="http://aoshizhang.com" target="_blank" rel="external">magicer(这里是链接需要显示的内容)</a><br>  格式如下，[内代表要显示的内容]，()内为链接的地址<br>  [<code>magicer</code>](<a href="http://aoshizhang.com" target="_blank" rel="external">http://aoshizhang.com</a>)</p>
 </blockquote>
 <p>  图片链接只需要在地址链接前面加！<br>  <img src="/image/465140.jpg" alt="图片"></p>
-<h2 id="列表">列表</h2><blockquote>
+<p>##列表</p>
+<blockquote>
 <p>用<code>-</code> <code>+</code>表示无序列表 如：</p>
 <ul>
 <li>水果</li>
@@ -386,9 +395,28 @@
 <li>柚子<br>a. 橘子<br>b. 梨</li>
 </ol>
 </blockquote>
-<h2 id="表格">表格</h2><table><br>  <tr> <td> <strong>table</strong></td> <td><strong>file</strong></td></tr><br>  <tr> <td> table</td> <td>file</td></tr><br>    <tr> <td> table</td> <td>file</td></tr><br></table>
-
-
+<p>##表格<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">| 一个普通标题 | 一个普通标题 | 一个普通标题 |</div><div class="line">| ------| ------ | ------ |</div><div class="line">| 短文本 | 中等文本 | 稍微长一点的文本 |</div><div class="line">| 稍微长一点的文本 | 短文本 | 中等文本 |</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>一个普通标题</th>
+<th>一个普通标题</th>
+<th>一个普通标题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短文本</td>
+<td>中等文本</td>
+<td>稍微长一点的文本</td>
+</tr>
+<tr>
+<td>稍微长一点的文本</td>
+<td>短文本</td>
+<td>中等文本</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -428,7 +456,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/01/typedef和define/" rel="prev" title="C语言之 typedef和define的使用">
+              <a href="/2015/01/typedefine/" rel="prev" title="C语言之 typedef和define的使用">
                 C语言之 typedef和define的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -534,7 +562,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -542,7 +570,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -551,7 +579,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -618,7 +646,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markdown的用法笔记_（hexo）"><span class="nav-number">1.</span> <span class="nav-text">Markdown的用法笔记 （hexo）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何添加目录"><span class="nav-number">2.</span> <span class="nav-text">如何添加目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段落"><span class="nav-number">3.</span> <span class="nav-text">段落</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码段"><span class="nav-number">4.</span> <span class="nav-text">代码段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强调"><span class="nav-number">5.</span> <span class="nav-text">强调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-number">6.</span> <span class="nav-text">链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-number">7.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">8.</span> <span class="nav-text">表格</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

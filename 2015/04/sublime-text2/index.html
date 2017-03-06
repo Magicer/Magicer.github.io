@@ -83,17 +83,18 @@
 
 
 <meta name="description" content="Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。
-   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单">
+   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime_text 的安装与使用">
 <meta property="og:url" content="http://m.magicer.xyz/2015/04/sublime-text2/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。
-   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单">
+   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，">
+<meta property="og:updated_time" content="2016-04-07T12:15:46.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime_text 的安装与使用">
 <meta name="twitter:description" content="Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。
-   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单">
+   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，">
 
 
 
@@ -352,12 +353,16 @@
         <p>  Sublime Text 是一个代码编辑器（Sublime Text 2是收费软件，但可以无限期试用），也是HTML和散文先进的文本编辑器。Sublime Text是由程序员Jon Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。</p>
 <p>   SublimeText具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto 功能，即时项目切换，多选择，多窗口等等。Sublime Text 是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。<br>    下载地址：<br>  <a href="http://www.sublimetext.com/" target="_blank" rel="external">http://www.sublimetext.com/</a></p>
 <a id="more"></a>
-<h2 id="安装">安装</h2> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository ppa:webupd8team/sublime-text-<span class="number">2</span></span><br><span class="line"></span><br><span class="line">apt-get update</span><br><span class="line"></span><br><span class="line">apt-get install sublime-text</span><br></pre></td></tr></table></figure>
-<h2 id="安装控制器(仅适用于text2)：">安装控制器(仅适用于text2)：</h2><p> ctrl+`,调出控制台：</p>
-<p> 输入：<br> <figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib2,os;pf=<span class="string">'Package Control.sublime-package'</span>;ipp=sublime.installed_packages_path();os.makedirs(ipp) <span class="keyword">if</span> <span class="keyword">not</span> os.path.<span class="keyword">exists</span>(ipp) <span class="keyword">else</span> None;<span class="keyword">open</span>(os.path.<span class="keyword">join</span>(ipp,pf),<span class="string">'wb'</span>).<span class="keyword">write</span>(urllib2.urlopen(<span class="string">'http://sublime.wbond.net/'</span>+pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure></p>
-<h2 id="sublime_text3安装控制器">sublime text3安装控制器</h2>  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>  urllib.request,os;pf=<span class="string">'Package Control.sublime-package'</span>;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.<span class="keyword">join</span>(ipp,pf),<span class="string">'wb'</span>).<span class="keyword">write</span>(urllib.request.urlopen(<span class="string">'http://sublime.wbond.net/'</span>+pf.replace(<span class="string">' '</span>,<span class="string">'%20'</span>)).<span class="keyword">read</span>())</span><br></pre></td></tr></table></figure>
-<h2 id="插件推荐：">插件推荐：</h2><p>  1：emmet：前段必备<br>  2：autofilename<br>  3:allautocomplete<br>  4:IconFont<br>  5:Sublime CodeIntel:代码自动提示<br>  6：Bracket Highlighter：代码匹配<br>  7：Sublime Prefixr：Prefixr，CSS3 私有前缀自动补全<br>  8：ConvertToUTF8：在打开文件时将其他格式的代码转成UTF-8(此插件很有必要安装啊)<br>  9：Pretty Json:格式化json文件(在json如此流行的时代怎么能不安装此插件)<br>  添加快捷方式：（在用户自定义的快捷键文件中添加）<br>  <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; "<span class="attribute">keys</span>": <span class="value">[<span class="string">"ctrl+shift+j"</span>]</span>, "<span class="attribute">command</span>": <span class="value"><span class="string">"prettify_json"</span> </span>&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="Emmet插件的使用">Emmet插件的使用</h2><p>  快捷：</p>
+<p>  ##安装</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">add-apt-repository ppa:webupd8team/sublime-text-2</div><div class="line"></div><div class="line">apt-get update</div><div class="line"></div><div class="line">apt-get install sublime-text</div></pre></td></tr></table></figure>
+<p> ##安装控制器(仅适用于text2)：</p>
+<p> ctrl+`,调出控制台：</p>
+<p> 输入：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import urllib2,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();os.makedirs(ipp) if not os.path.exists(ipp) else None;open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib2.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure></p>
+<p>  ##sublime text3安装控制器</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import  urllib.request,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib.request.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure>
+<p>  ##插件推荐：<br>  1：emmet：前段必备<br>  2：autofilename<br>  3:allautocomplete<br>  4:IconFont<br>  5:Sublime CodeIntel:代码自动提示<br>  6：Bracket Highlighter：代码匹配<br>  7：Sublime Prefixr：Prefixr，CSS3 私有前缀自动补全<br>  8：ConvertToUTF8：在打开文件时将其他格式的代码转成UTF-8(此插件很有必要安装啊)<br>  9：Pretty Json:格式化json文件(在json如此流行的时代怎么能不安装此插件)<br>  添加快捷方式：（在用户自定义的快捷键文件中添加）<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; &quot;keys&quot;: [&quot;ctrl+shift+j&quot;], &quot;command&quot;: &quot;prettify_json&quot; &#125;</div></pre></td></tr></table></figure></p>
+<p>  ##Emmet插件的使用</p>
+<p>  快捷：</p>
 <ol>
 <li><p>生成html格式</p>
 <p>输入 html:5</p>
@@ -508,7 +513,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">51</span>
+              <span class="site-state-item-count">53</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -516,7 +521,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -525,7 +530,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -592,7 +597,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装控制器(仅适用于text2)："><span class="nav-number">2.</span> <span class="nav-text">安装控制器(仅适用于text2)：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sublime_text3安装控制器"><span class="nav-number">3.</span> <span class="nav-text">sublime text3安装控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件推荐："><span class="nav-number">4.</span> <span class="nav-text">插件推荐：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Emmet插件的使用"><span class="nav-number">5.</span> <span class="nav-text">Emmet插件的使用</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
