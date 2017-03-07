@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://m.magicer.xyz/"/>
-  <updated>2017-03-06T15:39:59.089Z</updated>
+  <updated>2017-03-07T15:45:13.081Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/"/>
     <id>http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/</id>
     <published>2017-03-06T15:35:27.000Z</published>
-    <updated>2017-03-06T15:39:59.089Z</updated>
+    <updated>2017-03-07T15:45:13.081Z</updated>
     
-    <content type="html"><![CDATA[<p>##EventBus</p>
-<p>##问题<br>之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报<code>EventBus</code>的一个错误。在这里记录下。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: android/os/PersistableBundle</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<h2 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h2><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报<code>EventBus</code>的一个错误。在这里记录下。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: android/os/PersistableBundle</div></pre></td></tr></table></figure></p>
 <p>在网上搜索了下说是我<code>OnCreate</code>写错了。查看了一下。改成了<code>protected</code>的就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    protected void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>##报错的OnCreate</p>
@@ -35,8 +34,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;##EventBus&lt;/p&gt;
-&lt;p&gt;##问题&lt;br&gt;之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报&lt;code&gt;EventBus&lt;/code&gt;的一个错误。在这里记录下。&lt;br&gt;
+      &lt;h2 id=&quot;EventBus&quot;&gt;&lt;a href=&quot;#EventBus&quot; class=&quot;headerlink&quot; title=&quot;EventBus&quot;&gt;&lt;/a&gt;EventBus&lt;/h2&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报&lt;code&gt;EventBus&lt;/code&gt;的一个错误。在这里记录下。&lt;br&gt;
     
     </summary>
     
@@ -441,9 +439,9 @@
       <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
     
     
-      <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
-    
       <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
+    
+      <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
     
   </entry>
   

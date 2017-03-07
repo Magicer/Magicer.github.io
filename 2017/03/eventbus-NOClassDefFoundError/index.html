@@ -82,19 +82,16 @@
 
 
 
-<meta name="description" content="##EventBus
-##问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
+<meta name="description" content="EventBus问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NoClassDefFoundError: android/os/PersistableBundle">
 <meta property="og:url" content="http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="##EventBus
-##问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
-<meta property="og:updated_time" content="2017-03-06T15:39:59.089Z">
+<meta property="og:description" content="EventBus问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
+<meta property="og:updated_time" content="2017-03-07T15:45:13.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NoClassDefFoundError: android/os/PersistableBundle">
-<meta name="twitter:description" content="##EventBus
-##问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
+<meta name="twitter:description" content="EventBus问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
 
 
 
@@ -350,8 +347,7 @@
       
 
       
-        <p>##EventBus</p>
-<p>##问题<br>之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报<code>EventBus</code>的一个错误。在这里记录下。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: android/os/PersistableBundle</div></pre></td></tr></table></figure></p>
+        <h2 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h2><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报<code>EventBus</code>的一个错误。在这里记录下。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: android/os/PersistableBundle</div></pre></td></tr></table></figure></p>
 <p>在网上搜索了下说是我<code>OnCreate</code>写错了。查看了一下。改成了<code>protected</code>的就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    protected void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>##报错的OnCreate</p>
@@ -582,7 +578,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EventBus"><span class="nav-number">1.</span> <span class="nav-text">EventBus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li></ol></div>
             
           </div>
         </section>
