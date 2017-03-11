@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://m.magicer.xyz/"/>
-  <updated>2017-03-07T15:45:13.081Z</updated>
+  <updated>2017-03-11T16:52:35.976Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android EditText禁止输入Emoji后设置android:maxLength失效的问题</title>
+    <link href="http://m.magicer.xyz/2017/03/android-edittext-emoji/"/>
+    <id>http://m.magicer.xyz/2017/03/android-edittext-emoji/</id>
+    <published>2017-03-11T16:51:44.000Z</published>
+    <updated>2017-03-11T16:52:35.976Z</updated>
+    
+    <content type="html"><![CDATA[<p>##0X00 禁用emoji<br>有时候我们不想在<code>EditText</code>中输入Emoji表情，怎么处理呢？<br>我们可以通过设置<code>InputFilter</code>的方式来达到这个目的。怎么实现呢？直接上代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public InputFilter emojiFilter = new InputFilter() &#123;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) &#123;</div><div class="line">            for (int index = start; index &lt; end; index++) &#123;</div><div class="line"></div><div class="line">                int type = Character.getType(source.charAt(index));</div><div class="line"></div><div class="line">                if (type == Character.SURROGATE) &#123;</div><div class="line">                    return &quot;&quot;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<p>##0X01 问题<br>但是当我们设置了<code>InputFilter</code>之后可能会出现一个问题，就是当我们在代码中设置<code>android:maxLength=&quot;8&quot;</code>的时候，会发现不起作用了。我们点进去<code>InputFilter</code>，查看其源码我们就会发现，里面还有个自带的<code>LengthFilter</code>。我们就可以通过再添加一个<code>LengthFileter</code>就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">editText.setFilters(new InputFilter[]&#123;new InputFilter.LengthFilter(8), emojiFilter&#125;)</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##0X00 禁用emoji&lt;br&gt;有时候我们不想在&lt;code&gt;EditText&lt;/code&gt;中输入Emoji表情，怎么处理呢？&lt;br&gt;我们可以通过设置&lt;code&gt;InputFilter&lt;/code&gt;的方式来达到这个目的。怎么实现呢？直接上代码。&lt;br&gt;&lt;figure cl
+    
+    </summary>
+    
+      <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
+    
+    
+      <category term="emoji" scheme="http://m.magicer.xyz/tags/emoji/"/>
+    
+      <category term="EditText" scheme="http://m.magicer.xyz/tags/EditText/"/>
+    
+  </entry>
   
   <entry>
     <title>NoClassDefFoundError: android/os/PersistableBundle</title>
@@ -439,9 +465,9 @@
       <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
     
     
-      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
-    
       <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
+    
+      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
     
   </entry>
   
@@ -733,41 +759,6 @@
     
     
       <category term="static" scheme="http://m.magicer.xyz/tags/static/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jsoup.jar的使用</title>
-    <link href="http://m.magicer.xyz/2016/03/Java-Jsoup-jar-1/"/>
-    <id>http://m.magicer.xyz/2016/03/Java-Jsoup-jar-1/</id>
-    <published>2016-03-02T12:34:25.000Z</published>
-    <updated>2016-03-02T13:25:13.312Z</updated>
-    
-    <content type="html"><![CDATA[<p>Jsoup的使用方法参见：<a href="http://www.open-open.com/jsoup/" target="_blank" rel="external">http://www.open-open.com/jsoup/</a>.上面是中文版的也有官方API。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * 通过网页来获取数据。</div><div class="line"> * </div><div class="line"> */</div><div class="line">Document doc =Jsoup.connect(<span class="string">"http://blog.magicer.xyz/"</span>).get();</div><div class="line"><span class="comment">/*</span></div><div class="line"> * 得到页面中 第一个class为“post-title”的内容，然后输出其的值</div><div class="line"> *</div><div class="line">  */</div><div class="line">org.jsoup.nodes.Element string=doc.getElementsByClass(<span class="string">"post-title"</span>).first();</div><div class="line">		System.out.println(string); <span class="comment">/*输出结果为</span></div><div class="line">		&lt;h1 class="post-title" itemprop="name headline"&gt;</div><div class="line">		 &lt;a class="post-title-link" </div><div class="line">		 href="/2016/03/eclipse-import-jar/" itemprop="url"&gt; </div><div class="line">		 Eclipse如何导入外部jar包 &lt;/a&gt; &lt;/h1&gt;</div><div class="line">		*/</div><div class="line">		String title=string.text();</div><div class="line">  <span class="comment">/*</span></div><div class="line">   * 获得class名为post-title-link的属性的值</div><div class="line">   * (此处是一个a标签的href属性的值：/2016/03/eclipse-import-jar/)</div><div class="line">   * </div><div class="line">   */</div><div class="line">  String string2=doc.getElementsByClass(<span class="string">"post-title-link"</span>).attr(<span class="string">"href"</span>);</div><div class="line">  System.out.println(string2);   <span class="comment">//输出结果为：/2016/03/eclipse-import-jar/</span></div><div class="line">System.out.println(title);  	<span class="comment">//输出结果是：Eclipse如何导入外部jar包 </span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 通过get()方法得到body的内容 get()方法的索引（index）从0 （即first（）方法）开始</div><div class="line"> * 	get(0)=first();</div><div class="line"> * </div><div class="line"> */</div><div class="line">org.jsoup.nodes.Element postBodyString= doc.getElementsByClass(<span class="string">"post-body"</span>).get(<span class="number">0</span>);</div><div class="line"></div><div class="line">String postBody=postBodyString.text();  <span class="comment">//得到post-body的内容</span></div><div class="line">System.out.println(postBody);  <span class="comment">// 可以正常的输出post-body的内容</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * 获得menu菜单项</div><div class="line"> * </div><div class="line"> */</div><div class="line">org.jsoup.nodes.Element element=doc.getElementsByClass(<span class="string">"menu"</span>).first();</div><div class="line"></div><div class="line">String menu= element.text();</div><div class="line">System.out.println(menu);  <span class="comment">// 输出结果为：首页 分类 归档 标签 关于</span></div></pre></td></tr></table></figure>
-<p>Elements这个对象提供了一系列类似于DOM的方法来查找元素，抽取并处理其中的数据。具体如下：</p>
-<p>###查找元素</p>
-<p>getElementById(String id)<br>getElementsByTag(String tag)<br>getElementsByClass(String className)<br>getElementsByAttribute(String key) (and related methods)<br>Element siblings: siblingElements(), firstElementSibling(), lastElementSibling();nextElementSibling(), previousElementSibling()<br>Graph: parent(), children(), child(int index)</p>
-<p>###元素数据<br>attr(String key)获取属性attr(String key, String value)设置属性<br>attributes()获取所有属性<br>id(), className() and classNames()<br>text()获取文本内容text(String value) 设置文本内容<br>html()获取元素内HTMLhtml(String value)设置元素内的HTML内容<br>outerHtml()获取元素外HTML内容<br>data()获取数据内容（例如：script和style标签)<br>tag() and tagName()</p>
-<p>###操作HTML和文本<br>append(String html), prepend(String html)<br>appendText(String text), prependText(String text)<br>appendElement(String tagName), prependElement(String tagName)<br>html(String value)</p>
-<p>###Selector选择器概述<br>tagname: 通过标签查找元素，比如：a<br>ns|tag: 通过标签在命名空间查找元素，比如：可以用 fb|name 语法来查找 <fb:name> 元素<br><code>#id</code>: 通过ID查找元素，比如：#logo<br>.class: 通过class名称查找元素，比如：.masthead</fb:name></p>
-<p>[^attr]: 利用属性名前缀来查找元素，比如：可以用[^data-] 来查找带有HTML5 Dataset属性的元素</p>
-<p>[attr^=value], [attr$=value], [attr<em>=value]: 利用匹配属性值开头、结尾或包含属性值来查找元素，比如：[href</em>=/path/]<br>[attr~=regex]: 利用属性值匹配正则表达式来查找元素，比如： img[src~=(?i).(png|jpe?g)]<br><em>: 这个符号将匹配所有元素<br>Selector选择器组合使用<br>el#id: 元素+ID，比如： div#logo<br>el.class: 元素+class，比如： div.masthead<br>el[attr]: 元素+class，比如： a[href]<br>任意组合，比如：a[href].highlight<br>ancestor child: 查找某个元素下子元素，比如：可以用.body p 查找在”body”元素下的所有p元素<br>parent &gt; child: 查找某个父元素下的直接子元素，比如：可以用div.content &gt; p 查找 p 元素，也可以用body &gt; </em> 查找body标签下所有直接子元素<br>siblingA + siblingB: 查找在A元素之前第一个同级元素B，比如：div.head + div<br>siblingA ~ siblingX: 查找A元素之前的同级X元素，比如：h1 ~ p<br>el, el, el:多个选择器组合，查找匹配任一选择器的唯一元素，例如：div.masthead, div.logo</p>
-<p>###伪选择器selectors<br>:lt(n): 查找哪些元素的同级索引值（它的位置在DOM树中是相对于它的父节点）小于n，比如：td:lt(3) 表示小于三列的元素<br>:gt(n):查找哪些元素的同级索引值大于n，比如： div p:gt(2)表示哪些div中有包含2个以上的p元素<br>:eq(n): 查找哪些元素的同级索引值与n相等，比如：form input:eq(1)表示包含一个input标签的Form元素<br>:has(seletor): 查找匹配选择器包含元素的元素，比如：div:has(p)表示哪些div包含了p元素<br>:not(selector): 查找与选择器不匹配的元素，比如： div:not(.logo) 表示不包含 class=”logo” 元素的所有 div 列表<br>:contains(text): 查找包含给定文本的元素，搜索不区分大不写，比如： p:contains(jsoup)<br>:containsOwn(text): 查找直接包含给定文本的元素<br>:matches(regex): 查找哪些元素的文本匹配指定的正则表达式，比如：div:matches((?i)login)<br>:matchesOwn(regex): 查找自身包含文本匹配指定正则表达式的元素<br>注意：上述伪选择器索引是从0开始的，也就是说第一个元素索引值为0，第二个元素index为1等<br>可以查看Selector API参考来了解更详细的内容</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Jsoup的使用方法参见：&lt;a href=&quot;http://www.open-open.com/jsoup/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.open-open.com/jsoup/&lt;/a&gt;.上面是中文版的也有官方API。
-    
-    </summary>
-    
-      <category term="Java" scheme="http://m.magicer.xyz/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="http://m.magicer.xyz/tags/Java/"/>
-    
-      <category term="Jsoup" scheme="http://m.magicer.xyz/tags/Jsoup/"/>
     
   </entry>
   

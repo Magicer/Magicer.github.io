@@ -275,6 +275,143 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/the-basic-of-android-animation/" itemprop="url">
+                  Android Animation基础（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-27T15:18:29+08:00" content="2015-10-27">
+              2015-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/the-basic-of-android-animation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/the-basic-of-android-animation/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2015/10/the-basic-of-android-animation/" class="leancloud_visitors" data-flag-title="Android Animation基础（一）">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##视图动画（View Animation）<br> 主要有AlphaAnimation ,RotateAnimation,TranslateAnimation,ScaleAnimation四种动画方式，在3.0之前广泛使用，但是由于不具有交互性（当View发生视图动画后，其响应事件的位置仍然在动画前的地方），渐渐的属性动画使用的多起来。一般试图动画制作普通的动画效果，不做交互。优点就是效率高使用方便。</p>
+<p>###通过XML定义动画<br>在<code>anim</code>文件夹下创建，通过xml创建的动画可读性较好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:interpolator=&quot;@[package:]anim/interpolator_resource&quot;</div><div class="line">    android:shareInterpolator=[&quot;true&quot; | &quot;false&quot;] &gt;</div><div class="line">    &lt;alpha</div><div class="line">        android:fromAlpha=&quot;float&quot;</div><div class="line">        android:toAlpha=&quot;float&quot; /&gt;</div><div class="line">    &lt;scale</div><div class="line">        android:fromXScale=&quot;float&quot;</div><div class="line">        android:toXScale=&quot;float&quot;</div><div class="line">        android:fromYScale=&quot;float&quot;</div><div class="line">        android:toYScale=&quot;float&quot;</div><div class="line">        android:pivotX=&quot;float&quot;</div><div class="line">        android:pivotY=&quot;float&quot; /&gt;</div><div class="line">    &lt;translate</div><div class="line">        android:fromXDelta=&quot;float&quot;</div><div class="line">        android:toXDelta=&quot;float&quot;</div><div class="line">        android:fromYDelta=&quot;float&quot;</div><div class="line">        android:toYDelta=&quot;float&quot; /&gt;</div><div class="line">    &lt;rotate</div><div class="line">        android:fromDegrees=&quot;float&quot;</div><div class="line">        android:toDegrees=&quot;float&quot;</div><div class="line">        android:pivotX=&quot;float&quot;</div><div class="line">        android:pivotY=&quot;float&quot; /&gt;</div><div class="line">    &lt;set&gt;</div><div class="line">        ...</div><div class="line">    &lt;/set&gt;</div><div class="line">&lt;/set&gt;</div></pre></td></tr></table></figure></p>
+<p>下面来解释一下：<br><code>android:interpolator</code> ：表示动画集合采用的插值器，插值器影响动画的速度。<br><code>android:shareInterpolator</code> ：表示集合中的动画是否和集合公用同一个插值器。<br><code>pivot</code>：支点，枢纽；</p>
+<p>通过xml创建的动画怎么使用呢：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Animation animation=AnimationUtils.loadAnimation(this,R.anim.viewanimation);</div><div class="line">view.startAnimation(animation);</div></pre></td></tr></table></figure></p>
+<p>###透明度动画AlphaAnimation<br>这个应该很清楚，设置开始值，结束值即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AlphaAnimation aa=new AlphaAnimation(0,1);</div><div class="line">aa.setDuration(1000);</div><div class="line">View.startAnimation(aa);</div><div class="line">/*</div><div class="line">* public AlphaAnimation (float fromAlpha, float toAlpha)</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>###位移动画 TranslateAnimation</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">TranslateAnimation ta=new TranslateAnimation(0,300,0,300);</div><div class="line">ta.setDuration(1000);</div><div class="line">View.startAnimation(ta);</div><div class="line">/*</div><div class="line">*构造方法一：</div><div class="line">*public TranslateAnimation (float fromXDelta, float toXDelta, </div><div class="line">                            float fromYDelta, float toYDelta)</div><div class="line">*/</div><div class="line">/*</div><div class="line">*构造方法二</div><div class="line">*public TranslateAnimation (int fromXType, float fromXValue, </div><div class="line">                            int toXType, float toXValue, </div><div class="line">                            int fromYType, float fromYValue, </div><div class="line">                            int toYType, float toYValue)</div><div class="line">*type的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF,</div><div class="line">* Animation.RELATIVE_TO_PARENT 之一</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>###缩放动画 ScaleAnimation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">ScaleAnimation sa=new ScaleAnimation(0,1,0,1);</div><div class="line">sa.setDuration(1000);</div><div class="line">View.startAnimation(sa);</div><div class="line">/*</div><div class="line">*构造方法一</div><div class="line">*public ScaleAnimation (float fromX, float toX, </div><div class="line">                        float fromY, float toY)</div><div class="line">*/</div><div class="line">/*</div><div class="line">*构造方法二</div><div class="line">*public ScaleAnimation (float fromX, float toX, </div><div class="line">                        float fromY, float toY, </div><div class="line">                        float pivotX, float pivotY)</div><div class="line">*/</div><div class="line">/*</div><div class="line">*构造方法三</div><div class="line">*public ScaleAnimation (float fromX, float toX, </div><div class="line">                        float fromY, float toY, </div><div class="line">                        int pivotXType, float pivotXValue, </div><div class="line">                        int pivotYType, float pivotYValue)</div><div class="line">*type的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </div><div class="line">*Animation.RELATIVE_TO_PARENT 之一</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>###旋转动画 RotateAnimation<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">RotateAnimation ra=new RotateAnimation(0,360,100,100);</div><div class="line">ra.setDuration(1000);</div><div class="line">View.startAnimation(ra);</div><div class="line">/*</div><div class="line">*构造方法一</div><div class="line">*public RotateAnimation (float fromDegrees, float toDegrees)</div><div class="line">*/</div><div class="line">/*</div><div class="line">*构造方法二</div><div class="line">*public RotateAnimation (float fromDegrees, float toDegrees, </div><div class="line">                        float pivotX, float pivotY)</div><div class="line">*pivotX等于0是左边 Y=0是上边</div><div class="line">*/</div><div class="line">/*</div><div class="line">*构造方法三</div><div class="line">*public RotateAnimation (float fromDegrees, float toDegrees, </div><div class="line">                        int pivotXType, float pivotXValue, </div><div class="line">                        int pivotYType, float pivotYValue)</div><div class="line">*type的值是：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, </div><div class="line">*Animation.RELATIVE_TO_PARENT 之一</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>###动画集合SetAnimation<br>动画集合简单只需要把需要的动画add上就OK了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">AnimationSet as=new AnimationSet(true);</div><div class="line">as.setDuration(1000);</div><div class="line"></div><div class="line">AlphaAnimation alphaAnimation=new AlphaAnimation(1,0);</div><div class="line">alphaAnimation.setDuration(1000);</div><div class="line">as.addAnimation(alphaAnimation);</div><div class="line"></div><div class="line">RotateAnimation rotateAnimation=new RotateAnimation(0,360);</div><div class="line">rotateAnimation.setDuration(1000);</div><div class="line">as.addAnimation(rotateAnimation);</div><div class="line"></div><div class="line">View.startAnimation(as);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/press-again-to-quit/" itemprop="url">
                   Android 中实现“再按一次退出程序”的提醒
                 </a>
@@ -1183,136 +1320,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/vim-notes/" itemprop="url">
-                  解决vim使用过程中与遇到问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-08-14T12:02:47+08:00" content="2015-08-14">
-              2015-08-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/vim-notes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/vim-notes/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2015/08/vim-notes/" class="leancloud_visitors" data-flag-title="解决vim使用过程中与遇到问题">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>##vim中无法输入中文或输入中文乱码</p>
-<p>  打开终端输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vim ～/.vimrc</div><div class="line">##也可以 vim /etc/vim/vimrc</div></pre></td></tr></table></figure></p>
-<p>在其中输入以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">set encoding=UTF-8</div><div class="line">set langmenu=zh_CN.UTF-8</div><div class="line">language message zh_CN.UTF-8</div><div class="line">set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1</div><div class="line">set fileencoding=utf-8</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1358,7 +1365,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">53</span>
+              <span class="site-state-item-count">54</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1375,7 +1382,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
