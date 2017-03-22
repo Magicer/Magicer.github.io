@@ -507,9 +507,9 @@
       <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
     
     
-      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
-    
       <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
+    
+      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
     
   </entry>
   
