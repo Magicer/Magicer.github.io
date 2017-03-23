@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="EventBus问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
-<meta property="og:updated_time" content="2017-03-07T15:45:13.081Z">
+<meta property="og:updated_time" content="2017-03-23T16:03:45.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NoClassDefFoundError: android/os/PersistableBundle">
 <meta name="twitter:description" content="EventBus问题之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报EventBus的一个错误。在这里记录下。">
@@ -444,13 +444,14 @@
       
         <h2 id="EventBus"><a href="#EventBus" class="headerlink" title="EventBus"></a>EventBus</h2><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>之前程序运行的好好的。但是测试拿去了之后就是崩了。查看了下日志。原来是报<code>EventBus</code>的一个错误。在这里记录下。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NoClassDefFoundError: android/os/PersistableBundle</div></pre></td></tr></table></figure></p>
 <p>在网上搜索了下说是我<code>OnCreate</code>写错了。查看了一下。改成了<code>protected</code>的就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    protected void onCreate(@Nullable Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>##报错的OnCreate</p>
-<pre><code>@Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+<pre><code class="java"><span class="meta">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState, PersistableBundle persistentState)</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState, persistentState);
     }
 </code></pre>
+
       
     </div>
 

@@ -2,30 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://m.magicer.xyz/2017/03/okhttp3-basic-2/</loc>
+    <loc>http://m.magicer.xyz/2017/03/okhttp3-basic-1/</loc>
     
-    <lastmod>2017-03-23T14:31:15.485Z</lastmod>
+    <lastmod>2017-03-23T16:08:09.393Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2017/03/okhttp3-basic-1/</loc>
+    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
     
-    <lastmod>2017-03-22T14:34:07.653Z</lastmod>
+    <lastmod>2017-03-23T16:07:26.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/03/Java-Jsoup-jar-1/</loc>
+    
+    <lastmod>2017-03-23T16:07:09.889Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/04/add-sharesdk/</loc>
+    
+    <lastmod>2017-03-23T16:07:02.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
+    
+    <lastmod>2017-03-23T16:06:38.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
+    
+    <lastmod>2017-03-23T16:06:33.057Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2017/03/android-edittext-emoji/</loc>
     
-    <lastmod>2017-03-11T16:52:35.976Z</lastmod>
+    <lastmod>2017-03-23T16:06:27.361Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
+    
+    <lastmod>2017-03-23T16:06:22.217Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2015/10/android-listview-general/</loc>
+    
+    <lastmod>2017-03-23T16:06:12.689Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/01/android-retrofit2-basic/</loc>
+    
+    <lastmod>2017-03-23T16:05:52.029Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2016/03/bubble-selection-insert-sort-1/</loc>
+    
+    <lastmod>2017-03-23T16:03:55.673Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://m.magicer.xyz/2017/03/eventbus-NOClassDefFoundError/</loc>
     
-    <lastmod>2017-03-07T15:45:13.081Z</lastmod>
+    <lastmod>2017-03-23T16:03:45.653Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</loc>
+    
+    <lastmod>2017-03-23T16:03:30.245Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2015/10/the-basic-of-android-animation/</loc>
+    
+    <lastmod>2017-03-23T16:02:35.745Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/02/rxjava-transform-operator/</loc>
+    
+    <lastmod>2017-03-23T16:02:25.649Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://m.magicer.xyz/2017/03/okhttp3-basic-2/</loc>
+    
+    <lastmod>2017-03-23T14:31:15.485Z</lastmod>
     
   </url>
   
@@ -58,13 +142,6 @@
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2017/02/rxjava-fliter-operator/</loc>
-    
-    <lastmod>2017-03-03T15:15:41.655Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://m.magicer.xyz/2017/03/lets-go-env/</loc>
     
     <lastmod>2017-03-03T15:08:17.211Z</lastmod>
@@ -72,58 +149,9 @@
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2017/02/rxjava-transform-operator/</loc>
-    
-    <lastmod>2017-02-28T15:17:50.534Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://m.magicer.xyz/2017/02/rxjava-create-operator/</loc>
     
     <lastmod>2017-02-28T15:17:50.482Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-retrofit2-basic/</loc>
-    
-    <lastmod>2017-01-13T15:37:57.679Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/10/toolbar-basic/</loc>
-    
-    <lastmod>2017-01-12T13:17:26.886Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/12/android-SpannableStringBuilder-textview-rich-text/</loc>
-    
-    <lastmod>2017-01-12T13:16:35.506Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-api-23-permission/</loc>
-    
-    <lastmod>2017-01-12T13:15:48.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2017/01/android-eventbus3-basic/</loc>
-    
-    <lastmod>2017-01-12T13:13:48.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/03/bubble-selection-insert-sort-1/</loc>
-    
-    <lastmod>2016-10-13T13:42:09.231Z</lastmod>
     
   </url>
   
@@ -152,13 +180,6 @@
     <loc>http://m.magicer.xyz/2016/08/text/</loc>
     
     <lastmod>2016-08-14T06:30:56.418Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/04/add-sharesdk/</loc>
-    
-    <lastmod>2016-05-01T01:08:28.453Z</lastmod>
     
   </url>
   
@@ -219,13 +240,6 @@
   </url>
   
   <url>
-    <loc>http://m.magicer.xyz/2015/10/the-basic-of-android-animation/</loc>
-    
-    <lastmod>2016-03-08T12:23:00.859Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://m.magicer.xyz/2015/05/git-tag-branch/</loc>
     
     <lastmod>2016-03-08T11:44:15.609Z</lastmod>
@@ -257,13 +271,6 @@
     <loc>http://m.magicer.xyz/blog-theme-changed.html</loc>
     
     <lastmod>2016-03-08T09:48:46.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2016/03/Java-Jsoup-jar-1/</loc>
-    
-    <lastmod>2016-03-02T13:25:13.312Z</lastmod>
     
   </url>
   
@@ -348,13 +355,6 @@
     <loc>http://m.magicer.xyz/2015/10/android-studio-keymap/</loc>
     
     <lastmod>2016-03-02T07:09:37.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://m.magicer.xyz/2015/10/android-listview-general/</loc>
-    
-    <lastmod>2015-10-27T11:49:53.000Z</lastmod>
     
   </url>
   
