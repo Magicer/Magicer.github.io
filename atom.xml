@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://m.magicer.xyz/"/>
-  <updated>2017-03-23T14:24:20.365Z</updated>
+  <updated>2017-03-23T14:31:15.485Z</updated>
   <id>http://m.magicer.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://m.magicer.xyz/2017/03/okhttp3-basic-2/"/>
     <id>http://m.magicer.xyz/2017/03/okhttp3-basic-2/</id>
     <published>2017-03-23T14:22:45.000Z</published>
-    <updated>2017-03-23T14:24:20.365Z</updated>
+    <updated>2017-03-23T14:31:15.485Z</updated>
     
     <content type="html"><![CDATA[<p>  在<a href="https://segmentfault.com/a/1190000008786828" target="_blank" rel="external">OkHttp3学习(一)：基本使用</a>中记录了怎么使用<code>OkHttp</code>设置一个指定的请求，我们请求的参数有了，之后我们就是发起请求了。那么<code>OkHttp3</code>又是怎么发起的这次请求呢？</p>
 <p>先看下之前的一个<code>GET</code>请求<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line">       Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">               .get()</div><div class="line">               .url(PATH)</div><div class="line">               .build();</div><div class="line">       client.newCall(request).enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">               <span class="keyword">if</span> (response.isSuccessful()) &#123;</div><div class="line">                   String string = response.body().string();</div><div class="line">                   Log.i(TAG, <span class="string">"onResponse: "</span>+string);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure></p>
@@ -47,7 +47,7 @@
       <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
     
     
-      <category term="okhttp3" scheme="http://m.magicer.xyz/tags/okhttp3/"/>
+      <category term="OkHttp3" scheme="http://m.magicer.xyz/tags/OkHttp3/"/>
     
   </entry>
   
@@ -543,9 +543,9 @@
       <category term="Android" scheme="http://m.magicer.xyz/categories/Android/"/>
     
     
-      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
-    
       <category term="textview" scheme="http://m.magicer.xyz/tags/textview/"/>
+    
+      <category term="android" scheme="http://m.magicer.xyz/tags/android/"/>
     
   </entry>
   
