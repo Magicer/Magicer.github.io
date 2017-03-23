@@ -141,32 +141,6 @@
 
 
 
-	<div id="vk_api_transport"></div>
-	<script type="text/javascript">
-		window.vkAsyncInit = function() {
-			VK.init({
-				apiId: 5942655
-			});
-
-			
-				VK.Widgets.Like("vk_like", {type: "mini", height: 20});
-			
-
-			
-				VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
-			
-		};
-		setTimeout(function() {
-			var el = document.createElement("script");
-			el.type = "text/javascript";
-			el.src = "//vk.com/js/api/openapi.js";
-			el.async = true;
-			document.getElementById("vk_api_transport").appendChild(el);
-		}, 0);
-	</script>
-
-
-
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -431,6 +405,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/ubuntu-32bit-lib/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/ubuntu-32bit-lib/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -514,16 +498,6 @@
 
       
         
-          <div class="social-like">
-            
-              <div class="vk_like">
-                <span id="vk_like"></span>
-              </div>
-            
-
-            
-          </div>
-        
       
 
       
@@ -568,7 +542,12 @@
           
   <div class="comments" id="comments">
     
-      <div id="vk_comments"></div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -833,28 +812,41 @@
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'Magicer';
+      var disqus_identifier = '2015/04/ubuntu-32bit-lib/';
+
+      var disqus_title = "ubuntu安装32位库";
 
 
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-	
+      run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
 
-
-
-
+    </script>
   
 
 
 
 
 
-  
 
 
-
-
-
-  
 
 
 
