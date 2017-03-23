@@ -275,6 +275,138 @@
             
               
                 
+                <a class="post-title-link" href="/2017/03/okhttp3-basic-2/" itemprop="url">
+                  OkHttp3学习（二）：发送一个请求
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-23T22:22:45+08:00" content="2017-03-23">
+              2017-03-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/okhttp3-basic-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/okhttp3-basic-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/03/okhttp3-basic-2/" class="leancloud_visitors" data-flag-title="OkHttp3学习（二）：发送一个请求">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>  在<a href="https://segmentfault.com/a/1190000008786828">OkHttp3学习(一)：基本使用</a>中记录了怎么使用<code>OkHttp</code>设置一个指定的请求，我们请求的参数有了，之后我们就是发起请求了。那么<code>OkHttp3</code>又是怎么发起的这次请求呢？</p>
+<p>先看下之前的一个<code>GET</code>请求<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</div><div class="line">       Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">               .get()</div><div class="line">               .url(PATH)</div><div class="line">               .build();</div><div class="line">       client.newCall(request).enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">               <span class="keyword">if</span> (response.isSuccessful()) &#123;</div><div class="line">                   String string = response.body().string();</div><div class="line">                   Log.i(TAG, <span class="string">"onResponse: "</span>+string);</div><div class="line">               &#125;</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure></p>
+<p>在这次请求中我们设置好<code>Request</code>请求的相关参数之后，我们就调用了。<code>client.newCall(request)</code>。从字面意思猜测这个<code>newCall</code>就是在创建一次新的请求。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/03/okhttp3-basic-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/okhttp3-basic-1/" itemprop="url">
                   OkHttp3学习(一)：基本使用
                 </a>
@@ -1163,142 +1295,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/rxjava-transform-operator/" itemprop="url">
-                  RxJava 变换操作符
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-27T22:37:29+08:00" content="2017-02-27">
-              2017-02-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/rxjava-transform-operator/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/rxjava-transform-operator/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/02/rxjava-transform-operator/" class="leancloud_visitors" data-flag-title="RxJava 变换操作符">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>##变换操作</p>
-<p>摘抄自<a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Transforming-Observables.html">Reactive X文档中文翻译</a></p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Map.html">map</a> 对序列的每一项都应用一个函数来变换Observable发射的数据序列</p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/FlatMap.html">flatmap</a> 将Observable发射的数据集合变换为Observables集合，然后将这些Observable发射的数据平坦化的放进一个单独的Observable</p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Scan.html">scan</a> 对Observable发射的每一项数据应用一个函数，然后按顺序依次发射每一个值   </p>
-<p><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/GroupBy.html">groupBy</a> 将Observable分拆为Observable集合，将原始Observable发射的数据按Key分组，每一个Observable发射一组不同的数据</p>
-<p>[buffer][5 ?<br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/operators/Window.html">window</a> 定期将来自Observable的数据分拆成一些Observable窗口，然后发射这些窗口，而不是每次发射一项<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/rxjava-transform-operator/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1344,7 +1340,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">55</span>
+              <span class="site-state-item-count">56</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1361,7 +1357,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
