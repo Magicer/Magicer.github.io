@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android,android studio," />
+  <meta name="keywords" content="greenDAO," />
 
 
 
@@ -89,19 +89,19 @@
 
 
 
-<meta name="description" content="Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。
-##添加主题 as上的配色方案真的是不忍直视，在这里导入第三方的配色方案； 第三方主题:ht">
+<meta name="description" content="greenDao官方文档中介绍，其效率要优于其他几个ORM框架，也有小伙伴验证过，其效率确实挺不错。所以greenDao还是有必要学一学的。毕竟只是用Android的SQLiteOpenHelper效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。
+集成 在一开始学习的使用，查看官方文档。没有找到greenDao的完成配置方式。可能是我不够细心。下面是完全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Studio使用中的问题">
-<meta property="og:url" content="http://m.magicer.xyz/2015/10/android-studio-basic/index.html">
+<meta property="og:title" content="greenDao基础使用">
+<meta property="og:url" content="http://m.magicer.xyz/2017/05/greendao3-basic/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。
-##添加主题 as上的配色方案真的是不忍直视，在这里导入第三方的配色方案； 第三方主题:ht">
-<meta property="og:updated_time" content="2016-03-08T11:42:48.000Z">
+<meta property="og:description" content="greenDao官方文档中介绍，其效率要优于其他几个ORM框架，也有小伙伴验证过，其效率确实挺不错。所以greenDao还是有必要学一学的。毕竟只是用Android的SQLiteOpenHelper效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。
+集成 在一开始学习的使用，查看官方文档。没有找到greenDao的完成配置方式。可能是我不够细心。下面是完全">
+<meta property="og:updated_time" content="2017-05-06T13:59:27.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Studio使用中的问题">
-<meta name="twitter:description" content="Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。
-##添加主题 as上的配色方案真的是不忍直视，在这里导入第三方的配色方案； 第三方主题:ht">
+<meta name="twitter:title" content="greenDao基础使用">
+<meta name="twitter:description" content="greenDao官方文档中介绍，其效率要优于其他几个ORM框架，也有小伙伴验证过，其效率确实挺不错。所以greenDao还是有必要学一学的。毕竟只是用Android的SQLiteOpenHelper效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。
+集成 在一开始学习的使用，查看官方文档。没有找到greenDao的完成配置方式。可能是我不够细心。下面是完全">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://m.magicer.xyz/2015/10/android-studio-basic/"/>
+  <link rel="canonical" href="http://m.magicer.xyz/2017/05/greendao3-basic/"/>
 
 
 
 
 
-  <title> Android Studio使用中的问题 | Magicer </title>
+  <title> greenDao基础使用 | Magicer </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -336,7 +336,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2015/10/android-studio-basic/">
+    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2017/05/greendao3-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Magicer">
@@ -357,7 +357,7 @@
             
             
               
-                Android Studio使用中的问题
+                greenDao基础使用
               
             
           </h2>
@@ -372,8 +372,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-15T18:37:15+08:00">
-                2015-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-06T21:57:57+08:00">
+                2017-05-06
               </time>
             
 
@@ -395,8 +395,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Software/" itemprop="url" rel="index">
-                    <span itemprop="name">Software</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -413,8 +413,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/10/android-studio-basic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/android-studio-basic/" itemprop="commentCount"></span>
+                <a href="/2017/05/greendao3-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/greendao3-basic/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -445,9 +445,19 @@
       
 
       
-        <p>Android Studio 是Google官方的安卓开发IDE，基于Gradle构建app。为了用上as，博主专门加了块内存条（4G）,<br>话说4G的内存真的不够用，开ide在加上虚拟器就够呛了，不过加了内存条后Win有时候会进不去，可能是不兼容吧，嫌麻烦就没在换，反正ubuntu上可以用，这都是题外话了。</p>
-<p>##添加主题<br> as上的配色方案真的是不忍直视，在这里导入第三方的配色方案；<br> 第三方主题:<a href="http://www.ideacolorthemes.org/home/" target="_blank" rel="external">http://www.ideacolorthemes.org/home/</a></p>
-<p>下载后：File-&gt;import seetting-&gt;下载主题的路径；</p>
+        <p>  <code>greenDao</code>官方文档中介绍，其效率要优于其他几个<code>ORM</code>框架，也有小伙伴验证过，其效率确实挺不错。所以<code>greenDao</code>还是有必要学一学的。毕竟只是用<code>Android</code>的<code>SQLiteOpenHelper</code>效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。</p>
+<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><p> 在一开始学习的使用，查看官方文档。没有找到<code>greenDao</code>的完成配置方式。可能是我不够细心。下面是完全的greedDao的配置。想要查看配置的<a href="http://greenrobot.org/greendao/documentation/modelling-entities/#Schema" target="_blank" rel="external">请点这里</a><br>在<code>build.gradle</code>文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">apply plugin: &apos;org.greenrobot.greendao&apos;</div><div class="line"></div><div class="line"> greendao &#123;</div><div class="line">        schemaVersion 1</div><div class="line">        daoPackage &apos;xyz.magicer.greendaodemo.dao&apos;  //包名</div><div class="line">        targetGenDir &apos;src/main/java&apos;  //生成目录</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"> compile &apos;org.greenrobot:greendao:3.2.0&apos;</div><div class="line"> compile &apos;org.greenrobot:greendao-generator:3.2.0&apos;</div></pre></td></tr></table></figure></p>
+<p>在项目中的<code>build.gradle</code>中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">        mavenCentral()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath &apos;com.android.tools.build:gradle:2.2.2&apos;</div><div class="line"></div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // in the individual module build.gradle files</div><div class="line">        classpath &apos;org.greenrobot:greendao-gradle-plugin:3.2.1&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>官方文档中关于部分注解的说明：点这里</p>
+<p> 创建entity文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译一下工程之后就会生成<code>DaoMaster</code>、<code>DaoSession</code>、<code>UserDao</code>三个文件。</p>
+<h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><p>一个简单的使用实例如下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DaoMaster.DevOpenHelper openHelper = <span class="keyword">new</span> DaoMaster.DevOpenHelper(<span class="keyword">this</span>, <span class="string">"user.db"</span>, <span class="keyword">null</span>);</div><div class="line">DaoMaster daoMaster = <span class="keyword">new</span> DaoMaster(openHelper.getWritableDatabase());</div><div class="line">DaoSession daoSession = daoMaster.newSession();</div><div class="line">UserDao userDao = daoSession.getUserDao();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="number">0</span>, <span class="string">"zhang3"</span>, <span class="number">19</span>);</div><div class="line">userDao.insert(user);</div><div class="line"></div><div class="line">List&lt;User&gt; magicer= userDao.queryBuilder().where(UserDao.Properties.Name.eq(<span class="string">"magicer"</span>))</div><div class="line">        .orderDesc()</div><div class="line">        .build()</div><div class="line">        .list();</div></pre></td></tr></table></figure></p>
+<p>##ClassCastException<br><a href="https://github.com/greenrobot/greenDAO/blob/master/DaoGenerator/src/org/greenrobot/greendao/generator/Schema.java" target="_blank" rel="external">Schema.java</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.Long</div></pre></td></tr></table></figure></p>
+<p>##参考</p>
+<ul>
+<li><a href="http://greenrobot.org/greendao/documentation/" target="_blank" rel="external">官方文档</a></li>
+<li><a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="external">官方源码 GIT</a></li>
+</ul>
 
       
     </div>
@@ -476,7 +486,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://m.magicer.xyz/2015/10/android-studio-basic/" title="Android Studio使用中的问题">http://m.magicer.xyz/2015/10/android-studio-basic/</a>
+      <a href="http://m.magicer.xyz/2017/05/greendao3-basic/" title="greenDao基础使用">http://m.magicer.xyz/2017/05/greendao3-basic/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -492,9 +502,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/android/" rel="tag"># android</a>
-          
-            <a href="/tags/android-studio/" rel="tag"># android studio</a>
+            <a href="/tags/greenDAO/" rel="tag"># greenDAO</a>
           
         </div>
       
@@ -507,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/hexo-custom-style/" rel="next" title="Hexo博客主题NexT使用自定义的CSS样式">
-                <i class="fa fa-chevron-left"></i> Hexo博客主题NexT使用自定义的CSS样式
+              <a href="/2017/05/okhttp-execute-intercptor/" rel="next" title="OkHttp3学习（三）：execute和Interceptor">
+                <i class="fa fa-chevron-left"></i> OkHttp3学习（三）：execute和Interceptor
               </a>
             
           </div>
@@ -516,10 +524,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/10/android-studio-keymap/" rel="prev" title="Android Studio 快捷键的使用">
-                Android Studio 快捷键的使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -573,8 +577,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -672,6 +685,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成"><span class="nav-number">1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-1"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -817,9 +846,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'Magicer';
-      var disqus_identifier = '2015/10/android-studio-basic/';
+      var disqus_identifier = '2017/05/greendao3-basic/';
 
-      var disqus_title = "Android Studio使用中的问题";
+      var disqus_title = "greenDao基础使用";
 
 
       function run_disqus_script(disqus_script) {
