@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2017/03/golang-struct-basic/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="Golang中的struct有点跟Java中的类相似.">
-<meta property="og:updated_time" content="2017-03-04T16:21:38.258Z">
+<meta property="og:updated_time" content="2017-06-03T05:41:08.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个Android程序猿的Golang学习之路: 结构体和方法">
 <meta name="twitter:description" content="Golang中的struct有点跟Java中的类相似.">
@@ -443,11 +443,11 @@
 
       
         <p><code>Golang</code>中的<code>struct</code>有点跟<code>Java</code>中的类相似.<a id="more"></a></p>
-<p>##struct<br>管他什么特性不特性的,先来段代码.看看跟学过的其他语言有啥区别.</p>
+<h2 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h2><p>管他什么特性不特性的,先来段代码.看看跟学过的其他语言有啥区别.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line"></div><div class="line">import (</div><div class="line">    &quot;fmt&quot;</div><div class="line">)</div><div class="line"></div><div class="line">type Person struct &#123;</div><div class="line">    name string</div><div class="line">    age  int</div><div class="line">&#125;</div><div class="line">type Student struct &#123;</div><div class="line">    grade  string</div><div class="line">    Person //匿名字段</div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">    stu := new(Student)</div><div class="line">    var stu2 Student = Student&#123;&quot;一年级&quot;, Person&#123;&quot;Arya Stark&quot;, 15&#125;&#125;</div><div class="line">    stu3 := Student&#123;grade: &quot;二年级&quot;, Person: Person&#123;&quot;Magicer&quot;, 32&#125;&#125;</div><div class="line">    stu.grade = &quot;三年级&quot;</div><div class="line">    stu.Person = Person&#123;&quot;Jon Snow&quot;, 33&#125;</div><div class="line">    fmt.Println(stu) //输出  &amp;&#123;三年级 &#123;Jon Snow 33&#125;&#125;</div><div class="line">    //在这里可以直接stu.name获得匿名字段的值,也可以stu.Person.name</div><div class="line">    fmt.Println(stu.name, stu.age, stu.grade, stu.Person) //输出Jon Snow 33 三年级 &#123;Jon Snow 33&#125;</div><div class="line">    fmt.Println(stu2)                                     //输出   &#123;一年级 &#123;Arya Stark 15&#125;&#125;</div><div class="line">    fmt.Println(stu3)                                     //输出   &#123;二年级 &#123;Magicer 32&#125;&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><code>Golang</code>中没有继承,但是我们可以使用组合的方式来实现和继承类似的效果.比如上面的代码.我们不能通过显示的让<code>Student</code>继承自<code>Person</code>但是我们可以通过组合的方式来得到这种效果.</p>
-<p>##type<br>我们可以通过type关键字来定义一个类型.比如这里的<code>Person</code>类型和<code>Student</code>类型.我们还可以通过<code>type</code>关键字来为<code>int</code>等来设置别名 如<code>type grade int</code>.通过type关键字来定义的</p>
-<p>##方法<br>先来段跟方法有关的代码,看下<code>Golang</code>中的方法是个什么鬼.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line"></div><div class="line">import (</div><div class="line">    &quot;fmt&quot;</div><div class="line">)</div><div class="line"></div><div class="line">type Student struct &#123;</div><div class="line">    name string</div><div class="line">    age  int</div><div class="line">&#125;</div><div class="line"></div><div class="line">//值方法</div><div class="line">//当我们不需要在方法中使用这个结构的值的时候, 可以使用_</div><div class="line">func (_ Student) lean() &#123;</div><div class="line">    fmt.Println(&quot;Student lean&quot;)</div><div class="line">&#125; //指针方法</div><div class="line">//这里的(stu *Student)用来表示这个方法是属于谁的.可以位于不同的文件中,只要是在同一个包中就可以</div><div class="line">//在这里我们的stu是Student的指针,只有这时候我们才可以修改p的值,</div><div class="line">// 当使用(stu Student)时,我们使用的是一份copy.</div><div class="line">func (stu *Student) eat(food string) &#123;</div><div class="line">    fmt.Println(stu.name, &quot; eat &quot;, food, &quot;\t &quot;, stu)</div><div class="line">&#125;</div><div class="line">func main() &#123;</div><div class="line">    stu := new(Student)</div><div class="line">    stu.eat(&quot;Apple&quot;) //student eat  Apple     &amp;&#123; 0&#125;</div><div class="line">    stu.lean()       // Student lean</div><div class="line"></div><div class="line">    var stu2 Student = Student&#123;&quot;Jason&quot;, 22&#125;</div><div class="line">    fmt.Println(stu2) //&#123;Jason 22&#125;</div><div class="line">    stu2.eat(&quot;Apple&quot;) //Jason  eat  Apple     &amp;&#123;Jason 22&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="type"><a href="#type" class="headerlink" title="type"></a>type</h2><p>我们可以通过type关键字来定义一个类型.比如这里的<code>Person</code>类型和<code>Student</code>类型.我们还可以通过<code>type</code>关键字来为<code>int</code>等来设置别名 如<code>type grade int</code>.通过type关键字来定义的</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>先来段跟方法有关的代码,看下<code>Golang</code>中的方法是个什么鬼.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line"></div><div class="line">import (</div><div class="line">    &quot;fmt&quot;</div><div class="line">)</div><div class="line"></div><div class="line">type Student struct &#123;</div><div class="line">    name string</div><div class="line">    age  int</div><div class="line">&#125;</div><div class="line"></div><div class="line">//值方法</div><div class="line">//当我们不需要在方法中使用这个结构的值的时候, 可以使用_</div><div class="line">func (_ Student) lean() &#123;</div><div class="line">    fmt.Println(&quot;Student lean&quot;)</div><div class="line">&#125; //指针方法</div><div class="line">//这里的(stu *Student)用来表示这个方法是属于谁的.可以位于不同的文件中,只要是在同一个包中就可以</div><div class="line">//在这里我们的stu是Student的指针,只有这时候我们才可以修改p的值,</div><div class="line">// 当使用(stu Student)时,我们使用的是一份copy.</div><div class="line">func (stu *Student) eat(food string) &#123;</div><div class="line">    fmt.Println(stu.name, &quot; eat &quot;, food, &quot;\t &quot;, stu)</div><div class="line">&#125;</div><div class="line">func main() &#123;</div><div class="line">    stu := new(Student)</div><div class="line">    stu.eat(&quot;Apple&quot;) //student eat  Apple     &amp;&#123; 0&#125;</div><div class="line">    stu.lean()       // Student lean</div><div class="line"></div><div class="line">    var stu2 Student = Student&#123;&quot;Jason&quot;, 22&#125;</div><div class="line">    fmt.Println(stu2) //&#123;Jason 22&#125;</div><div class="line">    stu2.eat(&quot;Apple&quot;) //Jason  eat  Apple     &amp;&#123;Jason 22&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>我们看到上面<code>Student</code>中的<code>name</code>和<code>age</code>字段都是非导出字段.那么如果我们要在不同的包中对其的值进行修改怎么办呢?<br>这个时候我们就可以写上跟<code>Java</code>中<code>setter</code>和<code>getter</code>方法.如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">func (stu *Student) setName(name string) &#123;</div><div class="line">    stu.name = name</div><div class="line">&#125;</div><div class="line">func (stu *Student) getName() string &#123;</div><div class="line">    return stu.name</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>一个<code>Golang</code>初学者,记录的东西难免有错误,还望多多指出啊.谢谢.</p>
 
@@ -573,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -589,7 +598,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -611,7 +620,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -672,6 +681,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#struct"><span class="nav-number">1.</span> <span class="nav-text">struct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type"><span class="nav-number">2.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">3.</span> <span class="nav-text">方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

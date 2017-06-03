@@ -1,0 +1,1070 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bitmap," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Magicer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在Android开发中我们会在很多时候用到图片，这个时候我们就需要用到Bitmap了，在Android开发中我们使用的图都要转换成位图。但是我们并不能通过Bitmap的构造方法来实例化一个Bitmap，官方提供了BitmapFactory来的静态方法来实例化Bitmap。当我们使用Bitmap的时候很容易的就会导致应用程序的内存被消耗完，所以使用Bitmap的时候一定要做好优化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android小白研究下Bitmap">
+<meta property="og:url" content="http://m.magicer.xyz/2017/06/android-bitmap/index.html">
+<meta property="og:site_name" content="Magicer">
+<meta property="og:description" content="在Android开发中我们会在很多时候用到图片，这个时候我们就需要用到Bitmap了，在Android开发中我们使用的图都要转换成位图。但是我们并不能通过Bitmap的构造方法来实例化一个Bitmap，官方提供了BitmapFactory来的静态方法来实例化Bitmap。当我们使用Bitmap的时候很容易的就会导致应用程序的内存被消耗完，所以使用Bitmap的时候一定要做好优化。">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/bitmap.png">
+<meta property="og:updated_time" content="2017-06-03T05:57:33.984Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android小白研究下Bitmap">
+<meta name="twitter:description" content="在Android开发中我们会在很多时候用到图片，这个时候我们就需要用到Bitmap了，在Android开发中我们使用的图都要转换成位图。但是我们并不能通过Bitmap的构造方法来实例化一个Bitmap，官方提供了BitmapFactory来的静态方法来实例化Bitmap。当我们使用Bitmap的时候很容易的就会导致应用程序的内存被消耗完，所以使用Bitmap的时候一定要做好优化。">
+<meta name="twitter:image" content="http://m.magicer.xyz/image/Android/bitmap.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10239987',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://m.magicer.xyz/2017/06/android-bitmap/"/>
+
+
+
+
+
+  <title> Android小白研究下Bitmap | Magicer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '62087510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55690660";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260303104&web_id=1260303104" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Magicer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Magicer</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2017/06/android-bitmap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magicer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Magicer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android小白研究下Bitmap
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T13:53:33+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/android-bitmap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/android-bitmap/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在Android开发中我们会在很多时候用到图片，这个时候我们就需要用到<code>Bitmap</code>了，在Android开发中我们使用的图都要转换成位图。但是我们并不能通过<code>Bitmap</code>的构造方法来实例化一个<code>Bitmap</code>，官方提供了<code>BitmapFactory</code>来的静态方法来实例化<code>Bitmap</code>。<br>当我们使用<code>Bitmap</code>的时候很容易的就会导致应用程序的内存被消耗完，所以使用<code>Bitmap</code>的时候一定要做好优化。<br><a id="more"></a></p>
+<h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><p>在Bitmap类的内部有个<code>Config</code>枚举：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Config &#123;</div><div class="line">      <span class="comment">/**</span></div><div class="line">      *每一个像素存一个alpha通道的值，不存储颜色信息，适合做遮罩层。每个像素占1byte。</div><div class="line">      */</div><div class="line">        ALPHA_8     (<span class="number">1</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line">        *每个像素占2byte，只有RBG通道色值，Red占5bit，Green占6bit，Blue占5bit。</div><div class="line">        */</div><div class="line">        RGB_565     (<span class="number">3</span>),</div><div class="line">        <span class="comment">/**</span></div><div class="line">        *因为质量太低，推荐使用ARGB_8888代替</div><div class="line">        */</div><div class="line">        <span class="meta">@Deprecated</span></div><div class="line">        ARGB_4444   (<span class="number">4</span>),</div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line">        * 官方推荐使用</div><div class="line">        *每一个像素占4byte，每一个通道（ARGB）占8bit（256个值）.</div><div class="line">        *灵活切画面质量好</div><div class="line">        */</div><div class="line">        ARGB_8888   (<span class="number">5</span>);</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>他的主要作用就是让我们来设置画面的质量的，</p>
+<h2 id="创建一个Bitmap"><a href="#创建一个Bitmap" class="headerlink" title="创建一个Bitmap"></a>创建一个Bitmap</h2><p>查看bitmap的源码我们会看到一些<code>createBitmap()</code>方法，但是我们创建<code>Bitmap</code>使用的最多的是<code>BitmapFactory</code>类的方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bitmap bitmap = Bitmap.createBitmap(mWidth,mHeight, Bitmap.Config.ARGB_8888);</div></pre></td></tr></table></figure></p>
+<p>通过上面的方法可以创建一个空白的Bitmap。</p>
+<h3 id="BitmapFactory"><a href="#BitmapFactory" class="headerlink" title="BitmapFactory"></a>BitmapFactory</h3><h4 id="Options类"><a href="#Options类" class="headerlink" title="Options类"></a>Options类</h4><p><code>Options</code>类用来设置解码的参数。其中主要有：</p>
+<ul>
+<li><p>public Bitmap inBitmap;</p>
+</li>
+<li><p><strong>public boolean inJustDecodeBounds;</strong> 如果设置为true，解析器将返回null，但是<code>out...</code>字段会设置上值。</p>
+</li>
+<li><strong>public int inSampleSize;</strong> 如果设置的值<code>&gt;1</code>那么解析器将会对原始图片进行抽取，返回一个更小的图片。解析器会使用2的次方，其他的值会向下转为最近的2的幂。</li>
+<li>public boolean inDither;</li>
+<li>public int inDensity; bitmpa使用的像素密度。</li>
+<li>public int inTargetDensity;</li>
+<li>public int inScreenDensity;</li>
+<li>public boolean inScaled; </li>
+<li>public int outWidth; 图片的宽度</li>
+<li>public int outHeight;  图片的高度</li>
+<li>public String outMimeType; 如果知道图片的MIME类型就设置上，如果不知道就设置为null</li>
+</ul>
+<p>当我们想对图片进行压缩的时候，我们就要使用到<code>Options</code>。先看下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">    BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</div><div class="line">    <span class="comment">//设置为true，先让解析器解析出图片的大小信息。</span></div><div class="line">    options.inJustDecodeBounds = <span class="keyword">true</span>;</div><div class="line">    BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher,options);</div><div class="line">    <span class="comment">//之后他们通过这个得到了图片大小信息的options来计算压缩的比例。</span></div><div class="line">    options.inSampleSize = calculateInSampleSize(options,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">    options.inJustDecodeBounds = <span class="keyword">false</span>; <span class="comment">//之后设置为false，为了获取到bitmap。</span></div><div class="line">    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher, options);<span class="comment">//之后就可以通过这个options来获取自己期望的bitmap了。</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateInSampleSize</span><span class="params">(</span></span></div><div class="line">        BitmapFactory.Options options, <span class="keyword">int</span> reqWidth, <span class="keyword">int</span> reqHeight) &#123;</div><div class="line">    <span class="comment">// Raw height and width of image</span></div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> height = options.outHeight;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> width = options.outWidth;</div><div class="line">    <span class="keyword">int</span> inSampleSize = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (height &gt; reqHeight || width &gt; reqWidth) &#123;</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> halfHeight = height / <span class="number">2</span>;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> halfWidth = width / <span class="number">2</span>;</div><div class="line"></div><div class="line">        <span class="comment">// Calculate the largest inSampleSize value that is a power of 2 and keeps both</span></div><div class="line">        <span class="comment">// height and width larger than the requested height and width.</span></div><div class="line">        <span class="keyword">while</span> ((halfHeight / inSampleSize) &gt;= reqHeight</div><div class="line">                &amp;&amp; (halfWidth / inSampleSize) &gt;= reqWidth) &#123;</div><div class="line">            inSampleSize *= <span class="number">2</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> inSampleSize;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里的<code>calculateInSampleSize</code>方法是官方文档中提供的用来计算<code>InSampleSize</code>值的方法。</p>
+<h4 id="decode方法"><a href="#decode方法" class="headerlink" title="decode方法"></a>decode方法</h4><p>使用decode系列方法来得到bitmap对象<br><img src="/image/Android/bitmap.png" alt="图片描述"></p>
+<h2 id="Recycle"><a href="#Recycle" class="headerlink" title="Recycle"></a>Recycle</h2><p> 当<code>Bitmap</code>不再使用的时候记得将其回收，以免内存泄漏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!bitmap.isRecycled()) &#123;</div><div class="line">        bitmap.recycle();</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="复制Bitmap"><a href="#复制Bitmap" class="headerlink" title="复制Bitmap"></a>复制Bitmap</h2><p><code>Bitmap</code>有一个<code>coty()</code>方法用来复制一个Bitmap.源码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">    * Tries to make a new bitmap based on the dimensions of this bitmap,</div><div class="line">    * setting the new bitmap's config to the one specified, and then copying</div><div class="line">    * this bitmap's pixels into the new bitmap. If the conversion is not</div><div class="line">    * supported, or the allocator fails, then this returns NULL.  The returned</div><div class="line">    * bitmap initially has the same density as the original.</div><div class="line">    *</div><div class="line">    * <span class="doctag">@param</span> config    The desired config for the resulting bitmap</div><div class="line">    * <span class="doctag">@param</span> isMutable True if the resulting bitmap should be mutable (i.e.</div><div class="line">    *                  its pixels can be modified)</div><div class="line">    * <span class="doctag">@return</span> the new bitmap, or null if the copy could not be made.</div><div class="line">    */</div><div class="line">   <span class="function"><span class="keyword">public</span> Bitmap <span class="title">copy</span><span class="params">(Config config, <span class="keyword">boolean</span> isMutable)</span> </span>&#123;</div><div class="line">       checkRecycled(<span class="string">"Can't copy a recycled bitmap"</span>);</div><div class="line">       Bitmap b = nativeCopy(mNativePtr, config.nativeInt, isMutable);</div><div class="line">       <span class="keyword">if</span> (b != <span class="keyword">null</span>) &#123;</div><div class="line">           b.setPremultiplied(mRequestPremultiplied);</div><div class="line">           b.mDensity = mDensity;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">return</span> b;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>有时我们创建的<code>Bitmap</code>是无法更改的。但是有时候我们可能需要对<code>Bitmap</code>进行更改，这个时候我们就可以使用<code>copy（Config,true）</code></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Magicer
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://m.magicer.xyz/2017/06/android-bitmap/" title="Android小白研究下Bitmap">http://m.magicer.xyz/2017/06/android-bitmap/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bitmap/" rel="tag"># Bitmap</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/greendao3-relations/" rel="next" title="greenDao多表关联">
+                <i class="fa fa-chevron-left"></i> greenDao多表关联
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Magicer" />
+          <p class="site-author-name" itemprop="name">Magicer</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Magicer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Captain_Magicer" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3681817060" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Config"><span class="nav-number">1.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个Bitmap"><span class="nav-number">2.</span> <span class="nav-text">创建一个Bitmap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BitmapFactory"><span class="nav-number">2.1.</span> <span class="nav-text">BitmapFactory</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Options类"><span class="nav-number">2.1.1.</span> <span class="nav-text">Options类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#decode方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">decode方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recycle"><span class="nav-number">3.</span> <span class="nav-text">Recycle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制Bitmap"><span class="nav-number">4.</span> <span class="nav-text">复制Bitmap</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magicer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'Magicer';
+      var disqus_identifier = '2017/06/android-bitmap/';
+
+      var disqus_title = "Android小白研究下Bitmap";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

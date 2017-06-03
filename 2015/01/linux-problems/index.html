@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="使用ubuntu linux 遇到的一些问题及解决方法。">
 <meta property="og:image" content="http://m.magicer.xyz/image_code/01.png">
-<meta property="og:updated_time" content="2016-03-02T07:13:07.781Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:24.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用linux遇到的一些问题">
 <meta name="twitter:description" content="使用ubuntu linux 遇到的一些问题及解决方法。">
@@ -423,7 +423,7 @@
 
       
         <p>使用ubuntu linux 遇到的一些问题及解决方法。<a id="more"></a></p>
-<p>##ubuntu的使用<br>1.安装完ubuntu之后，windows分区无法挂载，出现如下图所示提示：<br><img src="/image_code/01.png" alt="ubuntu挂载"><br>解决方法：打开终端（快捷键ctrl+alt+t）输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ntfsfix /dev/sda6</div></pre></td></tr></table></figure></p>
+<h2 id="ubuntu的使用"><a href="#ubuntu的使用" class="headerlink" title="ubuntu的使用"></a>ubuntu的使用</h2><p>1.安装完ubuntu之后，windows分区无法挂载，出现如下图所示提示：<br><img src="/image_code/01.png" alt="ubuntu挂载"><br>解决方法：打开终端（快捷键ctrl+alt+t）输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ntfsfix /dev/sda6</div></pre></td></tr></table></figure></p>
 <p>挂载系统盘时显示：</p>
 <blockquote>
 <p>Mounting volume… Windows is hibernated, refused to mount.<br>FAILED<br>Attempting to correct errors…<br>Processing $MFT and $MFTMirr…<br>Reading $MFT… OK<br>Reading $MFTMirr… OK<br>Comparing $MFTMirr to $MFT… OK<br>Processing of $MFT and $MFTMirr completed successfully.<br>Setting required flags on partition… OK<br>Going to empty the journal ($LogFile)… OK<br>Windows is hibernated, refused to mount.<br>Remount failed: Operation not permitted</p>
@@ -552,8 +552,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -568,7 +577,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -590,7 +599,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -651,6 +660,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu的使用"><span class="nav-number">1.</span> <span class="nav-text">ubuntu的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

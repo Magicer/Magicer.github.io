@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="##0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public C">
+<meta name="description" content="0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public Cha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android EditText禁止输入Emoji后设置android:maxLength失效的问题">
 <meta property="og:url" content="http://m.magicer.xyz/2017/03/android-edittext-emoji/index.html">
 <meta property="og:site_name" content="Magicer">
-<meta property="og:description" content="##0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public C">
-<meta property="og:updated_time" content="2017-03-23T16:06:27.361Z">
+<meta property="og:description" content="0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public Cha">
+<meta property="og:updated_time" content="2017-06-03T05:28:35.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android EditText禁止输入Emoji后设置android:maxLength失效的问题">
-<meta name="twitter:description" content="##0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public C">
+<meta name="twitter:description" content="0X00 禁用emoji有时候我们不想在EditText中输入Emoji表情，怎么处理呢？我们可以通过设置InputFilter的方式来达到这个目的。怎么实现呢？直接上代码。123456789101112131415public InputFilter emojiFilter = new InputFilter() &amp;#123;        @Override        public Cha">
 
 
 
@@ -442,8 +442,8 @@
       
 
       
-        <p>##0X00 禁用emoji<br>有时候我们不想在<code>EditText</code>中输入Emoji表情，怎么处理呢？<br>我们可以通过设置<code>InputFilter</code>的方式来达到这个目的。怎么实现呢？直接上代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> InputFilter emojiFilter = <span class="keyword">new</span> InputFilter() &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> CharSequence <span class="title">filter</span><span class="params">(CharSequence source, <span class="keyword">int</span> start, <span class="keyword">int</span> end, Spanned dest, <span class="keyword">int</span> dstart, <span class="keyword">int</span> dend)</span> </span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> index = start; index &lt; end; index++) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">int</span> type = Character.getType(source.charAt(index));</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (type == Character.SURROGATE) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
-<p>##0X01 问题<br>但是当我们设置了<code>InputFilter</code>之后可能会出现一个问题，就是当我们在代码中设置<code>android:maxLength=&quot;8&quot;</code>的时候，会发现不起作用了。我们点进去<code>InputFilter</code>，查看其源码我们就会发现，里面还有个自带的<code>LengthFilter</code>。我们就可以通过再添加一个<code>LengthFileter</code>就可以了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">editText.setFilters(<span class="keyword">new</span> InputFilter[]&#123;<span class="keyword">new</span> InputFilter.LengthFilter(<span class="number">8</span>), emojiFilter&#125;)</div></pre></td></tr></table></figure></p>
+        <h2 id="0X00-禁用emoji"><a href="#0X00-禁用emoji" class="headerlink" title="0X00 禁用emoji"></a>0X00 禁用emoji</h2><p>有时候我们不想在<code>EditText</code>中输入Emoji表情，怎么处理呢？<br>我们可以通过设置<code>InputFilter</code>的方式来达到这个目的。怎么实现呢？直接上代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> InputFilter emojiFilter = <span class="keyword">new</span> InputFilter() &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> CharSequence <span class="title">filter</span><span class="params">(CharSequence source, <span class="keyword">int</span> start, <span class="keyword">int</span> end, Spanned dest, <span class="keyword">int</span> dstart, <span class="keyword">int</span> dend)</span> </span>&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> index = start; index &lt; end; index++) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">int</span> type = Character.getType(source.charAt(index));</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (type == Character.SURROGATE) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="0X01-问题"><a href="#0X01-问题" class="headerlink" title="0X01 问题"></a>0X01 问题</h2><p>但是当我们设置了<code>InputFilter</code>之后可能会出现一个问题，就是当我们在代码中设置<code>android:maxLength=&quot;8&quot;</code>的时候，会发现不起作用了。我们点进去<code>InputFilter</code>，查看其源码我们就会发现，里面还有个自带的<code>LengthFilter</code>。我们就可以通过再添加一个<code>LengthFileter</code>就可以了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">editText.setFilters(<span class="keyword">new</span> InputFilter[]&#123;<span class="keyword">new</span> InputFilter.LengthFilter(<span class="number">8</span>), emojiFilter&#125;)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -569,8 +569,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -585,7 +594,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +616,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -668,6 +677,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0X00-禁用emoji"><span class="nav-number">1.</span> <span class="nav-text">0X00 禁用emoji</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0X01-问题"><span class="nav-number">2.</span> <span class="nav-text">0X01 问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

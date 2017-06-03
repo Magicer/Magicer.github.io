@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2015/01/linux-basic/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="Linux解压命令的基本适用。zip，tar，gzip等的命令。">
-<meta property="og:updated_time" content="2016-03-08T11:43:35.234Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:26.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux基本操作之压缩与解压命令">
 <meta name="twitter:description" content="Linux解压命令的基本适用。zip，tar，gzip等的命令。">
@@ -421,7 +421,7 @@
 
       
         <p>Linux解压命令的基本适用。zip，tar，gzip等的命令。<a id="more"></a></p>
-<p> ##（一）zip、unzip命令</p>
+<p>##（一）zip、unzip命令</p>
 <blockquote>
 <p>压缩文件命令zip<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">zip   压缩文件名   源文件</div><div class="line"></div><div class="line">zip  -r  压缩文件名  源目录</div><div class="line"></div><div class="line"><span class="comment">#解压缩命令unzip</span></div><div class="line"></div><div class="line">unzip  压缩文件</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -429,8 +429,9 @@
 <blockquote>
 <p>解决方法（重定向）<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gzip   -c   源文件  &gt;  压缩文件</div><div class="line">gzip  -r 目录</div><div class="line">#压缩目录下所有的之文件，但是不能压缩目录。</div><div class="line">#解压缩：</div><div class="line">gzip  -d 压缩文件</div><div class="line">#也可以：</div><div class="line">gunzip 压缩文件</div></pre></td></tr></table></figure></p>
 </blockquote>
-<p>  ##（三）.bz2格式压缩<br> bzip2不能压缩目录。<br>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">bzip2   源文件</div><div class="line"><span class="comment">#压缩为.bz2格式，不保留源文件。</span></div><div class="line"></div><div class="line">bzip2  -k   源文件</div><div class="line"><span class="comment">#压缩之后保留源文件</span></div><div class="line"></div><div class="line"><span class="comment">#解压缩：</span></div><div class="line">bzip2   <span class="_">-d</span> 压缩文件</div><div class="line"><span class="comment">#解压缩 ，-k 保留压缩文件</span></div><div class="line"></div><div class="line">bunzip2  压缩文件</div><div class="line"><span class="comment">#解压缩 ，-k 保留压缩文件</span></div></pre></td></tr></table></figure></p>
-<p> ##（四）打包命令tar<br>命令格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">tar   -zjcvf   打包文件名   源文件</div><div class="line">     -z：压缩为.tar.gz格式</div><div class="line">     -j：压缩为.tar.bz2格式</div><div class="line">     -c：打包</div><div class="line">     -v：显示过程</div><div class="line">     <span class="_">-f</span>：指定打包后的文件名</div><div class="line">tar   -zjxvf  打包文件名</div><div class="line">    -z：解压缩.tar.gz格式</div><div class="line">    -j：解压缩.tar.bz2格式</div><div class="line">    -x：解压缩</div><div class="line"></div><div class="line"><span class="comment">#指定解压缩位置：</span></div><div class="line">tar  -zxvf 压缩包.tar.gz  -C  解压目录</div><div class="line"></div><div class="line"><span class="comment">#查看压缩包，但不解压：</span></div><div class="line">tar -ztvf   压缩包</div></pre></td></tr></table></figure></p>
+<p>  ##（三）.bz2格式压缩<br> bzip2不能压缩目录。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">bzip2   源文件</div><div class="line"><span class="comment">#压缩为.bz2格式，不保留源文件。</span></div><div class="line"></div><div class="line">bzip2  -k   源文件</div><div class="line"><span class="comment">#压缩之后保留源文件</span></div><div class="line"></div><div class="line"><span class="comment">#解压缩：</span></div><div class="line">bzip2   <span class="_">-d</span> 压缩文件</div><div class="line"><span class="comment">#解压缩 ，-k 保留压缩文件</span></div><div class="line"></div><div class="line">bunzip2  压缩文件</div><div class="line"><span class="comment">#解压缩 ，-k 保留压缩文件</span></div></pre></td></tr></table></figure>
+<p>##（四）打包命令tar<br>命令格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">tar   -zjcvf   打包文件名   源文件</div><div class="line">     -z：压缩为.tar.gz格式</div><div class="line">     -j：压缩为.tar.bz2格式</div><div class="line">     -c：打包</div><div class="line">     -v：显示过程</div><div class="line">     <span class="_">-f</span>：指定打包后的文件名</div><div class="line">tar   -zjxvf  打包文件名</div><div class="line">    -z：解压缩.tar.gz格式</div><div class="line">    -j：解压缩.tar.bz2格式</div><div class="line">    -x：解压缩</div><div class="line"></div><div class="line"><span class="comment">#指定解压缩位置：</span></div><div class="line">tar  -zxvf 压缩包.tar.gz  -C  解压目录</div><div class="line"></div><div class="line"><span class="comment">#查看压缩包，但不解压：</span></div><div class="line">tar -ztvf   压缩包</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -570,7 +571,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -592,7 +593,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

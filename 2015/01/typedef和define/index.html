@@ -95,7 +95,7 @@
 <meta property="og:url" content="http://m.magicer.xyz/2015/01/typedef和define/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="c语言中typedef和define的使用">
-<meta property="og:updated_time" content="2015-10-10T16:29:31.570Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:16.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言之 typedef和define的使用">
 <meta name="twitter:description" content="c语言中typedef和define的使用">
@@ -443,20 +443,18 @@
 
       
         <p>c语言中typedef和define的使用<br><a id="more"></a></p>
-<p>##typedef和define的使用</p>
-<p>##（一）typedef的使用<br>  typedef，使你能够为某一个类型创建自己的别名。例如：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> BYTE;</div></pre></td></tr></table></figure></p>
+<h2 id="typedef和define的使用"><a href="#typedef和define的使用" class="headerlink" title="typedef和define的使用"></a>typedef和define的使用</h2><p>##（一）typedef的使用<br>  typedef，使你能够为某一个类型创建自己的别名。例如：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> BYTE;</div></pre></td></tr></table></figure></p>
 <p>  随后你就可以使用<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  	BYTE x,y[<span class="number">10</span>],*z;</div><div class="line">```  </div><div class="line">  ###<span class="number">1</span>、结合指针的用法  </div><div class="line">  ```c</div><div class="line">  tyoedef <span class="keyword">char</span> *STRING;</div><div class="line">  STRING name,sign;</div></pre></td></tr></table></figure></p>
 <p>  意思是<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> * name,*sign;</div></pre></td></tr></table></figure></p>
 <p>  ###2、使用指针时和define的区别<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> STRING char *</span></div><div class="line">STRING name,sign;</div></pre></td></tr></table></figure></p>
 <p>  被解释为<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> *name,sign;</div></pre></td></tr></table></figure></p>
 <p>  第二个<code>sign</code>没有被设置为字符指针。</p>
-<p>  ###3、typedef和结构<br>  例：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="keyword">complex</span>&#123;</div><div class="line">  	<span class="keyword">float</span> real;</div><div class="line">  	<span class="keyword">float</span> imag;</div><div class="line">&#125; COMPLEXL;</div></pre></td></tr></table></figure></p>
+<h3 id="3、typedef和结构"><a href="#3、typedef和结构" class="headerlink" title="3、typedef和结构"></a>3、typedef和结构</h3><p>  例：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="keyword">complex</span>&#123;</div><div class="line">  	<span class="keyword">float</span> real;</div><div class="line">  	<span class="keyword">float</span> imag;</div><div class="line">&#125; COMPLEXL;</div></pre></td></tr></table></figure></p>
 <p>  这样就可以用<code>COMPLEX</code>代替<code>struct complex</code>来表示复数了。</p>
-<p>  ##（二）define的使用</p>
-<p>  ###1、define的通常用法</p>
-<pre><code>#define name stuff
+<p>##（二）define的使用</p>
+<h3 id="1、define的通常用法"><a href="#1、define的通常用法" class="headerlink" title="1、define的通常用法"></a>1、define的通常用法</h3><pre><code>#define name stuff
 </code></pre><p>  每当有符号那么出现时在这条指令后面时，预处理器就会把它替换成stuff。</p>
-<p>  ###2、使用<code>#define</code>可能出现副作用<br>   <code>#define</code>机制包括了一个规定，允许把参数替换到文本中。<br>  例如：</p>
+<h3 id="2、使用-define可能出现副作用"><a href="#2、使用-define可能出现副作用" class="headerlink" title="2、使用#define可能出现副作用"></a>2、使用<code>#define</code>可能出现副作用</h3><p>   <code>#define</code>机制包括了一个规定，允许把参数替换到文本中。<br>  例如：</p>
 <pre><code>#define SQUARE(x)       x*x
 </code></pre><p>  如果在定义了之后使用<code>SQUARE（5）</code>结果是25;<br>  但是如果使用</p>
 <pre><code>a=5;
@@ -593,8 +591,17 @@ printf(&quot;%d\n&quot;,SQUARE(a+1));
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -609,7 +616,7 @@ printf(&quot;%d\n&quot;,SQUARE(a+1));
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -631,7 +638,7 @@ printf(&quot;%d\n&quot;,SQUARE(a+1));
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -692,6 +699,22 @@ printf(&quot;%d\n&quot;,SQUARE(a+1));
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#typedef和define的使用"><span class="nav-number">1.</span> <span class="nav-text">typedef和define的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3、typedef和结构"><span class="nav-number">1.1.</span> <span class="nav-text">3、typedef和结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、define的通常用法"><span class="nav-number">1.2.</span> <span class="nav-text">1、define的通常用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、使用-define可能出现副作用"><span class="nav-number">1.3.</span> <span class="nav-text">2、使用#define可能出现副作用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

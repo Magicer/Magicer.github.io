@@ -90,19 +90,19 @@
 
 
 <meta name="description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
-##前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permis">
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 6.0之后的动态权限">
 <meta property="og:url" content="http://m.magicer.xyz/2017/01/android-api-23-permission/index.html">
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
-##前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permis">
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 <meta property="og:image" content="https://segmentfault.com/img/bVHIe5?w=871&h=910">
-<meta property="og:updated_time" content="2017-03-23T16:06:33.057Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:38.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 6.0之后的动态权限">
 <meta name="twitter:description" content="原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/
-##前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permis">
+前言  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在AndroidManifest.xml文件中显示的声明即可。如下：123&amp;lt;uses-permission android:name=&quot;android.permissi">
 <meta name="twitter:image" content="https://segmentfault.com/img/bVHIe5?w=871&h=910">
 
 
@@ -448,13 +448,12 @@
 
       
         <p><a href="http://blog.magicer.xyz/2017/01/android-api-23-permission/" target="_blank" rel="external">原文地址:http://blog.magicer.xyz/2017/01/android-api-23-permission/</a></p>
-<p>##前言<br>  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在<code>AndroidManifest.xml</code>文件中显示的声明即可。如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  在Android 6.0之前，开发Android应用程序的时，开发者需要使用什么权限只需要在<code>AndroidManifest.xml</code>文件中显示的声明即可。如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>但是，在Android 6.0之后，Android对应用程序的权限进行了进一步的规范。分出来危险权限和一般权限，当我们需要危险权限的时候需要在运行时进行授权。这样做也有好处。对于一些应用用户的选择更多了。<br><a id="more"></a></p>
 <h2 id="权限分类"><a href="#权限分类" class="headerlink" title="权限分类"></a>权限分类</h2><p><a href="https://developer.android.google.cn/training/permissions/index.html" target="_blank" rel="external">官方权限教程</a><br>当我们需要用到危险权限时，我们就需要动态的申请权限，那么危险权限有哪些呢？</p>
-<p>###危险权限<br><img src="https://segmentfault.com/img/bVHIe5?w=871&amp;h=910" alt="图片描述"></p>
+<h3 id="危险权限"><a href="#危险权限" class="headerlink" title="危险权限"></a>危险权限</h3><p><img src="https://segmentfault.com/img/bVHIe5?w=871&amp;h=910" alt="图片描述"></p>
 <h3 id="一般权限"><a href="#一般权限" class="headerlink" title="一般权限"></a>一般权限</h3><p>对于常规的权限我们只需要在清单文件中注册即可，比如网络权限。</p>
-<p>##动态注册权限</p>
-<p>如果您的应用需要危险权限，则每次执行需要这一权限的操作时您都必须检查自己是否具有该权限。用户始终可以自由调用此权限，因此，即使应用昨天使用了相机，它不能假设自己今天仍具有该权限。</p>
+<h2 id="动态注册权限"><a href="#动态注册权限" class="headerlink" title="动态注册权限"></a>动态注册权限</h2><p>如果您的应用需要危险权限，则每次执行需要这一权限的操作时您都必须检查自己是否具有该权限。用户始终可以自由调用此权限，因此，即使应用昨天使用了相机，它不能假设自己今天仍具有该权限。</p>
 <p>要检查您是否具有某项权限，请调用<code>ContextCompat.checkSelfPermission()</code> 方法。例如，以下代码段显示了如何检查 Activity 是否具有在日历中进行写入的权限：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Assume thisActivity is the current activity</span></div><div class="line"><span class="keyword">int</span> permissionCheck = ContextCompat.checkSelfPermission(thisActivity,</div><div class="line">        Manifest.permission.WRITE_CALENDAR);</div></pre></td></tr></table></figure>
 <p>如果应用具有此权限，方法将返回 <code>PackageManager.PERMISSION_GRANTED</code>，并且应用可以继续操作。如果应用不具有此权限，方法将返回 <code>PERMISSION_DENIED</code>，且应用必须明确向用户要求权限。</p>
@@ -608,7 +607,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -630,7 +629,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -701,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#权限分类"><span class="nav-number">1.</span> <span class="nav-text">权限分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一般权限"><span class="nav-number">1.1.</span> <span class="nav-text">一般权限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限分类"><span class="nav-number">2.</span> <span class="nav-text">权限分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#危险权限"><span class="nav-number">2.1.</span> <span class="nav-text">危险权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一般权限"><span class="nav-number">2.2.</span> <span class="nav-text">一般权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态注册权限"><span class="nav-number">3.</span> <span class="nav-text">动态注册权限</span></a></li></ol></div>
             
 
           </div>

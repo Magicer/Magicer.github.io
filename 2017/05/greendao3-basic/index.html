@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="greenDao官方文档中介绍，其效率要优于其他几个ORM框架，也有小伙伴验证过，其效率确实挺不错。所以greenDao还是有必要学一学的。毕竟只是用Android的SQLiteOpenHelper效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。
 集成 在一开始学习的使用，查看官方文档。没有找到greenDao的完成配置方式。可能是我不够细心。下面是完全">
-<meta property="og:updated_time" content="2017-05-06T13:59:27.169Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:32.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="greenDao基础使用">
 <meta name="twitter:description" content="greenDao官方文档中介绍，其效率要优于其他几个ORM框架，也有小伙伴验证过，其效率确实挺不错。所以greenDao还是有必要学一学的。毕竟只是用Android的SQLiteOpenHelper效率不是低了一丁点。在学习了greenDao之后感觉还是蛮好用的。在这里记录下使用方法。
@@ -452,9 +452,8 @@
 <p> 创建entity文件<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译一下工程之后就会生成<code>DaoMaster</code>、<code>DaoSession</code>、<code>UserDao</code>三个文件。</p>
 <h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><p>一个简单的使用实例如下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">DaoMaster.DevOpenHelper openHelper = <span class="keyword">new</span> DaoMaster.DevOpenHelper(<span class="keyword">this</span>, <span class="string">"user.db"</span>, <span class="keyword">null</span>);</div><div class="line">DaoMaster daoMaster = <span class="keyword">new</span> DaoMaster(openHelper.getWritableDatabase());</div><div class="line">DaoSession daoSession = daoMaster.newSession();</div><div class="line">UserDao userDao = daoSession.getUserDao();</div><div class="line">User user = <span class="keyword">new</span> User(<span class="number">0</span>, <span class="string">"zhang3"</span>, <span class="number">19</span>);</div><div class="line">userDao.insert(user);</div><div class="line"></div><div class="line">List&lt;User&gt; magicer= userDao.queryBuilder().where(UserDao.Properties.Name.eq(<span class="string">"magicer"</span>))</div><div class="line">        .orderDesc()</div><div class="line">        .build()</div><div class="line">        .list();</div></pre></td></tr></table></figure></p>
-<p>##ClassCastException<br><a href="https://github.com/greenrobot/greenDAO/blob/master/DaoGenerator/src/org/greenrobot/greendao/generator/Schema.java" target="_blank" rel="external">Schema.java</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.Long</div></pre></td></tr></table></figure></p>
-<p>##参考</p>
-<ul>
+<h2 id="ClassCastException"><a href="#ClassCastException" class="headerlink" title="ClassCastException"></a>ClassCastException</h2><p><a href="https://github.com/greenrobot/greenDAO/blob/master/DaoGenerator/src/org/greenrobot/greendao/generator/Schema.java" target="_blank" rel="external">Schema.java</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.Long</div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="http://greenrobot.org/greendao/documentation/" target="_blank" rel="external">官方文档</a></li>
 <li><a href="https://github.com/greenrobot/greenDAO" target="_blank" rel="external">官方源码 GIT</a></li>
 </ul>
@@ -524,6 +523,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/greendao3-advanced/" rel="prev" title="greenDao使用进阶">
+                greenDao使用进阶 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -602,7 +605,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +627,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -695,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成"><span class="nav-number">1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-1"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成"><span class="nav-number">1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-1"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ClassCastException"><span class="nav-number">5.</span> <span class="nav-text">ClassCastException</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

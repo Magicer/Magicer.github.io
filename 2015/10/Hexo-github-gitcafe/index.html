@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://m.magicer.xyz/image/HEXO.gif">
 <meta property="og:image" content="http://m.magicer.xyz/image_code/gitcafe-ssh-setting.png">
 <meta property="og:image" content="http://m.magicer.xyz/image_code/Gitcafe-pages-setting.png">
-<meta property="og:updated_time" content="2016-03-08T13:13:07.250Z">
+<meta property="og:updated_time" content="2017-06-03T05:26:31.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客转移 从github到gitcafe">
 <meta name="twitter:description" content="用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 magicer.coding.io 也能访问我的博客，因为代码也同步到Coding上来了。   下面就记录一下自己博客转移的过程。">
@@ -447,14 +447,14 @@
 
       
         <p>  <img src="/image/HEXO.gif" alt="HEXO" class="full-image"><br>  用Hexo和github搭建博客很长时间了，考虑到自己的博客可能主要的用户都会是国内的，所以想吧博客从github上转移到gitcafe上来，一开始打算转移到coding.net上，不过Coding不能自定义域名所以就没有用Coding，不过访问 <a href="http://magicer.coding.io" target="_blank" rel="external">magicer.coding.io</a> 也能访问我的博客，因为代码也同步到Coding上来了。<br>   下面就记录一下自己博客转移的过程。<a id="more"></a></p>
-<p>##gitcafe的使用<br>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）</p>
+<h2 id="gitcafe的使用"><a href="#gitcafe的使用" class="headerlink" title="gitcafe的使用"></a>gitcafe的使用</h2><p>   首先注册gitcafe账户创建项目，此处我创建的项目名跟我的用户名一样。<br>   随后，在自己的家目录的<code>.ssh/</code>目录下找到<code>id_rsa.pub</code>文件，打开后复制内容粘贴到gitcafe的 <code>SSH公钥管理</code>中新建SSH公钥（如果配置过github会存在<code>.ssh/</code>文件夹，如果没有的话，需要配置，配置方法见：<a href="http://0.0.0.0:4001/2015/04/30/github-config/" target="_blank" rel="external">配置github</a>，测试的时候只需要将github换成gitcafe即可。）</p>
 <!-- HTML -->
 <p>   <img src="/image_code/gitcafe-ssh-setting.png" alt="SSH设置"></p>
-<p>##托管代码到gitcafe<br>  在这里说明，我安装了git插件，安装方法：</p>
+<h2 id="托管代码到gitcafe"><a href="#托管代码到gitcafe" class="headerlink" title="托管代码到gitcafe"></a>托管代码到gitcafe</h2><p>  在这里说明，我安装了git插件，安装方法：</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
 <p>在<code>_config.yml.</code>中配置（可以同时托管代码在github和gitcafe上，）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div><div class="line"></div><div class="line">#或者:</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  message: [message]</div><div class="line">  repo: </div><div class="line">    github: &lt;repository url&gt;,[branch]</div><div class="line">    gitcafe: &lt;repository url&gt;,[branch]</div></pre></td></tr></table></figure>
-<p>##pages服务<br>  托管上代码之后应该分支应该会直接是<code>gitcafe-pages</code>分支，之后<code>项目设置</code>自定义域名<br>  <img src="/image_code/Gitcafe-pages-setting.png" alt="gitcafe-pages"></p>
+<h2 id="pages服务"><a href="#pages服务" class="headerlink" title="pages服务"></a>pages服务</h2><p>  托管上代码之后应该分支应该会直接是<code>gitcafe-pages</code>分支，之后<code>项目设置</code>自定义域名<br>  <img src="/image_code/Gitcafe-pages-setting.png" alt="gitcafe-pages"></p>
 <p>  修改域名的解析搬移即可完成。<br>  新建CNAME解析，解析到<code>gitcafe.io</code>,现在gitcafe已经不支持A记录解析方式。</p>
 
       
@@ -583,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -599,7 +608,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -621,7 +630,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -682,6 +691,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitcafe的使用"><span class="nav-number">1.</span> <span class="nav-text">gitcafe的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#托管代码到gitcafe"><span class="nav-number">2.</span> <span class="nav-text">托管代码到gitcafe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pages服务"><span class="nav-number">3.</span> <span class="nav-text">pages服务</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

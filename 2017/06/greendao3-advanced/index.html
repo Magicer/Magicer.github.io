@@ -1,0 +1,1101 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="greenDAO," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Magicer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在之前的一遍greenDao基础使用中学习了greenDao的集成及简单的使用，现在开启进阶之路。学习下使用中的细节。
+Annotations在之前的配置中我们使用到了@Entity和@Id注解,除了这俩greenDao中还有其他注解来方便我们配置数据库。下面一一介绍
+123456789101112@Entitypublic class Student &amp;#123;    @Id    priva">
+<meta property="og:type" content="article">
+<meta property="og:title" content="greenDao使用进阶">
+<meta property="og:url" content="http://m.magicer.xyz/2017/06/greendao3-advanced/index.html">
+<meta property="og:site_name" content="Magicer">
+<meta property="og:description" content="在之前的一遍greenDao基础使用中学习了greenDao的集成及简单的使用，现在开启进阶之路。学习下使用中的细节。
+Annotations在之前的配置中我们使用到了@Entity和@Id注解,除了这俩greenDao中还有其他注解来方便我们配置数据库。下面一一介绍
+123456789101112@Entitypublic class Student &amp;#123;    @Id    priva">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/greendao/create.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/greendao/update.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/greendao/delete.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/greendao/retrieve.png">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/greendao/querybuilder.png">
+<meta property="og:updated_time" content="2017-06-03T05:41:09.924Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="greenDao使用进阶">
+<meta name="twitter:description" content="在之前的一遍greenDao基础使用中学习了greenDao的集成及简单的使用，现在开启进阶之路。学习下使用中的细节。
+Annotations在之前的配置中我们使用到了@Entity和@Id注解,除了这俩greenDao中还有其他注解来方便我们配置数据库。下面一一介绍
+123456789101112@Entitypublic class Student &amp;#123;    @Id    priva">
+<meta name="twitter:image" content="http://m.magicer.xyz/image/Android/greendao/create.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10239987',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://m.magicer.xyz/2017/06/greendao3-advanced/"/>
+
+
+
+
+
+  <title> greenDao使用进阶 | Magicer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '62087510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55690660";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260303104&web_id=1260303104" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Magicer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Magicer</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2017/06/greendao3-advanced/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magicer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Magicer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                greenDao使用进阶
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T13:05:28+08:00">
+                2017-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/greendao3-advanced/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/greendao3-advanced/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在之前的一遍<a href="https://segmentfault.com/a/1190000009057407" target="_blank" rel="external">greenDao基础使用</a>中学习了greenDao的集成及简单的使用，现在开启进阶之路。学习下使用中的细节。</p>
+<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><p>在之前的配置中我们使用到了<code>@Entity</code>和<code>@Id</code>注解,除了这俩<code>greenDao</code>中还有其他注解来方便我们配置数据库。下面一一介绍</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">    <span class="meta">@Id</span></div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="meta">@NotNull</span></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="meta">@Property</span>(nameInDb = <span class="string">"student_age"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="meta">@Transient</span></div><div class="line">    <span class="keyword">private</span> String address;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Entity"><a href="#Entity" class="headerlink" title="@Entity"></a>@Entity</h3><p>我们使用<code>Entity</code>注解来指定 为某个类创建一个表。<br>下面是<code>Entity</code>的源码，我们可以从中看到在制定表的时候我们可以设置很多参数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Entity &#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Specifies the name on the DB side (e.g. table name) this entity maps to. By default, the name is based on the entities class name.</div><div class="line">     */</div><div class="line">    <span class="function">String <span class="title">nameInDb</span><span class="params">()</span> <span class="keyword">default</span> ""</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Indexes for the entity.</div><div class="line">     * &lt;p/&gt;</div><div class="line">     * Note: To create a single-column index consider using &#123;<span class="doctag">@link</span> Index&#125; on the property itself</div><div class="line">     */</div><div class="line">    Index[] indexes() <span class="keyword">default</span> &#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Advanced flag to disable table creation in the database (when set to false). This can be used to create partial</div><div class="line">     * entities, which may use only a sub set of properties. Be aware however that greenDAO does not sync multiple</div><div class="line">     * entities, e.g. in caches.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">createInDb</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Specifies schema name for the entity: greenDAO can generate independent sets of classes for each schema.</div><div class="line">     * Entities which belong to different schemas should &lt;strong&gt;not&lt;/strong&gt; have relations.</div><div class="line">     */</div><div class="line">    <span class="function">String <span class="title">schema</span><span class="params">()</span> <span class="keyword">default</span> "<span class="keyword">default</span>"</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Whether update/delete/refresh methods should be generated.</div><div class="line">     * If entity has defined &#123;<span class="doctag">@link</span> ToMany&#125; or &#123;<span class="doctag">@link</span> ToOne&#125; relations, then it is active independently from this value</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">active</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一般来说我们只需要使用<code>@Entity</code>就可以满足我们的需求了。</p>
+<h3 id="Id"><a href="#Id" class="headerlink" title="@Id"></a>@Id</h3><p>将某个属性设置为主键（primary key)。也可以为<code>Long/long</code>类型的值制定自增长。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Id</span>(autoincrement = <span class="keyword">true</span>)</div><div class="line">   <span class="keyword">private</span> Long id;</div></pre></td></tr></table></figure>
+<p><code>autoincrement</code>只有在类型为<code>Long/long</code>的时候起作用。</p>
+<h3 id="NotNull"><a href="#NotNull" class="headerlink" title="@NotNull"></a>@NotNull</h3><p>指定某个字段不能为空。</p>
+<h3 id="Property"><a href="#Property" class="headerlink" title="@Property"></a>@Property</h3><p>通过该注解可以为设置在数据库中的列名</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Property</span>(nameInDb = <span class="string">"student_age"</span>)</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div></pre></td></tr></table></figure>
+<p>通过上面的代码就会把age对应的数据存到student_age列中。</p>
+<h3 id="Transient"><a href="#Transient" class="headerlink" title="@Transient"></a>@Transient</h3><p>配置了该注解的属性将不会存到数据库中。</p>
+<h2 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h2><p>通过上面的几个注解我们已经可以让<code>greenDao</code>自动生成操作数据库的各种语句了。接下来就是最重要的数据库<code>CRUD</code>操作了。以下的<code>CRUD</code>操作使用这个类作为例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@Entity</div><div class="line">public class Question &#123;</div><div class="line">    @Id</div><div class="line">    private String id;</div><div class="line">    @NotNull</div><div class="line">    private String content;</div><div class="line">    private Long start;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this,&quot;greendao.db&quot;,null);</div><div class="line">SQLiteDatabase db = helper.getWritableDatabase();</div><div class="line">DaoMaster daoMaster = new DaoMaster(db);</div><div class="line">DaoSession daoSession = daoMaster.newSession();</div></pre></td></tr></table></figure>
+<h3 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h3><p><img src="/image/Android/greendao/create.png" alt="图片描述"></p>
+<p>上图显示了插入数据库的方法。<code>Tx</code>结尾的是使用事务提交的。<br>插入到数据库时我们是直接使用生成的<code>Dao</code>文件来操作的。<br>以下的实例展示了向数据库中插入一条数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">QuestionDao questionDao = daoSession.getQuestionDao();</div><div class="line">Question question = <span class="keyword">new</span> Question(UUID.randomUUID().toString(), <span class="string">"这是题目的内容"</span>, System.currentTimeMillis());</div><div class="line">questionDao.insert(question);</div></pre></td></tr></table></figure>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><img src="/image/Android/greendao/update.png" alt="图片描述"></p>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><p><img src="/image/Android/greendao/delete.png" alt="图片描述"></p>
+<p>上图展示了删除的方法。</p>
+<p><code>delete(Question entity)</code>方法是根据查询<code>entity</code>的<code>key</code>之后调用<code>deleteByKey(String key)</code>方法删除的。</p>
+<h3 id="Retrieve"><a href="#Retrieve" class="headerlink" title="Retrieve"></a>Retrieve</h3><p>接下来就是数据库中最重要的查找方法了。在<code>greenDao</code>中查找数据库也很方便，在基础中我们也看到了。下面详细的来看下。</p>
+<p><img src="/image/Android/greendao/retrieve.png" alt="图片描述"></p>
+<h4 id="QueryBuilder"><a href="#QueryBuilder" class="headerlink" title="QueryBuilder"></a>QueryBuilder</h4><p><img src="/image/Android/greendao/querybuilder.png" alt="图片描述"></p>
+<p>从图中我们看出<code>QueryBuilder</code>有很多的方法供我们选择。方法太多了就不一一介绍了。<a href="http://greenrobot.org/files/greendao/javadoc/current/" target="_blank" rel="external">详细的文档看着里吧</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Query&lt;Question&gt; build = questionDao.queryBuilder()</div><div class="line">                .where(QuestionDao.Properties.Id.eq(<span class="string">"1001"</span>))</div><div class="line">                .build();</div><div class="line"><span class="keyword">for</span> (Question question : build.list()) &#123;</div><div class="line">            Log.i(TAG, <span class="string">"onCreate: "</span>+question.toString());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>where()</code>是用来配置我们的查询条件的。可以传递的多查询条件，将会使用<code>AND</code>语句查询。<br>在上面的例子中我们看到了<code>QuestionDao.Properties.Id.eq(&quot;1001&quot;)</code>这是用来配置查询条件的。<br>主要有:(详细的文档看着里：<a href="http://greenrobot.org/files/greendao/javadoc/current/" target="_blank" rel="external">官方文档</a>)</p>
+<ul>
+<li><code>eq</code>： equals 相等</li>
+<li><code>notEq</code>： 不等</li>
+<li><code>like</code>： SQL语句中的<code>LIKE ?</code>语句。 想要学习有关<code>LIKE</code>语法可以<a href="http://www.runoob.com/sqlite/sqlite-like-clause.html" target="_blank" rel="external">看这里</a></li>
+<li><code>between</code> SQL语句中的<code>BETWEEN ... AND ...</code> <a href="http://www.runoob.com/sql/sql-between.html" target="_blank" rel="external">BETWEEN 语法学习看这里</a></li>
+<li><code>in</code>:  <a href="http://www.runoob.com/sql/sql-in.html" target="_blank" rel="external">IN语法学习看这里</a></li>
+<li><code>notIn</code>: </li>
+<li><code>gt</code>:  <code>greater than (&#39;&gt;&#39;)</code></li>
+<li><code>lt</code>: <code>less than (&#39;&lt;&#39;)</code></li>
+<li><code>ge</code>: <code>greater or equal (&#39;&gt;=&#39;)</code></li>
+<li><code>le</code>: <code>less or equal (&#39;&lt;=&#39;)</code></li>
+<li><code>isNull</code>: </li>
+<li><code>isNotNull</code></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Magicer
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://m.magicer.xyz/2017/06/greendao3-advanced/" title="greenDao使用进阶">http://m.magicer.xyz/2017/06/greendao3-advanced/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/greenDAO/" rel="tag"># greenDAO</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/greendao3-basic/" rel="next" title="greenDao基础使用">
+                <i class="fa fa-chevron-left"></i> greenDao基础使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/greendao3-relations/" rel="prev" title="greenDao多表关联">
+                greenDao多表关联 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Magicer" />
+          <p class="site-author-name" itemprop="name">Magicer</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Magicer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Captain_Magicer" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3681817060" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Annotations"><span class="nav-number">1.</span> <span class="nav-text">Annotations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Entity"><span class="nav-number">1.1.</span> <span class="nav-text">@Entity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Id"><span class="nav-number">1.2.</span> <span class="nav-text">@Id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NotNull"><span class="nav-number">1.3.</span> <span class="nav-text">@NotNull</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Property"><span class="nav-number">1.4.</span> <span class="nav-text">@Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transient"><span class="nav-number">1.5.</span> <span class="nav-text">@Transient</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRUD"><span class="nav-number">2.</span> <span class="nav-text">CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create"><span class="nav-number">2.1.</span> <span class="nav-text">Create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update"><span class="nav-number">2.2.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete"><span class="nav-number">2.3.</span> <span class="nav-text">Delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Retrieve"><span class="nav-number">2.4.</span> <span class="nav-text">Retrieve</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#QueryBuilder"><span class="nav-number">2.4.1.</span> <span class="nav-text">QueryBuilder</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magicer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'Magicer';
+      var disqus_identifier = '2017/06/greendao3-advanced/';
+
+      var disqus_title = "greenDao使用进阶";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

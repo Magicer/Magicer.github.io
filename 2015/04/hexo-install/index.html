@@ -97,7 +97,7 @@
 <meta property="og:site_name" content="Magicer">
 <meta property="og:description" content="Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。
 而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务比如Hexo的官方网站http://hexo.io 就是托管于github的pages服务上 系统重装之后用hexo搭建的博客没有了，">
-<meta property="og:updated_time" content="2016-03-08T13:13:11.265Z">
+<meta property="og:updated_time" content="2017-06-03T05:40:30.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装Hexo，搭建博客">
 <meta name="twitter:description" content="Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。
@@ -447,11 +447,10 @@
       
         <p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。</p>
 <p>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务<br>比如Hexo的官方网站<a href="http://hexo.io" target="_blank" rel="external">http://hexo.io</a> 就是托管于github的pages服务上<br> 系统重装之后用hexo搭建的博客没有了，又花了整理了很长时间才搭建完成，在这里记录一下。<br><a id="more"></a></p>
-<p>##安装nodejs<br>安装钱需要系统上有python g++ 和gcc<br><a href="nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz">下载nodejs</a><br>下载完了之后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf node-v0.12.2.tar.gz -C /opt</div><div class="line">cd /opt/node-v0.12.2</div><div class="line">./configure </div><div class="line">make </div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
+<h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><p>安装钱需要系统上有python g++ 和gcc<br><a href="nodejs.org/dist/v0.12.2/node-v0.12.2.tar.gz">下载nodejs</a><br>下载完了之后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf node-v0.12.2.tar.gz -C /opt</div><div class="line">cd /opt/node-v0.12.2</div><div class="line">./configure </div><div class="line">make </div><div class="line">sudo make install</div></pre></td></tr></table></figure></p>
 <p>安装完成后检查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node -version</div></pre></td></tr></table></figure></p>
-<p>##安装git</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git-core</div></pre></td></tr></table></figure>
-<p>##安装hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure></p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git-core</div></pre></td></tr></table></figure>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure>
 <p>进入想要写文章的博客目录。<br>运行 hexo init<br>之后运行 npm install</p>
 
       
@@ -576,8 +575,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -592,7 +600,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -614,7 +622,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -675,6 +683,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodejs"><span class="nav-number">1.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">3.</span> <span class="nav-text">安装hexo</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
