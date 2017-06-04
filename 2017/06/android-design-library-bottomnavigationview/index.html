@@ -1,0 +1,1067 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BottomNavigationView," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Magicer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="BottomNavitagionView出现之前，我们首先底部的导航栏大多是使用RadioGroup+RadioButton的特性来实现。现在官方为我们提供了另外的一条路。先来尝试下。
+Demo打开官方文档里面就有示例程序，比着敲一遍，看下效果。123456789101112&amp;lt;android.support.design.widget.BottomNavigationView       a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Design Library之二: BottomNavigationView">
+<meta property="og:url" content="http://m.magicer.xyz/2017/06/android-design-library-bottomnavigationview/index.html">
+<meta property="og:site_name" content="Magicer">
+<meta property="og:description" content="BottomNavitagionView出现之前，我们首先底部的导航栏大多是使用RadioGroup+RadioButton的特性来实现。现在官方为我们提供了另外的一条路。先来尝试下。
+Demo打开官方文档里面就有示例程序，比着敲一遍，看下效果。123456789101112&amp;lt;android.support.design.widget.BottomNavigationView       a">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/design/bottom-main.gif">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/design/bottom-color.gif">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/design/bottom-4.gif">
+<meta property="og:image" content="http://m.magicer.xyz/image/Android/design/bottom-last.gif">
+<meta property="og:updated_time" content="2017-06-04T09:04:13.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Design Library之二: BottomNavigationView">
+<meta name="twitter:description" content="BottomNavitagionView出现之前，我们首先底部的导航栏大多是使用RadioGroup+RadioButton的特性来实现。现在官方为我们提供了另外的一条路。先来尝试下。
+Demo打开官方文档里面就有示例程序，比着敲一遍，看下效果。123456789101112&amp;lt;android.support.design.widget.BottomNavigationView       a">
+<meta name="twitter:image" content="http://m.magicer.xyz/image/Android/design/bottom-main.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10239987',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://m.magicer.xyz/2017/06/android-design-library-bottomnavigationview/"/>
+
+
+
+
+
+  <title> Android Design Library之二: BottomNavigationView | Magicer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '62087510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55690660";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260303104&web_id=1260303104" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Magicer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Magicer</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2017/06/android-design-library-bottomnavigationview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magicer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Magicer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Design Library之二: BottomNavigationView
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T16:59:29+08:00">
+                2017-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/android-design-library-bottomnavigationview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/android-design-library-bottomnavigationview/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>BottomNavitagionView</code>出现之前，我们首先底部的导航栏大多是使用<code>RadioGroup</code>+<code>RadioButton</code>的特性来实现。现在官方为我们提供了另外的一条路。先来尝试下。</p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>打开<a href="https://developer.android.com/reference/android/support/design/widget/BottomNavigationView.html" target="_blank" rel="external">官方文档</a>里面就有示例程序，比着敲一遍，看下效果。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.BottomNavigationView</span></span></div><div class="line">       <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">       <span class="attr">android:layout_height</span>=<span class="string">"55dp"</span></div><div class="line">       <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></div><div class="line">       <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">       <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">       <span class="attr">app:itemIconTint</span>=<span class="string">"#009877"</span></div><div class="line">       <span class="attr">app:itemTextColor</span>=<span class="string">"#009877"</span></div><div class="line">       <span class="attr">app:paddingStart</span>=<span class="string">"10dp"</span></div><div class="line">       <span class="attr">app:paddingEnd</span>=<span class="string">"10dp"</span></div><div class="line">       <span class="attr">app:itemBackground</span>=<span class="string">"@color/white"</span></div><div class="line">       <span class="attr">app:menu</span>=<span class="string">"@menu/bottom_nav"</span>/&gt;</div></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">      <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/menu_nav_android"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_android_black_36dp"</span></div><div class="line">        <span class="attr">app:showAsAction</span>=<span class="string">"ifRoom"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Android"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/menu_nav_lock"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_lock_black_36dp"</span></div><div class="line">        <span class="attr">app:showAsAction</span>=<span class="string">"ifRoom"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Lock"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/menu_nav_group_work"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_group_work_black_36dp"</span></div><div class="line">        <span class="attr">app:showAsAction</span>=<span class="string">"ifRoom"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Work"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>效果如下</p>
+<p><img src="/image/Android/design/bottom-main.gif" alt="clipboard.png"></p>
+<p>嗯。效果还是不错的。但是有时候我们需要的是颜色的变化，这个时候我们需要一个<code>color</code>。在<code>res</code>下的<code>color</code>文件夹下创建一个文件名为<code>bottom_nav</code>的文件内容如下。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:color</span>=<span class="string">"@color/nav_checked"</span></div><div class="line">        <span class="attr">android:state_checked</span>=<span class="string">"true"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:color</span>=<span class="string">"@color/nav_unchecked"</span></div><div class="line">        <span class="attr">android:state_checked</span>=<span class="string">"false"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>之后为<code>BottomNavitagionView</code>设置上就可以了。<br>效果如下</p>
+<p><img src="/image/Android/design/bottom-color.gif" alt="clipboard.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:itemIconTint=&quot;@color/bottom_nav&quot;</div><div class="line">app:itemTextColor=&quot;@color/bottom_nav&quot;</div></pre></td></tr></table></figure>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>真的就这么就完了么？ too young，too simple。我们底部的菜单项肯定不一定是3个。如果是4个。我们试一下，再加菜单项。很简单为<code>menu</code>再添加个<code>item</code>。来看下效果：</p>
+<p><img src="/image/Android/design/bottom-4.gif" alt="clipboard.png"></p>
+<p><strong>WTF</strong></p>
+<p>来看下源码看看到底发生了什么？<br><code>BottomNavigationView</code>的源码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> MenuBuilder mMenu;</div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> BottomNavigationMenuView mMenuView;</div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> BottomNavigationPresenter mPresenter = <span class="keyword">new</span> BottomNavigationPresenter();</div><div class="line"><span class="keyword">private</span> MenuInflater mMenuInflater;</div><div class="line"><span class="comment">//.....省略代码</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inflateMenu</span><span class="params">(<span class="keyword">int</span> resId)</span> </span>&#123;</div><div class="line">    mPresenter.setUpdateSuspended(<span class="keyword">true</span>);</div><div class="line">    getMenuInflater().inflate(resId, mMenu);</div><div class="line">    mPresenter.setUpdateSuspended(<span class="keyword">false</span>);</div><div class="line">    mPresenter.updateMenuView(<span class="keyword">true</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们看到。其中主要有这几个属性，通过查看代码我们可以看到。<code>BottomNavigationPresenter</code>来连接<code>Menu</code>和<code>BottomNavigationMenuView</code>的。<br><code>BottomNavigationPresenter</code>的部分代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> MenuBuilder mMenu;</div><div class="line"><span class="keyword">private</span> BottomNavigationMenuView mMenuView;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initForMenu</span><span class="params">(Context context, MenuBuilder menu)</span> </span>&#123;</div><div class="line">    mMenuView.initialize(mMenu);</div><div class="line">    mMenu = menu;</div><div class="line">&#125;</div><div class="line">....省略...</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateMenuView</span><span class="params">(<span class="keyword">boolean</span> cleared)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (mUpdateSuspended) <span class="keyword">return</span>;</div><div class="line">    <span class="keyword">if</span> (cleared) &#123;</div><div class="line">        mMenuView.buildMenuView();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        mMenuView.updateMenuView();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们可以看到。更新<code>MenuView</code>的方法是通过<code>Presenter</code>来调用的。其内部的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buildMenuView</span><span class="params">()</span> </span>&#123;</div><div class="line">      mShiftingMode = mMenu.size() &gt; <span class="number">3</span>;</div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mMenu.size(); i++) &#123;</div><div class="line">          mPresenter.setUpdateSuspended(<span class="keyword">true</span>);</div><div class="line">          mMenu.getItem(i).setCheckable(<span class="keyword">true</span>);</div><div class="line">          mPresenter.setUpdateSuspended(<span class="keyword">false</span>);</div><div class="line">          BottomNavigationItemView child = getNewItem();</div><div class="line">          mButtons[i] = child;</div><div class="line">          child.setIconTintList(mItemIconTint);</div><div class="line">          child.setTextColor(mItemTextColor);</div><div class="line">          child.setItemBackground(mItemBackgroundRes);</div><div class="line">          child.setShiftingMode(mShiftingMode);</div><div class="line">          child.initialize((MenuItemImpl) mMenu.getItem(i), <span class="number">0</span>);</div><div class="line">          child.setItemPosition(i);</div><div class="line">          child.setOnClickListener(mOnClickListener);</div><div class="line">          addView(child);</div><div class="line">      &#125;</div><div class="line">      mActiveButton = Math.min(mMenu.size() - <span class="number">1</span>, mActiveButton);</div><div class="line">      mMenu.getItem(mActiveButton).setChecked(<span class="keyword">true</span>);</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>这里我们应该就看出来端倪了。<code>mShiftingMode</code>是个<code>boolean</code>值，当<code>menu</code>的长度大于三时，就为<code>true</code>。也就为每一个<code>BottomNavigationItemView</code>设置上了<code>child.setShiftingMode(mShiftingMode);</code> true。在这里每一个<code>BottomNavigationItemView</code>就是一个<code>tab</code>。<br>在<code>BottomNavigationItemView</code>的代码中我们可以看到。其填充的布局为<code>R.layout.design_bottom_navigation_item</code>布局中有两个<code>TextView</code>(smallLabel和largeLabel) 和一个<code>ImageView</code>(icon),详细的代码自己搜一下吧。在<code>design</code>包中，这里就不贴出来了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (mShiftingMode) &#123;</div><div class="line">            <span class="keyword">if</span> (checked) &#123;</div><div class="line">                LayoutParams iconParams = (LayoutParams) mIcon.getLayoutParams();</div><div class="line">                iconParams.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;</div><div class="line">                iconParams.topMargin = mDefaultMargin;</div><div class="line">                mIcon.setLayoutParams(iconParams);</div><div class="line">                mLargeLabel.setVisibility(VISIBLE);</div><div class="line">                ViewCompat.setScaleX(mLargeLabel, <span class="number">1f</span>);</div><div class="line">                ViewCompat.setScaleY(mLargeLabel, <span class="number">1f</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                LayoutParams iconParams = (LayoutParams) mIcon.getLayoutParams();</div><div class="line">                iconParams.gravity = Gravity.CENTER;</div><div class="line">                iconParams.topMargin = mDefaultMargin;</div><div class="line">                mIcon.setLayoutParams(iconParams);</div><div class="line">                mLargeLabel.setVisibility(INVISIBLE);</div><div class="line">                ViewCompat.setScaleX(mLargeLabel, <span class="number">0.5f</span>);</div><div class="line">                ViewCompat.setScaleY(mLargeLabel, <span class="number">0.5f</span>);</div><div class="line">            &#125;</div><div class="line">            mSmallLabel.setVisibility(INVISIBLE);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (checked) &#123;</div><div class="line">                LayoutParams iconParams = (LayoutParams) mIcon.getLayoutParams();</div><div class="line">                iconParams.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;</div><div class="line">                iconParams.topMargin = mDefaultMargin + mShiftAmount;</div><div class="line">                mIcon.setLayoutParams(iconParams);</div><div class="line">                mLargeLabel.setVisibility(VISIBLE);</div><div class="line">                mSmallLabel.setVisibility(INVISIBLE);</div><div class="line"></div><div class="line">                ViewCompat.setScaleX(mLargeLabel, <span class="number">1f</span>);</div><div class="line">                ViewCompat.setScaleY(mLargeLabel, <span class="number">1f</span>);</div><div class="line">                ViewCompat.setScaleX(mSmallLabel, mScaleUpFactor);</div><div class="line">                ViewCompat.setScaleY(mSmallLabel, mScaleUpFactor);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                LayoutParams iconParams = (LayoutParams) mIcon.getLayoutParams();</div><div class="line">                iconParams.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;</div><div class="line">                iconParams.topMargin = mDefaultMargin;</div><div class="line">                mIcon.setLayoutParams(iconParams);</div><div class="line">                mLargeLabel.setVisibility(INVISIBLE);</div><div class="line">                mSmallLabel.setVisibility(VISIBLE);</div><div class="line"></div><div class="line">                ViewCompat.setScaleX(mLargeLabel, mScaleDownFactor);</div><div class="line">                ViewCompat.setScaleY(mLargeLabel, mScaleDownFactor);</div><div class="line">                ViewCompat.setScaleX(mSmallLabel, <span class="number">1f</span>);</div><div class="line">                ViewCompat.setScaleY(mSmallLabel, <span class="number">1f</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<p>  啊哈。看了这么多终于找到原因了。 这就是问题所在。我们见到如果我们吧<code>mShiftingMode</code>设置为<code>false</code>那么就不会出现那种效果。怎么设置呢。我们可以使用反射的机制来进行设置。<br>代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">disableShiftMode</span><span class="params">(BottomNavigationView view)</span> </span>&#123;</div><div class="line">       BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(<span class="number">0</span>);</div><div class="line">       <span class="keyword">try</span> &#123;</div><div class="line">           Field shiftingMode = menuView.getClass().getDeclaredField(<span class="string">"mShiftingMode"</span>);</div><div class="line">           shiftingMode.setAccessible(<span class="keyword">true</span>);</div><div class="line">           shiftingMode.setBoolean(menuView, <span class="keyword">false</span>);</div><div class="line">           shiftingMode.setAccessible(<span class="keyword">false</span>);</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; menuView.getChildCount(); i++) &#123;</div><div class="line">               BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);</div><div class="line">               item.setShiftingMode(<span class="keyword">false</span>);</div><div class="line">               item.setChecked(item.getItemData().isChecked());</div><div class="line">           &#125;</div><div class="line">       &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/Android/design/bottom-last.gif" alt="clipboard.png"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Magicer
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://m.magicer.xyz/2017/06/android-design-library-bottomnavigationview/" title="Android Design Library之二: BottomNavigationView">http://m.magicer.xyz/2017/06/android-design-library-bottomnavigationview/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BottomNavigationView/" rel="tag"># BottomNavigationView</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/android-design-library-1/" rel="next" title="Android Design Library之一">
+                <i class="fa fa-chevron-left"></i> Android Design Library之一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Magicer" />
+          <p class="site-author-name" itemprop="name">Magicer</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">46</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Magicer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Captain_Magicer" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3681817060" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magicer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'Magicer';
+      var disqus_identifier = '2017/06/android-design-library-bottomnavigationview/';
+
+      var disqus_title = "Android Design Library之二: BottomNavigationView";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
