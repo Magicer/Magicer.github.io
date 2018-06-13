@@ -1,0 +1,1068 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="design,BottomSheetDialog,BottomSheetBehavior," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Magicer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/icon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="##简介在我们的开发中经常会遇到从底部弹出对话框的需求。在design包中，官方为我们提供了一种实现，就是BottomSheetDialog。它的使用和dialog一样，看下它的继承关系就知道了。
+
+本文design包使用的版本为27.0.2
+
+下面我们看下简单的使用代码。123BottomSheetDialog dialog = new BottomSheetDialog(this);dialo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Design Library之四：BottomSheetDialog">
+<meta property="og:url" content="http://m.magicer.xyz/2018/01/android-design-bottomsheetdialog/index.html">
+<meta property="og:site_name" content="Magicer">
+<meta property="og:description" content="##简介在我们的开发中经常会遇到从底部弹出对话框的需求。在design包中，官方为我们提供了一种实现，就是BottomSheetDialog。它的使用和dialog一样，看下它的继承关系就知道了。
+
+本文design包使用的版本为27.0.2
+
+下面我们看下简单的使用代码。123BottomSheetDialog dialog = new BottomSheetDialog(this);dialo">
+<meta property="og:image" content="https://segmentfault.com/img/bV1WE3?w=589&h=136">
+<meta property="og:updated_time" content="2018-06-12T03:48:05.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Design Library之四：BottomSheetDialog">
+<meta name="twitter:description" content="##简介在我们的开发中经常会遇到从底部弹出对话框的需求。在design包中，官方为我们提供了一种实现，就是BottomSheetDialog。它的使用和dialog一样，看下它的继承关系就知道了。
+
+本文design包使用的版本为27.0.2
+
+下面我们看下简单的使用代码。123BottomSheetDialog dialog = new BottomSheetDialog(this);dialo">
+<meta name="twitter:image" content="https://segmentfault.com/img/bV1WE3?w=589&h=136">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '10239987',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://m.magicer.xyz/2018/01/android-design-bottomsheetdialog/"/>
+
+
+
+
+
+  <title> Android Design Library之四：BottomSheetDialog | Magicer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '62087510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=55690660";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1260303104&web_id=1260303104" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Magicer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Magicer</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://m.magicer.xyz/2018/01/android-design-bottomsheetdialog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Magicer">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Magicer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android Design Library之四：BottomSheetDialog
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-15T12:45:56+08:00">
+                2018-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/android-design-bottomsheetdialog/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/android-design-bottomsheetdialog/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>##简介<br>在我们的开发中经常会遇到从底部弹出对话框的需求。在<code>design</code>包中，官方为我们提供了一种实现，就是<code>BottomSheetDialog</code>。它的使用和<code>dialog</code>一样，看下它的继承关系就知道了。<br><img src="https://segmentfault.com/img/bV1WE3?w=589&amp;h=136" alt="图片描述"></p>
+<ul>
+<li>本文<code>design</code>包使用的版本为<code>27.0.2</code></li>
+</ul>
+<p>下面我们看下简单的使用代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BottomSheetDialog dialog = <span class="keyword">new</span> BottomSheetDialog(<span class="keyword">this</span>);</div><div class="line">dialog.setContentView(R.layout.bottom_dialog_view);</div><div class="line">dialog.show();</div></pre></td></tr></table></figure></p>
+<p>是的。你没有看错，这些代码就够了。</p>
+<p><code>BottomSheetDialog</code>的兄弟还有个<code>BottomSheetDialgFragment</code>，来看下<code>BottomSheetDialogFragment</code>的代码。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BottomSheetDialogFragment</span> <span class="keyword">extends</span> <span class="title">AppCompatDialogFragment</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Dialog <span class="title">onCreateDialog</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BottomSheetDialog(getContext(), getTheme());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>是的。你还是没有看错，这就是全部的<code>BottomSheetDialogFragment</code>的代码。内部就是个<code>BottomSheetDialog</code>，就不做过多说明了。</p>
+<p>##代码实现<br>  我们打开<code>`BottomSheetDialog</code>的代码查看的话会发现，实现也很简单。只有二百行代码。来看一下。<br>我们在使用的时候会调用。<code>setContentView()</code>方法，这里有三个重载的方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(@LayoutRes <span class="keyword">int</span> layoutResId)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.setContentView(wrapInBottomSheet(layoutResId, <span class="keyword">null</span>, <span class="keyword">null</span>));</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.setContentView(wrapInBottomSheet(<span class="number">0</span>, view, <span class="keyword">null</span>));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentView</span><span class="params">(View view, ViewGroup.LayoutParams params)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.setContentView(wrapInBottomSheet(<span class="number">0</span>, view, params));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我们可以看到最后都调用了<code>wrapInBottomSheet()</code>方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">private View wrapInBottomSheet(int layoutResId, View view, ViewGroup.LayoutParams params) &#123;</div><div class="line">        // #1</div><div class="line">        final FrameLayout container = (FrameLayout) View.inflate(getContext(),</div><div class="line">                R.layout.design_bottom_sheet_dialog, null);</div><div class="line">        final CoordinatorLayout coordinator =</div><div class="line">                (CoordinatorLayout) container.findViewById(R.id.coordinator);</div><div class="line">        //#2</div><div class="line">        if (layoutResId != 0 &amp;&amp; view == null) &#123;</div><div class="line">            view = getLayoutInflater().inflate(layoutResId, coordinator, false);</div><div class="line">        &#125;</div><div class="line">        //#3</div><div class="line">        FrameLayout bottomSheet = (FrameLayout) coordinator.findViewById(R.id.design_bottom_sheet);</div><div class="line">        mBehavior = BottomSheetBehavior.from(bottomSheet);</div><div class="line">        mBehavior.setBottomSheetCallback(mBottomSheetCallback);</div><div class="line">        mBehavior.setHideable(mCancelable);</div><div class="line">        if (params == null) &#123;</div><div class="line">            bottomSheet.addView(view);</div><div class="line">        &#125; else &#123;</div><div class="line">            bottomSheet.addView(view, params);</div><div class="line">        &#125;</div><div class="line">            //...省略部分代码</div><div class="line">        return container;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>我们可以分两部分开，<code>#2</code>部分就是获取到设置的<code>View</code>这没什么好说的。 <code>#1</code>获取了个<code>design_bottom_sheet_dialog</code>的<code>FrameLayout</code>。代码如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">    <span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/container"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/coordinator"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:fitsSystemWindows</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">View</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/touch_outside"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:importantForAccessibility</span>=<span class="string">"no"</span></div><div class="line">            <span class="attr">android:soundEffectsEnabled</span>=<span class="string">"false"</span></div><div class="line">            <span class="attr">tools:ignore</span>=<span class="string">"UnusedAttribute"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/design_bottom_sheet"</span></div><div class="line">            <span class="attr">style</span>=<span class="string">"?attr/bottomSheetStyle"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_gravity</span>=<span class="string">"center_horizontal|top"</span></div><div class="line">            <span class="attr">app:layout_behavior</span>=<span class="string">"@string/bottom_sheet_behavior"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span></span></div></pre></td></tr></table></figure></p>
+<p>这里就是一个<code>FrameLayout</code>嵌套了个<code>CoordinatorLayout</code>，再嵌套了一个<code>View</code>用于点击收起<code>Dialog</code>和底部的<code>FrameLayout</code>用来显示我们为<code>BottomSheetDialog</code>设置的视图。上面<code>wrapInBottomSheet()</code>也就大致完了。</p>
+<p>那么到底是怎么做到从底部弹出的呢？这边就那几行没说的了嘛。还用想，肯定是他们“搞的鬼”。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mBehavior = BottomSheetBehavior.from(bottomSheet);</div></pre></td></tr></table></figure></p>
+<p>通过这一行我们创建了一个<code>BottomSheetBehavior</code>。而正式这个<code>BottomSheetBehavior</code>让对话框从底部弹出的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">protected void onStart() &#123;</div><div class="line">    super.onStart();</div><div class="line">    if (mBehavior != null) &#123;</div><div class="line">        mBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当<code>Dialog</code>展示的时候，就调用了。<code>BottomSheetBehavior</code>的<code>setState(BottomSheetBehavior.STATE_COLLAPSED)</code>,那为什么调用这个方法就能显示出来了呢?我们来看下<code>BottomSheetBehavior</code>的简单介绍,之后我们就明白了。</p>
+<p>##BottomSheetBehavior</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * An interaction behavior plugin for a child view of &#123;@link CoordinatorLayout&#125; to make it work as</div><div class="line"> * a bottom sheet.</div><div class="line"> */</div><div class="line">public class BottomSheetBehavior&lt;V extends View&gt; extends CoordinatorLayout.Behavior&lt;V&gt; &#123;...&#125;</div></pre></td></tr></table></figure>
+<p>这是官方的解释。主要是用来和<code>CoordinatorLayout</code>配合来实现底部展示效果的。<br>主要使用的函数是<code>setState()</code>方法，状态有如下几个：</p>
+<ul>
+<li><code>STATE_DRAGGING</code>: 被拖动的状态。</li>
+<li><code>STATE_SETTLING</code>: 拖拽松开之后到达终点位置（collapsed or expanded）前的状态</li>
+<li><code>STATE_EXPANDED</code>: 展开的状态</li>
+<li><code>STATE_COLLAPSED</code>: 折叠的状态</li>
+<li><code>STATE_HIDDEN</code>: 隐藏的状态。</li>
+</ul>
+<p>在这里主要说一下<code>STATE_COLLAPSED</code>和<code>STATE_EXPANDED</code>的区别。 再说区别之前我们需要先看一个参数，<code>mPeekHeight</code>这个参数就是用来设置<code>STATE_COLLAPSED</code>状态下，界面显示的高度的。当不设置的时候会显示    view的全部。<code>STATE_EXPANDED</code>状态下则会显示出View的全部。还有一点需要注意的是设置<code>STATE_HIDDEN</code>的时候需要将<code>mHideable</code>设置为true。设置<code>mPeekHeight</code>和<code>mHideable</code>的方法都有两种，分别为:</p>
+<ul>
+<li><code>set方法</code>： setPeekHight(height) 和setHideable（hideable）</li>
+<li><code>xml</code>中定义参数: <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app:behavior_hideable="true"</div><div class="line">app:behavior_peekHeight="50dp"</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过设置不同的状态来展现出不同的效果。参考<code>BottomSheetDialog</code>的实现我们就可以实现一个自己的底部弹出效果了。获取<code>Behavior</code>我们可以使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mBehavior = BottomSheetBehavior.from(view);</div></pre></td></tr></table></figure></p>
+<p>在<code>BottomSheetDialog</code>中我们在<code>onStart()</code>方法中调用了。<code>mBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED)</code>,这个时候，我们为dialog设置的界面就显示出来了。那么为什么没有折叠的效果呢？因为<code>BottomSheetDialog</code>中并没有设置<code>mPeekHeight</code>的值。前面说了。当没有设置<code>peekHeight</code>时，<code>STATE_COLLAPSED</code>状态下会显示<code>View</code>的全部。</p>
+<p>参考：<br><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/0228/4008.html" target="_blank" rel="external">BottomSheets的使用</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Magicer
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://m.magicer.xyz/2018/01/android-design-bottomsheetdialog/" title="Android Design Library之四：BottomSheetDialog">http://m.magicer.xyz/2018/01/android-design-bottomsheetdialog/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/design/" rel="tag"># design</a>
+          
+            <a href="/tags/BottomSheetDialog/" rel="tag"># BottomSheetDialog</a>
+          
+            <a href="/tags/BottomSheetBehavior/" rel="tag"># BottomSheetBehavior</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/android-design-nagivationview/" rel="next" title="Android Design Library之三: NavigationView">
+                <i class="fa fa-chevron-left"></i> Android Design Library之三: NavigationView
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Magicer" />
+          <p class="site-author-name" itemprop="name">Magicer</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Magicer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/Captain_Magicer" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3681817060" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Magicer</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'Magicer';
+      var disqus_identifier = '2018/01/android-design-bottomsheetdialog/';
+
+      var disqus_title = "Android Design Library之四：BottomSheetDialog";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
